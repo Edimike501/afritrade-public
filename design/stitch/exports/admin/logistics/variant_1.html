@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AfriTrade Connect - Operations Portal Logistics Partner Management</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..700&amp;family=Noto+Sans:ital,wght@0,400..700;1,400..700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-tint": "#106b4f",
+            "on-secondary-fixed-variant": "#604100",
+            "on-error": "#ffffff",
+            "surface": "#f2fcf5",
+            "tertiary-fixed": "#ffdad6",
+            "secondary-fixed-dim": "#ffba3e",
+            "secondary": "#7f5700",
+            "secondary-container": "#feb62f",
+            "surface-container": "#e6f0ea",
+            "surface-container-low": "#ecf6ef",
+            "on-error-container": "#93000a",
+            "on-surface": "#151d1a",
+            "background": "#f2fcf5",
+            "on-tertiary-container": "#ffccc7",
+            "on-surface-variant": "#3f4944",
+            "on-tertiary-fixed-variant": "#75322e",
+            "on-secondary": "#ffffff",
+            "surface-container-high": "#e1ebe4",
+            "tertiary-container": "#924843",
+            "inverse-on-surface": "#e9f3ec",
+            "on-tertiary": "#ffffff",
+            "on-primary-fixed-variant": "#00513a",
+            "on-tertiary-fixed": "#3c0707",
+            "inverse-surface": "#29322e",
+            "outline-variant": "#bec9c2",
+            "on-secondary-container": "#6d4a00",
+            "surface-variant": "#dbe5de",
+            "outline": "#6f7a73",
+            "primary-container": "#0f6b4f",
+            "error-container": "#ffdad6",
+            "tertiary-fixed-dim": "#ffb3ad",
+            "surface-dim": "#d2dcd6",
+            "secondary-fixed": "#ffdeae",
+            "tertiary": "#75312d",
+            "primary-fixed-dim": "#86d6b4",
+            "on-primary": "#ffffff",
+            "on-background": "#151d1a",
+            "on-secondary-fixed": "#281900",
+            "surface-container-highest": "#dbe5de",
+            "on-primary-container": "#97e8c5",
+            "surface-container-lowest": "#ffffff",
+            "primary-fixed": "#a1f3cf",
+            "primary": "#00513a",
+            "surface-bright": "#f2fcf5",
+            "error": "#ba1a1a",
+            "on-primary-fixed": "#002115",
+            "inverse-primary": "#86d6b4"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-lg": "1.5rem",
+            "gutter": "1.5rem",
+            "space-xs": "0.25rem",
+            "margin": "2rem",
+            "space-md": "1rem",
+            "gutter-mobile": "1rem",
+            "margin-mobile": "1rem",
+            "space-xl": "2.5rem",
+            "space-sm": "0.5rem"
+          },
+          "fontFamily": {
+            "label-lg": ["Noto Sans"],
+            "body-md": ["Noto Sans"],
+            "headline-xl-mobile": ["Bricolage Grotesque"],
+            "display-lg-mobile": ["Bricolage Grotesque"],
+            "title-md": ["Noto Sans"],
+            "label-sm": ["Noto Sans"],
+            "label-md": ["Noto Sans"],
+            "body-sm": ["Noto Sans"],
+            "body-lg": ["Noto Sans"],
+            "headline-xl": ["Bricolage Grotesque"],
+            "headline-md": ["Bricolage Grotesque"],
+            "headline-sm": ["Bricolage Grotesque"],
+            "display-lg": ["Bricolage Grotesque"]
+          },
+          "fontSize": {
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "body-md": ["14px", { "lineHeight": "22px", "fontWeight": "400" }],
+            "headline-xl-mobile": ["26px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "title-md": ["16px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "fontWeight": "400" }],
+            "body-lg": ["16px", { "lineHeight": "26px", "fontWeight": "400" }],
+            "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-surface text-on-surface font-body-md min-h-screen flex flex-col md:flex-row antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- Mobile Header Bar -->
+<header class="md:hidden flex items-center justify-between px-4 h-16 bg-surface-container-lowest border-b border-outline-variant sticky top-0 z-40">
+<div class="flex items-center space-x-3">
+<button class="p-2 text-on-surface-variant hover:text-primary focus:outline-none" id="mobile-menu-btn">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<span class="font-headline-sm text-primary font-bold">AfriTrade Connect</span>
+</div>
+<div class="flex items-center space-x-2">
+<img class="w-8 h-8 rounded-full object-cover" data-alt="A professional portrait of an operations administrator with a warm smile, wearing business casual attire in a brightly lit modern office setting with African textile decor accents in soft focus." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6xVPjqmP8mITTo0bI-EB9Xw1iivi96Y0mQ-m-raRSlV5VMEhczAbj3XunOF72uD920gRIe4RP-UVfKSckpgxqpvwYwDW2oyLwXS9NlWOXI32FHwzMKG8bNF5NQYv5MoQLD4WiUv5kTUfjk0tpn9KnP5PpvUfwyNhbuDPOTYd2pvT9IQXRv3Vm2m22lv1zcgty3DGllH4DVxMdlieBbaWk11_-I5bmDGB9cSHOnvjYj-BNV5Pm_DzDyKU928wzOGn27ME_jmYDHUo"/>
+</div>
+</header>
+<!-- Left Sidenav (Desktop permanent, Mobile drawer) -->
+<aside class="fixed inset-y-0 left-0 z-50 w-72 bg-surface-container-lowest border-r border-outline-variant transform -translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out flex flex-col justify-between" id="sidenav">
+<div>
+<!-- Sidenav Header -->
+<div class="h-20 px-6 flex items-center justify-between border-b border-outline-variant">
+<div>
+<h1 class="font-headline-md text-primary font-extrabold">AfriTrade Connect</h1>
+<p class="text-label-sm text-on-surface-variant">Operations Console</p>
+</div>
+<button class="md:hidden text-on-surface-variant hover:text-primary" id="mobile-close-btn">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<!-- Navigation Groups -->
+<nav class="p-4 space-y-6">
+<!-- Operations Group -->
+<div>
+<p class="px-3 text-label-sm text-on-surface-variant uppercase tracking-wider mb-2">Operations</p>
+<div class="space-y-1">
+<a class="flex items-center px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" href="#">
+<span class="material-symbols-outlined mr-3" data-weight="fill">dashboard</span>
+<span class="font-label-lg">Overview</span>
+</a>
+<a class="flex items-center px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" href="#">
+<span class="material-symbols-outlined mr-3" data-weight="fill">local_shipping</span>
+<span class="font-label-lg">Orders Oversight</span>
+</a>
+<a class="flex items-center px-3 py-2.5 rounded-lg bg-primary-container text-on-primary-container font-bold shadow-sm transition-all" href="#">
+<span class="material-symbols-outlined mr-3" data-weight="fill" style="font-variation-settings: 'FILL' 1;">partner_exchange</span>
+<span class="font-label-lg">Logistics Partners</span>
+</a>
+</div>
+</div>
+<!-- Users & Verification Group -->
+<div>
+<p class="px-3 text-label-sm text-on-surface-variant uppercase tracking-wider mb-2">Users &amp; Verification</p>
+<div class="space-y-1">
+<a class="flex items-center px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" href="#">
+<span class="material-symbols-outlined mr-3">group</span>
+<span class="font-label-lg">Buyers</span>
+</a>
+<a class="flex items-center px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" href="#">
+<span class="material-symbols-outlined mr-3">storefront</span>
+<span class="font-label-lg">Suppliers</span>
+</a>
+<a class="flex items-center px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" href="#">
+<span class="material-symbols-outlined mr-3">verified_user</span>
+<span class="font-label-lg">KYB Queue</span>
+</a>
+<a class="flex items-center px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" href="#">
+<span class="material-symbols-outlined mr-3">badge</span>
+<span class="font-label-lg">KYC Placeholder</span>
+</a>
+</div>
+</div>
+</nav>
+</div>
+<!-- Sidenav Footer -->
+<div class="p-4 border-t border-outline-variant flex items-center justify-between bg-surface-container-low">
+<div class="flex items-center space-x-3">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="A professional headshot of an operations manager in a corporate office setting, natural lighting, wearing a smart casual blazer against a neutral background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKZZl3ioy6cr4D9fbO-a7uvOJwZZLGMHRU0cyzZGNNSD7Bnc8GtC8aKnY_HjAl3M9Sw5Pdf7PzsmYbg10dYHXeHAvzwZfIffEteQ4_RDqkGx90fqOgAPnrZLIEAv3OEtvC8XPpPWc3gfKPYTFQW4rb7hZW6p2yuA2bszeF-E2t1iewQvClb3F2JxBreGjxT92aGAQV9quSuSvheACIlNg-YCCVFBFTNQw4yD5nbyZg59EA00b7_l3oBgmWsRnONEW6An2aFXkSDyc"/>
+<div>
+<p class="font-label-lg text-on-surface">Amina Bello</p>
+<p class="text-body-sm text-on-surface-variant">Senior Ops Lead</p>
+</div>
+</div>
+<button class="p-2 text-on-surface-variant hover:text-error transition-colors" title="Logout">
+<span class="material-symbols-outlined">logout</span>
+</button>
+</div>
+</aside>
+<!-- Backdrop for mobile drawer -->
+<div class="fixed inset-0 bg-inverse-surface/40 backdrop-blur-sm z-40 hidden md:hidden" id="drawer-backdrop"></div>
+<!-- Main Content Canvas -->
+<main class="flex-1 md:ml-72 flex flex-col min-h-screen">
+<!-- Top Bar -->
+<header class="hidden md:flex h-20 px-8 items-center justify-between bg-surface-container-lowest border-b border-outline-variant sticky top-0 z-30">
+<div class="flex items-center space-x-4 flex-1 max-w-xl">
+<div class="relative w-full">
+<span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-on-surface-variant">
+<span class="material-symbols-outlined">search</span>
+</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface border border-outline-variant rounded-full text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Search partners by name or cargo type..." type="text"/>
+</div>
+<div class="relative">
+<select class="py-2 pl-4 pr-10 bg-surface border border-outline-variant rounded-full text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary appearance-none">
+<option value="">All Country Hubs</option>
+<option value="NG">Nigeria 🇳🇬</option>
+<option value="ZA">South Africa 🇿🇦</option>
+<option value="GH">Ghana 🇬🇭</option>
+</select>
+<span class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-on-surface-variant">
+<span class="material-symbols-outlined">expand_more</span>
+</span>
+</div>
+</div>
+<div class="flex items-center space-x-4">
+<button class="flex items-center space-x-2 bg-primary hover:bg-primary-container text-on-primary px-5 py-2.5 rounded-full font-label-lg transition-all shadow-sm" id="open-modal-btn">
+<span class="material-symbols-outlined">add</span>
+<span>Add Logistics Partner</span>
+</button>
+</div>
+</header>
+<!-- Mobile Top Action bar below header -->
+<div class="md:hidden p-4 bg-surface-container-lowest border-b border-outline-variant space-y-3">
+<div class="relative w-full">
+<span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-on-surface-variant">
+<span class="material-symbols-outlined">search</span>
+</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface border border-outline-variant rounded-full text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Search partners..." type="text"/>
+</div>
+<div class="flex items-center justify-between space-x-2">
+<select class="flex-1 py-2 pl-3 pr-8 bg-surface border border-outline-variant rounded-full text-body-md text-on-surface focus:outline-none">
+<option value="">All Country Hubs</option>
+<option value="NG">Nigeria 🇳🇬</option>
+<option value="ZA">South Africa 🇿🇦</option>
+<option value="GH">Ghana 🇬🇭</option>
+</select>
+<button class="flex items-center justify-center bg-primary text-on-primary px-4 py-2 rounded-full font-label-lg shadow-sm" id="open-modal-btn-mobile">
+<span class="material-symbols-outlined mr-1">add</span>
+<span>Add Partner</span>
+</button>
+</div>
+</div>
+<!-- Content Area -->
+<div class="p-6 md:p-8 space-y-6 max-w-7xl w-full mx-auto">
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-surface-container-lowest p-6 rounded-xl border border-outline-variant">
+<div class="space-y-1">
+<h2 class="font-headline-xl text-primary font-bold">Curated Logistics Network</h2>
+<p class="text-body-md text-on-surface-variant">Manage verified cross-border freight forwarders, road haulage partners, and warehouse handlers across Nigeria, South Africa, and Ghana.</p>
+</div>
+<div class="flex items-center gap-3">
+<div class="bg-surface-container px-4 py-2.5 rounded-xl border border-outline-variant flex items-center space-x-3">
+<span class="material-symbols-outlined text-primary" data-weight="fill">verified</span>
+<div>
+<p class="text-label-sm text-on-surface-variant uppercase">Active Hubs</p>
+<p class="font-headline-sm text-on-surface">3 Regional Hubs</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Partner Management Table Section -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant overflow-hidden shadow-sm">
+<div class="px-6 py-4 border-b border-outline-variant flex items-center justify-between bg-surface-container-low">
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-primary">local_shipping</span>
+<h3 class="font-headline-sm text-on-surface font-semibold">Registered Logistics Partners</h3>
+</div>
+<span class="text-label-md text-on-surface-variant bg-surface px-3 py-1 rounded-full border border-outline-variant">3 Partners Total</span>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-outline-variant text-label-md text-on-surface-variant uppercase tracking-wider bg-surface-container-low/50">
+<th class="py-4 px-6">Partner Organization</th>
+<th class="py-4 px-6">Country Hub</th>
+<th class="py-4 px-6">Transport Mode</th>
+<th class="py-4 px-6">Active Shipments</th>
+<th class="py-4 px-6">Status</th>
+<th class="py-4 px-6 text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant text-body-md text-on-surface">
+<!-- Partner 1 -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-4 px-6 font-semibold">
+<div class="flex items-center space-x-3">
+<div class="w-10 h-10 rounded-full bg-primary-container/10 flex items-center justify-center text-primary font-bold">K</div>
+<div>
+<p class="font-label-lg text-on-surface">Kobo360 Cross-Border Haulage</p>
+<p class="text-body-sm text-on-surface-variant">ID: PRT-NG-8832</p>
+</div>
+</div>
+</td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center px-3 py-1 rounded-full text-label-md bg-surface border border-outline-variant">
+                    Nigeria 🇳🇬 / West Africa
+                  </span>
+</td>
+<td class="py-4 px-6 text-on-surface-variant">
+                  Heavy Road Trucking (Dry bulk &amp; containerized)
+                </td>
+<td class="py-4 px-6 font-semibold text-primary">
+                  12 Active Orders
+                </td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center px-3 py-1 rounded-full text-label-sm font-bold bg-[#E7F3EE] text-[#0F6B4F] border border-[#0F6B4F]/20">
+                    ACTIVE
+                  </span>
+</td>
+<td class="py-4 px-6 text-right space-x-2">
+<button class="text-primary hover:underline font-label-md">Edit Details</button>
+<span class="text-outline-variant">|</span>
+<button class="text-error hover:underline font-label-md">Deactivate</button>
+</td>
+</tr>
+<!-- Partner 2 -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-4 px-6 font-semibold">
+<div class="flex items-center space-x-3">
+<div class="w-10 h-10 rounded-full bg-secondary-container/20 flex items-center justify-center text-secondary font-bold">I</div>
+<div>
+<p class="font-label-lg text-on-surface">Imperial Freight Logistics</p>
+<p class="text-body-sm text-on-surface-variant">ID: PRT-ZA-1094</p>
+</div>
+</div>
+</td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center px-3 py-1 rounded-full text-label-md bg-surface border border-outline-variant">
+                    South Africa 🇿🇦 / Southern Africa
+                  </span>
+</td>
+<td class="py-4 px-6 text-on-surface-variant">
+                  Road &amp; Intermodal Rail
+                </td>
+<td class="py-4 px-6 font-semibold text-primary">
+                  8 Active Orders
+                </td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center px-3 py-1 rounded-full text-label-sm font-bold bg-[#E7F3EE] text-[#0F6B4F] border border-[#0F6B4F]/20">
+                    ACTIVE
+                  </span>
+</td>
+<td class="py-4 px-6 text-right space-x-2">
+<button class="text-primary hover:underline font-label-md">Edit Details</button>
+<span class="text-outline-variant">|</span>
+<button class="text-error hover:underline font-label-md">Deactivate</button>
+</td>
+</tr>
+<!-- Partner 3 -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-4 px-6 font-semibold">
+<div class="flex items-center space-x-3">
+<div class="w-10 h-10 rounded-full bg-tertiary-container/10 flex items-center justify-center text-tertiary font-bold">B</div>
+<div>
+<p class="font-label-lg text-on-surface">Bolloré Africa Logistics Ghana</p>
+<p class="text-body-sm text-on-surface-variant">ID: PRT-GH-5521</p>
+</div>
+</div>
+</td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center px-3 py-1 rounded-full text-label-md bg-surface border border-outline-variant">
+                    Ghana 🇬🇭 / Port of Tema
+                  </span>
+</td>
+<td class="py-4 px-6 text-on-surface-variant">
+                  Port Clearance &amp; Coastal Haulage
+                </td>
+<td class="py-4 px-6 font-semibold text-primary">
+                  5 Active Orders
+                </td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center px-3 py-1 rounded-full text-label-sm font-bold bg-[#E7F3EE] text-[#0F6B4F] border border-[#0F6B4F]/20">
+                    ACTIVE
+                  </span>
+</td>
+<td class="py-4 px-6 text-right space-x-2">
+<button class="text-primary hover:underline font-label-md">Edit Details</button>
+<span class="text-outline-variant">|</span>
+<button class="text-error hover:underline font-label-md">Deactivate</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="px-6 py-4 border-t border-outline-variant bg-surface-container-low flex items-center justify-between">
+<p class="text-body-sm text-on-surface-variant">Showing 3 of 3 verified logistics partners</p>
+<div class="flex items-center space-x-2">
+<button class="px-3 py-1 rounded border border-outline-variant bg-surface text-on-surface text-body-sm opacity-50 cursor-not-allowed">Previous</button>
+<button class="px-3 py-1 rounded border border-outline-variant bg-surface text-on-surface text-body-sm hover:bg-surface-container">Next</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Add Partner Modal Overlay -->
+<div class="fixed inset-0 z-50 flex items-center justify-center bg-inverse-surface/40 backdrop-blur-sm hidden" id="partner-modal">
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant w-full max-w-2xl mx-4 overflow-hidden shadow-xl transform transition-all">
+<div class="px-6 py-4 border-b border-outline-variant flex items-center justify-between bg-surface-container-low">
+<h3 class="font-headline-sm text-on-surface font-semibold flex items-center space-x-2">
+<span class="material-symbols-outlined text-primary">local_shipping</span>
+<span>Add New Logistics Partner</span>
+</h3>
+<button class="text-on-surface-variant hover:text-on-surface p-1 rounded-lg" id="close-modal-btn">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<form class="p-6 space-y-4">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="space-y-1">
+<label class="block text-label-md text-on-surface-variant">Company Name</label>
+<input class="w-full px-4 py-2.5 bg-surface border border-outline-variant rounded-lg text-body-md focus:outline-none focus:ring-2 focus:ring-primary" placeholder="e.g. Sahel Express Freight Ltd" type="text"/>
+</div>
+<div class="space-y-1">
+<label class="block text-label-md text-on-surface-variant">Country Hub</label>
+<select class="w-full px-4 py-2.5 bg-surface border border-outline-variant rounded-lg text-body-md focus:outline-none focus:ring-2 focus:ring-primary">
+<option value="NG">Nigeria (NG)</option>
+<option value="ZA">South Africa (ZA)</option>
+<option value="GH">Ghana (GH)</option>
+</select>
+</div>
+</div>
+<div class="space-y-1">
+<label class="block text-label-md text-on-surface-variant">Primary Cargo Types &amp; Transport Mode</label>
+<input class="w-full px-4 py-2.5 bg-surface border border-outline-variant rounded-lg text-body-md focus:outline-none focus:ring-2 focus:ring-primary" placeholder="e.g. Refrigerated containers, bulk grains, heavy machinery" type="text"/>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="space-y-1">
+<label class="block text-label-md text-on-surface-variant">Operations Contact Name</label>
+<input class="w-full px-4 py-2.5 bg-surface border border-outline-variant rounded-lg text-body-md focus:outline-none focus:ring-2 focus:ring-primary" placeholder="e.g. Chidi Okafor" type="text"/>
+</div>
+<div class="space-y-1">
+<label class="block text-label-md text-on-surface-variant">Dispatch Hotline</label>
+<input class="w-full px-4 py-2.5 bg-surface border border-outline-variant rounded-lg text-body-md focus:outline-none focus:ring-2 focus:ring-primary" placeholder="e.g. +234 1 234 5678" type="text"/>
+</div>
+</div>
+<div class="pt-4 border-t border-outline-variant flex items-center justify-end space-x-3">
+<button class="px-5 py-2.5 rounded-full border border-outline-variant text-on-surface hover:bg-surface-container font-label-lg transition-colors" id="cancel-modal-btn" type="button">Cancel</button>
+<button class="px-6 py-2.5 rounded-full bg-primary text-on-primary hover:bg-primary-container font-label-lg transition-colors shadow-sm" type="submit">Save Partner</button>
+</div>
+</form>
+</div>
+</div>
+<!-- Interactive Script for Drawer and Modal -->
+<script>
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileCloseBtn = document.getElementById('mobile-close-btn');
+    const sidenav = document.getElementById('sidenav');
+    const drawerBackdrop = document.getElementById('drawer-backdrop');
+
+    const openModalBtn = document.getElementById('open-modal-btn');
+    const openModalBtnMobile = document.getElementById('open-modal-btn-mobile');
+    const closeModalBtn = document.getElementById('close-modal-btn');
+    const cancelModalBtn = document.getElementById('cancel-modal-btn');
+    const partnerModal = document.getElementById('partner-modal');
+
+    function toggleDrawer() {
+      sidenav.classList.toggle('-translate-x-full');
+      drawerBackdrop.classList.toggle('hidden');
+    }
+
+    function toggleModal() {
+      partnerModal.classList.toggle('hidden');
+    }
+
+    mobileMenuBtn?.addEventListener('click', toggleDrawer);
+    mobileCloseBtn?.addEventListener('click', toggleDrawer);
+    drawerBackdrop?.addEventListener('click', toggleDrawer);
+
+    openModalBtn?.addEventListener('click', toggleModal);
+    openModalBtnMobile?.addEventListener('click', toggleModal);
+    closeModalBtn?.addEventListener('click', toggleModal);
+    cancelModalBtn?.addEventListener('click', toggleModal);
+  </script>
+</body></html>
+

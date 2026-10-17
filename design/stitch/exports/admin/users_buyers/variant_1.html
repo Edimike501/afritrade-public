@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AfriTrade Ops - Commercial Buyers Directory</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Bricolage Grotesque & Noto Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;600;700;800&family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Material Symbols Icons -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              pine: '#00513a',
+              pineDark: '#003a29',
+              gold: '#feb62f',
+              goldLight: '#fff8eb',
+              bg: '#f2fcf5',
+              surface: '#ffffff',
+              border: '#bec9c2',
+              borderLight: '#e2eae5',
+              textPrimary: '#0f291e',
+              textSecondary: '#4a6358',
+              accentMuted: '#e3f5eb'
+            }
+          },
+          fontFamily: {
+            heading: ['"Bricolage Grotesque"', 'sans-serif'],
+            body: ['"Noto Sans"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+    }
+    .material-symbols-outlined.fill {
+      font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+    }
+  </style>
+</head>
+<body class="bg-[#f2fcf5] text-brand-textPrimary font-body antialiased flex min-h-screen selection:bg-brand-gold selection:text-brand-pineDark">
+
+  <!-- ==================== LEFT ADMIN SIDEBAR ==================== -->
+  <aside class="w-64 bg-white border-r border-[#bec9c2]/60 flex flex-col justify-between shrink-0 h-screen sticky top-0 z-30 shadow-sm">
+    <div>
+      <!-- Brand Logo Header -->
+      <div class="px-6 py-5 border-b border-[#bec9c2]/40 flex items-center justify-between">
+        <div class="flex items-center gap-2.5">
+          <div class="w-9 h-9 rounded-lg bg-[#00513a] flex items-center justify-center text-[#feb62f] shadow-inner font-heading font-extrabold text-xl">
+            <span class="material-symbols-outlined text-[22px]">hub</span>
+          </div>
+          <div>
+            <div class="flex items-center gap-1.5">
+              <span class="font-heading font-extrabold text-lg text-[#00513a] tracking-tight leading-none">AfriTrade</span>
+              <span class="bg-[#feb62f]/20 text-[#966300] font-heading font-bold text-[10px] px-1.5 py-0.5 rounded uppercase tracking-wide">Ops</span>
+            </div>
+            <p class="text-[11px] text-brand-textSecondary mt-0.5 font-medium leading-none">Operations Control</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation Menus -->
+      <nav class="p-4 space-y-6">
+        <!-- Operations Group -->
+        <div>
+          <div class="px-3 pb-2 text-[10px] font-bold uppercase tracking-wider text-brand-textSecondary/80">Operations</div>
+          <ul class="space-y-1">
+            <li>
+              <a href="#" class="flex items-center gap-3 px-3 py-2 text-sm font-medium text-brand-textSecondary hover:text-[#00513a] hover:bg-brand-accentMuted rounded-md transition-colors">
+                <span class="material-symbols-outlined text-[20px]">dashboard</span>
+                <span>Overview</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="flex items-center gap-3 px-3 py-2 text-sm font-medium text-brand-textSecondary hover:text-[#00513a] hover:bg-brand-accentMuted rounded-md transition-colors">
+                <span class="material-symbols-outlined text-[20px]">receipt_long</span>
+                <span>Orders Oversight</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="flex items-center gap-3 px-3 py-2 text-sm font-medium text-brand-textSecondary hover:text-[#00513a] hover:bg-brand-accentMuted rounded-md transition-colors">
+                <span class="material-symbols-outlined text-[20px]">local_shipping</span>
+                <span>Logistics Partners</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Users Section (DESIGN-ONLY Group) -->
+        <div>
+          <div class="px-3 pb-2 flex items-center justify-between">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-[#00513a]">Users Directory</span>
+            <span class="text-[9px] bg-emerald-100 text-[#00513a] font-semibold px-1 rounded">DESIGN-ONLY</span>
+          </div>
+          <ul class="space-y-1">
+            <!-- Active link: Buyers -->
+            <li>
+              <a href="#" class="flex items-center justify-between px-3 py-2 text-sm font-semibold text-white bg-[#00513a] rounded-md shadow-sm">
+                <div class="flex items-center gap-3">
+                  <span class="material-symbols-outlined text-[20px] text-[#feb62f]">storefront</span>
+                  <span>Buyers</span>
+                </div>
+                <span class="text-[11px] bg-[#003a29] text-[#feb62f] px-2 py-0.5 rounded-full font-bold">128</span>
+              </a>
+            </li>
+            <!-- Suppliers link -->
+            <li>
+              <a href="#" class="flex items-center justify-between px-3 py-2 text-sm font-medium text-brand-textSecondary hover:text-[#00513a] hover:bg-brand-accentMuted rounded-md transition-colors">
+                <div class="flex items-center gap-3">
+                  <span class="material-symbols-outlined text-[20px]">warehouse</span>
+                  <span>Suppliers</span>
+                </div>
+                <span class="text-[11px] text-brand-textSecondary font-medium">96</span>
+              </a>
+            </li>
+            <!-- KYB Review with badge '4 Pending' -->
+            <li>
+              <a href="#" class="flex items-center justify-between px-3 py-2 text-sm font-medium text-brand-textSecondary hover:text-[#00513a] hover:bg-brand-accentMuted rounded-md transition-colors">
+                <div class="flex items-center gap-3">
+                  <span class="material-symbols-outlined text-[20px]">verified_user</span>
+                  <span>KYB Review</span>
+                </div>
+                <span class="text-[10px] bg-amber-100 text-amber-800 border border-amber-300 font-bold px-1.5 py-0.5 rounded-full flex items-center gap-1">
+                  <span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
+                  4 Pending
+                </span>
+              </a>
+            </li>
+            <!-- KYC Verification ('Coming soon' pill) -->
+            <li>
+              <a href="#" class="flex items-center justify-between px-3 py-2 text-sm font-medium text-gray-400 hover:bg-gray-50 rounded-md transition-colors cursor-not-allowed">
+                <div class="flex items-center gap-3">
+                  <span class="material-symbols-outlined text-[20px] text-gray-400">badge</span>
+                  <span>KYC Verification</span>
+                </div>
+                <span class="text-[10px] bg-gray-100 text-gray-500 font-medium px-2 py-0.5 rounded-full border border-gray-200">Coming soon</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <!-- Bottom Super Admin Profile -->
+    <div class="p-3 border-t border-[#bec9c2]/50 bg-brand-surface">
+      <div class="flex items-center gap-3 p-2 rounded-lg hover:bg-brand-accentMuted transition-colors cursor-pointer">
+        <div class="w-9 h-9 rounded-full bg-[#00513a] text-white flex items-center justify-center font-heading font-bold text-sm shrink-0 border border-emerald-300">
+          FO
+        </div>
+        <div class="flex-1 min-w-0">
+          <p class="text-xs font-bold text-brand-textPrimary truncate">Favour Okafor</p>
+          <div class="flex items-center gap-1">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+            <span class="text-[11px] text-brand-textSecondary font-medium">Super Admin</span>
+          </div>
+        </div>
+        <button title="Settings" class="text-brand-textSecondary hover:text-[#00513a]">
+          <span class="material-symbols-outlined text-[18px]">more_vert</span>
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ==================== MAIN ADMIN WORKSPACE ==================== -->
+  <main class="flex-1 flex flex-col min-w-0 overflow-y-auto">
+
+    <!-- Top Bar -->
+    <header class="bg-white border-b border-[#bec9c2]/60 px-8 py-4 sticky top-0 z-20 flex flex-wrap items-center justify-between gap-4 shadow-xs">
+      <div class="flex items-center gap-3 flex-wrap">
+        <!-- Breadcrumb -->
+        <nav class="flex items-center gap-2 text-xs font-medium text-brand-textSecondary">
+          <span class="hover:text-brand-textPrimary cursor-pointer">Users</span>
+          <span class="text-gray-300">/</span>
+          <span class="text-[#00513a] font-bold">Commercial Buyers Directory</span>
+        </nav>
+        
+        <!-- Scope Guard Rule 23 Pill -->
+        <span class="inline-flex items-center gap-1 text-[11px] font-semibold bg-emerald-50 text-[#00513a] border border-[#00513a]/25 px-2.5 py-0.5 rounded-full">
+          <span class="material-symbols-outlined text-[14px]">shield_check</span>
+          [DESIGN-ONLY Screen — Rule 23]
+        </span>
+
+        <!-- Demo Mode Status Badge -->
+        <span class="inline-flex items-center gap-1 text-[11px] font-semibold bg-amber-50 text-amber-900 border border-amber-200/80 px-2.5 py-0.5 rounded-full">
+          <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+          Demo Simulation Mode (Zero Risk)
+        </span>
+      </div>
+
+      <!-- Action Area: Global Search & Export CSV -->
+      <div class="flex items-center gap-3">
+        <div class="relative">
+          <span class="material-symbols-outlined absolute left-3 top-2.5 text-[18px] text-brand-textSecondary">search</span>
+          <input 
+            type="text" 
+            placeholder="Search buyers, IDs, contacts..." 
+            class="pl-9 pr-4 py-1.5 text-xs bg-[#f2fcf5]/70 border border-[#bec9c2] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00513a] focus:bg-white w-64 text-brand-textPrimary placeholder:text-brand-textSecondary/70 transition-all"
+          >
+        </div>
+        <button class="inline-flex items-center gap-1.5 bg-white border border-[#bec9c2] hover:border-[#00513a] text-[#00513a] px-3.5 py-1.5 rounded-lg text-xs font-semibold hover:bg-emerald-50/50 shadow-xs transition-colors">
+          <span class="material-symbols-outlined text-[16px]">file_download</span>
+          Export CSV
+        </button>
+      </div>
+    </header>
+
+    <!-- Content Workspace -->
+    <div class="p-8 space-y-6 max-w-7xl w-full mx-auto">
+
+      <!-- Header Title & Subtitle -->
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 border-b border-[#bec9c2]/40 pb-4">
+        <div>
+          <h1 class="font-heading font-extrabold text-2xl text-brand-textPrimary tracking-tight">Commercial Buyers Directory</h1>
+          <p class="text-xs text-brand-textSecondary mt-0.5">
+            Operational registry of verified wholesale purchasing entities across Nigeria, South Africa, and Ghana. Safe simulated settlement balances.
+          </p>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="text-xs text-brand-textSecondary">API Synchronization:</span>
+          <span class="inline-flex items-center gap-1 text-xs font-semibold text-[#00513a] bg-emerald-100/70 px-2 py-0.5 rounded">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+            Operational (Lagos &amp; Accra Gateway)
+          </span>
+        </div>
+      </div>
+
+      <!-- 3 Metric Summary Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <!-- Card 1 -->
+        <div class="bg-white border border-[#bec9c2]/60 rounded-xl p-5 shadow-xs relative overflow-hidden">
+          <div class="flex items-start justify-between">
+            <div>
+              <p class="text-xs font-semibold uppercase tracking-wider text-brand-textSecondary">Total Registered Buyers</p>
+              <h3 class="font-heading font-extrabold text-2xl text-[#00513a] mt-1.5">128 Buyers</h3>
+              <div class="flex items-center gap-1 mt-2 text-[11px] text-emerald-700 font-medium">
+                <span class="material-symbols-outlined text-[14px]">trending_up</span>
+                <span>+12 new accounts this quarter</span>
+              </div>
+            </div>
+            <div class="w-11 h-11 rounded-lg bg-[#f2fcf5] border border-[#bec9c2]/40 flex items-center justify-center text-[#00513a]">
+              <span class="material-symbols-outlined text-[24px]">corporate_fare</span>
+            </div>
+          </div>
+          <div class="absolute bottom-0 left-0 right-0 h-1 bg-[#00513a]/30"></div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="bg-white border border-[#bec9c2]/60 rounded-xl p-5 shadow-xs relative overflow-hidden">
+          <div class="flex items-start justify-between">
+            <div>
+              <p class="text-xs font-semibold uppercase tracking-wider text-brand-textSecondary">Active Orders This Month</p>
+              <h3 class="font-heading font-extrabold text-2xl text-brand-textPrimary mt-1.5">42 Orders</h3>
+              <div class="flex items-center gap-1.5 mt-2 text-[11px] text-brand-textSecondary font-medium">
+                <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+                <span>36 in transit · 6 pending payment confirmation</span>
+              </div>
+            </div>
+            <div class="w-11 h-11 rounded-lg bg-amber-50 border border-amber-200/60 flex items-center justify-center text-[#966300]">
+              <span class="material-symbols-outlined text-[24px]">local_shipping</span>
+            </div>
+          </div>
+          <div class="absolute bottom-0 left-0 right-0 h-1 bg-[#feb62f]"></div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="bg-white border border-[#bec9c2]/60 rounded-xl p-5 shadow-xs relative overflow-hidden">
+          <div class="flex items-start justify-between">
+            <div>
+              <p class="text-xs font-semibold uppercase tracking-wider text-brand-textSecondary">Cross-Border Volume (NGN)</p>
+              <h3 class="font-heading font-extrabold text-2xl text-[#00513a] mt-1.5">₦184.5M <span class="text-xs font-normal text-brand-textSecondary">(Simulated)</span></h3>
+              <div class="flex items-center gap-1 mt-2 text-[11px] text-brand-textSecondary font-medium">
+                <span class="material-symbols-outlined text-[14px] text-emerald-600">verified</span>
+                <span>Zero financial exposure · Safe testbed</span>
+              </div>
+            </div>
+            <div class="w-11 h-11 rounded-lg bg-emerald-50 border border-emerald-200/60 flex items-center justify-center text-[#00513a]">
+              <span class="material-symbols-outlined text-[24px]">currency_exchange</span>
+            </div>
+          </div>
+          <div class="absolute bottom-0 left-0 right-0 h-1 bg-[#00513a]"></div>
+        </div>
+      </div>
+
+      <!-- Main Buyers Data Table Card -->
+      <div class="bg-white border border-[#bec9c2]/70 rounded-xl shadow-xs overflow-hidden">
+        
+        <!-- Table Toolbar & Filters -->
+        <div class="p-5 border-b border-[#bec9c2]/40 flex flex-col md:flex-row md:items-center justify-between gap-4 bg-brand-surface">
+          <!-- Filter Country Pills -->
+          <div class="flex items-center gap-2 flex-wrap">
+            <span class="text-xs font-semibold text-brand-textSecondary mr-1">Origin Hub:</span>
+            
+            <button class="px-3 py-1.5 rounded-full text-xs font-bold bg-[#00513a] text-white shadow-xs transition-colors">
+              All Countries (128)
+            </button>
+            
+            <button class="px-3 py-1.5 rounded-full text-xs font-semibold bg-[#f2fcf5] text-brand-textPrimary border border-[#bec9c2] hover:border-[#00513a] hover:bg-emerald-50 transition-colors flex items-center gap-1.5">
+              <span>🇳🇬 Nigeria</span>
+              <span class="text-xs text-brand-textSecondary font-bold">(72)</span>
+            </button>
+            
+            <button class="px-3 py-1.5 rounded-full text-xs font-semibold bg-[#f2fcf5] text-brand-textPrimary border border-[#bec9c2] hover:border-[#00513a] hover:bg-emerald-50 transition-colors flex items-center gap-1.5">
+              <span>🇿🇦 South Africa</span>
+              <span class="text-xs text-brand-textSecondary font-bold">(34)</span>
+            </button>
+            
+            <button class="px-3 py-1.5 rounded-full text-xs font-semibold bg-[#f2fcf5] text-brand-textPrimary border border-[#bec9c2] hover:border-[#00513a] hover:bg-emerald-50 transition-colors flex items-center gap-1.5">
+              <span>🇬🇭 Ghana</span>
+              <span class="text-xs text-brand-textSecondary font-bold">(22)</span>
+            </button>
+          </div>
+
+          <!-- Secondary Filter / Quick Sort -->
+          <div class="flex items-center gap-2.5">
+            <div class="relative">
+              <span class="material-symbols-outlined absolute left-2.5 top-2 text-[16px] text-brand-textSecondary">filter_list</span>
+              <select class="pl-8 pr-7 py-1.5 text-xs bg-white border border-[#bec9c2] rounded-lg text-brand-textPrimary font-medium focus:outline-none focus:ring-1 focus:ring-[#00513a] appearance-none cursor-pointer">
+                <option>Sort by: Most Orders</option>
+                <option>Sort by: Recent Order Date</option>
+                <option>Sort by: Total Spend (High to Low)</option>
+              </select>
+              <span class="material-symbols-outlined absolute right-2 top-2 text-[16px] text-brand-textSecondary pointer-events-none">expand_more</span>
+            </div>
+
+            <button title="Refresh Data" class="p-1.5 rounded-lg border border-[#bec9c2] hover:bg-brand-accentMuted text-brand-textSecondary hover:text-[#00513a]">
+              <span class="material-symbols-outlined text-[18px]">sync</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Responsive Table Container -->
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse text-xs">
+            <thead>
+              <tr class="bg-[#f2fcf5]/70 border-b border-[#bec9c2]/50 text-brand-textSecondary font-bold uppercase tracking-wider text-[11px]">
+                <th class="py-3.5 px-6">Company &amp; Contact</th>
+                <th class="py-3.5 px-5">Origin Country</th>
+                <th class="py-3.5 px-5">Orders Placed</th>
+                <th class="py-3.5 px-5">Total Spend (Native Currency)</th>
+                <th class="py-3.5 px-5">Last Order Date</th>
+                <th class="py-3.5 px-4">Status</th>
+                <th class="py-3.5 px-6 text-right">Action</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-[#bec9c2]/30 font-normal">
+              
+              <!-- Row 1: Tema Food Processors Ltd (Ghana) -->
+              <tr class="hover:bg-[#f2fcf5]/50 transition-colors">
+                <td class="py-4 px-6">
+                  <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 rounded-lg bg-emerald-100 text-[#00513a] font-heading font-bold text-sm flex items-center justify-center shrink-0 border border-emerald-300">
+                      TF
+                    </div>
+                    <div>
+                      <div class="font-heading font-bold text-sm text-brand-textPrimary hover:text-[#00513a] cursor-pointer">Tema Food Processors Ltd</div>
+                      <div class="text-[11px] text-brand-textSecondary flex items-center gap-1.5 mt-0.5">
+                        <span class="material-symbols-outlined text-[13px]">person</span>
+                        <span>Contact: <strong class="font-medium text-brand-textPrimary">Kofi Mensah</strong></span>
+                        <span class="text-gray-300">·</span>
+                        <span>kofi@temafoods.com.gh</span>
+                      </div>
+                    </div>
+                  </div>
+                </td>
+                <td class="py-4 px-5">
+                  <div class="flex items-center gap-1.5">
+                    <span class="text-base leading-none">🇬🇭</span>
+                    <span class="font-medium text-brand-textPrimary">Ghana</span>
+                    <span class="text-[10px] text-brand-textSecondary bg-gray-100 px-1 py-0.2 rounded font-mono">GHS</span>
+                  </div>
+                </td>
+                <td class="py-4 px-5">
+                  <div class="font-semibold text-brand-textPrimary">14 Orders</div>
+                  <div class="text-[10px] text-emerald-700 font-medium">1 in active transit</div>
+                </td>
+                <td class="py-4 px-5">
+                  <div class="font-heading font-extrabold text-sm text-[#00513a]">GH₵ 142,500</div>
+                  <div class="text-[10px] text-brand-textSecondary font-mono">≈ $8,900 USD</div>
+                </td>
+                <td class="py-4 px-5">
+                  <div class="font-medium text-brand-textPrimary">Oct 11, 2026</div>
+                  <div class="text-[10px] text-brand-textSecondary">09:15 GMT</div>
+                </td>
+                <td class="py-4 px-4">
+                  <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-emerald-100 text-[#00513a] border border-emerald-300/80">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+                    Active
+                  </span>
+                </td>
+                <td class="py-4 px-6 text-right">
+                  <button class="px-3 py-1.5 rounded-lg bg-white border border-[#00513a]/30 hover:border-[#00513a] hover:bg-[#00513a] hover:text-white text-[#00513a] font-semibold text-xs shadow-2xs transition-all inline-flex items-center gap-1">
+                    <span>View Profile</span>
+                    <span class="material-symbols-outlined text-[14px]">chevron_right</span>
+                  </button>
+                </td>
+              </tr>
+
+              <!-- Row 2: Jozi Wholesale Bakery (South Africa) -->
+              <tr class="hover:bg-[#f2fcf5]/50 transition-colors">
+                <td class="py-4 px-6">
+                  <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 rounded-lg bg-amber-100 text-[#966300] font-heading font-bold text-sm flex items-center justify-center shrink-0 border border-amber-300">
+                      JW
+                    </div>
+                    <div>
+                      <div class="font-heading font-bold text-sm text-brand-textPrimary hover:text-[#00513a] cursor-pointer">Jozi Wholesale Bakery</div>
+                      <div class="text-[11px] text-brand-textSecondary flex items-center gap-1.5 mt-0.5">
+                        <span class="material-symbols-outlined text-[13px]">person</span>
+                        <span>Contact: <strong class="font-medium text-brand-textPrimary">Thabo Sithole</strong></span>
+                        <span class="text-gray-300">·</span>
+                        <span>thabo@jozibakery.co.za</span>
+                      </div>
+                    </div>
+                  </div>
+                </td>
+                <td class="py-4 px-5">
+                  <div class="flex items-center gap-1.5">
+                    <span class="text-base leading-none">🇿🇦</span>
+                    <span class="font-medium text-brand-textPrimary">South Africa</span>
+                    <span class="text-[10px] text-brand-textSecondary bg-gray-100 px-1 py-0.2 rounded font-mono">ZAR</span>
+                  </div>
+                </td>
+                <td class="py-4 px-5">
+                  <div class="font-semibold text-brand-textPrimary">8 Orders</div>
+                  <div class="text-[10px] text-brand-textSecondary">Completed</div>
+                </td>
+                <td class="py-4 px-5">
+                  <div class="font-heading font-extrabold text-sm text-[#00513a]">R 285,000</div>
+                  <div class="text-[10px] text-brand-textSecondary font-mono">≈ $15,600 USD</div>
+                </td>
+                <td class="py-4 px-5">
+                  <div class="font-medium text-brand-textPrimary">Oct 09, 2026</div>
+                  <div class="text-[10px] text-brand-textSecondary">14:30 SAST</div>
+                </td>
+                <td class="py-4 px-4">
+                  <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-emerald-100 text-[#00513a] border border-emerald-300/80">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+                    Active
+                  </span>
+                </td>
+                <td class="py-4 px-6 text-right">
+                  <button class="px-3 py-1.5 rounded-lg bg-white border border-[#00513a]/30 hover:border-[#00513a] hover:bg-[#00513a] hover:text-white text-[#00513a] font-semibold text-xs shadow-2xs transition-all inline-flex items-center gap-1">
+                    <span>View Profile</span>
+                    <span class="material-symbols-outlined text-[14px]">chevron_right</span>
+                  </button>
+                </td>
+              </tr>
+
+              <!-- Row 3: Ibadan Mills Ltd (Nigeria) -->
+              <tr class="hover:bg-[#f2fcf5]/50 transition-colors">
+                <td class="py-4 px-6">
+                  <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 rounded-lg bg-emerald-100 text-[#00513a] font-heading font-bold text-sm flex items-center justify-center shrink-0 border border-emerald-300">
+                      IM
+                    </div>
+                    <div>
+                      <div class="font-heading font-bold text-sm text-brand-textPrimary hover:text-[#00513a] cursor-pointer">Ibadan Mills Ltd</div>
+                      <div class="text-[11px] text-brand-textSecondary flex items-center gap-1.5 mt-0.5">
+                        <span class="material-symbols-outlined text-[13px]">person</span>
+                        <span>Contact: <strong class="font-medium text-brand-textPrimary">Adebayo Cole</strong></span>
+                        <span class="text-gray-300">·</span>
+                        <span>adebayo@ibadanmills.ng</span>
+                      </div>
+                    </div>
+                  </div>
+                </td>
+                <td class="py-4 px-5">
+                  <div class="flex items-center gap-1.5">
+                    <span class="text-base leading-none">🇳🇬</span>
+                    <span class="font-medium text-brand-textPrimary">Nigeria</span>
+                    <span class="text-[10px] text-brand-textSecondary bg-gray-100 px-1 py-0.2 rounded font-mono">NGN</span>
+                  </div>
+                </td>
+                <td class="py-4 px-5">
+                  <div class="font-semibold text-brand-textPrimary">21 Orders</div>
+                  <div class="text-[10px] text-emerald-700 font-medium">3 in active transit</div>
+                </td>
+                <td class="py-4 px-5">
+                  <div class="font-heading font-extrabold text-sm text-[#00513a]">₦24,800,000</div>
+                  <div class="text-[10px] text-brand-textSecondary font-mono">≈ $15,900 USD</div>
+                </td>
+                <td class="py-4 px-5">
+                  <div class="font-medium text-brand-textPrimary">Oct 10, 2026</div>
+                  <div class="text-[10px] text-brand-textSecondary">11:05 WAT</div>
+                </td>
+                <td class="py-4 px-4">
+                  <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-emerald-100 text-[#00513a] border border-emerald-300/80">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+                    Active
+                  </span>
+                </td>
+                <td class="py-4 px-6 text-right">
+                  <button class="px-3 py-1.5 rounded-lg bg-white border border-[#00513a]/30 hover:border-[#00513a] hover:bg-[#00513a] hover:text-white text-[#00513a] font-semibold text-xs shadow-2xs transition-all inline-flex items-center gap-1">
+                    <span>View Profile</span>
+                    <span class="material-symbols-outlined text-[14px]">chevron_right</span>
+                  </button>
+                </td>
+              </tr>
+
+              <!-- Row 4: Accra Confectionery Co (Ghana) -->
+              <tr class="hover:bg-[#f2fcf5]/50 transition-colors">
+                <td class="py-4 px-6">
+                  <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 rounded-lg bg-amber-100 text-[#966300] font-heading font-bold text-sm flex items-center justify-center shrink-0 border border-amber-300">
+                      AC
+                    </div>
+                    <div>
+                      <div class="font-heading font-bold text-sm text-brand-textPrimary hover:text-[#00513a] cursor-pointer">Accra Confectionery Co</div>
+                      <div class="text-[11px] text-brand-textSecondary flex items-center gap-1.5 mt-0.5">
+                        <span class="material-symbols-outlined text-[13px]">person</span>
+                        <span>Contact: <strong class="font-medium text-brand-textPrimary">Ama Osei</strong></span>
+                        <span class="text-gray-300">·</span>
+                        <span>ama@accraconfectionery.com</span>
+                      </div>
+                    </div>
+                  </div>
+                </td>
+                <td class="py-4 px-5">
+                  <div class="flex items-center gap-1.5">
+                    <span class="text-base leading-none">🇬🇭</span>
+                    <span class="font-medium text-brand-textPrimary">Ghana</span>
+                    <span class="text-[10px] text-brand-textSecondary bg-gray-100 px-1 py-0.2 rounded font-mono">GHS</span>
+                  </div>
+                </td>
+                <td class="py-4 px-5">
+                  <div class="font-semibold text-brand-textPrimary">5 Orders</div>
+                  <div class="text-[10px] text-brand-textSecondary">Completed</div>
+                </td>
+                <td class="py-4 px-5">
+                  <div class="font-heading font-extrabold text-sm text-[#00513a]">GH₵ 58,000</div>
+                  <div class="text-[10px] text-brand-textSecondary font-mono">≈ $3,625 USD</div>
+                </td>
+                <td class="py-4 px-5">
+                  <div class="font-medium text-brand-textPrimary">Oct 09, 2026</div>
+                  <div class="text-[10px] text-brand-textSecondary">16:45 GMT</div>
+                </td>
+                <td class="py-4 px-4">
+                  <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-emerald-100 text-[#00513a] border border-emerald-300/80">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+                    Active
+                  </span>
+                </td>
+                <td class="py-4 px-6 text-right">
+                  <button class="px-3 py-1.5 rounded-lg bg-white border border-[#00513a]/30 hover:border-[#00513a] hover:bg-[#00513a] hover:text-white text-[#00513a] font-semibold text-xs shadow-2xs transition-all inline-flex items-center gap-1">
+                    <span>View Profile</span>
+                    <span class="material-symbols-outlined text-[14px]">chevron_right</span>
+                  </button>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Table Pagination Footer -->
+        <div class="p-4 bg-brand-surface border-t border-[#bec9c2]/40 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-brand-textSecondary">
+          <div class="flex items-center gap-2">
+            <span>Showing <strong class="text-brand-textPrimary">1 to 4</strong> of <strong class="text-brand-textPrimary">128</strong> verified buyers</span>
+            <span class="text-gray-300">·</span>
+            <span class="text-[11px]">25 items per page</span>
+          </div>
+          
+          <div class="flex items-center gap-1">
+            <button class="px-2.5 py-1 rounded border border-[#bec9c2] text-gray-400 bg-gray-50 cursor-not-allowed">Previous</button>
+            <button class="px-2.5 py-1 rounded bg-[#00513a] text-white font-bold">1</button>
+            <button class="px-2.5 py-1 rounded border border-[#bec9c2] hover:bg-emerald-50 text-brand-textPrimary">2</button>
+            <button class="px-2.5 py-1 rounded border border-[#bec9c2] hover:bg-emerald-50 text-brand-textPrimary">3</button>
+            <span class="px-1 text-gray-400">...</span>
+            <button class="px-2.5 py-1 rounded border border-[#bec9c2] hover:bg-emerald-50 text-brand-textPrimary">6</button>
+            <button class="px-2.5 py-1 rounded border border-[#bec9c2] hover:bg-emerald-50 text-brand-textPrimary">Next</button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Quick Operational Notes / Safeguard Footer Banner -->
+      <div class="p-4 bg-white border border-[#bec9c2]/50 rounded-xl flex items-center justify-between gap-4 text-xs">
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 rounded-lg bg-emerald-50 text-[#00513a] flex items-center justify-center shrink-0">
+            <span class="material-symbols-outlined text-[18px]">verified_user</span>
+          </div>
+          <p class="text-brand-textSecondary">
+            <strong class="text-brand-textPrimary">Operational Safeguard Notice:</strong> All buyers listed in this directory have passed manual registration validation. All payments shown are safe simulated transactions without live money movement.
+          </p>
+        </div>
+        <div class="shrink-0 flex items-center gap-2 text-brand-textSecondary font-mono text-[11px]">
+          <span>Audit Log: #AUD-DIR-8819</span>
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+</body>
+</html>
+
+

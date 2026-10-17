@@ -1,0 +1,33 @@
+{
+  "name": "@afritrade/hooks",
+  "version": "0.0.1",
+  "private": true,
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "jest",
+    "test:cov": "jest --coverage",
+    "test:watch": "jest --watch"
+  },
+  "dependencies": {
+    "@afritrade/shared": "workspace:*",
+    "@tanstack/react-query": "^5.67.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "typescript": "^5.9.3",
+    "jest": "^30.0.0",
+    "@swc/jest": "^0.2.0",
+    "@swc/core": "^1.5.0",
+    "jest-environment-jsdom": "^30.0.0",
+    "@testing-library/react": "^16.0.0",
+    "@testing-library/jest-dom": "^6.0.0",
+    "@testing-library/user-event": "^14.0.0",
+    "@types/jest": "^30.0.0"
+  }
+}

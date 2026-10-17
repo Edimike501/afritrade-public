@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html class="h-full bg-background" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+  <title>AfriTrade Connect - Create Your Account</title>
+  <!-- Google Fonts: Bricolage Grotesque & Noto Sans -->
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;700;800&family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <!-- Material Symbols Outlined -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <!-- Tailwind CSS v3 with Plugins -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <!-- Tailwind Theme Configuration -->
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary-fixed": "#a1f3cf",
+            "on-secondary-fixed": "#281900",
+            "on-tertiary-fixed": "#3c0707",
+            "tertiary": "#75312d",
+            "primary-container": "#0f6b4f",
+            "primary-fixed-dim": "#86d6b4",
+            "outline": "#6f7a73",
+            "on-primary-fixed-variant": "#00513a",
+            "on-surface": "#151d1a",
+            "background": "#f2fcf5",
+            "surface-bright": "#f2fcf5",
+            "on-secondary-container": "#6d4a00",
+            "on-tertiary-fixed-variant": "#75322e",
+            "surface-dim": "#d2dcd6",
+            "secondary": "#7f5700",
+            "tertiary-fixed-dim": "#ffb3ad",
+            "primary": "#00513a",
+            "on-secondary-fixed-variant": "#604100",
+            "on-primary-container": "#97e8c5",
+            "on-background": "#151d1a",
+            "surface-container-lowest": "#ffffff",
+            "on-surface-variant": "#3f4944",
+            "on-primary-fixed": "#002115",
+            "surface-container-low": "#ecf6ef",
+            "on-tertiary": "#ffffff",
+            "surface": "#f2fcf5",
+            "surface-container": "#e6f0ea",
+            "on-error": "#ffffff",
+            "surface-tint": "#106b4f",
+            "inverse-primary": "#86d6b4",
+            "inverse-on-surface": "#e9f3ec",
+            "tertiary-container": "#924843",
+            "secondary-fixed-dim": "#ffba3e",
+            "secondary-container": "#feb62f",
+            "inverse-surface": "#29322e",
+            "outline-variant": "#bec9c2",
+            "error": "#ba1a1a",
+            "surface-variant": "#dbe5de",
+            "on-primary": "#ffffff",
+            "error-container": "#ffdad6",
+            "surface-container-highest": "#dbe5de",
+            "surface-container-high": "#e1ebe4",
+            "secondary-fixed": "#ffdeae",
+            "on-secondary": "#ffffff",
+            "on-error-container": "#93000a",
+            "on-tertiary-container": "#ffccc7",
+            "tertiary-fixed": "#ffdad6"
+          },
+          fontFamily: {
+            headline: ["Bricolage Grotesque", "sans-serif"],
+            body: ["Noto Sans", "sans-serif"]
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+  </style>
+</head>
+<body class="min-h-full bg-background text-on-surface antialiased flex flex-col items-center justify-start selection:bg-primary-fixed selection:text-on-primary-fixed">
+
+  <!-- Mobile Viewport Wrapper (~375px-414px phone experience) -->
+  <div class="w-full max-w-[420px] min-h-screen bg-background flex flex-col shadow-xl border-x border-outline-variant/30">
+    
+    <!-- Compact Mobile Top Bar (Sticky, ~56px) -->
+    <header class="sticky top-0 z-50 h-14 bg-surface-container-lowest/95 backdrop-blur-md px-4 flex items-center justify-between border-b border-outline-variant/40 shadow-sm">
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-on-primary shadow-sm">
+          <span class="material-symbols-outlined text-[20px]" data-icon="hub">hub</span>
+        </div>
+        <span class="font-headline text-base text-primary font-bold tracking-tight">AfriTrade Connect</span>
+      </div>
+      <a class="text-sm text-primary hover:text-primary-container font-semibold px-3 py-1.5 rounded-full hover:bg-surface-container-low transition-colors active:scale-95" href="/login">
+        Log In
+      </a>
+    </header>
+
+    <!-- Main Registration Container -->
+    <main class="flex-1 px-4 py-5 flex flex-col gap-5">
+      <!-- Header & Regional Scope Badge -->
+      <section class="flex flex-col gap-2">
+        <div class="inline-flex items-center gap-1.5 self-start px-3 py-1 rounded-full bg-surface-container-low border border-outline-variant/60 text-on-surface-variant shadow-xs">
+          <span class="w-2 h-2 rounded-full bg-secondary-container"></span>
+          <span class="text-xs font-semibold tracking-wide text-on-surface">Trade across Nigeria · South Africa · Ghana</span>
+        </div>
+        <div>
+          <h1 class="font-headline text-2xl text-on-surface font-bold tracking-tight">Create Your Account</h1>
+          <p class="text-xs text-on-surface-variant mt-1">Join verified businesses trading wholesale goods across borders.</p>
+        </div>
+      </section>
+
+      <!-- Role Selector (2-pill switch, 48px touch target) -->
+      <section class="bg-surface-container p-1 rounded-full flex gap-1 items-center border border-outline-variant/50">
+        <button class="flex-1 h-12 rounded-full flex items-center justify-center text-sm text-on-surface-variant hover:text-primary transition-all duration-200 cursor-pointer" id="role-buyer" onclick="setMobileRole('buyer')" type="button">
+          Wholesale Buyer
+        </button>
+        <button class="flex-1 h-12 rounded-full bg-primary text-on-primary flex items-center justify-center gap-1.5 text-sm font-bold shadow-md transition-all duration-200 cursor-pointer" id="role-supplier" onclick="setMobileRole('supplier')" type="button">
+          <span class="material-symbols-outlined text-[18px]">verified</span>
+          Verified Supplier
+        </button>
+      </section>
+
+      <!-- Supplier Verification Notice Callout Box -->
+      <div class="bg-secondary-fixed/30 border border-secondary/30 rounded-xl p-3.5 flex gap-3 items-start transition-all duration-200" id="supplier-notice">
+        <div class="w-8 h-8 rounded-full bg-secondary-fixed flex items-center justify-center shrink-0 text-on-secondary-fixed shadow-xs">
+          <span class="material-symbols-outlined text-[20px]">shield</span>
+        </div>
+        <div class="flex-1">
+          <h2 class="text-xs text-on-secondary-fixed font-bold" id="notice-title">Company Verification Required</h2>
+          <p class="text-xs text-on-surface-variant mt-0.5 leading-relaxed" id="notice-body">
+            After signing up, you will submit your official registration certificate (CAC for Nigeria, CIPC for South Africa, or RGD for Ghana). Our team reviews documents before products can be published.
+          </p>
+        </div>
+      </div>
+
+      <!-- Demo Shortcut Helper -->
+      <div class="flex items-center justify-between bg-surface-container-lowest border border-outline-variant/60 rounded-xl px-3 py-2">
+        <div class="flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+          <span class="text-xs text-on-surface-variant">Quick Testing</span>
+        </div>
+        <button class="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-primary-fixed text-on-primary-fixed-variant text-xs font-bold hover:bg-primary-fixed-dim active:scale-95 transition-all cursor-pointer" onclick="fillGhanaDemo()" type="button">
+          <span>⚡ Demo: Fill Supplier (GH)</span>
+        </button>
+      </div>
+
+      <!-- Main Form -->
+      <form class="flex flex-col gap-4" id="supplier-form" onsubmit="event.preventDefault(); handleRegistration();">
+        <!-- Full Name -->
+        <div class="flex flex-col gap-1.5">
+          <label class="text-xs text-on-surface font-semibold flex items-center gap-1" for="fullName">
+            <span>Full Name</span>
+            <span class="text-error">*</span>
+          </label>
+          <div class="relative">
+            <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-outline">
+              <span class="material-symbols-outlined text-[20px]">person</span>
+            </span>
+            <input class="w-full h-12 pl-10 pr-4 bg-surface-container-lowest border border-outline-variant rounded-xl text-sm text-on-surface placeholder:text-outline/70 focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-all" id="fullName" placeholder="e.g. Kwame Mensah" required="" type="text"/>
+          </div>
+        </div>
+
+        <!-- Business Email -->
+        <div class="flex flex-col gap-1.5">
+          <label class="text-xs text-on-surface font-semibold flex items-center gap-1" for="businessEmail">
+            <span>Business Email</span>
+            <span class="text-error">*</span>
+          </label>
+          <div class="relative">
+            <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-outline">
+              <span class="material-symbols-outlined text-[20px]">mail</span>
+            </span>
+            <input class="w-full h-12 pl-10 pr-4 bg-surface-container-lowest border border-outline-variant rounded-xl text-sm text-on-surface placeholder:text-outline/70 focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-all" id="businessEmail" placeholder="e.g. kwame@goldcoastfoods.gh" required="" type="email"/>
+          </div>
+        </div>
+
+        <!-- Password with Eye Toggle -->
+        <div class="flex flex-col gap-1.5">
+          <label class="text-xs text-on-surface font-semibold flex items-center gap-1" for="password">
+            <span>Password</span>
+            <span class="text-error">*</span>
+          </label>
+          <div class="relative">
+            <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-outline">
+              <span class="material-symbols-outlined text-[20px]">lock</span>
+            </span>
+            <input class="w-full h-12 pl-10 pr-12 bg-surface-container-lowest border border-outline-variant rounded-xl text-sm text-on-surface placeholder:text-outline/70 focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-all" id="password" minlength="8" placeholder="At least 8 characters" required="" type="password"/>
+            <button aria-label="Toggle password visibility" class="absolute inset-y-0 right-0 pr-3.5 flex items-center text-outline hover:text-on-surface active:scale-95 transition-colors focus:outline-none cursor-pointer" onclick="togglePasswordVisibility()" type="button">
+              <span class="material-symbols-outlined text-[20px]" id="eye-icon">visibility</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Operating Country & Currency Two-Column Grid -->
+        <div class="grid grid-cols-2 gap-3">
+          <!-- Operating Country -->
+          <div class="flex flex-col gap-1.5">
+            <label class="text-xs text-on-surface font-semibold" for="operatingCountry">
+              Operating Country
+            </label>
+            <div class="relative">
+              <select class="w-full h-12 px-3 bg-surface-container-lowest border border-outline-variant rounded-xl text-sm text-on-surface focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary appearance-none pr-8 transition-all cursor-pointer" id="operatingCountry" onchange="syncCountryCurrency(this.value)">
+                <option value="GH">Ghana (GH)</option>
+                <option value="NG">Nigeria (NG)</option>
+                <option value="ZA">South Africa (ZA)</option>
+              </select>
+              <span class="absolute inset-y-0 right-0 pr-2.5 flex items-center pointer-events-none text-outline">
+                <span class="material-symbols-outlined text-[20px]">expand_more</span>
+              </span>
+            </div>
+          </div>
+
+          <!-- Preferred Currency -->
+          <div class="flex flex-col gap-1.5">
+            <label class="text-xs text-on-surface font-semibold" for="currencyCode">
+              Currency
+            </label>
+            <div class="relative">
+              <select class="w-full h-12 px-3 bg-surface-container-lowest border border-outline-variant rounded-xl text-sm text-on-surface focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary appearance-none pr-8 transition-all cursor-pointer" id="currencyCode">
+                <option value="GHS">GHS (GH₵)</option>
+                <option value="NGN">NGN (₦)</option>
+                <option value="ZAR">ZAR (R)</option>
+                <option value="USD">USD ($)</option>
+              </select>
+              <span class="absolute inset-y-0 right-0 pr-2.5 flex items-center pointer-events-none text-outline">
+                <span class="material-symbols-outlined text-[20px]">expand_more</span>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Statutory ID Helper Badge -->
+        <div class="bg-surface-container-low border border-outline-variant/40 rounded-lg px-3 py-2 flex items-center gap-2" id="statutory-badge">
+          <span class="material-symbols-outlined text-primary text-[18px]">badge</span>
+          <span class="text-xs text-on-surface-variant" id="statutory-text">Ghana: Requires Registrar General's Dept (RGD) number</span>
+        </div>
+
+        <!-- Agreement Checkbox -->
+        <div class="pt-1">
+          <label class="flex items-start gap-3 cursor-pointer">
+            <input checked="" class="w-5 h-5 mt-0.5 rounded border-outline-variant text-primary focus:ring-primary focus:ring-offset-0 cursor-pointer" id="termsAgreed" required="" type="checkbox"/>
+            <span class="text-xs text-on-surface-variant leading-snug">
+              I agree to the Terms of Trade and acknowledge this is a safe simulated demo.
+            </span>
+          </label>
+        </div>
+
+        <!-- Primary Action CTA -->
+        <button class="w-full h-12 bg-primary text-on-primary rounded-full text-sm font-bold flex items-center justify-center gap-2 shadow-md hover:bg-primary-container active:scale-[0.98] transition-all mt-1 cursor-pointer" id="submit-cta" type="submit">
+          <span id="cta-label">Create Supplier Account</span>
+          <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+        </button>
+      </form>
+
+      <!-- Reassurance Banner -->
+      <div class="mt-2 text-center text-xs text-outline flex flex-col items-center gap-1">
+        <span>🔒 Encrypted Demo Session · Statutory Registry Verification</span>
+        <span class="text-primary font-medium">Demo Mode: Zero real money risk</span>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="p-4 border-t border-outline-variant/40 text-center text-xs text-outline">
+      © 2025 AfriTrade Connect Ltd. All systems normal.
+    </footer>
+  </div>
+
+  <script>
+    let activeRole = 'supplier';
+
+    function setMobileRole(role) {
+      activeRole = role;
+      const bBtn = document.getElementById('role-buyer');
+      const sBtn = document.getElementById('role-supplier');
+      const noticeBox = document.getElementById('supplier-notice');
+      const title = document.getElementById('notice-title');
+      const body = document.getElementById('notice-body');
+      const cta = document.getElementById('cta-label');
+
+      if (role === 'buyer') {
+        bBtn.className = "flex-1 h-12 rounded-full bg-primary text-on-primary flex items-center justify-center gap-1.5 text-sm font-bold shadow-md transition-all duration-200 cursor-pointer";
+        sBtn.className = "flex-1 h-12 rounded-full flex items-center justify-center text-sm text-on-surface-variant hover:text-primary transition-all duration-200 cursor-pointer";
+
+        noticeBox.className = "bg-primary-fixed/30 border border-primary/20 rounded-xl p-3.5 flex gap-3 items-start transition-all duration-200";
+        title.innerText = "Instant Wholesale Sourcing";
+        body.innerText = "Browse verified agricultural and commercial products from checked businesses. Simulate sample orders safely.";
+        cta.innerText = "Create Buyer Account";
+      } else {
+        sBtn.className = "flex-1 h-12 rounded-full bg-primary text-on-primary flex items-center justify-center gap-1.5 text-sm font-bold shadow-md transition-all duration-200 cursor-pointer";
+        bBtn.className = "flex-1 h-12 rounded-full flex items-center justify-center text-sm text-on-surface-variant hover:text-primary transition-all duration-200 cursor-pointer";
+
+        noticeBox.className = "bg-secondary-fixed/30 border border-secondary/30 rounded-xl p-3.5 flex gap-3 items-start transition-all duration-200";
+        title.innerText = "Company Verification Required";
+        body.innerText = "After signing up, you will submit your official registration certificate (CAC for Nigeria, CIPC for South Africa, or RGD for Ghana). Our team reviews documents before products can be published.";
+        cta.innerText = "Create Supplier Account";
+      }
+    }
+
+    function syncCountryCurrency(val) {
+      const c = document.getElementById('currencyCode');
+      const stat = document.getElementById('statutory-text');
+      if (val === 'GH') {
+        c.value = 'GHS';
+        stat.innerText = "Ghana: Requires Registrar General's Dept (RGD) number";
+      } else if (val === 'NG') {
+        c.value = 'NGN';
+        stat.innerText = "Nigeria: Requires Corporate Affairs Commission (CAC) number";
+      } else if (val === 'ZA') {
+        c.value = 'ZAR';
+        stat.innerText = "South Africa: Requires CIPC company registration number";
+      }
+    }
+
+    function togglePasswordVisibility() {
+      const p = document.getElementById('password');
+      const icon = document.getElementById('eye-icon');
+      if (p.type === 'password') {
+        p.type = 'text';
+        icon.innerText = 'visibility_off';
+      } else {
+        p.type = 'password';
+        icon.innerText = 'visibility';
+      }
+    }
+
+    function fillGhanaDemo() {
+      setMobileRole('supplier');
+      document.getElementById('fullName').value = 'Kwame Mensah';
+      document.getElementById('businessEmail').value = 'kwame@sunyanicash.gh';
+      document.getElementById('password').value = 'SupplierPass99!';
+      document.getElementById('operatingCountry').value = 'GH';
+      syncCountryCurrency('GH');
+    }
+
+    function handleRegistration() {
+      alert(`Account created for ${activeRole}! Redirecting to ${activeRole === 'supplier' ? 'KYB verification portal' : 'marketplace catalog'}...`);
+    }
+  </script>
+</body>
+</html>

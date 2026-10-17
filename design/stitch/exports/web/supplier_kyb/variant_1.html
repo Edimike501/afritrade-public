@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AfriTrade Connect - Business Verification (KYB)</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&amp;family=Noto+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "primary": "#00513a",
+            "on-tertiary-fixed-variant": "#75322e",
+            "on-primary": "#ffffff",
+            "surface": "#f2fcf5",
+            "tertiary-fixed-dim": "#ffb3ad",
+            "on-primary-container": "#97e8c5",
+            "error-container": "#ffdad6",
+            "tertiary-fixed": "#ffdad6",
+            "on-tertiary": "#ffffff",
+            "surface-dim": "#d2dcd6",
+            "on-secondary-fixed-variant": "#604100",
+            "secondary-fixed": "#ffdeae",
+            "on-surface-variant": "#3f4944",
+            "tertiary-container": "#924843",
+            "surface-container-highest": "#dbe5de",
+            "tertiary": "#75312d",
+            "secondary": "#7f5700",
+            "on-surface": "#151d1a",
+            "on-secondary-fixed": "#281900",
+            "surface-variant": "#dbe5de",
+            "surface-container": "#e6f0ea",
+            "inverse-primary": "#86d6b4",
+            "error": "#ba1a1a",
+            "on-primary-fixed": "#002115",
+            "on-background": "#151d1a",
+            "primary-fixed-dim": "#86d6b4",
+            "surface-tint": "#106b4f",
+            "surface-bright": "#f2fcf5",
+            "secondary-container": "#feb62f",
+            "inverse-on-surface": "#e9f3ec",
+            "surface-container-low": "#ecf6ef",
+            "surface-container-lowest": "#ffffff",
+            "on-secondary": "#ffffff",
+            "inverse-surface": "#29322e",
+            "on-primary-fixed-variant": "#00513a",
+            "on-error": "#ffffff",
+            "surface-container-high": "#e1ebe4",
+            "on-secondary-container": "#6d4a00",
+            "primary-fixed": "#a1f3cf",
+            "on-tertiary-container": "#ffccc7",
+            "primary-container": "#0f6b4f",
+            "outline": "#6f7a73",
+            "on-tertiary-fixed": "#3c0707",
+            "on-error-container": "#93000a",
+            "background": "#f2fcf5",
+            "secondary-fixed-dim": "#ffba3e",
+            "outline-variant": "#bec9c2"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xs": "0.25rem",
+            "space-md": "1rem",
+            "margin-mobile": "1rem",
+            "gutter-mobile": "1rem",
+            "space-lg": "1.5rem",
+            "gutter": "1.5rem",
+            "space-xl": "2.5rem",
+            "space-sm": "0.5rem",
+            "margin": "2rem"
+          },
+          "fontFamily": {
+            "body-lg": ["Noto Sans"],
+            "label-sm": ["Noto Sans"],
+            "display-lg": ["Bricolage Grotesque"],
+            "label-lg": ["Noto Sans"],
+            "headline-sm": ["Bricolage Grotesque"],
+            "label-md": ["Noto Sans"],
+            "body-sm": ["Noto Sans"],
+            "title-md": ["Noto Sans"],
+            "headline-xl": ["Bricolage Grotesque"],
+            "display-lg-mobile": ["Bricolage Grotesque"],
+            "body-md": ["Noto Sans"],
+            "headline-xl-mobile": ["Bricolage Grotesque"],
+            "headline-md": ["Bricolage Grotesque"]
+          },
+          "fontSize": {
+            "body-lg": ["16px", { "lineHeight": "26px", "fontWeight": "400" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "fontWeight": "400" }],
+            "title-md": ["16px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "body-md": ["14px", { "lineHeight": "22px", "fontWeight": "400" }],
+            "headline-xl-mobile": ["26px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-surface text-on-surface font-body-md antialiased min-h-screen flex">
+<!-- Left Sidenav -->
+<aside class="hidden md:flex flex-col w-64 bg-surface-container-lowest border-r border-outline-variant shrink-0 min-h-screen sticky top-0">
+<div class="p-6 flex items-center gap-3 border-b border-outline-variant/50">
+<div class="w-10 h-10 rounded-xl bg-primary-container flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">hub</span>
+</div>
+<span class="font-headline-md text-primary font-extrabold tracking-tight">AfriTrade Connect</span>
+</div>
+<nav class="flex-1 px-4 py-6 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl font-label-lg text-on-surface-variant hover:bg-surface-container transition-all" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+        Dashboard
+      </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl font-label-lg text-on-surface-variant hover:bg-surface-container transition-all" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+        Products
+      </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl font-label-lg text-on-surface-variant hover:bg-surface-container transition-all" href="#">
+<span class="material-symbols-outlined">local_shipping</span>
+        Incoming Orders
+      </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl font-label-lg bg-primary-container text-on-primary font-bold shadow-sm" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">verified</span>
+        KYB Verification
+      </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl font-label-lg text-on-surface-variant hover:bg-surface-container transition-all" href="#">
+<span class="material-symbols-outlined">settings</span>
+        Settings
+      </a>
+</nav>
+<div class="p-4 m-4 bg-surface-container rounded-2xl border border-outline-variant/40">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container font-bold text-sm">
+          SA
+        </div>
+<div class="overflow-hidden">
+<p class="font-label-lg truncate text-on-surface">Savannah Agro Ltd</p>
+<p class="font-body-sm text-outline truncate">babatunde@savannahagro.ng</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Wrapper -->
+<div class="flex-1 flex flex-col min-w-0">
+<!-- Minimal Top Bar -->
+<header class="h-16 bg-surface-container-lowest border-b border-outline-variant flex items-center justify-between px-6 md:px-8 sticky top-0 z-30">
+<div class="flex items-center gap-4 w-full max-w-md">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-lg">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface border border-outline-variant rounded-full font-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Search orders, products, documents..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 rounded-full bg-surface hover:bg-surface-container flex items-center justify-center text-on-surface-variant relative transition-all">
+<span class="material-symbols-outlined text-xl">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<div class="h-8 w-[1px] bg-outline-variant"></div>
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded-full object-cover border border-outline-variant" data-alt="Professional portrait of a middle-aged African man with a trimmed beard wearing a sharp navy blue business suit and subtle gold lapel pin, smiling warmly in a brightly lit modern corporate office overlooking a bustling commercial center with clean minimalist architecture, high-key natural lighting, soft focus background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRed5GULKQryh2PS9bqpBhueOrFuOn90PS4xIH4CQCLrzDl6_5e_1FMycxv6ZhDsOeVRsGw8z98HqEGN7h_Je-TA8--wCGVKnxyDGLXR8f9lHh1TDb5voKCcqsWBEE_AYJrv3WqzKGBR_jZ4qO9qQ0qE9NzXLGtI7honTZPyxUa0aCE993TceFsHScFmuhL0B3jxJu4KiwR4AItzHFF4nhTfxRDiazTAkzwGZgy2J7jmpE8JmfgM8iKpga3rzM6xWg6nWbNbkdG0Q"/>
+<div class="hidden lg:block text-left">
+<p class="font-label-md text-on-surface">Babatunde Adeleke</p>
+<p class="font-body-sm text-outline">Operations Director</p>
+</div>
+</div>
+</div>
+</header>
+<!-- Content Canvas -->
+<main class="flex-1 px-6 md:px-12 py-8 max-w-5xl w-full mx-auto">
+<!-- Header Section -->
+<div class="mb-8">
+<div class="flex items-center gap-2 text-primary font-label-md mb-2">
+<span class="material-symbols-outlined text-sm">shield_person</span>
+          Compliance &amp; Regulatory Center
+        </div>
+<h1 class="font-headline-xl text-on-surface mb-2">Business Verification (KYB)</h1>
+<p class="font-body-lg text-on-surface-variant">Submit statutory company details for manual compliance review before publishing product listings.</p>
+</div>
+<!-- Status Banner -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-2xl p-6 mb-8 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 rounded-2xl bg-secondary-container/30 border border-secondary-container flex items-center justify-center text-secondary shrink-0">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">hourglass_top</span>
+</div>
+<div>
+<div class="flex items-center gap-3 mb-1">
+<h3 class="font-headline-sm text-on-surface">Verification Status</h3>
+<span class="px-3 py-1 bg-secondary-container text-on-secondary-container rounded-full font-label-sm">Status: PENDING REVIEW</span>
+</div>
+<p class="font-body-md text-on-surface-variant">Your submission is queued for manual administrator review. Processing typically takes 24–48 business hours.</p>
+</div>
+</div>
+<div class="flex items-center gap-3 shrink-0">
+<button class="px-4 py-2 rounded-full border border-outline-variant text-on-surface font-label-md hover:bg-surface-container transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-base">download</span>
+            Download Certificate Request
+          </button>
+</div>
+</div>
+<!-- Form Sections Container -->
+<form class="space-y-8" onsubmit="event.preventDefault();">
+<!-- Section 1: Statutory Registration -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-2xl p-6 md:p-8 shadow-sm">
+<div class="flex items-center justify-between mb-6 pb-4 border-b border-outline-variant/50">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center font-label-lg">1</div>
+<h2 class="font-headline-sm text-on-surface">Statutory Registration</h2>
+</div>
+<span class="text-primary font-label-md flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+              Verified Record
+            </span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div>
+<label class="block font-label-md text-on-surface-variant mb-2">Country of Incorporation</label>
+<div class="flex items-center gap-3 px-4 py-3 bg-surface border border-outline-variant rounded-xl">
+<span class="text-xl">🇳🇬</span>
+<span class="font-body-md text-on-surface font-semibold">Nigeria</span>
+</div>
+</div>
+<div>
+<label class="block font-label-md text-on-surface-variant mb-2">Legal Business Name</label>
+<input class="w-full px-4 py-3 bg-surface border border-outline-variant rounded-xl font-body-md text-on-surface focus:outline-none" readonly="" type="text" value="Savannah Agro Ltd."/>
+</div>
+<div>
+<label class="block font-label-md text-on-surface-variant mb-2">Statutory Registration Number (CAC RC)</label>
+<input class="w-full px-4 py-3 bg-surface border border-outline-variant rounded-xl font-body-md text-on-surface focus:outline-none" readonly="" type="text" value="RC-1849204"/>
+</div>
+<div>
+<label class="block font-label-md text-on-surface-variant mb-2">Tax Identification Number (TIN)</label>
+<input class="w-full px-4 py-3 bg-surface border border-outline-variant rounded-xl font-body-md text-on-surface focus:outline-none" readonly="" type="text" value="TIN-92847102-001"/>
+</div>
+</div>
+</div>
+<!-- Section 2: Operations & Facility -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-2xl p-6 md:p-8 shadow-sm">
+<div class="flex items-center justify-between mb-6 pb-4 border-b border-outline-variant/50">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center font-label-lg">2</div>
+<h2 class="font-headline-sm text-on-surface">Operations &amp; Facility</h2>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div>
+<label class="block font-label-md text-on-surface-variant mb-2">Commodity Sector</label>
+<input class="w-full px-4 py-3 bg-surface border border-outline-variant rounded-xl font-body-md text-on-surface focus:outline-none" readonly="" type="text" value="Agriculture &amp; Spices"/>
+</div>
+<div>
+<label class="block font-label-md text-on-surface-variant mb-2">Capacity / Storage Type</label>
+<input class="w-full px-4 py-3 bg-surface border border-outline-variant rounded-xl font-body-md text-on-surface focus:outline-none" readonly="" type="text" value="Dry bulk storage (500 MT capacity)"/>
+</div>
+<div class="md:col-span-2">
+<label class="block font-label-md text-on-surface-variant mb-2">Physical Warehouse Address</label>
+<input class="w-full px-4 py-3 bg-surface border border-outline-variant rounded-xl font-body-md text-on-surface focus:outline-none" readonly="" type="text" value="Plot 14 Bompai Industrial Area, Kano State, Nigeria"/>
+</div>
+</div>
+</div>
+<!-- Section 3: Primary Contact -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-2xl p-6 md:p-8 shadow-sm">
+<div class="flex items-center justify-between mb-6 pb-4 border-b border-outline-variant/50">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center font-label-lg">3</div>
+<h2 class="font-headline-sm text-on-surface">Primary Contact</h2>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div>
+<label class="block font-label-md text-on-surface-variant mb-2">Authorized Representative</label>
+<input class="w-full px-4 py-3 bg-surface border border-outline-variant rounded-xl font-body-md text-on-surface focus:outline-none" readonly="" type="text" value="Babatunde Adeleke"/>
+</div>
+<div>
+<label class="block font-label-md text-on-surface-variant mb-2">Position / Title</label>
+<input class="w-full px-4 py-3 bg-surface border border-outline-variant rounded-xl font-body-md text-on-surface focus:outline-none" readonly="" type="text" value="Operations Director"/>
+</div>
+<div>
+<label class="block font-label-md text-on-surface-variant mb-2">Business Phone</label>
+<input class="w-full px-4 py-3 bg-surface border border-outline-variant rounded-xl font-body-md text-on-surface focus:outline-none" readonly="" type="text" value="+234 803 456 7890"/>
+</div>
+<div class="md:col-span-3">
+<label class="block font-label-md text-on-surface-variant mb-2">Official Email</label>
+<input class="w-full px-4 py-3 bg-surface border border-outline-variant rounded-xl font-body-md text-on-surface focus:outline-none" readonly="" type="text" value="compliance@savannahagro.ng"/>
+</div>
+</div>
+</div>
+<!-- Section 4: Trust & Privacy Guarantee -->
+<div class="bg-surface-container border border-outline-variant/60 rounded-2xl p-6 flex items-start gap-4">
+<div class="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0 mt-1">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">lock</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-on-surface mb-1">Data Privacy &amp; Security Guarantee</h4>
+<p class="font-body-md text-on-surface-variant leading-relaxed">
+              Data Privacy: Your tax and registration numbers are encrypted and reviewed strictly by certified AfriTrade administrators. They are never shared publicly or displayed to buyers.
+            </p>
+</div>
+</div>
+<!-- Section 5: Action Buttons -->
+<div class="flex items-center justify-end gap-4 pt-4">
+<button class="px-6 h-[44px] rounded-full border-1.5 border-primary text-primary font-label-lg hover:bg-surface-container transition-all" type="button">
+            Save as Draft
+          </button>
+<button class="px-8 h-[44px] rounded-full bg-primary text-on-primary font-label-lg hover:bg-primary-container shadow-sm transition-all flex items-center gap-2" type="submit">
+<span>Submit Business Verification</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</form>
+</main>
+</div>
+</body></html>
+

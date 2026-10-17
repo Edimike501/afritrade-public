@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AfriTrade Connect - Wholesale Marketplace</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;600;700;800&family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              primary: '#00513a',
+              'primary-hover': '#003e2c',
+              secondary: '#feb62f',
+              'secondary-hover': '#e5a327',
+              surface: '#f2fcf5',
+              border: '#bec9c2',
+              card: '#ffffff',
+              subtle: '#e6f3eb',
+              text: '#191c1b',
+              muted: '#49454f'
+            }
+          },
+          fontFamily: {
+            headline: ['"Bricolage Grotesque"', 'sans-serif'],
+            sans: ['"Noto Sans"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      vertical-align: middle;
+    }
+    .material-symbols-outlined.filled {
+      font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+    }
+    /* Hide scrollbars for pill bars */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="bg-brand-surface text-brand-text font-sans min-h-screen flex flex-col selection:bg-brand-secondary selection:text-brand-primary">
+
+  <!-- TOP NAVIGATION BAR -->
+  <header class="sticky top-0 z-40 bg-white border-b border-brand-border/60 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <!-- Logo & Wordmark -->
+      <a href="/marketplace" class="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-brand-primary rounded-lg p-1">
+        <div class="w-10 h-10 rounded-xl bg-brand-primary text-white flex items-center justify-center font-bold shadow-sm group-hover:scale-105 transition-transform">
+          <svg class="w-6 h-6 text-brand-secondary" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-headline font-extrabold text-xl tracking-tight text-brand-primary leading-tight">AfriTrade <span class="text-brand-secondary">Connect</span></span>
+          <span class="text-[11px] font-medium text-brand-muted uppercase tracking-wider">Wholesale Marketplace</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="/marketplace" class="text-brand-primary font-bold text-sm tracking-wide border-b-2 border-brand-primary pb-1 flex items-center gap-1.5">
+          <span class="material-symbols-outlined text-[18px]">storefront</span>
+          Browse Marketplace
+        </a>
+        <a href="#verification" class="text-brand-muted hover:text-brand-primary font-medium text-sm transition-colors flex items-center gap-1.5">
+          <span class="material-symbols-outlined text-[18px]">verified</span>
+          How Verification Works
+        </a>
+        <a href="#about" class="text-brand-muted hover:text-brand-primary font-medium text-sm transition-colors">
+          About
+        </a>
+      </nav>
+
+      <!-- Right Action Items -->
+      <div class="hidden sm:flex items-center gap-3">
+        <!-- Currency Switcher Pill -->
+        <button type="button" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-brand-subtle text-brand-primary text-xs font-semibold hover:bg-emerald-100 border border-brand-border/50 transition-colors focus:ring-2 focus:ring-brand-primary">
+          <span class="material-symbols-outlined text-[16px]">payments</span>
+          <span>USD ($)</span>
+          <span class="material-symbols-outlined text-[14px]">expand_more</span>
+        </button>
+
+        <a href="#login" class="px-4 py-2 text-sm font-semibold text-brand-primary hover:text-brand-primary-hover rounded-lg transition-colors">
+          Log In
+        </a>
+        <a href="#signup" class="px-5 py-2.5 text-sm font-bold bg-brand-primary hover:bg-brand-primary-hover text-white rounded-lg shadow-sm hover:shadow transition-all active:scale-95">
+          Sign Up
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <div class="flex items-center gap-2 sm:hidden">
+        <button type="button" id="mobile-currency-btn" class="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-full bg-brand-subtle text-brand-primary text-xs font-bold border border-brand-border/50">
+          <span>USD</span>
+          <span class="material-symbols-outlined text-[14px]">expand_more</span>
+        </button>
+        <button type="button" id="mobile-menu-btn" aria-label="Toggle mobile menu" class="p-2 rounded-lg text-brand-primary hover:bg-brand-subtle focus:outline-none focus:ring-2 focus:ring-brand-primary">
+          <span class="material-symbols-outlined text-2xl">menu</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer / Menu (hidden by default) -->
+    <div id="mobile-menu" class="hidden md:hidden border-t border-brand-border/60 bg-white px-4 pt-4 pb-6 space-y-3 animate-fadeIn">
+      <nav class="flex flex-col space-y-2">
+        <a href="/marketplace" class="px-3 py-2 rounded-lg bg-brand-subtle font-bold text-brand-primary text-sm flex items-center gap-2">
+          <span class="material-symbols-outlined text-[20px]">storefront</span>
+          Browse Marketplace
+        </a>
+        <a href="#verification" class="px-3 py-2 rounded-lg text-brand-muted hover:bg-brand-subtle hover:text-brand-primary font-medium text-sm flex items-center gap-2">
+          <span class="material-symbols-outlined text-[20px]">verified</span>
+          How Verification Works
+        </a>
+        <a href="#about" class="px-3 py-2 rounded-lg text-brand-muted hover:bg-brand-subtle hover:text-brand-primary font-medium text-sm">
+          About
+        </a>
+      </nav>
+      <div class="pt-3 border-t border-brand-border/40 flex flex-col gap-2">
+        <a href="#login" class="w-full text-center py-2.5 rounded-lg border border-brand-border font-semibold text-brand-primary text-sm">Log In</a>
+        <a href="#signup" class="w-full text-center py-2.5 rounded-lg bg-brand-primary font-bold text-white text-sm shadow">Sign Up</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT CONTAINER -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
+    
+    <!-- CATALOG HEADER -->
+    <section class="mb-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-6 border-b border-brand-border/60">
+        <div>
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-primary/10 text-brand-primary text-xs font-semibold mb-3">
+            <span class="w-2 h-2 rounded-full bg-brand-primary animate-pulse"></span>
+            Nigeria · South Africa · Ghana Wholesale Network
+          </div>
+          <h1 class="font-headline font-extrabold text-3xl sm:text-4xl text-brand-primary tracking-tight">
+            Wholesale Marketplace
+          </h1>
+          <p class="text-brand-muted text-base sm:text-lg mt-1 max-w-2xl">
+            Discover verified agricultural and commercial products across Nigeria, South Africa, and Ghana.
+          </p>
+        </div>
+
+        <!-- Trust Badges Summary -->
+        <div class="flex items-center gap-4 text-xs font-medium text-brand-muted bg-white p-3 rounded-xl border border-brand-border/60 shadow-xs self-start md:self-auto">
+          <div class="flex items-center gap-1.5 text-brand-primary">
+            <span class="material-symbols-outlined text-[18px] filled text-brand-primary">verified_user</span>
+            <span>100% Vetted Suppliers</span>
+          </div>
+          <span class="text-brand-border">|</span>
+          <div class="flex items-center gap-1.5 text-brand-primary">
+            <span class="material-symbols-outlined text-[18px] text-brand-secondary">lock</span>
+            <span>Zero-Risk Demo Mode</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- SEARCH & FILTER TOOLBAR -->
+      <div class="mt-6 space-y-4">
+        <!-- Search Input -->
+        <div class="relative w-full">
+          <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-brand-muted">
+            <span class="material-symbols-outlined text-2xl">search</span>
+          </div>
+          <input 
+            type="text" 
+            id="search-input"
+            placeholder="Search commodities, e.g. Yellow Maize, Cashew Nuts, Sesame..." 
+            class="w-full pl-12 pr-10 py-3.5 sm:py-4 bg-white border border-brand-border/80 rounded-2xl text-brand-text placeholder-brand-muted/70 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-brand-primary shadow-xs transition-all"
+          >
+          <button 
+            type="button" 
+            id="clear-search" 
+            class="hidden absolute inset-y-0 right-0 pr-4 flex items-center text-brand-muted hover:text-brand-text"
+            title="Clear search"
+          >
+            <span class="material-symbols-outlined text-lg">close</span>
+          </button>
+        </div>
+
+        <!-- Country Filter Chips -->
+        <div class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1 pt-1">
+          <span class="text-xs font-bold uppercase tracking-wider text-brand-muted whitespace-nowrap mr-1 flex items-center gap-1">
+            <span class="material-symbols-outlined text-sm">public</span>
+            Country:
+          </span>
+          <button 
+            type="button" 
+            data-country="all" 
+            class="country-chip active px-4 py-2 rounded-full text-xs font-bold transition-all border shrink-0 bg-brand-primary text-white border-brand-primary shadow-xs"
+          >
+            All Countries
+          </button>
+          <button 
+            type="button" 
+            data-country="NG" 
+            class="country-chip px-4 py-2 rounded-full text-xs font-semibold transition-all border shrink-0 bg-white text-brand-muted border-brand-border/80 hover:border-brand-primary hover:text-brand-primary"
+          >
+            🇳🇬 Nigeria (NG)
+          </button>
+          <button 
+            type="button" 
+            data-country="ZA" 
+            class="country-chip px-4 py-2 rounded-full text-xs font-semibold transition-all border shrink-0 bg-white text-brand-muted border-brand-border/80 hover:border-brand-primary hover:text-brand-primary"
+          >
+            🇿🇦 South Africa (ZA)
+          </button>
+          <button 
+            type="button" 
+            data-country="GH" 
+            class="country-chip px-4 py-2 rounded-full text-xs font-semibold transition-all border shrink-0 bg-white text-brand-muted border-brand-border/80 hover:border-brand-primary hover:text-brand-primary"
+          >
+            🇬🇭 Ghana (GH)
+          </button>
+        </div>
+
+        <!-- Category Filter Pills -->
+        <div class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1">
+          <span class="text-xs font-bold uppercase tracking-wider text-brand-muted whitespace-nowrap mr-1 flex items-center gap-1">
+            <span class="material-symbols-outlined text-sm">category</span>
+            Category:
+          </span>
+          <button 
+            type="button" 
+            data-category="all" 
+            class="category-chip active px-4 py-1.5 rounded-full text-xs font-bold transition-all border shrink-0 bg-brand-primary text-white border-brand-primary shadow-xs"
+          >
+            All Categories
+          </button>
+          <button 
+            type="button" 
+            data-category="grains" 
+            class="category-chip px-4 py-1.5 rounded-full text-xs font-semibold transition-all border shrink-0 bg-white text-brand-muted border-brand-border/80 hover:border-brand-primary hover:text-brand-primary"
+          >
+            Grains & Seeds
+          </button>
+          <button 
+            type="button" 
+            data-category="nuts" 
+            class="category-chip px-4 py-1.5 rounded-full text-xs font-semibold transition-all border shrink-0 bg-white text-brand-muted border-brand-border/80 hover:border-brand-primary hover:text-brand-primary"
+          >
+            Nuts & Produce
+          </button>
+          <button 
+            type="button" 
+            data-category="oils" 
+            class="category-chip px-4 py-1.5 rounded-full text-xs font-semibold transition-all border shrink-0 bg-white text-brand-muted border-brand-border/80 hover:border-brand-primary hover:text-brand-primary"
+          >
+            Oils & Extracts
+          </button>
+          <button 
+            type="button" 
+            data-category="packaged" 
+            class="category-chip px-4 py-1.5 rounded-full text-xs font-semibold transition-all border shrink-0 bg-white text-brand-muted border-brand-border/80 hover:border-brand-primary hover:text-brand-primary"
+          >
+            Packaged Goods
+          </button>
+        </div>
+      </div>
+
+      <!-- VIEW TOGGLE & SORT BAR -->
+      <div class="mt-6 pt-4 border-t border-brand-border/50 flex flex-wrap items-center justify-between gap-4">
+        <!-- Results Counter -->
+        <div class="flex items-center gap-2">
+          <span id="results-count" class="text-sm font-bold text-brand-primary">
+            Showing 6 verified wholesale lots
+          </span>
+          <span class="w-1.5 h-1.5 rounded-full bg-brand-border"></span>
+          <span class="text-xs text-brand-muted">Direct from local businesses</span>
+        </div>
+
+        <div class="flex items-center gap-3 w-full sm:w-auto justify-between sm:justify-end">
+          <!-- Sort Dropdown -->
+          <div class="relative inline-block text-left">
+            <select 
+              id="sort-select"
+              class="appearance-none bg-white border border-brand-border rounded-xl pl-3 pr-8 py-2 text-xs sm:text-sm font-semibold text-brand-text focus:outline-none focus:ring-2 focus:ring-brand-primary cursor-pointer shadow-xs"
+            >
+              <option value="newest">Sort by: Newest Listings</option>
+              <option value="price-low">Price: Low to High</option>
+              <option value="price-high">Price: High to Low</option>
+              <option value="moq-low">MOQ: Low to High</option>
+            </select>
+            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-brand-muted">
+              <span class="material-symbols-outlined text-lg">arrow_drop_down</span>
+            </div>
+          </div>
+
+          <!-- Grid vs List View Buttons -->
+          <div class="flex items-center bg-white border border-brand-border rounded-xl p-1 shadow-xs">
+            <button 
+              type="button" 
+              id="view-grid-btn" 
+              class="p-1.5 rounded-lg text-white bg-brand-primary transition-all flex items-center justify-center" 
+              title="Grid View"
+              aria-label="Grid View"
+            >
+              <span class="material-symbols-outlined text-[20px]">grid_view</span>
+            </button>
+            <button 
+              type="button" 
+              id="view-list-btn" 
+              class="p-1.5 rounded-lg text-brand-muted hover:text-brand-primary transition-all flex items-center justify-center" 
+              title="List View"
+              aria-label="List View"
+            >
+              <span class="material-symbols-outlined text-[20px]">view_list</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUCT CATALOG CONTAINER -->
+    <section>
+      <!-- GRID / LIST CATALOG VIEW -->
+      <div id="catalog-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 transition-all duration-300">
+        
+        <!-- CARD 1: Yellow Maize -->
+        <article 
+          class="product-card bg-white border border-brand-border/80 rounded-2xl overflow-hidden hover:shadow-md hover:border-brand-primary transition-all duration-200 flex flex-col justify-between"
+          data-country="NG"
+          data-category="grains"
+          data-name="Yellow Maize (Grade A)"
+          data-price="25000"
+          data-moq="50"
+        >
+          <!-- Product Image Banner -->
+          <div class="product-img-wrapper relative w-full h-48 bg-brand-surface shrink-0 overflow-hidden">
+            <img 
+              src="https://images.unsplash.com/photo-1551754655-cd27e38d2076?auto=format&fit=crop&w=800&q=80" 
+              alt="Yellow Maize (Grade A)" 
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              loading="lazy"
+              onerror="this.src='/images/product-placeholder.png'"
+            />
+            <div class="absolute top-3 left-3 bg-white/95 backdrop-blur-xs px-2.5 py-1 rounded-full text-xs font-semibold text-brand-primary shadow-xs flex items-center gap-1.5">
+              <span>🇳🇬</span> Kano, Nigeria
+            </div>
+            <div class="absolute top-3 right-3 bg-amber-100 text-amber-900 border-amber-200 border px-2.5 py-0.5 rounded-full text-[11px] font-bold shadow-xs">
+              Grains & Seeds
+            </div>
+          </div>
+<div class="p-5 sm:p-6 flex-1 flex flex-col">
+            <!-- Header Badges -->
+            
+
+            <!-- Title & Supplier -->
+            <h2 class="font-headline font-bold text-lg sm:text-xl text-brand-text mb-1.5 hover:text-brand-primary transition-colors">
+              Yellow Maize (Grade A)
+            </h2>
+            
+            <div class="flex items-center gap-1.5 text-xs font-medium text-brand-muted mb-4">
+              <span class="font-semibold text-brand-text">Savannah Agro Ltd</span>
+              <span class="inline-flex items-center text-brand-primary" title="Verified Statutory Supplier">
+                <span class="material-symbols-outlined text-sm filled text-brand-primary">verified</span>
+                <span class="text-[11px] font-bold ml-0.5">Verified Supplier</span>
+              </span>
+            </div>
+
+            <!-- Key Specs Metric Grid -->
+            <div class="grid grid-cols-2 gap-2 p-3 rounded-xl bg-brand-surface/70 border border-brand-border/40 text-xs mb-4">
+              <div>
+                <span class="text-brand-muted block text-[11px]">Minimum Order (MOQ)</span>
+                <span class="font-bold text-brand-text">50 Bags</span>
+              </div>
+              <div>
+                <span class="text-brand-muted block text-[11px]">Stock Available</span>
+                <span class="font-bold text-brand-primary">500 Bags in warehouse</span>
+              </div>
+            </div>
+
+            <!-- Price & Conversion -->
+            <div class="mt-auto pt-3 border-t border-brand-border/40 flex items-baseline justify-between">
+              <div>
+                <span class="text-[11px] font-semibold text-brand-muted uppercase block">Wholesale Price</span>
+                <div class="flex items-baseline gap-1.5">
+                  <span class="text-xl sm:text-2xl font-extrabold text-brand-primary font-headline">₦25,000</span>
+                  <span class="text-xs font-medium text-brand-muted">/ bag</span>
+                </div>
+              </div>
+              <div class="text-right">
+                <span class="text-[11px] text-brand-muted block">Approx. Local Value</span>
+                <span class="text-xs font-bold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-200">≈ R 290 / bag</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card Action Button -->
+          <div class="px-5 sm:px-6 pb-5 pt-0">
+            <button type="button" class="w-full py-2.5 px-4 rounded-xl bg-brand-primary hover:bg-brand-primary-hover text-white font-semibold text-sm flex items-center justify-center gap-2 transition-colors active:scale-98 shadow-xs">
+              <span>View Lot Details</span>
+              <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+            </button>
+          </div>
+        </article>
+
+        <!-- CARD 2: Raw Cashew Nuts -->
+        <article 
+          class="product-card bg-white border border-brand-border/80 rounded-2xl overflow-hidden hover:shadow-md hover:border-brand-primary transition-all duration-200 flex flex-col justify-between"
+          data-country="GH"
+          data-category="nuts"
+          data-name="Raw Cashew Nuts"
+          data-price="450"
+          data-moq="20"
+        >
+          <!-- Product Image Banner -->
+          <div class="product-img-wrapper relative w-full h-48 bg-brand-surface shrink-0 overflow-hidden">
+            <img 
+              src="https://images.unsplash.com/photo-1509358271058-acd22cc93898?auto=format&fit=crop&w=800&q=80" 
+              alt="Raw Cashew Nuts" 
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              loading="lazy"
+              onerror="this.src='/images/product-placeholder.png'"
+            />
+            <div class="absolute top-3 left-3 bg-white/95 backdrop-blur-xs px-2.5 py-1 rounded-full text-xs font-semibold text-brand-primary shadow-xs flex items-center gap-1.5">
+              <span>🇬🇭</span> Sunyani, Ghana
+            </div>
+            <div class="absolute top-3 right-3 bg-orange-100 text-orange-900 border-orange-200 border px-2.5 py-0.5 rounded-full text-[11px] font-bold shadow-xs">
+              Nuts & Produce
+            </div>
+          </div>
+<div class="p-5 sm:p-6 flex-1 flex flex-col">
+            
+
+            <h2 class="font-headline font-bold text-lg sm:text-xl text-brand-text mb-1.5 hover:text-brand-primary transition-colors">
+              Raw Cashew Nuts
+            </h2>
+            
+            <div class="flex items-center gap-1.5 text-xs font-medium text-brand-muted mb-4">
+              <span class="font-semibold text-brand-text">Golden Tree Commodities</span>
+              <span class="inline-flex items-center text-brand-primary" title="Verified Statutory Supplier">
+                <span class="material-symbols-outlined text-sm filled text-brand-primary">verified</span>
+                <span class="text-[11px] font-bold ml-0.5">Verified Supplier</span>
+              </span>
+            </div>
+
+            <div class="grid grid-cols-2 gap-2 p-3 rounded-xl bg-brand-surface/70 border border-brand-border/40 text-xs mb-4">
+              <div>
+                <span class="text-brand-muted block text-[11px]">Minimum Order (MOQ)</span>
+                <span class="font-bold text-brand-text">20 Bags</span>
+              </div>
+              <div>
+                <span class="text-brand-muted block text-[11px]">Stock Available</span>
+                <span class="font-bold text-brand-primary">250 Bags in warehouse</span>
+              </div>
+            </div>
+
+            <div class="mt-auto pt-3 border-t border-brand-border/40 flex items-baseline justify-between">
+              <div>
+                <span class="text-[11px] font-semibold text-brand-muted uppercase block">Wholesale Price</span>
+                <div class="flex items-baseline gap-1.5">
+                  <span class="text-xl sm:text-2xl font-extrabold text-brand-primary font-headline">GH₵ 450</span>
+                  <span class="text-xs font-medium text-brand-muted">/ bag</span>
+                </div>
+              </div>
+              <div class="text-right">
+                <span class="text-[11px] text-brand-muted block">Approx. Local Value</span>
+                <span class="text-xs font-bold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-200">≈ ₦45,000 / bag</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="px-5 sm:px-6 pb-5 pt-0">
+            <button type="button" class="w-full py-2.5 px-4 rounded-xl bg-brand-primary hover:bg-brand-primary-hover text-white font-semibold text-sm flex items-center justify-center gap-2 transition-colors active:scale-98 shadow-xs">
+              <span>View Lot Details</span>
+              <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+            </button>
+          </div>
+        </article>
+
+        <!-- CARD 3: Soybeans -->
+        <article 
+          class="product-card bg-white border border-brand-border/80 rounded-2xl overflow-hidden hover:shadow-md hover:border-brand-primary transition-all duration-200 flex flex-col justify-between"
+          data-country="NG"
+          data-category="grains"
+          data-name="Soybeans (Bulk Food Grade)"
+          data-price="32000"
+          data-moq="100"
+        >
+          <!-- Product Image Banner -->
+          <div class="product-img-wrapper relative w-full h-48 bg-brand-surface shrink-0 overflow-hidden">
+            <img 
+              src="https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=800&q=80" 
+              alt="Soybeans (Bulk Food Grade)" 
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              loading="lazy"
+              onerror="this.src='/images/product-placeholder.png'"
+            />
+            <div class="absolute top-3 left-3 bg-white/95 backdrop-blur-xs px-2.5 py-1 rounded-full text-xs font-semibold text-brand-primary shadow-xs flex items-center gap-1.5">
+              <span>🇳🇬</span> Benue, Nigeria
+            </div>
+            <div class="absolute top-3 right-3 bg-amber-100 text-amber-900 border-amber-200 border px-2.5 py-0.5 rounded-full text-[11px] font-bold shadow-xs">
+              Grains & Seeds
+            </div>
+          </div>
+<div class="p-5 sm:p-6 flex-1 flex flex-col">
+            
+
+            <h2 class="font-headline font-bold text-lg sm:text-xl text-brand-text mb-1.5 hover:text-brand-primary transition-colors">
+              Soybeans (Bulk Food Grade)
+            </h2>
+            
+            <div class="flex items-center gap-1.5 text-xs font-medium text-brand-muted mb-4">
+              <span class="font-semibold text-brand-text">Benue Farm Direct</span>
+              <span class="inline-flex items-center text-brand-primary" title="Verified Statutory Supplier">
+                <span class="material-symbols-outlined text-sm filled text-brand-primary">verified</span>
+                <span class="text-[11px] font-bold ml-0.5">Verified Supplier</span>
+              </span>
+            </div>
+
+            <div class="grid grid-cols-2 gap-2 p-3 rounded-xl bg-brand-surface/70 border border-brand-border/40 text-xs mb-4">
+              <div>
+                <span class="text-brand-muted block text-[11px]">Minimum Order (MOQ)</span>
+                <span class="font-bold text-brand-text">100 Bags</span>
+              </div>
+              <div>
+                <span class="text-brand-muted block text-[11px]">Stock Available</span>
+                <span class="font-bold text-brand-primary">1,200 Bags in warehouse</span>
+              </div>
+            </div>
+
+            <div class="mt-auto pt-3 border-t border-brand-border/40 flex items-baseline justify-between">
+              <div>
+                <span class="text-[11px] font-semibold text-brand-muted uppercase block">Wholesale Price</span>
+                <div class="flex items-baseline gap-1.5">
+                  <span class="text-xl sm:text-2xl font-extrabold text-brand-primary font-headline">₦32,000</span>
+                  <span class="text-xs font-medium text-brand-muted">/ bag</span>
+                </div>
+              </div>
+              <div class="text-right">
+                <span class="text-[11px] text-brand-muted block">Approx. Local Value</span>
+                <span class="text-xs font-bold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-200">≈ R 370 / bag</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="px-5 sm:px-6 pb-5 pt-0">
+            <button type="button" class="w-full py-2.5 px-4 rounded-xl bg-brand-primary hover:bg-brand-primary-hover text-white font-semibold text-sm flex items-center justify-center gap-2 transition-colors active:scale-98 shadow-xs">
+              <span>View Lot Details</span>
+              <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+            </button>
+          </div>
+        </article>
+
+        <!-- CARD 4: Refined Sunflower Oil -->
+        <article 
+          class="product-card bg-white border border-brand-border/80 rounded-2xl overflow-hidden hover:shadow-md hover:border-brand-primary transition-all duration-200 flex flex-col justify-between"
+          data-country="ZA"
+          data-category="oils"
+          data-name="Refined Sunflower Oil (20L Jerrycans)"
+          data-price="420"
+          data-moq="25"
+        >
+          <!-- Product Image Banner -->
+          <div class="product-img-wrapper relative w-full h-48 bg-brand-surface shrink-0 overflow-hidden">
+            <img 
+              src="https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&w=800&q=80" 
+              alt="Refined Sunflower Oil (20L Jerrycans)" 
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              loading="lazy"
+              onerror="this.src='/images/product-placeholder.png'"
+            />
+            <div class="absolute top-3 left-3 bg-white/95 backdrop-blur-xs px-2.5 py-1 rounded-full text-xs font-semibold text-brand-primary shadow-xs flex items-center gap-1.5">
+              <span>🇿🇦</span> Free State, South Africa
+            </div>
+            <div class="absolute top-3 right-3 bg-yellow-100 text-yellow-900 border-yellow-200 border px-2.5 py-0.5 rounded-full text-[11px] font-bold shadow-xs">
+              Oils & Extracts
+            </div>
+          </div>
+<div class="p-5 sm:p-6 flex-1 flex flex-col">
+            
+
+            <h2 class="font-headline font-bold text-lg sm:text-xl text-brand-text mb-1.5 hover:text-brand-primary transition-colors">
+              Refined Sunflower Oil (20L Jerrycans)
+            </h2>
+            
+            <div class="flex items-center gap-1.5 text-xs font-medium text-brand-muted mb-4">
+              <span class="font-semibold text-brand-text">Cape & Veld Oils</span>
+              <span class="inline-flex items-center text-brand-primary" title="Verified Statutory Supplier">
+                <span class="material-symbols-outlined text-sm filled text-brand-primary">verified</span>
+                <span class="text-[11px] font-bold ml-0.5">Verified Supplier</span>
+              </span>
+            </div>
+
+            <div class="grid grid-cols-2 gap-2 p-3 rounded-xl bg-brand-surface/70 border border-brand-border/40 text-xs mb-4">
+              <div>
+                <span class="text-brand-muted block text-[11px]">Minimum Order (MOQ)</span>
+                <span class="font-bold text-brand-text">25 Cans</span>
+              </div>
+              <div>
+                <span class="text-brand-muted block text-[11px]">Stock Available</span>
+                <span class="font-bold text-brand-primary">400 Cans in warehouse</span>
+              </div>
+            </div>
+
+            <div class="mt-auto pt-3 border-t border-brand-border/40 flex items-baseline justify-between">
+              <div>
+                <span class="text-[11px] font-semibold text-brand-muted uppercase block">Wholesale Price</span>
+                <div class="flex items-baseline gap-1.5">
+                  <span class="text-xl sm:text-2xl font-extrabold text-brand-primary font-headline">R 420</span>
+                  <span class="text-xs font-medium text-brand-muted">/ can</span>
+                </div>
+              </div>
+              <div class="text-right">
+                <span class="text-[11px] text-brand-muted block">Approx. Local Value</span>
+                <span class="text-xs font-bold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-200">≈ ₦36,000 / can</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="px-5 sm:px-6 pb-5 pt-0">
+            <button type="button" class="w-full py-2.5 px-4 rounded-xl bg-brand-primary hover:bg-brand-primary-hover text-white font-semibold text-sm flex items-center justify-center gap-2 transition-colors active:scale-98 shadow-xs">
+              <span>View Lot Details</span>
+              <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+            </button>
+          </div>
+        </article>
+
+        <!-- CARD 5: Organic Shea Butter -->
+        <article 
+          class="product-card bg-white border border-brand-border/80 rounded-2xl overflow-hidden hover:shadow-md hover:border-brand-primary transition-all duration-200 flex flex-col justify-between"
+          data-country="GH"
+          data-category="packaged"
+          data-name="Organic Shea Butter (Raw Unrefined)"
+          data-price="680"
+          data-moq="10"
+        >
+          <!-- Product Image Banner -->
+          <div class="product-img-wrapper relative w-full h-48 bg-brand-surface shrink-0 overflow-hidden">
+            <img 
+              src="https://images.unsplash.com/photo-1608248597359-00e9324503e9?auto=format&fit=crop&w=800&q=80" 
+              alt="Organic Shea Butter (Raw Unrefined)" 
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              loading="lazy"
+              onerror="this.src='/images/product-placeholder.png'"
+            />
+            <div class="absolute top-3 left-3 bg-white/95 backdrop-blur-xs px-2.5 py-1 rounded-full text-xs font-semibold text-brand-primary shadow-xs flex items-center gap-1.5">
+              <span>🇬🇭</span> Tamale, Ghana
+            </div>
+            <div class="absolute top-3 right-3 bg-emerald-100 text-emerald-900 border-emerald-200 border px-2.5 py-0.5 rounded-full text-[11px] font-bold shadow-xs">
+              Packaged Goods
+            </div>
+          </div>
+<div class="p-5 sm:p-6 flex-1 flex flex-col">
+            
+
+            <h2 class="font-headline font-bold text-lg sm:text-xl text-brand-text mb-1.5 hover:text-brand-primary transition-colors">
+              Organic Shea Butter (Raw Unrefined)
+            </h2>
+            
+            <div class="flex items-center gap-1.5 text-xs font-medium text-brand-muted mb-4">
+              <span class="font-semibold text-brand-text">Northern Essence Ltd</span>
+              <span class="inline-flex items-center text-brand-primary" title="Verified Statutory Supplier">
+                <span class="material-symbols-outlined text-sm filled text-brand-primary">verified</span>
+                <span class="text-[11px] font-bold ml-0.5">Verified Supplier</span>
+              </span>
+            </div>
+
+            <div class="grid grid-cols-2 gap-2 p-3 rounded-xl bg-brand-surface/70 border border-brand-border/40 text-xs mb-4">
+              <div>
+                <span class="text-brand-muted block text-[11px]">Minimum Order (MOQ)</span>
+                <span class="font-bold text-brand-text">10 Cartons</span>
+              </div>
+              <div>
+                <span class="text-brand-muted block text-[11px]">Stock Available</span>
+                <span class="font-bold text-brand-primary">150 Cartons in warehouse</span>
+              </div>
+            </div>
+
+            <div class="mt-auto pt-3 border-t border-brand-border/40 flex items-baseline justify-between">
+              <div>
+                <span class="text-[11px] font-semibold text-brand-muted uppercase block">Wholesale Price</span>
+                <div class="flex items-baseline gap-1.5">
+                  <span class="text-xl sm:text-2xl font-extrabold text-brand-primary font-headline">GH₵ 680</span>
+                  <span class="text-xs font-medium text-brand-muted">/ carton</span>
+                </div>
+              </div>
+              <div class="text-right">
+                <span class="text-[11px] text-brand-muted block">Approx. Local Value</span>
+                <span class="text-xs font-bold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-200">≈ R 890 / carton</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="px-5 sm:px-6 pb-5 pt-0">
+            <button type="button" class="w-full py-2.5 px-4 rounded-xl bg-brand-primary hover:bg-brand-primary-hover text-white font-semibold text-sm flex items-center justify-center gap-2 transition-colors active:scale-98 shadow-xs">
+              <span>View Lot Details</span>
+              <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+            </button>
+          </div>
+        </article>
+
+        <!-- CARD 6: Dried Split Ginger -->
+        <article 
+          class="product-card bg-white border border-brand-border/80 rounded-2xl overflow-hidden hover:shadow-md hover:border-brand-primary transition-all duration-200 flex flex-col justify-between"
+          data-country="NG"
+          data-category="grains"
+          data-name="Dried Split Ginger"
+          data-price="48000"
+          data-moq="30"
+        >
+          <!-- Product Image Banner -->
+          <div class="product-img-wrapper relative w-full h-48 bg-brand-surface shrink-0 overflow-hidden">
+            <img 
+              src="https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=800&q=80" 
+              alt="Dried Split Ginger" 
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              loading="lazy"
+              onerror="this.src='/images/product-placeholder.png'"
+            />
+            <div class="absolute top-3 left-3 bg-white/95 backdrop-blur-xs px-2.5 py-1 rounded-full text-xs font-semibold text-brand-primary shadow-xs flex items-center gap-1.5">
+              <span>🇳🇬</span> Kaduna, Nigeria
+            </div>
+            <div class="absolute top-3 right-3 bg-amber-100 text-amber-900 border-amber-200 border px-2.5 py-0.5 rounded-full text-[11px] font-bold shadow-xs">
+              Grains & Seeds
+            </div>
+          </div>
+<div class="p-5 sm:p-6 flex-1 flex flex-col">
+            
+
+            <h2 class="font-headline font-bold text-lg sm:text-xl text-brand-text mb-1.5 hover:text-brand-primary transition-colors">
+              Dried Split Ginger
+            </h2>
+            
+            <div class="flex items-center gap-1.5 text-xs font-medium text-brand-muted mb-4">
+              <span class="font-semibold text-brand-text">Zaria Agro Hub</span>
+              <span class="inline-flex items-center text-brand-primary" title="Verified Statutory Supplier">
+                <span class="material-symbols-outlined text-sm filled text-brand-primary">verified</span>
+                <span class="text-[11px] font-bold ml-0.5">Verified Supplier</span>
+              </span>
+            </div>
+
+            <div class="grid grid-cols-2 gap-2 p-3 rounded-xl bg-brand-surface/70 border border-brand-border/40 text-xs mb-4">
+              <div>
+                <span class="text-brand-muted block text-[11px]">Minimum Order (MOQ)</span>
+                <span class="font-bold text-brand-text">30 Bags</span>
+              </div>
+              <div>
+                <span class="text-brand-muted block text-[11px]">Stock Available</span>
+                <span class="font-bold text-brand-primary">300 Bags in warehouse</span>
+              </div>
+            </div>
+
+            <div class="mt-auto pt-3 border-t border-brand-border/40 flex items-baseline justify-between">
+              <div>
+                <span class="text-[11px] font-semibold text-brand-muted uppercase block">Wholesale Price</span>
+                <div class="flex items-baseline gap-1.5">
+                  <span class="text-xl sm:text-2xl font-extrabold text-brand-primary font-headline">₦48,000</span>
+                  <span class="text-xs font-medium text-brand-muted">/ bag</span>
+                </div>
+              </div>
+              <div class="text-right">
+                <span class="text-[11px] text-brand-muted block">Approx. Local Value</span>
+                <span class="text-xs font-bold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-200">≈ R 550 / bag</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="px-5 sm:px-6 pb-5 pt-0">
+            <button type="button" class="w-full py-2.5 px-4 rounded-xl bg-brand-primary hover:bg-brand-primary-hover text-white font-semibold text-sm flex items-center justify-center gap-2 transition-colors active:scale-98 shadow-xs">
+              <span>View Lot Details</span>
+              <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+            </button>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- EMPTY STATE (Hidden unless no products match filters) -->
+      <div id="empty-state" class="hidden py-16 text-center bg-white rounded-2xl border border-brand-border/80 my-4 p-8">
+        <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-brand-subtle flex items-center justify-center text-brand-primary">
+          <span class="material-symbols-outlined text-3xl">filter_alt_off</span>
+        </div>
+        <h3 class="font-headline font-bold text-xl text-brand-text mb-1">No wholesale lots found</h3>
+        <p class="text-sm text-brand-muted max-w-md mx-auto mb-6">
+          No active verified listings match your current search and filters. Try selecting a different country or category.
+        </p>
+        <button 
+          type="button" 
+          id="reset-filters-btn" 
+          class="px-5 py-2.5 bg-brand-primary text-white font-semibold text-sm rounded-xl hover:bg-brand-primary-hover shadow-xs transition-all"
+        >
+          Reset All Filters
+        </button>
+      </div>
+
+      <!-- DEMO MODE NOTICE BANNER -->
+      <div class="mt-10 p-4 sm:p-5 rounded-2xl bg-brand-subtle/80 border border-brand-primary/20 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-brand-primary/10 text-brand-primary flex items-center justify-center shrink-0">
+            <span class="material-symbols-outlined text-2xl text-brand-primary">shield</span>
+          </div>
+          <div>
+            <h4 class="font-bold text-sm text-brand-primary">Evaluation Test Bed & Demo Mode</h4>
+            <p class="text-xs text-brand-muted">
+              Demo Mode: Safe simulation with zero real money risk. All wholesale lots and supplier quotes are test records.
+            </p>
+          </div>
+        </div>
+        <div class="flex items-center gap-2 shrink-0">
+          <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+          <span class="text-xs font-semibold text-brand-primary">Simulation Active</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="mt-16 bg-white border-t border-brand-border/80 text-brand-muted">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <!-- 4-Column Footer Grid -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+        <!-- Col 1: Brand Info -->
+        <div class="col-span-2 md:col-span-1">
+          <div class="flex items-center gap-2 mb-3">
+            <div class="w-7 h-7 rounded-lg bg-brand-primary text-white flex items-center justify-center font-bold">
+              <svg class="w-4 h-4 text-brand-secondary" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+              </svg>
+            </div>
+            <span class="font-headline font-bold text-base text-brand-primary">AfriTrade Connect</span>
+          </div>
+          <p class="text-xs leading-relaxed text-brand-muted mb-4">
+            Direct wholesale commerce connecting verified businesses across Nigeria, South Africa, and Ghana.
+          </p>
+          <!-- Status Indicator -->
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-medium">
+            <span class="w-2 h-2 rounded-full bg-emerald-600 animate-ping"></span>
+            <span>All systems normal</span>
+          </div>
+        </div>
+
+        <!-- Col 2: For Buyers -->
+        <div>
+          <h5 class="font-bold text-xs uppercase tracking-wider text-brand-text mb-3">For Buyers</h5>
+          <ul class="space-y-2 text-xs">
+            <li><a href="/marketplace" class="text-brand-primary font-semibold hover:underline">Browse Marketplace</a></li>
+            <li><a href="#how-it-works" class="hover:text-brand-primary transition-colors">Buyer Protection</a></li>
+            <li><a href="#safe-simulation" class="hover:text-brand-primary transition-colors">Safe Test Orders</a></li>
+            <li><a href="#delivery-tracking" class="hover:text-brand-primary transition-colors">Delivery Tracking</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: For Suppliers -->
+        <div>
+          <h5 class="font-bold text-xs uppercase tracking-wider text-brand-text mb-3">For Suppliers</h5>
+          <ul class="space-y-2 text-xs">
+            <li><a href="#supplier-directory" class="hover:text-brand-primary transition-colors">Supplier Directory</a></li>
+            <li><a href="#register" class="hover:text-brand-primary transition-colors">Become a Verified Supplier</a></li>
+            <li><a href="#standards" class="hover:text-brand-primary transition-colors">Verification Criteria</a></li>
+            <li><a href="#handbook" class="hover:text-brand-primary transition-colors">Supplier Handbook</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Regional Hubs & Support -->
+        <div>
+          <h5 class="font-bold text-xs uppercase tracking-wider text-brand-text mb-3">Regional Hubs</h5>
+          <ul class="space-y-2 text-xs">
+            <li class="flex items-center gap-1.5"><span>🇳🇬</span> <a href="#ng-hub" class="hover:text-brand-primary">Nigeria Hub (NGN)</a></li>
+            <li class="flex items-center gap-1.5"><span>🇿🇦</span> <a href="#za-hub" class="hover:text-brand-primary">South Africa Hub (ZAR)</a></li>
+            <li class="flex items-center gap-1.5"><span>🇬🇭</span> <a href="#gh-hub" class="hover:text-brand-primary">Ghana Hub (GHS)</a></li>
+            <li class="pt-1"><a href="#help" class="text-brand-primary font-semibold hover:underline">Help & Support Center</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="pt-8 border-t border-brand-border/60 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
+        <p>© 2025 AfriTrade Connect Ltd. Wholesale commerce across Nigeria, South Africa, and Ghana.</p>
+        <div class="flex items-center gap-6">
+          <a href="#privacy" class="hover:text-brand-primary transition-colors">Privacy Policy</a>
+          <a href="#terms" class="hover:text-brand-primary transition-colors">Terms of Trade</a>
+          <a href="#safety" class="hover:text-brand-primary transition-colors">Trade Safety Standards</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT LOGIC (Interactive Filter, Sort, Grid/List Toggle) -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Elements
+      const catalogContainer = document.getElementById('catalog-container');
+      const cards = Array.from(document.querySelectorAll('.product-card'));
+      const searchInput = document.getElementById('search-input');
+      const clearSearchBtn = document.getElementById('clear-search');
+      const countryChips = document.querySelectorAll('.country-chip');
+      const categoryChips = document.querySelectorAll('.category-chip');
+      const viewGridBtn = document.getElementById('view-grid-btn');
+      const viewListBtn = document.getElementById('view-list-btn');
+      const sortSelect = document.getElementById('sort-select');
+      const resultsCountEl = document.getElementById('results-count');
+      const emptyStateEl = document.getElementById('empty-state');
+      const resetFiltersBtn = document.getElementById('reset-filters-btn');
+      const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+
+      let currentCountry = 'all';
+      let currentCategory = 'all';
+      let currentSearch = '';
+      let isGridView = true;
+
+      // Mobile Menu Toggle
+      if (mobileMenuBtn && mobileMenu) {
+        mobileMenuBtn.addEventListener('click', () => {
+          mobileMenu.classList.toggle('hidden');
+        });
+      }
+
+      // Filter function
+      function applyFilters() {
+        let visibleCount = 0;
+
+        cards.forEach(card => {
+          const cardCountry = card.getAttribute('data-country');
+          const cardCategory = card.getAttribute('data-category');
+          const cardName = card.getAttribute('data-name').toLowerCase();
+
+          const matchCountry = (currentCountry === 'all' || cardCountry === currentCountry);
+          const matchCategory = (currentCategory === 'all' || cardCategory === currentCategory);
+          const matchSearch = (!currentSearch || cardName.includes(currentSearch));
+
+          if (matchCountry && matchCategory && matchSearch) {
+            card.style.display = isGridView ? 'flex' : 'flex';
+            visibleCount++;
+          } else {
+            card.style.display = 'none';
+          }
+        });
+
+        // Update result count & empty state
+        resultsCountEl.textContent = `Showing ${visibleCount} verified wholesale lot${visibleCount === 1 ? '' : 's'}`;
+        if (visibleCount === 0) {
+          emptyStateEl.classList.remove('hidden');
+        } else {
+          emptyStateEl.classList.add('hidden');
+        }
+      }
+
+      // Country Chip Event
+      countryChips.forEach(chip => {
+        chip.addEventListener('click', () => {
+          countryChips.forEach(c => {
+            c.classList.remove('bg-brand-primary', 'text-white', 'border-brand-primary', 'active');
+            c.classList.add('bg-white', 'text-brand-muted', 'border-brand-border/80');
+          });
+          chip.classList.add('bg-brand-primary', 'text-white', 'border-brand-primary', 'active');
+          chip.classList.remove('bg-white', 'text-brand-muted', 'border-brand-border/80');
+
+          currentCountry = chip.getAttribute('data-country');
+          applyFilters();
+        });
+      });
+
+      // Category Chip Event
+      categoryChips.forEach(chip => {
+        chip.addEventListener('click', () => {
+          categoryChips.forEach(c => {
+            c.classList.remove('bg-brand-primary', 'text-white', 'border-brand-primary', 'active');
+            c.classList.add('bg-white', 'text-brand-muted', 'border-brand-border/80');
+          });
+          chip.classList.add('bg-brand-primary', 'text-white', 'border-brand-primary', 'active');
+          chip.classList.remove('bg-white', 'text-brand-muted', 'border-brand-border/80');
+
+          currentCategory = chip.getAttribute('data-category');
+          applyFilters();
+        });
+      });
+
+      // Search Input
+      searchInput.addEventListener('input', (e) => {
+        currentSearch = e.target.value.trim().toLowerCase();
+        if (currentSearch.length > 0) {
+          clearSearchBtn.classList.remove('hidden');
+        } else {
+          clearSearchBtn.classList.add('hidden');
+        }
+        applyFilters();
+      });
+
+      clearSearchBtn.addEventListener('click', () => {
+        searchInput.value = '';
+        currentSearch = '';
+        clearSearchBtn.classList.add('hidden');
+        applyFilters();
+        searchInput.focus();
+      });
+
+      // Reset Filters
+      resetFiltersBtn.addEventListener('click', () => {
+        searchInput.value = '';
+        currentSearch = '';
+        clearSearchBtn.classList.add('hidden');
+
+        countryChips[0].click();
+        categoryChips[0].click();
+      });
+
+      // View Mode Toggle (Grid vs List)
+      function setViewMode(grid) {
+        isGridView = grid;
+        if (grid) {
+          // Set to Grid Layout
+          catalogContainer.className = 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 transition-all duration-300';
+          viewGridBtn.className = 'p-1.5 rounded-lg text-white bg-brand-primary transition-all flex items-center justify-center';
+          viewListBtn.className = 'p-1.5 rounded-lg text-brand-muted hover:text-brand-primary transition-all flex items-center justify-center';
+
+          // Restore card flex columns & grid image layout
+          cards.forEach(card => {
+            card.classList.remove('md:flex-row', 'items-center');
+            card.classList.add('flex-col');
+            const imgWrapper = card.querySelector('.product-img-wrapper');
+            if (imgWrapper) {
+              imgWrapper.className = 'product-img-wrapper relative w-full h-48 bg-brand-surface shrink-0 overflow-hidden';
+            }
+            const inner = card.querySelector('div.flex-1');
+            if (inner) inner.classList.remove('md:w-2/4');
+            const action = card.querySelector('div.px-5');
+            if (action) {
+              action.classList.remove('md:w-1/4', 'md:pb-0', 'md:pt-5');
+              action.classList.add('pb-5');
+            }
+          });
+        } else {
+          // Set to List Layout
+          catalogContainer.className = 'flex flex-col space-y-4 transition-all duration-300';
+          viewListBtn.className = 'p-1.5 rounded-lg text-white bg-brand-primary transition-all flex items-center justify-center';
+          viewGridBtn.className = 'p-1.5 rounded-lg text-brand-muted hover:text-brand-primary transition-all flex items-center justify-center';
+
+          // Format cards as horizontal rows with side thumbnail on md+ screens
+          cards.forEach(card => {
+            card.classList.remove('flex-col');
+            card.classList.add('md:flex-row', 'items-center');
+            const imgWrapper = card.querySelector('.product-img-wrapper');
+            if (imgWrapper) {
+              imgWrapper.className = 'product-img-wrapper relative w-full md:w-56 h-48 md:h-52 bg-brand-surface shrink-0 overflow-hidden';
+            }
+            const inner = card.querySelector('div.flex-1');
+            if (inner) inner.classList.add('md:w-2/4');
+            const action = card.querySelector('div.px-5');
+            if (action) {
+              action.classList.add('md:w-1/4', 'md:pb-0', 'md:pt-5');
+              action.classList.remove('pb-5');
+            }
+          });
+        }
+        applyFilters();
+      }
+
+      viewGridBtn.addEventListener('click', () => setViewMode(true));
+      viewListBtn.addEventListener('click', () => setViewMode(false));
+
+      // Sorting Logic
+      sortSelect.addEventListener('change', () => {
+        const value = sortSelect.value;
+        const sortedCards = [...cards];
+
+        if (value === 'price-low') {
+          sortedCards.sort((a, b) => parseFloat(a.dataset.price) - parseFloat(b.dataset.price));
+        } else if (value === 'price-high') {
+          sortedCards.sort((a, b) => parseFloat(b.dataset.price) - parseFloat(a.dataset.price));
+        } else if (value === 'moq-low') {
+          sortedCards.sort((a, b) => parseFloat(a.dataset.moq) - parseFloat(b.dataset.moq));
+        } else {
+          // Default newest
+          sortedCards.sort((a, b) => cards.indexOf(a) - cards.indexOf(b));
+        }
+
+        // Re-append to container
+        sortedCards.forEach(card => catalogContainer.appendChild(card));
+        applyFilters();
+      });
+
+    });
+  </script>
+</body>
+</html>
+
+

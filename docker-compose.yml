@@ -1,0 +1,45 @@
+# Local parity with CI service containers (same images, same ports). Zero cost.
+# Databases: afritrade (dev) | afritrade_test (jest integration) | afritrade_smoke (verify-prod)
+# Redis logical DBs: 0 dev | 1 tests | 2 smoke
+name: afritrade-connect
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: afritrade
+    volumes:
+      - afritrade_pg:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - afritrade_redis:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+
+  adminer:
+    image: adminer
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+
+volumes:
+  afritrade_pg:
+  afritrade_redis:

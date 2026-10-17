@@ -1,0 +1,61 @@
+{
+  "name": "afritrade-connect",
+  "private": true,
+  "version": "0.1.0",
+  "packageManager": "pnpm@10.0.0",
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "typecheck": "turbo run typecheck",
+    "test": "turbo run test",
+    "test:cov": "turbo run test:cov",
+    "test:integration": "pnpm --filter api test:integration",
+    "test:global": "jest --config jest.config.js",
+    "test:global:cov": "jest --config jest.config.js --coverage",
+    "test:watch": "jest --config jest.config.js --watch",
+    "openapi:generate": "pnpm --filter api run openapi:generate",
+    "policy": "bash scripts/ci/policy-checks.sh",
+    "db:up": "docker compose up -d --wait && bash scripts/db/ensure-dbs.sh",
+    "db:down": "docker compose down",
+    "db:reset": "docker compose down -v && pnpm db:up",
+    "db:check": "node scripts/ci/check-migrations.mjs && bash scripts/db/drift-check.sh",
+    "migrate:dev": "pnpm --filter api run migrate:dev",
+    "migrate:deploy": "pnpm --filter api run migrate:deploy",
+    "seed": "pnpm --filter @afritrade/shared build && pnpm --filter api run seed",
+    "db:studio": "pnpm --filter api run studio",
+    "verify:prod": "bash scripts/verify-prod.sh",
+    "smoke-test": "node scripts/ci/smoke-test.mjs",
+    "prepush": "turbo run lint typecheck test --affected && pnpm policy && node scripts/ci/check-migrations.mjs",
+    "verify": "pnpm policy && pnpm lint && pnpm typecheck && pnpm test:cov && pnpm db:check && pnpm test:integration && pnpm verify:prod --quick",
+    "clean": "node scripts/clean.mjs",
+    "format": "prettier --write \"**/*.{ts,tsx,md,json}\"",
+    "sync:portfolio": "bash scripts/sync-portfolio.sh"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^22.0.0",
+    "@types/jest": "^30.0.0",
+    "eslint": "^10.12.0",
+    "prettier": "^3.3.0",
+    "turbo": "^2.1.0",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.20.0",
+    "husky": "^9.0.0",
+    "jest": "^30.0.0",
+    "@swc/core": "^1.5.0",
+    "@swc/jest": "^0.2.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@parcel/watcher",
+      "@prisma/engines",
+      "esbuild",
+      "prisma",
+      "unrs-resolver"
+    ]
+  }
+}

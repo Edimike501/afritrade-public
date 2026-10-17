@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>AfriTrade Connect - Mobile Wholesale Marketplace</title>
+  <!-- Google Fonts: Bricolage Grotesque & Noto Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;700;800&family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Material Symbols Icons -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              primary: '#00513a',
+              'primary-dark': '#003a29',
+              gold: '#feb62f',
+              'gold-hover': '#e5a42a',
+              surface: '#f2fcf5',
+              border: '#bec9c2',
+              'card-bg': '#ffffff',
+              subtle: '#e7f5ec',
+              muted: '#526058'
+            }
+          },
+          fontFamily: {
+            headline: ['"Bricolage Grotesque"', 'sans-serif'],
+            body: ['"Noto Sans"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Mobile-first polish & smooth scrolling */
+    html, body {
+      font-family: 'Noto Sans', sans-serif;
+      background-color: #f2fcf5;
+      color: #17211c;
+      overflow-x: hidden;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .font-headline {
+      font-family: 'Bricolage Grotesque', sans-serif;
+    }
+    /* Hide scrollbar for category pills */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    /* Touch target guarantee */
+    .touch-target {
+      min-height: 44px;
+      min-width: 44px;
+    }
+  </style>
+</head>
+<body class="bg-brand-surface min-h-screen text-[#17211c] antialiased flex flex-col items-center">
+
+  <!-- Mobile Viewport Container (~390px - max-w-md) -->
+  <div class="w-full max-w-md bg-brand-surface min-h-screen relative shadow-2xl flex flex-col overflow-x-hidden pb-8 border-x border-[#bec9c2]/40">
+
+    <!-- 1. Sticky Mobile Header (56px) -->
+    <header class="sticky top-0 z-50 h-14 bg-white/95 backdrop-blur-md border-b border-brand-border px-4 flex items-center justify-between">
+      <!-- Logo & Brand Mark -->
+      <a href="#hero" class="flex items-center gap-2 touch-target py-2">
+        <div class="w-8 h-8 rounded-lg bg-brand-primary flex items-center justify-center text-white shadow-sm">
+          <!-- Clean geometric leaf/grain symbol -->
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M11 20A7 7 0 0 1 4 13C4 7 11 3 11 3s7 4 7 10a7 7 0 0 1-7 7Z"/>
+            <path d="M11 3v17"/>
+          </svg>
+        </div>
+        <span class="font-headline font-bold text-lg tracking-tight text-brand-primary">AfriTrade</span>
+      </a>
+
+      <!-- Right Actions: Currency Pill & Menu Toggle -->
+      <div class="flex items-center gap-2">
+        <button id="currency-btn" class="flex items-center gap-1 bg-brand-subtle text-brand-primary text-xs font-semibold px-2.5 py-1.5 rounded-full border border-brand-border/60 hover:bg-emerald-100/70 transition-colors touch-target">
+          <span id="mobileCurrencyLabel">USD ($)</span>
+          <span class="material-symbols-outlined text-[16px] leading-none">expand_more</span>
+        </button>
+
+        <button id="menu-btn" aria-label="Open Navigation Menu" class="w-10 h-10 flex items-center justify-center rounded-lg text-brand-primary hover:bg-brand-subtle active:scale-95 transition touch-target">
+          <span class="material-symbols-outlined text-2xl">menu</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Mobile Drawer / Navigation Overlay (Modal) -->
+    <div id="mobile-drawer" class="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm hidden transition-opacity">
+      <div class="absolute right-0 top-0 bottom-0 w-4/5 max-w-xs bg-white p-5 flex flex-col justify-between shadow-2xl">
+        <div>
+          <div class="flex items-center justify-between pb-4 border-b border-brand-border">
+            <span class="font-headline font-bold text-lg text-brand-primary">Menu</span>
+            <button id="close-menu-btn" aria-label="Close Navigation Menu" class="w-10 h-10 flex items-center justify-center text-gray-500 hover:text-brand-primary touch-target rounded-full hover:bg-gray-100">
+              <span class="material-symbols-outlined text-2xl">close</span>
+            </button>
+          </div>
+          <nav class="flex flex-col gap-1 mt-4">
+            <a href="#catalog" class="drawer-link px-3 py-3 rounded-lg text-[#17211c] font-medium hover:bg-brand-subtle hover:text-brand-primary flex items-center justify-between">
+              <span>Browse Products</span>
+              <span class="material-symbols-outlined text-gray-400 text-lg">chevron_right</span>
+            </a>
+            <a href="#how-it-works" class="drawer-link px-3 py-3 rounded-lg text-[#17211c] font-medium hover:bg-brand-subtle hover:text-brand-primary flex items-center justify-between">
+              <span>How Verification Works</span>
+              <span class="material-symbols-outlined text-gray-400 text-lg">chevron_right</span>
+            </a>
+            <a href="#trust" class="drawer-link px-3 py-3 rounded-lg text-[#17211c] font-medium hover:bg-brand-subtle hover:text-brand-primary flex items-center justify-between">
+              <span>Trust & Safety</span>
+              <span class="material-symbols-outlined text-gray-400 text-lg">chevron_right</span>
+            </a>
+            <a href="#hubs" class="drawer-link px-3 py-3 rounded-lg text-[#17211c] font-medium hover:bg-brand-subtle hover:text-brand-primary flex items-center justify-between">
+              <span>Trade Hubs</span>
+              <span class="material-symbols-outlined text-gray-400 text-lg">chevron_right</span>
+            </a>
+          </nav>
+        </div>
+
+        <div class="pt-4 border-t border-brand-border flex flex-col gap-2.5">
+          <a href="#cta" class="drawer-link w-full text-center py-3 bg-brand-primary text-white font-semibold rounded-xl text-sm shadow hover:bg-brand-primary-dark">Sign Up Free</a>
+          <button class="w-full text-center py-3 border border-brand-border text-brand-primary font-semibold rounded-xl text-sm hover:bg-brand-subtle">Log In</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. Mobile Hero Section -->
+    <section id="hero" class="px-4 pt-6 pb-7 flex flex-col">
+      <!-- Country badge -->
+      <div class="inline-flex items-center gap-1.5 self-start px-3 py-1 rounded-full bg-brand-subtle border border-brand-border/70 text-xs font-semibold text-brand-primary mb-3.5">
+        <span class="w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></span>
+        <span>Trade across Nigeria, South Africa & Ghana</span>
+      </div>
+
+      <!-- Main Headline -->
+      <h1 class="font-headline font-extrabold text-[28px] leading-[1.2] text-[#0d2218] tracking-tight mb-3">
+        Buy and Sell Wholesale Across Africa with Confidence
+      </h1>
+
+      <!-- Subtitle -->
+      <p class="text-sm leading-relaxed text-[#3e5046] mb-5">
+        Connect directly with verified suppliers in Nigeria, South Africa, and Ghana. See prices in your local currency and track shipments easily.
+      </p>
+
+      <!-- Stacked Full-Width Buttons (min 48px height) -->
+      <div class="flex flex-col gap-3">
+        <a href="#catalog" class="w-full min-h-[48px] bg-brand-primary hover:bg-brand-primary-dark active:scale-[0.98] transition-all text-white font-semibold text-base rounded-xl flex items-center justify-center gap-2 shadow-md touch-target">
+          <span>Browse Products</span>
+          <span class="material-symbols-outlined text-xl">arrow_forward</span>
+        </a>
+        <a href="#cta" class="w-full min-h-[48px] bg-white hover:bg-brand-subtle active:scale-[0.98] transition-all text-brand-primary font-semibold text-base rounded-xl flex items-center justify-center border-2 border-brand-primary touch-target">
+          <span>Join as a Supplier</span>
+        </a>
+      </div>
+
+      <!-- Demo mode simulation notice -->
+      <div class="mt-3.5 flex items-center gap-2 text-xs text-brand-muted bg-emerald-50/70 rounded-lg p-2.5 border border-brand-border/50">
+        <span class="material-symbols-outlined text-[17px] text-brand-primary">verified_user</span>
+        <span>Demo Mode: Safe simulation with zero real money</span>
+      </div>
+    </section>
+
+    <!-- 3. Live Wholesale Catalog (Mobile Cards) -->
+    <section id="catalog" class="px-4 py-6 border-t border-brand-border/60 bg-white/50">
+      <div class="flex items-center justify-between mb-3">
+        <div>
+          <span class="text-[11px] font-bold uppercase tracking-wider text-brand-primary font-headline">Live Catalog Sample</span>
+          <h2 class="font-headline font-bold text-xl text-[#0d2218]">Verified Wholesale Lots</h2>
+        </div>
+        <span class="text-[11px] text-emerald-800 font-medium flex items-center gap-1 bg-brand-subtle px-2 py-0.5 rounded-full border border-brand-border/50">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span> Live rates
+        </span>
+      </div>
+
+      <!-- Horizontally Scrollable Category Pills -->
+      <div class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-3 pt-1 -mx-4 px-4">
+        <button class="cat-pill active px-3.5 py-1.5 rounded-full text-xs font-semibold bg-brand-primary text-white whitespace-nowrap shadow-sm touch-target">
+          All Products
+        </button>
+        <button class="cat-pill px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white border border-brand-border text-[#2c3d33] hover:bg-brand-subtle whitespace-nowrap touch-target">
+          Grains & Seeds
+        </button>
+        <button class="cat-pill px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white border border-brand-border text-[#2c3d33] hover:bg-brand-subtle whitespace-nowrap touch-target">
+          Nuts & Produce
+        </button>
+        <button class="cat-pill px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white border border-brand-border text-[#2c3d33] hover:bg-brand-subtle whitespace-nowrap touch-target">
+          Packaged Goods
+        </button>
+      </div>
+
+      <!-- Product Cards (Vertical Stack for Mobile) -->
+      <div class="flex flex-col gap-3.5 mt-2">
+        <!-- Product Card 1 -->
+        <div class="bg-white rounded-2xl p-4 border border-brand-border shadow-sm flex flex-col gap-3 hover:border-brand-primary/50 transition-all">
+          <div class="flex items-start gap-3">
+            <div class="w-16 h-16 rounded-xl bg-amber-50 border border-amber-200/60 flex items-center justify-center shrink-0 text-amber-800">
+              <span class="material-symbols-outlined text-3xl">grain</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-1.5 mb-0.5">
+                <span class="bg-emerald-100 text-emerald-800 text-[10px] font-bold px-1.5 py-0.5 rounded">NG</span>
+                <span class="text-xs text-brand-muted truncate">500 Bags • Kano, Nigeria</span>
+              </div>
+              <h3 class="font-headline font-bold text-base text-[#11241a] leading-tight">Yellow Maize (Grade A)</h3>
+              <!-- Verified Badge -->
+              <div class="flex items-center gap-1 text-[11px] text-emerald-800 font-semibold mt-1">
+                <span class="material-symbols-outlined text-sm text-emerald-700">verified</span>
+                <span>Verified Supplier</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-2.5 border-t border-brand-border/60 flex items-center justify-between">
+            <div>
+              <div class="text-[11px] text-gray-500 font-medium">Wholesale Price</div>
+              <div class="font-headline font-bold text-lg text-brand-primary">₦25,000 <span class="text-xs font-normal text-gray-600">/ bag</span></div>
+            </div>
+            <div class="text-right">
+              <span class="text-[10px] text-gray-500 block">Indicative Estimate</span>
+              <span class="inline-block bg-brand-subtle border border-brand-border/50 px-2 py-0.5 rounded text-xs font-semibold text-brand-primary">
+                ≈ R 290
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product Card 2 -->
+        <div class="bg-white rounded-2xl p-4 border border-brand-border shadow-sm flex flex-col gap-3 hover:border-brand-primary/50 transition-all">
+          <div class="flex items-start gap-3">
+            <div class="w-16 h-16 rounded-xl bg-orange-50 border border-orange-200/60 flex items-center justify-center shrink-0 text-orange-800">
+              <span class="material-symbols-outlined text-3xl">nutrition</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-1.5 mb-0.5">
+                <span class="bg-amber-100 text-amber-900 text-[10px] font-bold px-1.5 py-0.5 rounded">GH</span>
+                <span class="text-xs text-brand-muted truncate">50 Bags • Sunyani, Ghana</span>
+              </div>
+              <h3 class="font-headline font-bold text-base text-[#11241a] leading-tight">Raw Cashew Nuts</h3>
+              <!-- Verified Badge -->
+              <div class="flex items-center gap-1 text-[11px] text-emerald-800 font-semibold mt-1">
+                <span class="material-symbols-outlined text-sm text-emerald-700">verified</span>
+                <span>Verified Supplier</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-2.5 border-t border-brand-border/60 flex items-center justify-between">
+            <div>
+              <div class="text-[11px] text-gray-500 font-medium">Wholesale Price</div>
+              <div class="font-headline font-bold text-lg text-brand-primary">GH₵ 450 <span class="text-xs font-normal text-gray-600">/ bag</span></div>
+            </div>
+            <div class="text-right">
+              <span class="text-[10px] text-gray-500 block">Indicative Estimate</span>
+              <span class="inline-block bg-brand-subtle border border-brand-border/50 px-2 py-0.5 rounded text-xs font-semibold text-brand-primary">
+                ≈ ₦45,000
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. How It Works (3 Simple Steps - Vertical stack) -->
+    <section id="how-it-works" class="px-4 py-8 border-t border-brand-border/60">
+      <div class="text-center mb-6">
+        <span class="text-xs font-bold uppercase tracking-wider text-brand-gold-hover font-headline">Simple Purchasing</span>
+        <h2 class="font-headline font-bold text-2xl text-[#0d2218] mt-1">How AfriTrade Works in 3 Simple Steps</h2>
+        <p class="text-xs text-[#3e5046] mt-1">Straightforward wholesale purchasing across borders.</p>
+      </div>
+
+      <div class="flex flex-col gap-3.5">
+        <!-- Step 1 -->
+        <div class="bg-white rounded-2xl p-4 border border-brand-border shadow-sm flex items-start gap-3.5">
+          <div class="w-10 h-10 rounded-xl bg-brand-subtle text-brand-primary font-headline font-bold text-base flex items-center justify-center shrink-0 border border-brand-border">
+            01
+          </div>
+          <div>
+            <h3 class="font-headline font-bold text-base text-[#11241a]">Browse Verified Suppliers</h3>
+            <p class="text-xs text-[#3e5046] mt-1 leading-relaxed">
+              Find checked local businesses across Nigeria, South Africa, and Ghana.
+            </p>
+            <span class="inline-flex items-center gap-1 text-[11px] text-emerald-800 font-medium mt-2">
+              <span class="material-symbols-outlined text-[14px]">shield_check</span>
+              Checked company registration
+            </span>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="bg-white rounded-2xl p-4 border border-brand-border shadow-sm flex items-start gap-3.5">
+          <div class="w-10 h-10 rounded-xl bg-brand-subtle text-brand-primary font-headline font-bold text-base flex items-center justify-center shrink-0 border border-brand-border">
+            02
+          </div>
+          <div>
+            <h3 class="font-headline font-bold text-base text-[#11241a]">Order & Test Payment</h3>
+            <p class="text-xs text-[#3e5046] mt-1 leading-relaxed">
+              Place orders easily with transparent prices converted into your local currency.
+            </p>
+            <span class="inline-flex items-center gap-1 text-[11px] text-emerald-800 font-medium mt-2">
+              <span class="material-symbols-outlined text-[14px]">payments</span>
+              Transparent converted prices
+            </span>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="bg-white rounded-2xl p-4 border border-brand-border shadow-sm flex items-start gap-3.5">
+          <div class="w-10 h-10 rounded-xl bg-brand-subtle text-brand-primary font-headline font-bold text-base flex items-center justify-center shrink-0 border border-brand-border">
+            03
+          </div>
+          <div>
+            <h3 class="font-headline font-bold text-base text-[#11241a]">Track Your Delivery</h3>
+            <p class="text-xs text-[#3e5046] mt-1 leading-relaxed">
+              Follow your order step-by-step from supplier pickup to customs clearance and final arrival.
+            </p>
+            <span class="inline-flex items-center gap-1 text-[11px] text-emerald-800 font-medium mt-2">
+              <span class="material-symbols-outlined text-[14px]">local_shipping</span>
+              Step-by-step shipment tracking
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Trust & Peace of Mind (3 Mobile Cards) -->
+    <section id="trust" class="px-4 py-8 border-t border-brand-border/60 bg-brand-subtle/40">
+      <div class="mb-5">
+        <span class="text-xs font-bold uppercase tracking-wider text-brand-primary font-headline flex items-center gap-1">
+          <span class="material-symbols-outlined text-sm">security</span>
+          Trust & Peace of Mind
+        </span>
+        <h2 class="font-headline font-bold text-2xl text-[#0d2218] mt-1">Built for Safe Wholesale Trade</h2>
+        <p class="text-xs text-[#3e5046] mt-1">Cross-border procurement should be straightforward, fair, and reliable.</p>
+      </div>
+
+      <div class="flex flex-col gap-3">
+        <!-- Card 1 -->
+        <div class="bg-white rounded-2xl p-4 border border-brand-border shadow-sm">
+          <div class="w-9 h-9 rounded-lg bg-emerald-100/70 text-brand-primary flex items-center justify-center mb-2.5">
+            <span class="material-symbols-outlined text-xl">fact_check</span>
+          </div>
+          <h3 class="font-headline font-bold text-base text-[#11241a]">Checked Businesses</h3>
+          <p class="text-xs text-[#3e5046] mt-1 leading-relaxed">
+            Registered with CAC (NG), CIPC (ZA), or RGD (GH). Every supplier is vetted before listing wholesale goods.
+          </p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="bg-white rounded-2xl p-4 border border-brand-border shadow-sm">
+          <div class="w-9 h-9 rounded-lg bg-amber-100 text-amber-800 flex items-center justify-center mb-2.5">
+            <span class="material-symbols-outlined text-xl">price_check</span>
+          </div>
+          <h3 class="font-headline font-bold text-base text-[#11241a]">Clear Prices</h3>
+          <p class="text-xs text-[#3e5046] mt-1 leading-relaxed">
+            Transparent prices and converted estimates with no hidden fees or surprise foreign exchange deductions.
+          </p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="bg-white rounded-2xl p-4 border border-brand-border shadow-sm">
+          <div class="w-9 h-9 rounded-lg bg-emerald-100/70 text-brand-primary flex items-center justify-center mb-2.5">
+            <span class="material-symbols-outlined text-xl">local_shipping</span>
+          </div>
+          <h3 class="font-headline font-bold text-base text-[#11241a]">Trusted Delivery Partners</h3>
+          <p class="text-xs text-[#3e5046] mt-1 leading-relaxed">
+            Hand-picked transport partners handling bulk delivery from supplier warehouses to your doorstep.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Country Hubs (Mobile Compact Stack) -->
+    <section id="hubs" class="px-4 py-7 border-t border-brand-border/60 bg-white">
+      <div class="mb-4">
+        <h2 class="font-headline font-bold text-xl text-[#0d2218]">Active Country Hubs</h2>
+        <p class="text-xs text-brand-muted mt-0.5">Direct bulk connections across 3 key regional markets</p>
+      </div>
+
+      <div class="flex flex-col gap-2.5">
+        <!-- Nigeria Hub -->
+        <div class="p-3.5 rounded-xl border border-brand-border/80 bg-brand-surface flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-lg bg-emerald-700 text-white font-headline font-bold text-xs flex items-center justify-center shrink-0">
+              NG
+            </div>
+            <div>
+              <div class="font-headline font-bold text-sm text-[#11241a]">Nigeria Hub (NGN)</div>
+              <div class="text-xs text-brand-muted">Grains & Seeds, Oilseeds</div>
+            </div>
+          </div>
+          <span class="text-xs font-semibold text-brand-primary bg-white px-2 py-1 rounded-md border border-brand-border">Active</span>
+        </div>
+
+        <!-- South Africa Hub -->
+        <div class="p-3.5 rounded-xl border border-brand-border/80 bg-brand-surface flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-lg bg-[#00513a] text-white font-headline font-bold text-xs flex items-center justify-center shrink-0">
+              ZA
+            </div>
+            <div>
+              <div class="font-headline font-bold text-sm text-[#11241a]">South Africa Hub (ZAR)</div>
+              <div class="text-xs text-brand-muted">Packaged Goods & Produce</div>
+            </div>
+          </div>
+          <span class="text-xs font-semibold text-brand-primary bg-white px-2 py-1 rounded-md border border-brand-border">Active</span>
+        </div>
+
+        <!-- Ghana Hub -->
+        <div class="p-3.5 rounded-xl border border-brand-border/80 bg-brand-surface flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-lg bg-amber-600 text-white font-headline font-bold text-xs flex items-center justify-center shrink-0">
+              GH
+            </div>
+            <div>
+              <div class="font-headline font-bold text-sm text-[#11241a]">Ghana Hub (GHS)</div>
+              <div class="text-xs text-brand-muted">Cashews & Raw Produce</div>
+            </div>
+          </div>
+          <span class="text-xs font-semibold text-brand-primary bg-white px-2 py-1 rounded-md border border-brand-border">Active</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Mobile CTA Banner -->
+    <section id="cta" class="mx-4 my-6 rounded-2xl bg-[#00513a] p-5 text-white shadow-xl relative overflow-hidden">
+      <!-- Decorative background blur circle -->
+      <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-emerald-500/20 rounded-full blur-2xl pointer-events-none"></div>
+
+      <div class="inline-flex items-center gap-1.5 text-xs text-brand-gold font-semibold mb-2">
+        <span class="material-symbols-outlined text-[15px]">rocket_launch</span>
+        <span>Start Sourcing Today</span>
+      </div>
+
+      <h2 class="font-headline font-bold text-xl leading-tight mb-2">
+        Ready to start trading with verified suppliers?
+      </h2>
+
+      <p class="text-xs text-emerald-100/80 leading-relaxed mb-5">
+        Join wholesale buyers and local businesses streamlining intra-African trade across Nigeria, South Africa, and Ghana.
+      </p>
+
+      <div class="flex flex-col gap-2.5">
+        <a href="#hero" class="w-full min-h-[48px] bg-brand-gold hover:bg-brand-gold-hover text-[#003a29] font-bold text-sm rounded-xl flex items-center justify-center shadow touch-target active:scale-[0.98] transition">
+          Create Free Account
+        </a>
+        <a href="#catalog" class="w-full min-h-[48px] bg-white/10 hover:bg-white/15 text-white font-semibold text-sm rounded-xl border border-white/20 flex items-center justify-center touch-target active:scale-[0.98] transition">
+          Explore Marketplace
+        </a>
+      </div>
+    </section>
+
+    <!-- 8. Mobile Footer -->
+    <footer class="px-4 pt-6 pb-4 border-t border-brand-border/70 bg-white">
+      <!-- Brand & Mission Note -->
+      <div class="flex items-center gap-2 mb-2">
+        <div class="w-6 h-6 rounded bg-brand-primary flex items-center justify-center text-white">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M11 20A7 7 0 0 1 4 13C4 7 11 3 11 3s7 4 7 10a7 7 0 0 1-7 7Z"/>
+          </svg>
+        </div>
+        <span class="font-headline font-bold text-base text-brand-primary">AfriTrade Connect</span>
+      </div>
+      <p class="text-xs text-brand-muted leading-relaxed mb-5">
+        Simple wholesale commerce across Nigeria, South Africa, and Ghana.
+      </p>
+
+      <!-- Accordion or Stacked Link Groups -->
+      <div class="divide-y divide-brand-border/60 border-y border-brand-border/60">
+        <!-- For Buyers -->
+        <details class="group py-2.5">
+          <summary class="flex items-center justify-between text-xs font-bold text-[#11241a] cursor-pointer list-none py-1">
+            <span>For Buyers</span>
+            <span class="material-symbols-outlined text-gray-400 group-open:rotate-180 transition-transform text-sm">expand_more</span>
+          </summary>
+          <div class="flex flex-col gap-2 pt-2 pb-1 text-xs text-brand-muted pl-2">
+            <a href="#catalog" class="hover:text-brand-primary">Browse Marketplace</a>
+            <a href="#trust" class="hover:text-brand-primary">Buyer Protection</a>
+            <a href="#trust" class="hover:text-brand-primary">Verified Suppliers</a>
+            <a href="#how-it-works" class="hover:text-brand-primary">Delivery Tracking</a>
+          </div>
+        </details>
+
+        <!-- For Suppliers -->
+        <details class="group py-2.5">
+          <summary class="flex items-center justify-between text-xs font-bold text-[#11241a] cursor-pointer list-none py-1">
+            <span>For Suppliers</span>
+            <span class="material-symbols-outlined text-gray-400 group-open:rotate-180 transition-transform text-sm">expand_more</span>
+          </summary>
+          <div class="flex flex-col gap-2 pt-2 pb-1 text-xs text-brand-muted pl-2">
+            <a href="#cta" class="hover:text-brand-primary">Become a Verified Supplier</a>
+            <a href="#" class="hover:text-brand-primary">Supplier Directory</a>
+            <a href="#" class="hover:text-brand-primary">Seller Handbook</a>
+          </div>
+        </details>
+
+        <!-- Countries -->
+        <details class="group py-2.5">
+          <summary class="flex items-center justify-between text-xs font-bold text-[#11241a] cursor-pointer list-none py-1">
+            <span>Countries</span>
+            <span class="material-symbols-outlined text-gray-400 group-open:rotate-180 transition-transform text-sm">expand_more</span>
+          </summary>
+          <div class="flex flex-col gap-2 pt-2 pb-1 text-xs text-brand-muted pl-2">
+            <a href="#hubs" class="hover:text-brand-primary">Nigeria Hub (NGN)</a>
+            <a href="#hubs" class="hover:text-brand-primary">South Africa Hub (ZAR)</a>
+            <a href="#hubs" class="hover:text-brand-primary">Ghana Hub (GHS)</a>
+          </div>
+        </details>
+
+        <!-- Help & Safety -->
+        <details class="group py-2.5">
+          <summary class="flex items-center justify-between text-xs font-bold text-[#11241a] cursor-pointer list-none py-1">
+            <span>Help & Safety</span>
+            <span class="material-symbols-outlined text-gray-400 group-open:rotate-180 transition-transform text-sm">expand_more</span>
+          </summary>
+          <div class="flex flex-col gap-2 pt-2 pb-1 text-xs text-brand-muted pl-2">
+            <a href="#trust" class="hover:text-brand-primary">Help Center</a>
+            <a href="#trust" class="hover:text-brand-primary">Trade Safety Standards</a>
+            <a href="#" class="hover:text-brand-primary">Report an Issue</a>
+          </div>
+        </details>
+      </div>
+
+      <!-- Copyright & Status -->
+      <div class="mt-5 flex flex-col sm:flex-row items-center justify-between gap-2 text-[11px] text-gray-500">
+        <span>© 2025 AfriTrade Connect Ltd.</span>
+        <div class="flex items-center gap-1.5 text-emerald-800">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+          <span>All systems normal</span>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Micro-Interactivity Script (Drawer & Pills) -->
+  <script>
+    const menuBtn = document.getElementById('menu-btn');
+    const closeMenuBtn = document.getElementById('close-menu-btn');
+    const drawer = document.getElementById('mobile-drawer');
+    const drawerLinks = document.querySelectorAll('.drawer-link');
+
+    function toggleDrawer(open) {
+      if (open) {
+        drawer.classList.remove('hidden');
+      } else {
+        drawer.classList.add('hidden');
+      }
+    }
+
+    menuBtn?.addEventListener('click', () => toggleDrawer(true));
+    closeMenuBtn?.addEventListener('click', () => toggleDrawer(false));
+    drawer?.addEventListener('click', (e) => {
+      if (e.target === drawer) toggleDrawer(false);
+    });
+    drawerLinks.forEach(link => {
+      link.addEventListener('click', () => toggleDrawer(false));
+    });
+
+    // Category filter pill switching
+    const pills = document.querySelectorAll('.cat-pill');
+    pills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        pills.forEach(p => {
+          p.classList.remove('bg-brand-primary', 'text-white', 'shadow-sm');
+          p.classList.add('bg-white', 'text-[#2c3d33]', 'border', 'border-brand-border');
+        });
+        pill.classList.remove('bg-white', 'text-[#2c3d33]', 'border');
+        pill.classList.add('bg-brand-primary', 'text-white', 'shadow-sm');
+      });
+    });
+
+    // Currency Switcher
+    const currencies = ['USD ($)', 'NGN (₦)', 'ZAR (R)', 'GHS (GH₵)'];
+    let cIndex = 0;
+    const currBtn = document.getElementById('currency-btn');
+    const currLabel = document.getElementById('mobileCurrencyLabel');
+    currBtn?.addEventListener('click', () => {
+      cIndex = (cIndex + 1) % currencies.length;
+      if (currLabel) currLabel.textContent = currencies[cIndex];
+    });
+  </script>
+</body>
+</html>

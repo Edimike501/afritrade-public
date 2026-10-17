@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+
+<html class="h-full bg-surface" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>AfriTrade Connect - Wholesale Marketplace</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Noto+Sans:wght@400;500;600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@100..900&family=Noto+Sans:wght@100..900&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "error-container": "#ffdad6",
+            "surface-tint": "#106b4f",
+            "on-secondary": "#ffffff",
+            "surface-container-high": "#e1ebe4",
+            "surface-variant": "#dbe5de",
+            "on-primary-container": "#97e8c5",
+            "primary": "#00513a",
+            "outline": "#6f7a73",
+            "secondary-fixed": "#ffdeae",
+            "on-primary": "#ffffff",
+            "on-primary-fixed": "#002115",
+            "primary-fixed-dim": "#86d6b4",
+            "on-background": "#151d1a",
+            "inverse-surface": "#29322e",
+            "surface-container-highest": "#dbe5de",
+            "error": "#ba1a1a",
+            "surface-dim": "#d2dcd6",
+            "on-tertiary-container": "#ffccc7",
+            "on-secondary-fixed": "#281900",
+            "surface-bright": "#f2fcf5",
+            "on-secondary-fixed-variant": "#604100",
+            "tertiary": "#75312d",
+            "on-surface": "#151d1a",
+            "on-error": "#ffffff",
+            "on-tertiary-fixed-variant": "#75322e",
+            "on-error-container": "#93000a",
+            "background": "#f2fcf5",
+            "primary-fixed": "#a1f3cf",
+            "on-tertiary": "#ffffff",
+            "on-surface-variant": "#3f4944",
+            "secondary-fixed-dim": "#ffba3e",
+            "tertiary-container": "#924843",
+            "surface": "#f2fcf5",
+            "tertiary-fixed": "#ffdad6",
+            "outline-variant": "#bec9c2",
+            "surface-container": "#e6f0ea",
+            "secondary-container": "#feb62f",
+            "secondary": "#7f5700",
+            "inverse-primary": "#86d6b4",
+            "inverse-on-surface": "#e9f3ec",
+            "primary-container": "#0f6b4f",
+            "surface-container-lowest": "#ffffff",
+            "on-secondary-container": "#6d4a00",
+            "tertiary-fixed-dim": "#ffb3ad",
+            "on-primary-fixed-variant": "#00513a",
+            "surface-container-low": "#ecf6ef",
+            "on-tertiary-fixed": "#3c0707"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin-mobile": "1rem",
+            "margin": "2rem",
+            "space-lg": "1.5rem",
+            "gutter-mobile": "1rem",
+            "gutter": "1.5rem",
+            "space-xl": "2.5rem",
+            "space-md": "1rem",
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem"
+          },
+          "fontFamily": {
+            "display-lg-mobile": ["Bricolage Grotesque"],
+            "display-lg": ["Bricolage Grotesque"],
+            "body-md": ["Noto Sans"],
+            "label-sm": ["Noto Sans"],
+            "headline-xl-mobile": ["Bricolage Grotesque"],
+            "body-sm": ["Noto Sans"],
+            "headline-sm": ["Bricolage Grotesque"],
+            "label-lg": ["Noto Sans"],
+            "headline-xl": ["Bricolage Grotesque"],
+            "label-md": ["Noto Sans"],
+            "headline-md": ["Bricolage Grotesque"],
+            "body-lg": ["Noto Sans"],
+            "title-md": ["Noto Sans"]
+          },
+          "fontSize": {
+            "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+            "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "body-md": ["14px", {"lineHeight": "22px", "fontWeight": "400"}],
+            "label-sm": ["11px", {"lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700"}],
+            "headline-xl-mobile": ["26px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+            "body-sm": ["12px", {"lineHeight": "18px", "fontWeight": "400"}],
+            "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+            "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+            "headline-xl": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+            "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+            "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+            "body-lg": ["16px", {"lineHeight": "26px", "fontWeight": "400"}],
+            "title-md": ["16px", {"lineHeight": "24px", "fontWeight": "600"}]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-outlined.fill-icon {
+      font-variation-settings: 'FILL' 1;
+    }
+    /* Hide scrollbar for clean horizontal carousel */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="min-h-full bg-surface text-on-surface antialiased flex flex-col justify-between items-center selection:bg-secondary-fixed selection:text-on-secondary-fixed">
+<!-- Mobile Frame Container (Approx ~390px viewport width) -->
+<div class="w-full max-w-[420px] min-h-screen bg-surface flex flex-col relative pb-20 shadow-xl border-x border-outline-variant/30">
+<!-- 1. Mobile Header (Sticky Top) -->
+<header class="sticky top-0 z-40 bg-surface-container-lowest/95 backdrop-blur-md border-b border-outline-variant/40 shadow-sm transition-all">
+<!-- Brand & Status Row -->
+<div class="px-4 pt-3 pb-2 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<!-- Logo Symbol -->
+<div class="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-secondary-container shadow-sm">
+<span class="material-symbols-outlined text-[20px]" data-icon="hub">hub</span>
+</div>
+<div>
+<h1 class="font-headline-sm text-headline-sm text-primary tracking-tight leading-none flex items-center">
+              AfriTrade <span class="text-secondary font-bold ml-1">Connect</span>
+</h1>
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="inline-block w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+              West & Southern Africa Hub
+            </span>
+</div>
+</div>
+<!-- Trailing Currency Switcher & Notifications -->
+<div class="flex items-center gap-1.5">
+<button aria-label="Currency Multi-switch" class="flex items-center gap-1 bg-surface-container-low px-2 py-1 rounded-full border border-outline-variant/60 font-label-sm text-label-sm text-on-surface hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[14px] text-primary" data-icon="currency_exchange">currency_exchange</span>
+<span>USD / Multi</span>
+</button>
+<button aria-label="Notifications" class="relative w-9 h-9 flex items-center justify-center rounded-full hover:bg-surface-container transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px]" data-icon="notifications">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-secondary-container ring-2 ring-surface-container-lowest"></span>
+</button>
+</div>
+</div>
+<!-- Search & Quick Action Row -->
+<div class="px-4 pb-3 pt-1 flex items-center gap-2">
+<div class="relative flex-1">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-outline">
+<span class="material-symbols-outlined text-[20px]" data-icon="search">search</span>
+</div>
+<input class="w-full h-11 pl-9 pr-8 bg-surface-container-low border border-outline-variant rounded-full font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary shadow-inner" placeholder="Search wholesale goods, grains, nuts..." type="search" value="Agricultural Bulk"/>
+<button aria-label="Clear Search" class="absolute inset-y-0 right-0 pr-3 flex items-center text-outline hover:text-on-surface">
+<span class="material-symbols-outlined text-[16px]" data-icon="cancel">cancel</span>
+</button>
+</div>
+<!-- Filter Button with active counter badge (min touch target 44px) -->
+<button aria-label="Filter Options" class="min-w-[44px] h-11 px-3 bg-surface-container-low border border-outline-variant rounded-full flex items-center justify-center gap-1.5 hover:bg-surface-container-high active:scale-95 transition text-on-surface">
+<span class="material-symbols-outlined text-[20px] text-primary" data-icon="tune">tune</span>
+<span class="bg-primary text-on-primary font-label-sm text-label-sm px-1.5 py-0.5 rounded-full">3</span>
+</button>
+</div>
+<!-- 2. Quick Filter Carousel (Scrollable Pills) -->
+<div class="px-4 pb-2.5 overflow-x-auto no-scrollbar flex items-center gap-1.5 text-nowrap">
+<button class="bg-primary text-on-primary font-label-sm text-label-sm px-3.5 py-1.5 rounded-full shadow-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="check">check</span>
+          All Countries
+        </button>
+<button class="bg-surface-container-lowest text-on-surface border border-outline-variant hover:border-primary font-label-sm text-label-sm px-3.5 py-1.5 rounded-full flex items-center gap-1 transition">
+<span class="text-xs">🇳🇬</span> Nigeria
+        </button>
+<button class="bg-surface-container-lowest text-on-surface border border-outline-variant hover:border-primary font-label-sm text-label-sm px-3.5 py-1.5 rounded-full flex items-center gap-1 transition">
+<span class="text-xs">🇿🇦</span> South Africa
+        </button>
+<button class="bg-surface-container-lowest text-on-surface border border-outline-variant hover:border-primary font-label-sm text-label-sm px-3.5 py-1.5 rounded-full flex items-center gap-1 transition">
+<span class="text-xs">🇬🇭</span> Ghana
+        </button>
+<button class="bg-surface-container-lowest text-on-surface border border-outline-variant hover:border-primary font-label-sm text-label-sm px-3.5 py-1.5 rounded-full transition">
+          Grains & Seeds
+        </button>
+<button class="bg-surface-container-lowest text-on-surface border border-outline-variant hover:border-primary font-label-sm text-label-sm px-3.5 py-1.5 rounded-full transition">
+          Nuts & Produce
+        </button>
+<button class="bg-surface-container-lowest text-on-surface border border-outline-variant hover:border-primary font-label-sm text-label-sm px-3.5 py-1.5 rounded-full transition">
+          Oils & Extracts
+        </button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 px-3.5 py-3 space-y-3">
+<!-- Safe Demo Pill / Institutional Trust Notice -->
+<div class="bg-secondary-container/20 border border-secondary-container/60 rounded-xl px-3 py-2 flex items-center gap-2.5">
+<div class="text-secondary flex-shrink-0">
+<span class="material-symbols-outlined text-[18px]" data-icon="verified_user">verified_user</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface leading-tight">
+<strong class="font-title-md text-on-surface">Demo Mode:</strong> Safe simulated ordering with zero real money risk. Connect directly with vetted suppliers.
+        </p>
+</div>
+<!-- 3. Subheader / View Toggle Bar -->
+<div class="flex items-center justify-between pt-1 pb-0.5">
+<div class="flex items-center gap-1.5">
+<span class="font-headline-sm text-headline-sm text-primary font-semibold">148</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">verified wholesale items</span>
+</div>
+<div class="flex items-center gap-1">
+<!-- Active Dense List View Indicator -->
+<div class="bg-surface-container border border-outline-variant rounded-lg p-1 flex items-center text-primary" title="Dense List View active">
+<span class="material-symbols-outlined text-[18px]" data-icon="view_agenda">view_agenda</span>
+</div>
+<!-- Sort dropdown pill -->
+<button class="flex items-center gap-1 bg-surface-container-lowest border border-outline-variant px-2.5 py-1 rounded-lg font-label-sm text-label-sm text-on-surface hover:bg-surface-container-low transition">
+<span>Sort: Price</span>
+<span class="material-symbols-outlined text-[14px]" data-icon="expand_more">expand_more</span>
+</button>
+</div>
+</div>
+<!-- 4. Dense Wholesale Product Cards (Dense List Layout) -->
+<div class="space-y-2.5">
+<!-- CARD 1: Yellow Maize -->
+<article class="bg-surface-container-lowest border border-outline-variant/80 rounded-xl p-3 shadow-sm hover:shadow-md transition-shadow">
+<div class="flex gap-3">
+<!-- Thumbnail preview -->
+<div class="w-20 h-20 rounded-lg overflow-hidden bg-surface-container flex-shrink-0 relative">
+<img class="w-full h-full object-cover" data-alt="A clean, direct macro photograph of sun-ripened Grade A golden yellow maize kernels overflowing in a burlap wholesale sack under warm, clear commercial daylight. The lighting is pristine and balanced, showcasing high moisture-free quality and uniformity in a pan-African agricultural warehouse setting with subtle tones of deep green and warm gold." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_DbokQIHBRdp2fabOwO-1qdCHtLP3Qap_GChhLrh71pydL_JJ3Y0E_nmF71SkkEBeeCN6Qj8Sk-wdk7khdcJLeZzre0q-lTebxkq1sUob9dDy1gd4dOTAU_KjEDaAS_8b_FmeC6Zosyt1Lhh2coCcjr0WExfaRK_ahMs5iqVWL5fjzYc1ZNZpke4f9YFN_LGvq8dzOrCumxz5I1X-n0vr3T3XIoafVaqXAFN80TofwyOeNJfH6qfJJJ6obb7ncYAgZZbmdE3DKVM"/>
+<span class="absolute bottom-1 left-1 bg-surface-container-lowest/90 backdrop-blur-xs px-1 py-0.2 rounded text-[10px] font-bold text-primary">NG 🇳🇬</span>
+</div>
+<!-- Content Details -->
+<div class="flex-1 min-w-0">
+<div class="flex items-start justify-between gap-1">
+<h3 class="font-title-md text-title-md text-on-surface font-semibold truncate leading-snug">Yellow Maize (Grade A)</h3>
+</div>
+<!-- Supplier Line with Verified Badge -->
+<div class="flex items-center gap-1.5 mt-0.5 text-on-surface-variant font-body-sm text-body-sm">
+<span class="truncate">Savannah Agro Ltd</span>
+<span class="inline-flex items-center text-primary text-[11px] font-medium bg-surface-container-high px-1.5 py-0.2 rounded-full flex-shrink-0">
+<span class="material-symbols-outlined text-[12px] mr-0.5 fill-icon" data-icon="verified">verified</span> Vetted
+                </span>
+</div>
+<p class="font-body-sm text-body-sm text-outline truncate">Kano, Nigeria</p>
+<!-- Prices -->
+<div class="mt-1.5 flex items-baseline gap-2">
+<span class="font-title-md text-title-md text-primary font-bold">₦25,000</span>
+<span class="font-body-sm text-body-sm text-outline">/ bag</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant bg-surface-container-low px-1.5 py-0.2 rounded">≈ $16.50 / bag</span>
+</div>
+</div>
+</div>
+<!-- Inventory & Action Bar -->
+<div class="mt-2.5 pt-2 border-t border-outline-variant/40 flex items-center justify-between">
+<div class="font-body-sm text-body-sm text-on-surface-variant">
+<span class="font-medium text-on-surface">500</span> Bags available <span class="mx-1 text-outline">•</span> Min: <strong class="text-primary font-semibold">50 Bags</strong>
+</div>
+<div class="flex items-center gap-2">
+<button class="font-label-sm text-label-sm text-primary underline hover:text-primary-container px-1 py-1">Details</button>
+<button aria-label="Order Yellow Maize" class="h-10 min-w-[96px] px-3.5 bg-primary text-on-primary font-label-md text-label-md rounded-full flex items-center justify-center hover:bg-primary-container active:scale-95 transition shadow-sm">
+                Order Now
+              </button>
+</div>
+</div>
+</article>
+<!-- CARD 2: Raw Cashew Nuts -->
+<article class="bg-surface-container-lowest border border-outline-variant/80 rounded-xl p-3 shadow-sm hover:shadow-md transition-shadow">
+<div class="flex gap-3">
+<!-- Thumbnail preview -->
+<div class="w-20 h-20 rounded-lg overflow-hidden bg-surface-container flex-shrink-0 relative">
+<img class="w-full h-full object-cover" data-alt="A commercial product shot of raw whole cashew nuts in export packaging, arranged neatly in bulk containers within a brightly lit logistics center in Sunyani Ghana. The lighting is clean, sharp, highlighting natural ivory and tan textures, maintaining a modern institutional catalog aesthetic with pine green brand undertones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbu_d4G_7ePVXju582oZirFzTWwFTmnAljF2YbHekEhueZcuVwqR6haQbX4cxUGYy6kVOUWAQFRKqvJzdkc_Y5b7AOBjN-9mgiahMcFMu-68tQ7QTCskC38YooQFZE6XNjYvSHdwql_I6OLvDMEEIF1ntamojVz89e6_QludhgQ0n27EL9_1Q6XM2H9oMGUH5av-S282diQElxSqojRkrIEnJ7bnGoPngiSK5sJP9mFgTpnsrhNqVAVBunKh8StLt1CJelclB7-kw"/>
+<span class="absolute bottom-1 left-1 bg-surface-container-lowest/90 backdrop-blur-xs px-1 py-0.2 rounded text-[10px] font-bold text-primary">GH 🇬🇭</span>
+</div>
+<!-- Content Details -->
+<div class="flex-1 min-w-0">
+<div class="flex items-start justify-between gap-1">
+<h3 class="font-title-md text-title-md text-on-surface font-semibold truncate leading-snug">Raw Cashew Nuts (Export Grade)</h3>
+</div>
+<!-- Supplier Line -->
+<div class="flex items-center gap-1.5 mt-0.5 text-on-surface-variant font-body-sm text-body-sm">
+<span class="truncate">Sunyani Harvest Co</span>
+<span class="inline-flex items-center text-primary text-[11px] font-medium bg-surface-container-high px-1.5 py-0.2 rounded-full flex-shrink-0">
+<span class="material-symbols-outlined text-[12px] mr-0.5 fill-icon" data-icon="verified">verified</span> Vetted
+                </span>
+</div>
+<p class="font-body-sm text-body-sm text-outline truncate">Sunyani, Ghana</p>
+<!-- Prices -->
+<div class="mt-1.5 flex items-baseline gap-2">
+<span class="font-title-md text-title-md text-primary font-bold">GH₵ 450</span>
+<span class="font-body-sm text-body-sm text-outline">/ bag</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant bg-surface-container-low px-1.5 py-0.2 rounded">≈ $28.00 / bag</span>
+</div>
+</div>
+</div>
+<!-- Inventory & Action Bar -->
+<div class="mt-2.5 pt-2 border-t border-outline-variant/40 flex items-center justify-between">
+<div class="font-body-sm text-body-sm text-on-surface-variant">
+<span class="font-medium text-on-surface">250</span> in warehouse <span class="mx-1 text-outline">•</span> Min: <strong class="text-primary font-semibold">20 Bags</strong>
+</div>
+<div class="flex items-center gap-2">
+<button class="font-label-sm text-label-sm text-primary underline hover:text-primary-container px-1 py-1">Details</button>
+<button aria-label="Order Cashew Nuts" class="h-10 min-w-[96px] px-3.5 bg-primary text-on-primary font-label-md text-label-md rounded-full flex items-center justify-center hover:bg-primary-container active:scale-95 transition shadow-sm">
+                Order Now
+              </button>
+</div>
+</div>
+</article>
+<!-- CARD 3: Soybeans Bulk -->
+<article class="bg-surface-container-lowest border border-outline-variant/80 rounded-xl p-3 shadow-sm hover:shadow-md transition-shadow">
+<div class="flex gap-3">
+<!-- Thumbnail preview -->
+<div class="w-20 h-20 rounded-lg overflow-hidden bg-surface-container flex-shrink-0 relative">
+<img class="w-full h-full object-cover" data-alt="Close up commercial view of pristine dried bulk soybeans being inspected in an open container in Mpumalanga South Africa. The lighting is crisp natural morning sunlight, accentuating clean round kernels, set against modern agricultural dispatch equipment with warm accents and pine green packaging marks." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1zE3xHa66QsyYvOXTybWjYjGXvIZMPVUIufRSHvjW-OMjc8X1PAYx8ASUBV6od4q2xl4WO5PNEsjQ9kbjvzOnCTjHAIoDjNNGAgAFi26iBBe3OpRzqtlmi3gEJTFx0xgak0CAXVZLtIowousCPn-a2wlf-aMXfQ1VPe9pk39JP3ARFneL8t-pNY87R_uSEyutGUYNyeInFYcCQTeT9httms8hJd7UgR9G8Fnj-wGK6UqmRkog3Yn7fIqinwNe-UxMfc9omEcwlqw"/>
+<span class="absolute bottom-1 left-1 bg-surface-container-lowest/90 backdrop-blur-xs px-1 py-0.2 rounded text-[10px] font-bold text-primary">ZA 🇿🇦</span>
+</div>
+<!-- Content Details -->
+<div class="flex-1 min-w-0">
+<div class="flex items-start justify-between gap-1">
+<h3 class="font-title-md text-title-md text-on-surface font-semibold truncate leading-snug">Soybeans (Bulk)</h3>
+</div>
+<!-- Supplier Line -->
+<div class="flex items-center gap-1.5 mt-0.5 text-on-surface-variant font-body-sm text-body-sm">
+<span class="truncate">Highveld Grains Ltd</span>
+<span class="inline-flex items-center text-primary text-[11px] font-medium bg-surface-container-high px-1.5 py-0.2 rounded-full flex-shrink-0">
+<span class="material-symbols-outlined text-[12px] mr-0.5 fill-icon" data-icon="verified">verified</span> Vetted
+                </span>
+</div>
+<p class="font-body-sm text-body-sm text-outline truncate">Mpumalanga, South Africa</p>
+<!-- Prices -->
+<div class="mt-1.5 flex items-baseline gap-2">
+<span class="font-title-md text-title-md text-primary font-bold">R 620</span>
+<span class="font-body-sm text-body-sm text-outline">/ bag</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant bg-surface-container-low px-1.5 py-0.2 rounded">≈ $34.00 / bag</span>
+</div>
+</div>
+</div>
+<!-- Inventory & Action Bar -->
+<div class="mt-2.5 pt-2 border-t border-outline-variant/40 flex items-center justify-between">
+<div class="font-body-sm text-body-sm text-on-surface-variant">
+<span class="font-medium text-on-surface">1,200</span> in warehouse <span class="mx-1 text-outline">•</span> Min: <strong class="text-primary font-semibold">100 Bags</strong>
+</div>
+<div class="flex items-center gap-2">
+<button class="font-label-sm text-label-sm text-primary underline hover:text-primary-container px-1 py-1">Details</button>
+<button aria-label="Order Soybeans" class="h-10 min-w-[96px] px-3.5 bg-primary text-on-primary font-label-md text-label-md rounded-full flex items-center justify-center hover:bg-primary-container active:scale-95 transition shadow-sm">
+                Order Now
+              </button>
+</div>
+</div>
+</article>
+<!-- CARD 4: Dried Split Ginger -->
+<article class="bg-surface-container-lowest border border-outline-variant/80 rounded-xl p-3 shadow-sm hover:shadow-md transition-shadow">
+<div class="flex gap-3">
+<!-- Thumbnail preview -->
+<div class="w-20 h-20 rounded-lg overflow-hidden bg-surface-container flex-shrink-0 relative">
+<img class="w-full h-full object-cover" data-alt="High quality professional wholesale photography of dried split ginger rhizomes ready for freight export, stored in breathable heavy duty woven sacks in Kaduna Nigeria. The lighting highlights sharp aromatic fibrous ridges and sun cured amber tones, maintaining an earthy yet polished commercial enterprise mood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLHGHUnxYitURp6rRBeH9iwHrRynIlpii0wtwm4upLxZyn5AtNiX3uQGRLpTSTZDjQ9F7o8KUyhJoMq4WVL-2Sn8moO6U_r5BjOLInuaMLv6C1XD64N-wrApbOA32gxgdSRoFP5aa-icD-Rp-jmK0U0ECo5qiuTC76gEqqeGOHF5aT5UqHL-E5f2ROA-8QNI1CxPPcULY0O9ROmFun0BBuB-oZV00CrYdz2JgXqkuwUhiXfaE7RiVYxEkbfNdwkxYGSj5QjxLY39Y"/>
+<span class="absolute bottom-1 left-1 bg-surface-container-lowest/90 backdrop-blur-xs px-1 py-0.2 rounded text-[10px] font-bold text-primary">NG 🇳🇬</span>
+</div>
+<!-- Content Details -->
+<div class="flex-1 min-w-0">
+<div class="flex items-start justify-between gap-1">
+<h3 class="font-title-md text-title-md text-on-surface font-semibold truncate leading-snug">Dried Split Ginger</h3>
+</div>
+<!-- Supplier Line -->
+<div class="flex items-center gap-1.5 mt-0.5 text-on-surface-variant font-body-sm text-body-sm">
+<span class="truncate">Kaduna Organics</span>
+<span class="inline-flex items-center text-primary text-[11px] font-medium bg-surface-container-high px-1.5 py-0.2 rounded-full flex-shrink-0">
+<span class="material-symbols-outlined text-[12px] mr-0.5 fill-icon" data-icon="verified">verified</span> Vetted
+                </span>
+</div>
+<p class="font-body-sm text-body-sm text-outline truncate">Kaduna, Nigeria</p>
+<!-- Prices -->
+<div class="mt-1.5 flex items-baseline gap-2">
+<span class="font-title-md text-title-md text-primary font-bold">₦42,000</span>
+<span class="font-body-sm text-body-sm text-outline">/ bag</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant bg-surface-container-low px-1.5 py-0.2 rounded">≈ $27.50 / bag</span>
+</div>
+</div>
+</div>
+<!-- Inventory & Action Bar -->
+<div class="mt-2.5 pt-2 border-t border-outline-variant/40 flex items-center justify-between">
+<div class="font-body-sm text-body-sm text-on-surface-variant">
+<span class="font-medium text-on-surface">300</span> in warehouse <span class="mx-1 text-outline">•</span> Min: <strong class="text-primary font-semibold">15 Bags</strong>
+</div>
+<div class="flex items-center gap-2">
+<button class="font-label-sm text-label-sm text-primary underline hover:text-primary-container px-1 py-1">Details</button>
+<button aria-label="Order Dried Split Ginger" class="h-10 min-w-[96px] px-3.5 bg-primary text-on-primary font-label-md text-label-md rounded-full flex items-center justify-center hover:bg-primary-container active:scale-95 transition shadow-sm">
+                Order Now
+              </button>
+</div>
+</div>
+</article>
+</div>
+<!-- Quick Wholesale Assurance Pill Card -->
+<section class="bg-surface-container-low border border-outline-variant/50 rounded-xl p-3.5 text-center mt-4">
+<div class="flex items-center justify-center gap-2 text-primary font-title-md text-title-md">
+<span class="material-symbols-outlined text-[20px]" data-icon="shield_with_heart">shield_with_heart</span>
+<span>Verified Local Businesses Only</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 max-w-xs mx-auto">
+          Every seller is physically verified in Nigeria, South Africa, or Ghana. Bulk inspection reports available upon request.
+        </p>
+</section>
+</main>
+<!-- 6. Fixed Bottom Mobile Navigation Bar (Sticky bottom, z-50) -->
+<nav aria-label="Main Navigation" class="fixed bottom-0 left-0 right-0 max-w-[420px] mx-auto bg-surface-container-lowest/95 backdrop-blur-lg border-t border-outline-variant/40 py-1.5 px-3 z-50 shadow-lg">
+<div class="grid grid-cols-4 items-center text-center">
+<!-- Tab 1: Marketplace (Active) -->
+<a aria-current="page" class="flex flex-col items-center justify-center py-1 text-primary group" href="#marketplace">
+<div class="relative">
+<span class="material-symbols-outlined text-[24px] fill-icon" data-icon="storefront">storefront</span>
+<span class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-primary"></span>
+</div>
+<span class="font-label-sm text-label-sm font-bold mt-1 text-primary">Marketplace</span>
+</a>
+<!-- Tab 2: Orders -->
+<a class="flex flex-col items-center justify-center py-1 text-on-surface-variant hover:text-primary transition-colors" href="#orders">
+<span class="material-symbols-outlined text-[24px]" data-icon="inventory_2">inventory_2</span>
+<span class="font-label-sm text-label-sm font-medium mt-1">Orders</span>
+</a>
+<!-- Tab 3: Trust Center -->
+<a class="flex flex-col items-center justify-center py-1 text-on-surface-variant hover:text-primary transition-colors" href="#trust">
+<span class="material-symbols-outlined text-[24px]" data-icon="verified">verified</span>
+<span class="font-label-sm text-label-sm font-medium mt-1">Trust Center</span>
+</a>
+<!-- Tab 4: Account -->
+<a class="flex flex-col items-center justify-center py-1 text-on-surface-variant hover:text-primary transition-colors" href="#account">
+<span class="material-symbols-outlined text-[24px]" data-icon="person">person</span>
+<span class="font-label-sm text-label-sm font-medium mt-1">Account</span>
+</a>
+</div>
+</nav>
+</div>
+</body></html>
+

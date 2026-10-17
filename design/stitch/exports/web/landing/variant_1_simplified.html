@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>AfriTrade Connect | Wholesale B2B Across Nigeria, South Africa &amp; Ghana</title>
+  <!-- Google Fonts: Bricolage Grotesque & Noto Sans -->
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;600;700;800&amp;family=Noto+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+  <!-- Material Symbols Outlined -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <!-- Tailwind Theme Config -->
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface-container-high": "#e1ebe4",
+            "on-primary-fixed-variant": "#00513a",
+            "surface-container-highest": "#dbe5de",
+            "tertiary-fixed-dim": "#ffb3ad",
+            "on-primary-fixed": "#002115",
+            "on-tertiary-fixed-variant": "#75322e",
+            "surface-container": "#e6f0ea",
+            "tertiary": "#75312d",
+            "inverse-primary": "#86d6b4",
+            "background": "#f2fcf5",
+            "surface-dim": "#d2dcd6",
+            "primary": "#00513a",
+            "on-background": "#151d1a",
+            "error": "#ba1a1a",
+            "on-secondary-container": "#6d4a00",
+            "on-surface": "#151d1a",
+            "surface": "#f2fcf5",
+            "surface-tint": "#106b4f",
+            "secondary-fixed": "#ffdeae",
+            "secondary": "#7f5700",
+            "on-tertiary-fixed": "#3c0707",
+            "outline-variant": "#bec9c2",
+            "on-surface-variant": "#3f4944",
+            "surface-container-low": "#ecf6ef",
+            "on-primary-container": "#97e8c5",
+            "error-container": "#ffdad6",
+            "inverse-on-surface": "#e9f3ec",
+            "on-tertiary-container": "#ffccc7",
+            "tertiary-container": "#924843",
+            "primary-fixed": "#a1f3cf",
+            "on-error": "#ffffff",
+            "primary-container": "#0f6b4f",
+            "on-primary": "#ffffff",
+            "on-error-container": "#93000a",
+            "outline": "#6f7a73",
+            "secondary-container": "#feb62f",
+            "on-secondary": "#ffffff",
+            "secondary-fixed-dim": "#ffba3e",
+            "on-tertiary": "#ffffff",
+            "inverse-surface": "#29322e",
+            "surface-variant": "#dbe5de",
+            "on-secondary-fixed": "#281900",
+            "surface-container-lowest": "#ffffff",
+            "surface-bright": "#f2fcf5",
+            "primary-fixed-dim": "#86d6b4",
+            "tertiary-fixed": "#ffdad6",
+            "on-secondary-fixed-variant": "#604100"
+          },
+          fontFamily: {
+            headline: ["Bricolage Grotesque", "sans-serif"],
+            body: ["Noto Sans", "sans-serif"]
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="bg-surface font-body text-on-surface antialiased selection:bg-primary-fixed selection:text-on-primary-fixed">
+
+  <!-- Top Navigation Bar (Responsive with Mobile Drawer) -->
+  <header class="bg-surface-container-lowest dark:bg-inverse-surface border-b border-outline-variant dark:border-outline shadow-sm dark:shadow-none top-0 sticky z-50">
+    <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a class="flex items-center gap-2.5 group" href="#">
+        <span class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-primary text-on-primary flex items-center justify-center shadow-sm group-hover:scale-105 transition-transform">
+          <span class="material-symbols-outlined text-secondary-container text-xl sm:text-2xl" data-icon="grain">grain</span>
+        </span>
+        <span class="tracking-tight text-on-surface font-headline font-bold text-lg sm:text-xl">AfriTrade Connect</span>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden md:flex items-center gap-7 lg:gap-8">
+        <a class="text-primary dark:text-primary-fixed border-b-2 border-primary dark:border-primary-fixed font-semibold pb-1 text-sm lg:text-base" href="#products">Browse Products</a>
+        <a class="text-on-surface-variant dark:text-surface-variant font-normal hover:text-primary dark:hover:text-primary-fixed transition-colors text-sm lg:text-base" href="#how-it-works">How Verification Works</a>
+        <a class="text-on-surface-variant dark:text-surface-variant font-normal hover:text-primary dark:hover:text-primary-fixed transition-colors text-sm lg:text-base" href="#trust">Trust &amp; Safety</a>
+        <a class="text-on-surface-variant dark:text-surface-variant font-normal hover:text-primary dark:hover:text-primary-fixed transition-colors text-sm lg:text-base" href="#hubs">Country Hubs</a>
+      </nav>
+
+      <!-- Trailing Action Cluster -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        <!-- Currency Selector Dropdown -->
+        <button class="inline-flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-full border border-outline-variant bg-surface-container-lowest text-on-surface text-xs sm:text-sm font-semibold hover:border-primary transition-colors" id="currencyBtn" type="button">
+          <span class="material-symbols-outlined text-primary text-[16px] sm:text-[18px]" data-icon="currency_exchange">currency_exchange</span>
+          <span id="currentCurrency">USD ($)</span>
+          <span class="material-symbols-outlined text-[14px] sm:text-[16px] text-outline" data-icon="expand_more">expand_more</span>
+        </button>
+
+        <!-- Log In Link (hidden on small mobile) -->
+        <a class="hidden sm:inline-flex text-on-surface text-sm font-semibold hover:text-primary px-2.5 py-2 transition-colors" href="#">
+          Log In
+        </a>
+
+        <!-- Sign Up Primary Button (desktop/tablet) -->
+        <a class="hidden sm:inline-flex items-center justify-center bg-primary-container text-on-primary text-sm font-semibold px-4 sm:px-5 py-2 sm:py-2.5 rounded-full hover:bg-primary transition-all active:scale-[0.98] shadow-sm" href="#signup">
+          Sign Up
+        </a>
+
+        <!-- Mobile Hamburger Button -->
+        <button id="mobileMenuBtn" aria-label="Open navigation menu" class="md:hidden w-10 h-10 flex items-center justify-center rounded-lg text-primary hover:bg-surface-container active:scale-95 transition-all">
+          <span class="material-symbols-outlined text-2xl">menu</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Slide-In Navigation Drawer -->
+  <div id="mobileDrawer" class="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm hidden transition-opacity md:hidden">
+    <div class="absolute right-0 top-0 bottom-0 w-4/5 max-w-xs bg-surface-container-lowest p-5 flex flex-col justify-between shadow-2xl">
+      <div>
+        <div class="flex items-center justify-between pb-4 border-b border-outline-variant">
+          <span class="font-headline font-bold text-lg text-primary">Menu</span>
+          <button id="closeDrawerBtn" aria-label="Close navigation menu" class="w-10 h-10 flex items-center justify-center text-outline hover:text-primary rounded-full hover:bg-surface-container transition-colors">
+            <span class="material-symbols-outlined text-2xl">close</span>
+          </button>
+        </div>
+        <nav class="flex flex-col gap-1.5 mt-5">
+          <a href="#products" class="drawer-nav-link px-3.5 py-3 rounded-xl text-on-surface font-medium hover:bg-surface-container hover:text-primary flex items-center justify-between transition-colors">
+            <span>Browse Products</span>
+            <span class="material-symbols-outlined text-outline text-lg">chevron_right</span>
+          </a>
+          <a href="#how-it-works" class="drawer-nav-link px-3.5 py-3 rounded-xl text-on-surface font-medium hover:bg-surface-container hover:text-primary flex items-center justify-between transition-colors">
+            <span>How Verification Works</span>
+            <span class="material-symbols-outlined text-outline text-lg">chevron_right</span>
+          </a>
+          <a href="#trust" class="drawer-nav-link px-3.5 py-3 rounded-xl text-on-surface font-medium hover:bg-surface-container hover:text-primary flex items-center justify-between transition-colors">
+            <span>Trust &amp; Safety</span>
+            <span class="material-symbols-outlined text-outline text-lg">chevron_right</span>
+          </a>
+          <a href="#hubs" class="drawer-nav-link px-3.5 py-3 rounded-xl text-on-surface font-medium hover:bg-surface-container hover:text-primary flex items-center justify-between transition-colors">
+            <span>Country Hubs</span>
+            <span class="material-symbols-outlined text-outline text-lg">chevron_right</span>
+          </a>
+        </nav>
+      </div>
+
+      <div class="pt-5 border-t border-outline-variant flex flex-col gap-3">
+        <a href="#signup" class="drawer-nav-link w-full text-center py-3.5 bg-primary text-on-primary font-semibold rounded-xl text-sm shadow hover:bg-on-primary-fixed-variant transition-colors">
+          Sign Up Free
+        </a>
+        <a href="#" class="drawer-nav-link w-full text-center py-3.5 border border-outline-variant text-primary font-semibold rounded-xl text-sm hover:bg-surface-container transition-colors">
+          Log In
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main>
+    <!-- HERO SECTION -->
+    <section class="relative overflow-hidden pt-8 pb-14 sm:pt-12 sm:pb-20 lg:pt-16 lg:pb-24 border-b border-outline-variant bg-surface-container-low">
+      <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+          
+          <!-- Left Column: Value Proposition -->
+          <div class="lg:col-span-7 flex flex-col items-start">
+            <!-- Region Pill Badge -->
+            <div class="inline-flex items-center gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-surface-container-highest border border-outline-variant mb-4 sm:mb-6 shadow-sm max-w-full">
+              <span class="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-primary-container text-on-primary flex items-center justify-center text-xs shrink-0">
+                <span class="material-symbols-outlined text-[12px] sm:text-[14px]">check</span>
+              </span>
+              <span class="text-xs sm:text-sm text-primary font-bold truncate">
+                Trade Across Nigeria · South Africa · Ghana
+              </span>
+            </div>
+
+            <!-- Headline -->
+            <h1 class="font-headline text-3xl sm:text-4xl lg:text-5xl font-extrabold text-on-surface tracking-tight mb-4 sm:mb-6 leading-tight">
+              Buy and Sell Wholesale Across Africa with Confidence
+            </h1>
+
+            <!-- Subtitle -->
+            <p class="text-sm sm:text-base lg:text-lg text-on-surface-variant max-w-2xl mb-6 sm:mb-8 leading-relaxed">
+              Connect directly with verified suppliers in Nigeria, South Africa, and Ghana. See prices in your own currency and track your shipments easily.
+            </p>
+
+            <!-- CTA Button Cluster -->
+            <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 w-full sm:w-auto">
+              <a class="min-h-[48px] inline-flex items-center justify-center bg-primary text-on-primary text-sm sm:text-base font-semibold px-6 sm:px-7 py-3 sm:py-3.5 rounded-xl shadow hover:bg-on-primary-fixed-variant transition-all text-center" href="#products">
+                Browse Products
+              </a>
+              <a class="min-h-[48px] inline-flex items-center justify-center bg-surface-container-lowest text-primary border-2 border-primary text-sm sm:text-base font-semibold px-6 sm:px-7 py-3 sm:py-3.5 rounded-xl hover:bg-surface-container-low transition-all text-center" href="#signup">
+                Join as a Supplier
+              </a>
+            </div>
+
+            <!-- Simulation Notice -->
+            <div class="mt-4 sm:mt-6 flex items-center gap-2 text-outline text-xs sm:text-sm">
+              <span class="material-symbols-outlined text-[16px] sm:text-[18px]" data-icon="info">info</span>
+              <span>Demo Mode: Safe simulation with zero real money</span>
+            </div>
+          </div>
+
+          <!-- Right Column: Interactive Wholesale Live Cards -->
+          <div class="lg:col-span-5 w-full">
+            <div class="bg-surface-container-lowest border border-outline-variant rounded-2xl p-4 sm:p-6 shadow-md relative">
+              <!-- Filter Pill Bar -->
+              <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pb-4 border-b border-outline-variant mb-4">
+                <span class="text-xs font-bold uppercase tracking-wider text-on-surface-variant">Live Catalog Sample</span>
+                <div class="flex items-center gap-1 overflow-x-auto no-scrollbar w-full sm:w-auto p-1 bg-surface-container rounded-full">
+                  <button class="cat-pill active px-3 py-1 rounded-full bg-primary text-on-primary text-xs font-semibold whitespace-nowrap">All Products</button>
+                  <button class="cat-pill px-3 py-1 rounded-full text-on-surface-variant hover:text-primary text-xs font-medium whitespace-nowrap transition-colors">Grain &amp; Seeds</button>
+                  <button class="cat-pill px-3 py-1 rounded-full text-on-surface-variant hover:text-primary text-xs font-medium whitespace-nowrap transition-colors">Nuts &amp; Produce</button>
+                </div>
+              </div>
+
+              <!-- Product Card 1: Yellow Maize -->
+              <div class="p-3.5 sm:p-4 rounded-xl border border-outline-variant bg-surface mb-3.5 hover:border-primary transition-all group">
+                <div class="flex gap-3 sm:gap-4 items-center">
+                  <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-lg overflow-hidden shrink-0 bg-surface-container relative">
+                    <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" alt="Yellow maize harvest grains" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPCJuEwRpLG6V9fRcXc4f_U5JcBTUXBJnBiAHB6Zq86hqY8OwjW1_SmGp-UrywHHLd1RI-fbIw0hIFSpUmD1bRDsBxLFtv04sMlO2ENBoDjFnWQNKA3yR34BYy1Ra6VGDThbLEl3SLX0G9l1DOfm_HXBx16Oa9X4NakrwWQs9mjpAcG4ZH5j5wWzjJvszznGt9HKCQH27CFq0-jMjs2aZyCWHp9k_eGrN2_7SWobcgvUclahvpRmXkdqVUwiX45XIABFIvlcfQC2o"/>
+                    <div class="absolute top-1 left-1 bg-surface-container-lowest/90 px-1 rounded text-[10px] font-bold text-on-surface">NG</div>
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <div class="flex items-center justify-between gap-1 mb-1">
+                      <h2 class="font-headline font-bold text-sm sm:text-base text-on-surface truncate">Yellow Maize (Grade A)</h2>
+                      <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-surface-container-high text-primary text-[10px] sm:text-xs font-semibold border border-outline-variant shrink-0">
+                        <span class="material-symbols-outlined text-[12px] sm:text-[13px]">verified</span>
+                        Verified
+                      </span>
+                    </div>
+                    <p class="text-xs text-outline mb-2 flex items-center gap-1">
+                      <span class="material-symbols-outlined text-[14px]">location_on</span>
+                      500 Bags • Kano, Nigeria
+                    </p>
+                    <div class="flex items-baseline justify-between">
+                      <div>
+                        <span class="font-headline font-bold text-base sm:text-lg text-primary">₦25,000</span>
+                        <span class="text-xs text-on-surface-variant">/ bag</span>
+                      </div>
+                      <span class="text-xs text-outline bg-surface-container px-2 py-0.5 rounded">≈ R 290</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Product Card 2: Raw Cashew Nuts -->
+              <div class="p-3.5 sm:p-4 rounded-xl border border-outline-variant bg-surface hover:border-primary transition-all group">
+                <div class="flex gap-3 sm:gap-4 items-center">
+                  <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-lg overflow-hidden shrink-0 bg-surface-container relative">
+                    <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" alt="Raw cashew nuts on pallets" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAf9dOJXsTfLYMPe4UcRSkIlfj_zAmm8UQpyxXnM_PMTwwxIyHcxeZAJ_hyMo3sKpQ-LPQSle2N0Hq45qu3qrzZD1LHI8qSJk3OCOQBfxT2H70D9TtGt9p0w-VrmfGZ9oRhewYVJ2Fo1voEfW_j-QWnW0n6kdNIxoCn_yqqioSx81WdSjG9pwgFCAw_iCoa2141m4s-nbWHPRgbI59oUFbBNE7iQp_kqRi10wTx13uZ2kYd86BoxGQalSH6NhJl04b7Ej_mZZSZld8"/>
+                    <div class="absolute top-1 left-1 bg-surface-container-lowest/90 px-1 rounded text-[10px] font-bold text-on-surface">GH</div>
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <div class="flex items-center justify-between gap-1 mb-1">
+                      <h2 class="font-headline font-bold text-sm sm:text-base text-on-surface truncate">Raw Cashew Nuts</h2>
+                      <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-surface-container-high text-primary text-[10px] sm:text-xs font-semibold border border-outline-variant shrink-0">
+                        <span class="material-symbols-outlined text-[12px] sm:text-[13px]">verified</span>
+                        Verified
+                      </span>
+                    </div>
+                    <p class="text-xs text-outline mb-2 flex items-center gap-1">
+                      <span class="material-symbols-outlined text-[14px]">location_on</span>
+                      50 Bags • Sunyani, Ghana
+                    </p>
+                    <div class="flex items-baseline justify-between">
+                      <div>
+                        <span class="font-headline font-bold text-base sm:text-lg text-primary">GH₵ 450</span>
+                        <span class="text-xs text-on-surface-variant">/ bag</span>
+                      </div>
+                      <span class="text-xs text-outline bg-surface-container px-2 py-0.5 rounded">≈ ₦45,000</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Live conversion summary badge -->
+              <div class="mt-3.5 pt-3 border-t border-outline-variant flex items-center justify-between text-outline text-xs">
+                <span class="flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-primary inline-block"></span>
+                  Indicative rate conversion
+                </span>
+                <span class="text-primary font-semibold">Updated today</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: HOW IT WORKS -->
+    <section class="py-14 sm:py-20 lg:py-24 bg-surface-container-lowest" id="how-it-works">
+      <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-10 sm:mb-16">
+          <span class="text-xs sm:text-sm text-secondary font-bold uppercase tracking-wider mb-2 block">Simple Purchasing</span>
+          <h2 class="font-headline text-2xl sm:text-3xl lg:text-4xl text-on-surface font-bold mb-3">
+            How AfriTrade Works in 3 Simple Steps
+          </h2>
+          <p class="text-sm sm:text-base text-on-surface-variant">
+            Straightforward wholesale purchasing across borders
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+          <!-- Step 1 -->
+          <div class="bg-surface border border-outline-variant rounded-2xl p-6 sm:p-8 flex flex-col items-start hover:border-primary hover:shadow-md transition-all">
+            <div class="flex items-center justify-between w-full mb-5">
+              <span class="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-surface-container-high text-primary flex items-center justify-center">
+                <span class="material-symbols-outlined text-[24px] sm:text-[28px]" data-icon="search_check">search_check</span>
+              </span>
+              <span class="font-headline text-xl sm:text-2xl font-extrabold text-outline-variant">01</span>
+            </div>
+            <h3 class="font-headline text-lg sm:text-xl text-on-surface font-bold mb-2">
+              Browse Verified Suppliers
+            </h3>
+            <p class="text-xs sm:text-sm text-on-surface-variant leading-relaxed">
+              Find real products from checked local businesses across Nigeria, South Africa, and Ghana.
+            </p>
+            <div class="mt-5 pt-3.5 border-t border-outline-variant/60 w-full flex items-center text-primary text-xs font-semibold">
+              <span class="material-symbols-outlined text-[15px] mr-1.5" data-icon="domain_verification">domain_verification</span>
+              Pre-vetted registration records
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="bg-surface border border-outline-variant rounded-2xl p-6 sm:p-8 flex flex-col items-start hover:border-primary hover:shadow-md transition-all">
+            <div class="flex items-center justify-between w-full mb-5">
+              <span class="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-surface-container-high text-primary flex items-center justify-center">
+                <span class="material-symbols-outlined text-[24px] sm:text-[28px]" data-icon="payments">payments</span>
+              </span>
+              <span class="font-headline text-xl sm:text-2xl font-extrabold text-outline-variant">02</span>
+            </div>
+            <h3 class="font-headline text-lg sm:text-xl text-on-surface font-bold mb-2">
+              Order &amp; Test Payment
+            </h3>
+            <p class="text-xs sm:text-sm text-on-surface-variant leading-relaxed">
+              Place orders easily with transparent prices converted into your local currency.
+            </p>
+            <div class="mt-5 pt-3.5 border-t border-outline-variant/60 w-full flex items-center text-primary text-xs font-semibold">
+              <span class="material-symbols-outlined text-[15px] mr-1.5" data-icon="calculate">calculate</span>
+              Zero surprise conversion fees
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="bg-surface border border-outline-variant rounded-2xl p-6 sm:p-8 flex flex-col items-start hover:border-primary hover:shadow-md transition-all">
+            <div class="flex items-center justify-between w-full mb-5">
+              <span class="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-surface-container-high text-primary flex items-center justify-center">
+                <span class="material-symbols-outlined text-[24px] sm:text-[28px]" data-icon="local_shipping">local_shipping</span>
+              </span>
+              <span class="font-headline text-xl sm:text-2xl font-extrabold text-outline-variant">03</span>
+            </div>
+            <h3 class="font-headline text-lg sm:text-xl text-on-surface font-bold mb-2">
+              Track Your Delivery
+            </h3>
+            <p class="text-xs sm:text-sm text-on-surface-variant leading-relaxed">
+              Follow your order step-by-step from supplier pickup to customs clearance and final arrival.
+            </p>
+            <div class="mt-5 pt-3.5 border-t border-outline-variant/60 w-full flex items-center text-primary text-xs font-semibold">
+              <span class="material-symbols-outlined text-[15px] mr-1.5" data-icon="route">route</span>
+              Delivery partner updates
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: TRUST & PEACE OF MIND -->
+    <section class="py-14 sm:py-20 lg:py-24 bg-surface border-t border-outline-variant" id="trust">
+      <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mb-10 sm:mb-16">
+          <div class="inline-flex items-center gap-1.5 text-secondary text-xs sm:text-sm font-bold mb-2">
+            <span class="material-symbols-outlined text-[18px]" data-icon="shield">shield</span>
+            Trust &amp; Peace of Mind
+          </div>
+          <h2 class="font-headline text-2xl sm:text-3xl lg:text-4xl text-on-surface font-bold mb-3">
+            Built for Safe Wholesale Trade
+          </h2>
+          <p class="text-sm sm:text-base text-on-surface-variant">
+            Cross-border procurement should be straightforward, fair, and reliable for both buyers and suppliers.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+          <!-- Trust Card 1 -->
+          <div class="bg-surface-container-lowest border border-outline-variant rounded-2xl p-6 sm:p-8 hover:border-primary transition-all">
+            <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-surface-container-low border border-outline-variant text-primary flex items-center justify-center mb-5">
+              <span class="material-symbols-outlined text-[26px] sm:text-[30px]" data-icon="verified_user">verified_user</span>
+            </div>
+            <h3 class="font-headline text-lg sm:text-xl text-on-surface font-bold mb-2">
+              Checked Businesses
+            </h3>
+            <p class="text-xs sm:text-sm text-on-surface-variant leading-relaxed mb-4">
+              We check government company registrations for every supplier before they can list products.
+            </p>
+            <div class="inline-flex items-center gap-1 text-primary text-xs font-semibold">
+              <span class="material-symbols-outlined text-[15px]" data-icon="task_alt">task_alt</span>
+              CAC (NG) • CIPC (ZA) • RGD (GH)
+            </div>
+          </div>
+
+          <!-- Trust Card 2 -->
+          <div class="bg-surface-container-lowest border border-outline-variant rounded-2xl p-6 sm:p-8 hover:border-primary transition-all">
+            <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-secondary-fixed text-on-secondary-container flex items-center justify-center mb-5">
+              <span class="material-symbols-outlined text-[26px] sm:text-[30px]" data-icon="price_check">price_check</span>
+            </div>
+            <h3 class="font-headline text-lg sm:text-xl text-on-surface font-bold mb-2">
+              Clear Prices
+            </h3>
+            <p class="text-xs sm:text-sm text-on-surface-variant leading-relaxed mb-4">
+              Pay in the supplier's currency with clear local price estimates and no hidden exchange surprises.
+            </p>
+            <div class="inline-flex items-center gap-1 text-secondary text-xs font-semibold">
+              <span class="material-symbols-outlined text-[15px]" data-icon="check_circle">check_circle</span>
+              Direct supplier prices
+            </div>
+          </div>
+
+          <!-- Trust Card 3 -->
+          <div class="bg-surface-container-lowest border border-outline-variant rounded-2xl p-6 sm:p-8 hover:border-primary transition-all">
+            <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-surface-container-low border border-outline-variant text-primary flex items-center justify-center mb-5">
+              <span class="material-symbols-outlined text-[26px] sm:text-[30px]" data-icon="hub">hub</span>
+            </div>
+            <h3 class="font-headline text-lg sm:text-xl text-on-surface font-bold mb-2">
+              Trusted Delivery Partners
+            </h3>
+            <p class="text-xs sm:text-sm text-on-surface-variant leading-relaxed mb-4">
+              Hand-picked transport partners manage your shipment from supplier warehouse to delivery.
+            </p>
+            <div class="inline-flex items-center gap-1 text-primary text-xs font-semibold">
+              <span class="material-symbols-outlined text-[15px]" data-icon="schedule">schedule</span>
+              Estimated transit timelines
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: COUNTRY HUBS FOCUS -->
+    <section class="py-12 sm:py-16 bg-surface-container-low border-t border-outline-variant" id="hubs">
+      <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 bg-surface-container-lowest border border-outline-variant p-6 sm:p-8 rounded-2xl">
+          <div>
+            <h3 class="font-headline text-xl sm:text-2xl font-bold text-on-surface mb-1.5">Regional Trade Hubs</h3>
+            <p class="text-xs sm:text-sm text-on-surface-variant">Active supplier networks ready for bulk shipping</p>
+          </div>
+          <div class="flex flex-wrap gap-3 sm:gap-4 items-center w-full md:w-auto">
+            <div class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl bg-surface border border-outline-variant flex-1 sm:flex-initial">
+              <span class="font-headline text-lg font-bold text-primary">NG</span>
+              <div>
+                <p class="text-sm text-on-surface font-bold leading-none">Nigeria</p>
+                <p class="text-[11px] text-outline">Grains &amp; Seeds, Oilseeds</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl bg-surface border border-outline-variant flex-1 sm:flex-initial">
+              <span class="font-headline text-lg font-bold text-primary">ZA</span>
+              <div>
+                <p class="text-sm text-on-surface font-bold leading-none">South Africa</p>
+                <p class="text-[11px] text-outline">Packaged Goods, Produce</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl bg-surface border border-outline-variant flex-1 sm:flex-initial">
+              <span class="font-headline text-lg font-bold text-primary">GH</span>
+              <div>
+                <p class="text-sm text-on-surface font-bold leading-none">Ghana</p>
+                <p class="text-[11px] text-outline">Cashews &amp; Raw Produce</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: CTA BANNER -->
+    <section class="py-14 sm:py-20 bg-surface" id="signup">
+      <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="rounded-2xl sm:rounded-3xl p-6 sm:p-10 lg:p-16 bg-primary text-on-primary shadow-lg relative overflow-hidden flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-10">
+          <div class="max-w-2xl text-center lg:text-left z-10">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-on-primary-fixed-variant text-primary-fixed text-xs font-semibold mb-3">
+              <span class="material-symbols-outlined text-[15px]" data-icon="rocket_launch">rocket_launch</span>
+              Start Sourcing Today
+            </span>
+            <h2 class="font-headline text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 text-on-primary leading-tight">
+              Ready to start trading with verified suppliers?
+            </h2>
+            <p class="text-xs sm:text-sm lg:text-base text-primary-fixed max-w-xl">
+              Join wholesale buyers and suppliers streamlining intra-African commerce across Nigeria, South Africa, and Ghana.
+            </p>
+          </div>
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 z-10 w-full lg:w-auto">
+            <a class="min-h-[48px] inline-flex items-center justify-center bg-secondary-container text-on-surface text-sm sm:text-base font-bold px-6 sm:px-8 py-3.5 rounded-xl sm:rounded-full shadow hover:bg-secondary-fixed-dim transition-all text-center" href="#">
+              Create Free Account
+            </a>
+            <a class="min-h-[48px] inline-flex items-center justify-center bg-on-primary-fixed-variant text-on-primary border border-primary-fixed-dim/30 text-sm sm:text-base font-semibold px-6 sm:px-8 py-3.5 rounded-xl sm:rounded-full hover:bg-primary transition-all text-center" href="#products">
+              Explore Marketplace
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-surface-container-low dark:bg-inverse-surface border-t border-outline-variant dark:border-outline">
+    <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+      
+      <!-- Top Brand Row -->
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between pb-8 sm:pb-12 border-b border-outline-variant mb-8 sm:mb-12 gap-4 sm:gap-6">
+        <a class="font-headline font-bold text-lg sm:text-xl text-primary dark:text-inverse-primary flex items-center gap-2" href="#">
+          <span class="w-8 h-8 rounded-lg bg-primary text-on-primary flex items-center justify-center">
+            <span class="material-symbols-outlined text-secondary-container text-[18px]" data-icon="grain">grain</span>
+          </span>
+          <span>AfriTrade Connect</span>
+        </a>
+        <p class="text-xs sm:text-sm text-on-surface-variant max-w-md">
+          Simple wholesale commerce across Nigeria, South Africa, and Ghana.
+        </p>
+      </div>
+
+      <!-- Links Grid -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 mb-8 sm:mb-12">
+        <!-- Col 1: For Buyers -->
+        <div>
+          <h4 class="font-headline font-bold text-sm sm:text-base text-on-surface mb-3 sm:mb-4">For Buyers</h4>
+          <ul class="space-y-2.5 text-xs sm:text-sm text-on-surface-variant dark:text-surface-variant">
+            <li><a class="hover:text-primary transition-colors" href="#products">Browse Marketplace</a></li>
+            <li><a class="hover:text-primary transition-colors" href="#trust">Buyer Protection</a></li>
+            <li><a class="hover:text-primary transition-colors" href="#trust">Verified Suppliers</a></li>
+            <li><a class="hover:text-primary transition-colors" href="#how-it-works">Delivery Tracking</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 2: For Suppliers -->
+        <div>
+          <h4 class="font-headline font-bold text-sm sm:text-base text-on-surface mb-3 sm:mb-4">For Suppliers</h4>
+          <ul class="space-y-2.5 text-xs sm:text-sm text-on-surface-variant dark:text-surface-variant">
+            <li><a class="hover:text-primary transition-colors" href="#">Supplier Directory</a></li>
+            <li><a class="hover:text-primary transition-colors" href="#signup">Become a Verified Supplier</a></li>
+            <li><a class="hover:text-primary transition-colors" href="#">Seller Handbook</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Countries -->
+        <div>
+          <h4 class="font-headline font-bold text-sm sm:text-base text-on-surface mb-3 sm:mb-4">Countries</h4>
+          <ul class="space-y-2.5 text-xs sm:text-sm text-on-surface-variant dark:text-surface-variant">
+            <li><a class="hover:text-primary transition-colors" href="#hubs">Nigeria Hub (NGN)</a></li>
+            <li><a class="hover:text-primary transition-colors" href="#hubs">South Africa Hub (ZAR)</a></li>
+            <li><a class="hover:text-primary transition-colors" href="#hubs">Ghana Hub (GHS)</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Help & Safety -->
+        <div>
+          <h4 class="font-headline font-bold text-sm sm:text-base text-on-surface mb-3 sm:mb-4">Help &amp; Safety</h4>
+          <ul class="space-y-2.5 text-xs sm:text-sm text-on-surface-variant dark:text-surface-variant">
+            <li><a class="hover:text-primary transition-colors" href="#trust">Help Center</a></li>
+            <li><a class="hover:text-primary transition-colors" href="#trust">Trade Safety Standards</a></li>
+            <li><a class="hover:text-primary transition-colors" href="#">Report an Issue</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Copyright Bar -->
+      <div class="pt-6 sm:pt-8 border-t border-outline-variant flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 text-xs text-outline">
+        <p>© 2025 AfriTrade Connect Ltd. Wholesale commerce across Nigeria, South Africa, and Ghana.</p>
+        <div class="flex items-center gap-4">
+          <span class="flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-primary-container"></span>
+            All systems normal
+          </span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Interactivity Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Currency Switcher
+      const currencies = ['USD ($)', 'NGN (₦)', 'ZAR (R)', 'GHS (GH₵)'];
+      let currIndex = 0;
+      const currencyBtn = document.getElementById('currencyBtn');
+      const currencyLabel = document.getElementById('currentCurrency');
+      if (currencyBtn && currencyLabel) {
+        currencyBtn.addEventListener('click', () => {
+          currIndex = (currIndex + 1) % currencies.length;
+          currencyLabel.textContent = currencies[currIndex];
+        });
+      }
+
+      // Mobile Drawer Toggle
+      const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+      const closeDrawerBtn = document.getElementById('closeDrawerBtn');
+      const mobileDrawer = document.getElementById('mobileDrawer');
+      const drawerLinks = document.querySelectorAll('.drawer-nav-link');
+
+      function toggleDrawer(open) {
+        if (open) {
+          mobileDrawer?.classList.remove('hidden');
+        } else {
+          mobileDrawer?.classList.add('hidden');
+        }
+      }
+
+      mobileMenuBtn?.addEventListener('click', () => toggleDrawer(true));
+      closeDrawerBtn?.addEventListener('click', () => toggleDrawer(false));
+      mobileDrawer?.addEventListener('click', (e) => {
+        if (e.target === mobileDrawer) toggleDrawer(false);
+      });
+      drawerLinks.forEach(link => {
+        link.addEventListener('click', () => toggleDrawer(false));
+      });
+
+      // Category filter pills
+      const pills = document.querySelectorAll('.cat-pill');
+      pills.forEach(pill => {
+        pill.addEventListener('click', () => {
+          pills.forEach(p => {
+            p.classList.remove('bg-primary', 'text-on-primary');
+            p.classList.add('text-on-surface-variant');
+          });
+          pill.classList.remove('text-on-surface-variant');
+          pill.classList.add('bg-primary', 'text-on-primary');
+        });
+      });
+    });
+  </script>
+</body>
+</html>

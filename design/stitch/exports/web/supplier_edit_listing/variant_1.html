@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AfriTrade Connect - Supplier Edit Commodity Listing</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..700&amp;family=Noto+Sans:ital,wght@0,400..700;1,400..700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-primary-fixed-variant": "#00513a",
+            "secondary-fixed": "#ffdeae",
+            "surface-variant": "#dbe5de",
+            "on-background": "#151d1a",
+            "error-container": "#ffdad6",
+            "on-secondary": "#ffffff",
+            "inverse-surface": "#29322e",
+            "outline-variant": "#bec9c2",
+            "surface-container-highest": "#dbe5de",
+            "on-error-container": "#93000a",
+            "error": "#ba1a1a",
+            "on-tertiary": "#ffffff",
+            "tertiary-fixed": "#ffdad6",
+            "surface-container-low": "#ecf6ef",
+            "secondary-fixed-dim": "#ffba3e",
+            "secondary-container": "#feb62f",
+            "surface-tint": "#106b4f",
+            "on-error": "#ffffff",
+            "tertiary-container": "#924843",
+            "surface": "#f2fcf5",
+            "inverse-on-surface": "#e9f3ec",
+            "surface-container": "#e6f0ea",
+            "on-surface": "#151d1a",
+            "background": "#f2fcf5",
+            "secondary": "#7f5700",
+            "on-tertiary-container": "#ffccc7",
+            "inverse-primary": "#86d6b4",
+            "surface-container-high": "#e1ebe4",
+            "on-secondary-fixed-variant": "#604100",
+            "primary-fixed": "#a1f3cf",
+            "on-surface-variant": "#3f4944",
+            "on-tertiary-fixed-variant": "#75322e",
+            "primary": "#00513a",
+            "on-secondary-container": "#6d4a00",
+            "tertiary-fixed-dim": "#ffb3ad",
+            "surface-container-lowest": "#ffffff",
+            "on-primary-fixed": "#002115",
+            "on-primary": "#ffffff",
+            "surface-dim": "#d2dcd6",
+            "outline": "#6f7a73",
+            "primary-fixed-dim": "#86d6b4",
+            "tertiary": "#75312d",
+            "primary-container": "#0f6b4f",
+            "surface-bright": "#f2fcf5",
+            "on-primary-container": "#97e8c5",
+            "on-tertiary-fixed": "#3c0707",
+            "on-secondary-fixed": "#281900"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter": "1.5rem",
+            "space-lg": "1.5rem",
+            "margin-mobile": "1rem",
+            "space-md": "1rem",
+            "margin": "2rem",
+            "space-xs": "0.25rem",
+            "space-xl": "2.5rem",
+            "space-sm": "0.5rem",
+            "gutter-mobile": "1rem"
+          },
+          "fontFamily": {
+            "body-sm": ["Noto Sans"],
+            "body-lg": ["Noto Sans"],
+            "label-lg": ["Noto Sans"],
+            "display-lg-mobile": ["Bricolage Grotesque"],
+            "body-md": ["Noto Sans"],
+            "headline-xl-mobile": ["Bricolage Grotesque"],
+            "display-lg": ["Bricolage Grotesque"],
+            "headline-sm": ["Bricolage Grotesque"],
+            "headline-xl": ["Bricolage Grotesque"],
+            "headline-md": ["Bricolage Grotesque"],
+            "label-sm": ["Noto Sans"],
+            "label-md": ["Noto Sans"],
+            "title-md": ["Noto Sans"]
+          },
+          "fontSize": {
+            "body-sm": ["12px", { "lineHeight": "18px", "fontWeight": "400" }],
+            "body-lg": ["16px", { "lineHeight": "26px", "fontWeight": "400" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "body-md": ["14px", { "lineHeight": "22px", "fontWeight": "400" }],
+            "headline-xl-mobile": ["26px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "title-md": ["16px", { "lineHeight": "24px", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-surface text-on-surface font-body-md antialiased min-h-screen flex flex-col justify-between selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopNavBar Header -->
+<header class="bg-surface-container-lowest sticky top-0 z-40">
+<div class="flex items-center justify-between px-space-lg w-full max-w-[1600px] mx-auto h-16">
+<div class="flex items-center gap-space-md">
+<a class="font-headline-md text-headline-md text-primary font-bold tracking-tight" href="#">AfriTrade Connect</a>
+</div>
+
+<div class="flex items-center gap-space-md">
+<button aria-label="notifications" class="relative p-2 rounded-full hover:bg-surface-container-low transition-colors duration-150">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="notifications">notifications</span>
+<span class="absolute top-1 right-1 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<button aria-label="help" class="hidden md:flex p-2 rounded-full hover:bg-surface-container-low transition-colors duration-150">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="help">help</span>
+</button>
+<div class="flex items-center gap-space-sm pl-space-sm border-l border-outline-variant">
+<img class="w-9 h-9 rounded-full object-cover" data-alt="Professional studio portrait of Babatunde Adeleke, operations director at Savannah Agro Ltd in Kano Nigeria, wearing traditional attire with a confident smile against a neutral warehouse background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTZIJPc4MNvskwRaNF8F-UqkKOe5YTw72SFQcJ75cFNcSzAtpXycJVCPe0s08D8j-wdPhQaok_BXSPhezOJ5r6YD5yFOjPWgOKEbtB1hGUEb3HQ4Vk19DFp68jArMjpNRXK4uJssQqvG3UzaD10SG1dAaVY4Ch70ME5hqEYGTUJTij_vmT5zqGdbsrKEDsedvIwNN3rPtwE8evtikOaZr-Bh4jNfWas_jRkeAElEow2FVcAkW89mt7nrYr7olPlPtTn3glVX_E28s"/>
+<div class="hidden lg:block text-left">
+<div class="font-label-md text-label-md text-on-surface">Babatunde Adeleke</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Savannah Agro Ltd</div>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Layout -->
+<div class="flex-1 w-full max-w-[1600px] mx-auto flex flex-col md:flex-row">
+<!-- Sidebar Navigation -->
+<aside class="w-full md:w-64 bg-surface-container-lowest md:min-h-[calc(100vh-4rem)] border-b md:border-b-0 md:border-r border-outline-variant p-space-md flex flex-col justify-between shrink-0">
+<div class="space-y-space-lg">
+<div class="hidden md:block px-space-xs pt-space-sm">
+<span class="font-label-sm text-label-sm text-outline tracking-wider">SUPPLIER PORTAL</span>
+</div>
+<nav class="flex md:flex-col gap-2 overflow-x-auto pb-2 md:pb-0">
+<a class="flex items-center gap-space-md px-space-md py-3 rounded-xl hover:bg-surface-container-low text-on-surface-variant transition-colors duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-space-md px-space-md py-3 rounded-xl bg-surface-container-low text-primary transition-colors duration-150 font-semibold" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2" style="font-variation-settings: 'FILL' 1;">inventory_2</span>
+<span class="font-label-md text-label-md">Products</span>
+</a>
+<a class="flex items-center gap-space-md px-space-md py-3 rounded-xl hover:bg-surface-container-low text-on-surface-variant transition-colors duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+<span class="font-label-md text-label-md">Orders</span>
+</a>
+<a class="flex items-center gap-space-md px-space-md py-3 rounded-xl hover:bg-surface-container-low text-on-surface-variant transition-colors duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="verified">verified</span>
+<span class="font-label-md text-label-md">KYB Verification</span>
+</a>
+<a class="flex items-center gap-space-md px-space-md py-3 rounded-xl hover:bg-surface-container-low text-on-surface-variant transition-colors duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+</nav>
+</div>
+<div class="hidden md:block p-space-md bg-surface-container-low rounded-xl mt-space-xl">
+<div class="flex items-center gap-space-sm mb-2">
+<span class="material-symbols-outlined text-primary" data-icon="support_agent">support_agent</span>
+<span class="font-label-md text-label-md text-primary">Trade Desk Support</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-3">Need help with logistics settlement or bulk clearance?</p>
+<button class="w-full py-2 bg-surface-container-lowest text-primary font-label-md rounded-full border border-outline-variant hover:bg-surface transition-colors">Contact Agent</button>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 p-space-md md:p-space-xl overflow-y-auto">
+<!-- Breadcrumb & Header Section -->
+<div class="mb-space-lg">
+<nav class="flex items-center gap-space-xs font-body-sm text-on-surface-variant mb-space-sm">
+<a class="hover:text-primary" href="#">Products</a>
+<span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span>
+<a class="hover:text-primary" href="#">PRD-NG-0419</a>
+<span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span>
+<span class="text-primary font-medium">Edit Listing</span>
+</nav>
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-md bg-surface-container-lowest p-space-lg rounded-xl border border-outline-variant shadow-sm">
+<div>
+<h1 class="font-headline-md md:font-headline-xl text-headline-md md:text-headline-xl text-on-surface mb-1">Edit Listing: Grade A Split Dried Ginger</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant">SKU: PRD-NG-0419 • Last updated 2 days ago</p>
+</div>
+<div class="flex items-center gap-space-md bg-surface-container-low px-space-md py-3 rounded-full border border-outline-variant">
+<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-surface-container-lowest text-primary border border-primary/20">
+<span class="w-2 h-2 rounded-full bg-primary mr-2 animate-pulse"></span>
+              Active on Marketplace
+            </span>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-outline-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+<span class="font-label-md text-label-md text-on-surface">Listing is ACTIVE</span>
+</div>
+</div>
+</div>
+<!-- Form Grid -->
+<form class="space-y-space-lg" onsubmit="event.preventDefault();">
+<!-- Section 1: Title & Classification -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl border border-outline-variant shadow-sm">
+<div class="flex items-center gap-space-sm mb-space-md pb-space-sm border-b border-outline-variant">
+<span class="material-symbols-outlined text-primary" data-icon="label">label</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">1. Title &amp; Classification</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<div class="md:col-span-2">
+<label class="block font-label-md text-label-md text-on-surface mb-2">Listing Title</label>
+<input class="w-full h-12 px-space-md bg-surface-container-lowest border border-outline-variant rounded-xl text-body-md text-on-surface focus:border-primary focus:ring-2 focus:ring-primary/20" type="text" value="Premium Grade A Dried Ginger (Split) - 2024 Late Harvest"/>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-2">Category</label>
+<select class="w-full h-12 px-space-md bg-surface-container-lowest border border-outline-variant rounded-xl text-body-md text-on-surface focus:border-primary focus:ring-2 focus:ring-primary/20">
+<option selected="">Spices &amp; Seasonings (Agriculture)</option>
+<option>Grains &amp; Cereals</option>
+<option>Oilseeds &amp; Nuts</option>
+<option>Tubers &amp; Roots</option>
+</select>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-2">Origin Country</label>
+<div class="flex items-center h-12 px-space-md bg-surface-container-low border border-outline-variant rounded-xl">
+<span class="inline-flex items-center gap-2 px-3 py-1 bg-surface-container-lowest rounded-full border border-outline-variant font-label-md text-on-surface">
+<span class="material-symbols-outlined text-sm text-primary" data-icon="flag">flag</span>
+                  Nigeria (NG)
+                </span>
+<span class="ml-3 font-body-sm text-on-surface-variant">Verified Export Hub</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Section 2: Pricing & Minimum Order Quantity -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl border border-outline-variant shadow-sm">
+<div class="flex items-center gap-space-sm mb-space-md pb-space-sm border-b border-outline-variant">
+<span class="material-symbols-outlined text-primary" data-icon="payments">payments</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">2. Pricing &amp; Minimum Order Quantity</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-2">Currency</label>
+<select class="w-full h-12 px-space-md bg-surface-container-lowest border border-outline-variant rounded-xl text-body-md text-on-surface focus:border-primary focus:ring-2 focus:ring-primary/20">
+<option selected="">NGN (Nigerian Naira - ₦)</option>
+<option>USD (US Dollar - $)</option>
+<option>GHS (Ghanaian Cedi - GH₵)</option>
+<option>ZAR (South African Rand - R)</option>
+</select>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-2">Unit Price</label>
+<div class="relative">
+<span class="absolute inset-y-0 left-0 flex items-center pl-space-md text-on-surface-variant font-semibold">₦</span>
+<input class="w-full h-12 pl-8 pr-16 bg-surface-container-lowest border border-outline-variant rounded-xl text-body-md text-on-surface focus:border-primary focus:ring-2 focus:ring-primary/20" type="text" value="1,850,000"/>
+<span class="absolute inset-y-0 right-0 flex items-center pr-space-md text-on-surface-variant font-body-sm">per MT</span>
+</div>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-2">Minimum Order Quantity (MOQ)</label>
+<div class="relative">
+<input class="w-full h-12 pl-space-md pr-16 bg-surface-container-lowest border border-outline-variant rounded-xl text-body-md text-on-surface focus:border-primary focus:ring-2 focus:ring-primary/20" type="number" value="5"/>
+<span class="absolute inset-y-0 right-0 flex items-center pr-space-md text-on-surface-variant font-body-sm font-semibold">MT</span>
+</div>
+</div>
+<div class="md:col-span-3 bg-surface-container-low p-space-md rounded-xl border border-outline-variant flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-secondary" data-icon="calculate">calculate</span>
+<span class="font-label-md text-label-md text-on-surface">Calculated Minimum Order Value</span>
+</div>
+<div class="font-headline-sm text-headline-sm text-primary">₦ 9,250,000</div>
+</div>
+</div>
+</div>
+<!-- Section 3: Inventory & Logistics -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl border border-outline-variant shadow-sm">
+<div class="flex items-center gap-space-sm mb-space-md pb-space-sm border-b border-outline-variant">
+<span class="material-symbols-outlined text-primary" data-icon="warehouse">warehouse</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">3. Inventory &amp; Logistics</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-2">Current Stock Available</label>
+<div class="relative">
+<input class="w-full h-12 pl-space-md pr-16 bg-surface-container-lowest border border-outline-variant rounded-xl text-body-md text-on-surface focus:border-primary focus:ring-2 focus:ring-primary/20" type="number" value="120"/>
+<span class="absolute inset-y-0 right-0 flex items-center pr-space-md text-on-surface-variant font-body-sm font-semibold">MT</span>
+</div>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-2">Warehouse Hub</label>
+<select class="w-full h-12 px-space-md bg-surface-container-lowest border border-outline-variant rounded-xl text-body-md text-on-surface focus:border-primary focus:ring-2 focus:ring-primary/20">
+<option selected="">Kano Central Warehouse, Nigeria</option>
+<option>Lagos Apapa Port Terminal, Nigeria</option>
+<option>Kaduna Agro Depot, Nigeria</option>
+</select>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-2">Harvest Season</label>
+<select class="w-full h-12 px-space-md bg-surface-container-lowest border border-outline-variant rounded-xl text-body-md text-on-surface focus:border-primary focus:ring-2 focus:ring-primary/20">
+<option selected="">2024 Late Harvest</option>
+<option>2024 Early Harvest</option>
+<option>2023 Late Harvest</option>
+</select>
+</div>
+</div>
+</div>
+<!-- Section 4: Current Photos & Media -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl border border-outline-variant shadow-sm">
+<div class="flex items-center gap-space-sm mb-space-md pb-space-sm border-b border-outline-variant">
+<span class="material-symbols-outlined text-primary" data-icon="photo_camera">photo_camera</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">4. Current Photos &amp; Media</h2>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">Upload high-resolution images showing product grade, packaging in 50kg sacks, and warehouse storage conditions.</p>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md">
+<!-- Photo 1 -->
+<div class="relative bg-surface-container-low rounded-xl border border-outline-variant overflow-hidden group">
+<img class="w-full h-40 object-cover" onerror="this.src='/images/product-placeholder.png'" src="https://lh3.googleusercontent.com/aida/AEtjO1UR9zFmfVGu4nCiUqPOuUBlf5igk5iGuIPLFlMYafjqyZ9IWk652pRpF9B-xOBBkYZDiAVlkvYOmj-OBAA9O7ykwMaWfOzyGPlcNgzdw0C5T_FuoXaJrK5B0FXe0UvSfNJS0BlzM3u8WcPp9W_yZaIlTffYYpK6iup8Yaox5g9Nh8icCrsyJWH4Sn716KzZt2FCum4g2kUmddXUzLtCPdiI8Yy1yAwickRVyYAj5pWYR4W5UkWLFcwGUkQ"/>
+<div class="absolute top-2 right-2 bg-black/60 text-white text-xs px-2 py-1 rounded">Primary</div>
+<div class="p-3 flex items-center justify-between bg-surface-container-lowest">
+<button class="text-xs font-semibold text-primary hover:underline" type="button">Change</button>
+<button class="text-xs font-semibold text-error hover:underline" type="button">Remove</button>
+</div>
+</div>
+<!-- Photo 2 -->
+<div class="relative bg-surface-container-low rounded-xl border border-outline-variant overflow-hidden group">
+<img class="w-full h-40 object-cover" onerror="this.src='/images/product-placeholder.png'" src="https://lh3.googleusercontent.com/aida/AEtjO1UR9zFmfVGu4nCiUqPOuUBlf5igk5iGuIPLFlMYafjqyZ9IWk652pRpF9B-xOBBkYZDiAVlkvYOmj-OBAA9O7ykwMaWfOzyGPlcNgzdw0C5T_FuoXaJrK5B0FXe0UvSfNJS0BlzM3u8WcPp9W_yZaIlTffYYpK6iup8Yaox5g9Nh8icCrsyJWH4Sn716KzZt2FCum4g2kUmddXUzLtCPdiI8Yy1yAwickRVyYAj5pWYR4W5UkWLFcwGUkQ"/>
+<div class="p-3 flex items-center justify-between bg-surface-container-lowest">
+<button class="text-xs font-semibold text-primary hover:underline" type="button">Change</button>
+<button class="text-xs font-semibold text-error hover:underline" type="button">Remove</button>
+</div>
+</div>
+<!-- Photo 3 -->
+<div class="relative bg-surface-container-low rounded-xl border border-outline-variant overflow-hidden group">
+<img class="w-full h-40 object-cover" onerror="this.src='/images/product-placeholder.png'" src="https://lh3.googleusercontent.com/aida/AEtjO1UR9zFmfVGu4nCiUqPOuUBlf5igk5iGuIPLFlMYafjqyZ9IWk652pRpF9B-xOBBkYZDiAVlkvYOmj-OBAA9O7ykwMaWfOzyGPlcNgzdw0C5T_FuoXaJrK5B0FXe0UvSfNJS0BlzM3u8WcPp9W_yZaIlTffYYpK6iup8Yaox5g9Nh8icCrsyJWH4Sn716KzZt2FCum4g2kUmddXUzLtCPdiI8Yy1yAwickRVyYAj5pWYR4W5UkWLFcwGUkQ"/>
+<div class="p-3 flex items-center justify-between bg-surface-container-lowest">
+<button class="text-xs font-semibold text-primary hover:underline" type="button">Change</button>
+<button class="text-xs font-semibold text-error hover:underline" type="button">Remove</button>
+</div>
+</div>
+<!-- Upload Box -->
+<label class="flex flex-col items-center justify-center h-48 border-2 border-dashed border-outline-variant rounded-xl cursor-pointer hover:bg-surface-container-low transition-colors bg-surface-container-lowest">
+<span class="material-symbols-outlined text-primary text-3xl mb-2" data-icon="add_photo_alternate">add_photo_alternate</span>
+<span class="font-label-md text-label-md text-primary">Upload New Photo</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-1">PNG, JPG up to 10MB</span>
+<input accept="image/*" class="hidden" type="file"/>
+</label>
+</div>
+</div>
+<!-- Section 5: Sticky Action Bar -->
+<div class="sticky bottom-0 bg-surface-container-lowest p-space-md rounded-xl border border-outline-variant shadow-lg flex flex-col sm:flex-row items-center justify-between gap-space-md z-30">
+<div class="flex items-center gap-space-md w-full sm:w-auto">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary flex items-center gap-1" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="arrow_back">arrow_back</span>
+              Cancel
+            </a>
+<span class="text-outline-variant hidden sm:inline">|</span>
+<button class="font-label-md text-label-md text-on-surface px-4 py-2 rounded-full border border-outline-variant hover:bg-surface-container-low transition-colors h-11" onclick="alert('Listing marked as inactive.');" type="button">
+              Deactivate Listing
+            </button>
+</div>
+<div class="flex items-center gap-space-md w-full sm:w-auto justify-end">
+<button class="font-label-md text-label-md text-error hover:underline px-4 py-2" onclick="if(confirm('Are you sure you want to permanently delete this listing?')) alert('Listing deleted.');" type="button">
+              Delete Listing
+            </button>
+<button class="w-full sm:w-auto px-8 h-12 bg-primary hover:bg-on-primary-fixed-variant text-on-primary font-label-lg rounded-full transition-colors flex items-center justify-center gap-2 shadow-sm" onclick="alert('Changes saved successfully!');" type="submit">
+<span class="material-symbols-outlined text-sm" data-icon="save">save</span>
+              Save Changes
+            </button>
+</div>
+</div>
+</form>
+</main>
+</div>
+<!-- Footer -->
+<footer class="bg-primary text-on-primary mt-space-xl">
+<div class="flex flex-col md:flex-row justify-between items-center px-space-lg py-space-md w-full max-w-[1600px] mx-auto gap-space-sm">
+<div class="font-headline-sm text-headline-sm text-on-primary font-bold">AfriTrade Connect</div>
+<div class="flex flex-wrap justify-center gap-space-md font-label-sm text-label-sm">
+<a class="hover:text-secondary-fixed transition-colors" href="#">Customs &amp; Tariffs</a>
+<a class="hover:text-secondary-fixed transition-colors" href="#">Trade Protection Terms</a>
+<a class="hover:text-secondary-fixed transition-colors" href="#">API Documentation</a>
+<a class="hover:text-secondary-fixed transition-colors" href="#">Compliance &amp; KYB</a>
+<a class="hover:text-secondary-fixed transition-colors" href="#">System Status</a>
+</div>
+<div class="font-body-sm text-body-sm text-on-primary/80 text-center md:text-right max-w-md">
+        © 2025 AfriTrade Connect Ltd. Institutional Cross-Border B2B Clearing &amp; Freight Settlement. All rights reserved.
+      </div>
+</div>
+</footer>
+</body></html>
+

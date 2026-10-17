@@ -1,0 +1,190 @@
+<html class="h-full" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AfriTrade Connect - Operations Portal Administrator Login</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..700&amp;family=Noto+Sans:ital,wght@0,400..700;1,400..700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-surface": "#151d1a",
+            "on-background": "#151d1a",
+            "surface-dim": "#d2dcd6",
+            "surface-container-low": "#ecf6ef",
+            "surface": "#f2fcf5",
+            "secondary-container": "#feb62f",
+            "on-secondary-fixed": "#281900",
+            "on-tertiary-container": "#ffccc7",
+            "tertiary-container": "#924843",
+            "secondary-fixed-dim": "#ffba3e",
+            "primary-fixed-dim": "#86d6b4",
+            "inverse-on-surface": "#e9f3ec",
+            "surface-bright": "#f2fcf5",
+            "error": "#ba1a1a",
+            "tertiary": "#75312d",
+            "on-secondary": "#ffffff",
+            "primary": "#00513a",
+            "error-container": "#ffdad6",
+            "tertiary-fixed-dim": "#ffb3ad",
+            "surface-tint": "#106b4f",
+            "secondary-fixed": "#ffdeae",
+            "on-secondary-container": "#6d4a00",
+            "on-tertiary-fixed": "#3c0707",
+            "outline": "#6f7a73",
+            "primary-container": "#0f6b4f",
+            "on-secondary-fixed-variant": "#604100",
+            "tertiary-fixed": "#ffdad6",
+            "secondary": "#7f5700",
+            "on-primary": "#ffffff",
+            "inverse-surface": "#29322e",
+            "outline-variant": "#bec9c2",
+            "on-primary-fixed-variant": "#00513a",
+            "on-primary-container": "#97e8c5",
+            "inverse-primary": "#86d6b4",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-high": "#e1ebe4",
+            "surface-container-highest": "#dbe5de",
+            "on-tertiary-fixed-variant": "#75322e",
+            "on-error-container": "#93000a",
+            "on-error": "#ffffff",
+            "background": "#f2fcf5",
+            "surface-variant": "#dbe5de",
+            "on-surface-variant": "#3f4944",
+            "on-primary-fixed": "#002115",
+            "on-tertiary": "#ffffff",
+            "primary-fixed": "#a1f3cf",
+            "surface-container": "#e6f0ea"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-lg": "1.5rem",
+            "space-xl": "2.5rem",
+            "space-sm": "0.5rem",
+            "margin-mobile": "1rem",
+            "space-xs": "0.25rem",
+            "margin": "2rem",
+            "space-md": "1.0rem",
+            "gutter": "1.5rem",
+            "gutter-mobile": "1rem"
+          },
+          "fontFamily": {
+            "label-md": ["Noto Sans"],
+            "headline-xl-mobile": ["Bricolage Grotesque"],
+            "headline-xl": ["Bricolage Grotesque"],
+            "headline-sm": ["Bricolage Grotesque"],
+            "headline-md": ["Bricolage Grotesque"],
+            "body-lg": ["Noto Sans"],
+            "display-lg": ["Bricolage Grotesque"],
+            "label-lg": ["Noto Sans"],
+            "label-sm": ["Noto Sans"],
+            "body-sm": ["Noto Sans"],
+            "body-md": ["Noto Sans"],
+            "title-md": ["Noto Sans"],
+            "display-lg-mobile": ["Bricolage Grotesque"]
+          },
+          "fontSize": {
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "headline-xl-mobile": ["26px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "body-lg": ["16px", { "lineHeight": "26px", "fontWeight": "400" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "fontWeight": "400" }],
+            "body-md": ["14px", { "lineHeight": "22px", "fontWeight": "400" }],
+            "title-md": ["16px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }]
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="h-full bg-[#FBF9F5] text-on-surface font-body-md antialiased flex flex-col justify-between selection:bg-primary-container selection:text-on-primary">
+<div class="flex-1 flex flex-col items-center justify-center px-margin-mobile md:px-margin py-space-xl">
+<!-- Central Card Container -->
+<div class="w-full max-w-[480px] bg-surface-container-lowest border border-[#E5DFD7] rounded-xl shadow-[0_16px_32px_-8px_rgba(27,36,32,0.08),0_4px_12px_-2px_rgba(27,36,32,0.03)] p-space-lg md:p-space-xl flex flex-col gap-space-lg">
+<!-- Brand & Header -->
+<div class="flex flex-col items-start gap-space-sm">
+<div class="inline-flex items-center gap-space-xs px-3 py-1.5 rounded-full bg-[#1E3A2B] text-primary-fixed font-label-md">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">shield_lock</span>
+<span>AfriTrade Connect Operations Console</span>
+</div>
+<h1 class="font-headline-md text-headline-md text-on-surface mt-space-xs">Administrator Sign In</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Enter your credentials to access verification queues, order oversight, and logistics controls.</p>
+</div>
+<!-- Login Form -->
+<form action="#" class="flex flex-col gap-space-md" method="POST" onsubmit="event.preventDefault();">
+<!-- Workstation Email Field -->
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-lg text-label-lg text-on-surface" for="admin_email">Workstation Email</label>
+<div class="relative flex items-center">
+<span class="absolute left-3.5 text-outline material-symbols-outlined text-[20px]">badge</span>
+<input class="w-full h-12 pl-11 pr-4 bg-surface-container-lowest border border-outline-variant rounded-xl font-body-md text-on-surface placeholder:text-outline focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all" id="admin_email" name="admin_email" placeholder="admin@afritrade.internal" required="" type="email"/>
+</div>
+</div>
+<!-- Secure Password Field -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<label class="font-label-lg text-label-lg text-on-surface" for="admin_password">Secure Password</label>
+</div>
+<div class="relative flex items-center">
+<span class="absolute left-3.5 text-outline material-symbols-outlined text-[20px]">lock</span>
+<input class="w-full h-12 pl-11 pr-12 bg-surface-container-lowest border border-outline-variant rounded-xl font-body-md text-on-surface placeholder:text-outline focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all" id="admin_password" name="admin_password" placeholder="••••••••••••••••" required="" type="password"/>
+<button aria-label="Toggle password visibility" class="absolute right-3.5 text-outline hover:text-on-surface transition-colors focus:outline-none" onclick="const p = document.getElementById('admin_password'); p.type = p.type === 'password' ? 'text' : 'password'; this.querySelector('span').textContent = p.type === 'password' ? 'visibility' : 'visibility_off';" type="button">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+</div>
+</div>
+<!-- Workstation Session Active Checkbox -->
+<div class="flex items-center justify-between py-1">
+<label class="flex items-center gap-space-sm cursor-pointer select-none">
+<input checked="" class="w-5 h-5 rounded border-outline-variant text-[#1E3A2B] focus:ring-primary focus:ring-offset-0 transition-colors" name="session_active" type="checkbox"/>
+<span class="font-body-md text-body-md text-on-surface">Workstation session active</span>
+</label>
+</div>
+<!-- Primary Action Button -->
+<button class="w-full h-12 bg-[#1E3A2B] hover:bg-[#12261b] text-white font-label-lg rounded-full flex items-center justify-center gap-space-sm shadow-sm transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#1E3A2B] mt-space-xs" type="submit">
+<span>Sign In to Operations Console</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</form>
+<!-- Security & Compliance Callout -->
+<div class="flex flex-col gap-space-md pt-space-md border-t border-[#E5DFD7]">
+<div class="flex items-start gap-space-sm bg-surface-container-low p-space-md rounded-lg border border-outline-variant/3il">
+<span class="material-symbols-outlined text-primary text-[20px] shrink-0 mt-0.5" style="font-variation-settings: 'FILL' 1;">security</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+            Authorized Administrative Personnel Only: All access attempts, IP addresses, and moderation actions are logged to immutable admin audit trails.
+          </p>
+</div>
+<div class="text-center">
+<a class="font-label-md text-label-md text-primary hover:underline inline-flex items-center gap-space-xs" href="#">
+<span>Trouble signing in? Contact Infrastructure Lead</span>
+<span class="material-symbols-outlined text-[14px]">open_in_new</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Minimal Footer -->
+<footer class="py-space-md text-center">
+<p class="font-body-sm text-body-sm text-outline">
+      © 2025 AfriTrade Connect Ltd. Institutional Cross-Border B2B Clearing &amp; Freight Settlement. All rights reserved.
+    </p>
+</footer>
+</body></html>
+

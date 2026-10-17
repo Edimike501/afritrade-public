@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+
+<html class="h-full bg-surface" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Buyer Dashboard | AfriTrade Connect</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;600;700;800&amp;family=Noto+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "secondary-container": "#feb62f",
+            "secondary-fixed-dim": "#ffba3e",
+            "on-surface": "#151d1a",
+            "background": "#f2fcf5",
+            "surface-container-low": "#ecf6ef",
+            "surface-container-high": "#e1ebe4",
+            "on-primary-container": "#97e8c5",
+            "primary": "#00513a",
+            "on-secondary-fixed": "#281900",
+            "tertiary": "#75312d",
+            "on-tertiary-fixed-variant": "#75322e",
+            "tertiary-fixed": "#ffdad6",
+            "error": "#ba1a1a",
+            "primary-container": "#0f6b4f",
+            "on-tertiary-fixed": "#3c0707",
+            "surface-container-lowest": "#ffffff",
+            "outline": "#6f7a73",
+            "surface-dim": "#d2dcd6",
+            "primary-fixed-dim": "#86d6b4",
+            "tertiary-fixed-dim": "#ffb3ad",
+            "on-tertiary-container": "#ffccc7",
+            "surface-bright": "#f2fcf5",
+            "on-secondary-fixed-variant": "#604100",
+            "on-primary-fixed": "#002115",
+            "on-tertiary": "#ffffff",
+            "on-error": "#ffffff",
+            "surface-tint": "#106b4f",
+            "inverse-on-surface": "#e9f3ec",
+            "tertiary-container": "#924843",
+            "surface-container-highest": "#dbe5de",
+            "primary-fixed": "#a1f3cf",
+            "on-surface-variant": "#3f4944",
+            "inverse-primary": "#86d6b4",
+            "outline-variant": "#bec9c2",
+            "inverse-surface": "#29322e",
+            "on-error-container": "#93000a",
+            "on-secondary": "#ffffff",
+            "on-primary-fixed-variant": "#00513a",
+            "secondary-fixed": "#ffdeae",
+            "secondary": "#7f5700",
+            "on-background": "#151d1a",
+            "error-container": "#ffdad6",
+            "surface-variant": "#dbe5de",
+            "surface": "#f2fcf5",
+            "on-primary": "#ffffff",
+            "on-secondary-container": "#6d4a00",
+            "surface-container": "#e6f0ea"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin": "2rem",
+            "margin-mobile": "1rem",
+            "gutter": "1.5rem",
+            "space-xl": "2.5rem",
+            "space-sm": "0.5rem",
+            "space-xs": "0.25rem",
+            "space-md": "1rem",
+            "gutter-mobile": "1rem",
+            "space-lg": "1.5rem"
+          },
+          "fontFamily": {
+            "body-md": ["Noto Sans"],
+            "display-lg-mobile": ["Bricolage Grotesque"],
+            "label-lg": ["Noto Sans"],
+            "headline-xl-mobile": ["Bricolage Grotesque"],
+            "body-sm": ["Noto Sans"],
+            "body-lg": ["Noto Sans"],
+            "display-lg": ["Bricolage Grotesque"],
+            "headline-sm": ["Bricolage Grotesque"],
+            "title-md": ["Noto Sans"],
+            "headline-xl": ["Bricolage Grotesque"],
+            "headline-md": ["Bricolage Grotesque"],
+            "label-sm": ["Noto Sans"],
+            "label-md": ["Noto Sans"]
+          },
+          "fontSize": {
+            "body-md": ["14px", { "lineHeight": "22px", "fontWeight": "400" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "headline-xl-mobile": ["26px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "fontWeight": "400" }],
+            "body-lg": ["16px", { "lineHeight": "26px", "fontWeight": "400" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "title-md": ["16px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="min-h-full flex flex-col font-body-md text-on-surface bg-surface antialiased">
+<!-- Top Navigation Bar -->
+<header class="bg-surface-container-lowest sticky top-0 z-50 shadow-sm border-b border-outline-variant">
+<div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+<!-- Logo & Brand Anchor -->
+<div class="flex items-center gap-8">
+<a class="font-headline-sm text-headline-sm text-primary font-bold flex items-center gap-2 tracking-tight" href="#">
+<span class="w-10 h-10 rounded-xl bg-primary-container flex items-center justify-center text-surface-container-lowest">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+</span>
+<span>AfriTrade Connect</span>
+</a>
+<!-- Desktop Navigation Items -->
+
+</div>
+<!-- Trailing Controls & User Profile -->
+<div class="flex items-center gap-4">
+<!-- Currency Converter Tag -->
+<div class="hidden sm:flex items-center bg-surface-container-low border border-outline-variant rounded-full px-3 py-1.5 gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]" data-icon="currency_exchange">currency_exchange</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">USD / Multi ($)</span>
+<span class="material-symbols-outlined text-on-surface-variant text-[16px]" data-icon="arrow_drop_down">arrow_drop_down</span>
+</div>
+<!-- Notification Bell -->
+<button aria-label="Notifications" class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container-low transition-colors relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2.5 h-2.5 bg-secondary-container rounded-full ring-2 ring-surface-container-lowest"></span>
+</button>
+<div class="h-6 w-[1px] bg-outline-variant hidden sm:block"></div>
+<!-- Buyer Profile Badge -->
+<div class="flex items-center gap-3 pl-1">
+<div class="w-10 h-10 rounded-full bg-primary-container text-surface-container-lowest font-headline-sm text-headline-sm flex items-center justify-center font-bold">
+            AO
+          </div>
+<div class="hidden lg:flex flex-col text-left">
+<span class="font-title-md text-title-md leading-tight text-on-surface">Amara Okafor</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Commercial Buyer</span>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+<!-- Welcome & Context Banner -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 sm:p-8 flex flex-col md:flex-row md:items-center justify-between gap-6 shadow-sm">
+<div class="space-y-2">
+<div class="flex flex-wrap items-center gap-2 sm:gap-3">
+<h1 class="font-headline-xl text-headline-xl text-on-surface tracking-tight">
+            Welcome back, Amara Okafor
+          </h1>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-secondary font-label-md text-label-md bg-secondary-fixed/50 border border-secondary-fixed">
+<span class="material-symbols-outlined text-[16px]" data-icon="shield_with_heart">shield_with_heart</span>
+            Demo Simulation Mode (Zero Financial Risk)
+          </span>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-primary" data-icon="business">business</span>
+<span>Tema Food Processors Ltd</span>
+<span class="text-outline-variant">•</span>
+<span>Accra, Ghana 🇬🇭</span>
+</p>
+</div>
+<div class="flex items-center gap-3 shrink-0">
+<a class="inline-flex items-center gap-2 bg-surface-container-lowest text-primary border-[1.5px] border-primary hover:bg-surface-container-low transition-colors font-label-lg text-label-lg h-12 px-6 rounded-full active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="storefront">storefront</span>
+<span>Browse Wholesale Catalog</span>
+</a>
+</div>
+</div>
+<!-- Summary Financial & Operational Metrics (4 Executive Cards) -->
+<section>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+<!-- Metric Card 1 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 flex flex-col justify-between shadow-sm hover:border-primary-container/40 transition-colors">
+<div class="flex items-center justify-between mb-4">
+<span class="font-label-md text-label-md text-on-surface-variant">Active Shipments</span>
+<div class="w-9 h-9 rounded-full bg-surface-container-low flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]" data-icon="local_shipping">local_shipping</span>
+</div>
+</div>
+<div>
+<div class="font-headline-md text-headline-md text-on-surface font-bold tracking-tight">3 Orders</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-secondary-container"></span>
+              1 payment pending, 2 in transit
+            </p>
+</div>
+</div>
+<!-- Metric Card 2 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 flex flex-col justify-between shadow-sm hover:border-primary-container/40 transition-colors">
+<div class="flex items-center justify-between mb-4">
+<span class="font-label-md text-label-md text-on-surface-variant">Purchases (NGN)</span>
+<div class="w-9 h-9 rounded-full bg-surface-container-low flex items-center justify-center text-primary">
+<span class="font-label-sm font-bold">₦</span>
+</div>
+</div>
+<div>
+<div class="font-headline-md text-headline-md text-on-surface font-bold tracking-tight">₦42,500,000</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+              Simulated settlement across 8 orders
+            </p>
+</div>
+</div>
+<!-- Metric Card 3 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 flex flex-col justify-between shadow-sm hover:border-primary-container/40 transition-colors">
+<div class="flex items-center justify-between mb-4">
+<span class="font-label-md text-label-md text-on-surface-variant">Purchases (GHS)</span>
+<div class="w-9 h-9 rounded-full bg-surface-container-low flex items-center justify-center text-primary">
+<span class="font-label-sm font-bold">GH₵</span>
+</div>
+</div>
+<div>
+<div class="font-headline-md text-headline-md text-on-surface font-bold tracking-tight">GH₵ 185,000</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+              Simulated settlement across 4 orders
+            </p>
+</div>
+</div>
+<!-- Metric Card 4 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 flex flex-col justify-between shadow-sm hover:border-primary-container/40 transition-colors">
+<div class="flex items-center justify-between mb-4">
+<span class="font-label-md text-label-md text-on-surface-variant">Completed Deliveries</span>
+<div class="w-9 h-9 rounded-full bg-surface-container-low flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]" data-icon="task_alt">task_alt</span>
+</div>
+</div>
+<div>
+<div class="font-headline-md text-headline-md text-primary font-bold tracking-tight">14 Orders</div>
+<p class="font-body-sm text-body-sm text-primary-container mt-1 font-medium">
+              100% successful fulfillment record
+            </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Live Active Orders & Shipment Tracking Section -->
+<section class="space-y-6">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface tracking-tight">
+            Active Orders &amp; Dispatch Tracking
+          </h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Monitor bulk dispatch progress and finalize transaction steps
+          </p>
+</div>
+<!-- Filter Pills -->
+<div class="flex items-center gap-2 overflow-x-auto pb-1 sm:pb-0">
+<button class="px-4 py-1.5 rounded-full font-label-md text-label-md bg-primary text-surface-container-lowest transition-colors">
+            All Active (3)
+          </button>
+<button class="px-4 py-1.5 rounded-full font-label-md text-label-md bg-surface-container-low text-on-surface-variant hover:text-primary transition-colors border border-outline-variant">
+            Action Required (1)
+          </button>
+<button class="px-4 py-1.5 rounded-full font-label-md text-label-md bg-surface-container-low text-on-surface-variant hover:text-primary transition-colors border border-outline-variant">
+            In Transit (2)
+          </button>
+</div>
+</div>
+<div class="space-y-5">
+<!-- Order Card 1 (Action Required) -->
+<div class="bg-surface-container-lowest border-2 border-secondary-container/40 rounded-xl p-6 shadow-sm space-y-6">
+<!-- Top Row Header -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-outline-variant pb-4">
+<div class="flex flex-wrap items-center gap-2 text-on-surface">
+<span class="font-title-md text-title-md font-bold">Order #ORD-2026-9481</span>
+<span class="text-outline-variant">•</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Placed today, Oct 11, 2026 • 09:15 GMT</span>
+</div>
+<!-- Status Badge -->
+<div>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-secondary font-label-md text-label-md bg-secondary-fixed/60 border border-secondary-fixed">
+<span class="material-symbols-outlined text-[16px]" data-icon="warning">warning</span>
+                Payment Pending
+              </span>
+</div>
+</div>
+<!-- Product Details Row -->
+<div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
+<div class="flex items-start gap-4">
+<img alt="Yellow Maize in bulk jute bags stored in a regional wholesale distribution warehouse" class="w-20 h-20 sm:w-24 sm:h-24 object-cover rounded-xl border border-outline-variant shrink-0" src="https://lh3.googleusercontent.com/aida/AEtjO1UR9zFmfVGu4nCiUqPOuUBlf5igk5iGuIPLFlMYafjqyZ9IWk652pRpF9B-xOBBkYZDiAVlkvYOmj-OBAA9O7ykwMaWfOzyGPlcNgzdw0C5T_FuoXaJrK5B0FXe0UvSfNJS0BlzM3u8WcPp9W_yZaIlTffYYpK6iup8Yaox5g9Nh8icCrsyJWH4Sn716KzZt2FCum4g2kUmddXUzLtCPdiI8Yy1yAwickRVyYAj5pWYR4W5UkWLFcwGUkQ"/>
+<div class="space-y-1">
+<h3 class="font-title-md text-title-md text-on-surface font-bold">
+                  Yellow Maize (Grade A Bulk Bags)
+                </h3>
+<div class="flex flex-wrap items-center gap-2">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Supplier:</span>
+<span class="font-label-md text-label-md text-primary font-medium">Savannah Agro Ltd</span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-label-sm bg-surface-container-low text-primary border border-primary/20">
+<span class="material-symbols-outlined text-[12px]" data-icon="verified">verified</span>
+                    Kano, Nigeria 🇳🇬 • Verified Supplier
+                  </span>
+</div>
+<div class="flex items-center gap-4 pt-1 font-body-sm text-body-sm text-on-surface-variant">
+<span>Quantity: <strong class="text-on-surface">50 Bags (2.5 MT)</strong></span>
+<span>•</span>
+<span>Packaging: Jute Bags (50kg)</span>
+</div>
+</div>
+</div>
+<!-- Price & Settlement Column -->
+<div class="lg:text-right shrink-0">
+<span class="font-label-sm text-label-sm text-on-surface-variant block">Total Settlement</span>
+<div class="font-headline-md text-headline-md text-primary font-bold">₦1,250,000</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">≈ $785.00 indicative</span>
+</div>
+</div>
+<!-- Mini Progress Stepper: Step 2 of 6 -->
+<div class="bg-surface-container-low rounded-xl p-4 sm:p-5">
+<div class="flex items-center justify-between mb-3">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Dispatch Milestone (Step 2 of 6)</span>
+<span class="font-label-sm text-label-sm text-secondary font-bold">Simulation Step Required</span>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-6 gap-2">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-primary text-surface-container-lowest flex items-center justify-center font-label-sm">✓</span>
+<span class="font-label-sm text-label-sm text-primary font-medium">1: Placed</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-secondary-container text-on-secondary-fixed flex items-center justify-center font-label-sm font-bold animate-pulse">2</span>
+<span class="font-label-sm text-label-sm text-on-surface font-bold">2: Pending ⚠️</span>
+</div>
+<div class="flex items-center gap-2 opacity-50">
+<span class="w-6 h-6 rounded-full bg-outline-variant text-on-surface-variant flex items-center justify-center font-label-sm">3</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">3: Confirmed</span>
+</div>
+<div class="flex items-center gap-2 opacity-50">
+<span class="w-6 h-6 rounded-full bg-outline-variant text-on-surface-variant flex items-center justify-center font-label-sm">4</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">4: Packed</span>
+</div>
+<div class="flex items-center gap-2 opacity-50">
+<span class="w-6 h-6 rounded-full bg-outline-variant text-on-surface-variant flex items-center justify-center font-label-sm">5</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">5: In Transit</span>
+</div>
+<div class="flex items-center gap-2 opacity-50">
+<span class="w-6 h-6 rounded-full bg-outline-variant text-on-surface-variant flex items-center justify-center font-label-sm">6</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">6: Delivered</span>
+</div>
+</div>
+</div>
+<!-- Order Actions -->
+<div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2">
+<div class="flex items-center gap-2 text-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px] text-primary" data-icon="verified_user">verified_user</span>
+<span>Safe simulated test transaction • Direct supplier settlement simulation</span>
+</div>
+<div class="flex items-center gap-4 w-full sm:w-auto">
+<a class="font-label-lg text-label-lg text-primary hover:underline" href="#">
+                View Order Manifest
+              </a>
+<button class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-primary text-surface-container-lowest font-label-lg text-label-lg h-12 px-6 rounded-full hover:bg-primary-container transition-colors shadow-sm active:scale-[0.98]">
+<span class="material-symbols-outlined text-[20px]" data-icon="lock_open">lock_open</span>
+<span>Complete Simulated Payment</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Order Card 2 (In Transit) -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 shadow-sm space-y-6">
+<!-- Top Row Header -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-outline-variant pb-4">
+<div class="flex flex-wrap items-center gap-2 text-on-surface">
+<span class="font-title-md text-title-md font-bold">Order #ORD-2026-9210</span>
+<span class="text-outline-variant">•</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Shipped Oct 08, 2026</span>
+</div>
+<!-- Status Badge -->
+<div>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-primary font-label-md text-label-md bg-surface-container-low border border-primary/20">
+<span class="material-symbols-outlined text-[16px]" data-icon="local_shipping">local_shipping</span>
+                In Transit
+              </span>
+</div>
+</div>
+<!-- Product Details Row -->
+<div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
+<div class="flex items-start gap-4">
+<img class="w-20 h-20 sm:w-24 sm:h-24 object-cover rounded-xl border border-outline-variant shrink-0" data-alt="Bags of raw export-grade cashew nuts stacked neatly in a sunlit regional commodities aggregation center in Sunyani Ghana with high industrial ceilings and natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuApRaE5lamOoNG0bUTpvfPYVKeM-lqcf1dLtClp30oYwvU0QLaTYaW9IYKTXn-UyWK11oXLFfgvTFk4xidfxII9nuuBZbtoigmHwRT8U0vttSYfqAM_uWypMGduDHg7NyK7IHRaE6FlOMQsC3CPXrTYa995Tg6L_CTWleHz_nFD02yYEcDK9Isny1WBMMW-yEqhSqYnbxttQ2_A61CdLhvkNiw7kvEDYVwM-a8gIV2DKB8YFzyGOzp-K1nO9R-27_iOtUXUmjHbaRo"/>
+<div class="space-y-1">
+<h3 class="font-title-md text-title-md text-on-surface font-bold">
+                  Raw Cashew Nuts (Export Grade)
+                </h3>
+<div class="flex flex-wrap items-center gap-2">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Supplier:</span>
+<span class="font-label-md text-label-md text-primary font-medium">Sunyani Harvest Co</span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-label-sm bg-surface-container-low text-primary border border-primary/20">
+<span class="material-symbols-outlined text-[12px]" data-icon="verified">verified</span>
+                    Sunyani, Ghana 🇬🇭 • Verified Supplier
+                  </span>
+</div>
+<div class="flex flex-wrap items-center gap-4 pt-1 font-body-sm text-body-sm text-on-surface-variant">
+<span>Quantity: <strong class="text-on-surface">20 Bags (1.0 MT)</strong></span>
+<span>•</span>
+<span>Logistics: <span class="text-on-surface">Accra-Lagos Freight Services (Waybill #AFR-TRK-7742)</span></span>
+</div>
+</div>
+</div>
+<!-- Price & Settlement Column -->
+<div class="lg:text-right shrink-0">
+<span class="font-label-sm text-label-sm text-on-surface-variant block">Total Settlement</span>
+<div class="font-headline-md text-headline-md text-primary font-bold">GH₵ 9,000</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">≈ $560.00</span>
+</div>
+</div>
+<!-- Mini Progress Stepper: Step 5 of 6 -->
+<div class="bg-surface-container-low rounded-xl p-4 sm:p-5">
+<div class="flex items-center justify-between mb-3">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Dispatch Milestone (Step 5 of 6)</span>
+<span class="font-label-sm text-label-sm text-primary font-semibold">Expected Arrival: Oct 14, 2026</span>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-6 gap-2">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-primary text-surface-container-lowest flex items-center justify-center font-label-sm">✓</span>
+<span class="font-label-sm text-label-sm text-primary font-medium">1: Placed</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-primary text-surface-container-lowest flex items-center justify-center font-label-sm">✓</span>
+<span class="font-label-sm text-label-sm text-primary font-medium">2: Paid</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-primary text-surface-container-lowest flex items-center justify-center font-label-sm">✓</span>
+<span class="font-label-sm text-label-sm text-primary font-medium">3: Confirmed</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-primary text-surface-container-lowest flex items-center justify-center font-label-sm">✓</span>
+<span class="font-label-sm text-label-sm text-primary font-medium">4: Packed</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-primary text-surface-container-lowest flex items-center justify-center font-label-sm font-bold">5</span>
+<span class="font-label-sm text-label-sm text-primary font-bold">5: In Transit 🚚</span>
+</div>
+<div class="flex items-center gap-2 opacity-50">
+<span class="w-6 h-6 rounded-full bg-outline-variant text-on-surface-variant flex items-center justify-center font-label-sm">6</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">6: Delivered</span>
+</div>
+</div>
+</div>
+<!-- Order Actions -->
+<div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2">
+<div class="flex items-center gap-2 text-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px] text-primary" data-icon="near_me">near_me</span>
+<span>Last checkpoint: Lomé Hub Clearance completed Oct 10</span>
+</div>
+<div class="flex items-center gap-3 w-full sm:w-auto">
+<button class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-surface-container-lowest text-primary border border-outline-variant font-label-lg text-label-lg h-11 px-5 rounded-full hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="description">description</span>
+<span>View Waybill</span>
+</button>
+<button class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-surface-container-lowest text-primary border-[1.5px] border-primary font-label-lg text-label-lg h-11 px-5 rounded-full hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="route">route</span>
+<span>Track Delivery</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Quick Re-Order Section -->
+<section class="space-y-6 pt-4">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface tracking-tight">
+          Frequent Wholesale Commodities
+        </h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          Easily re-order bulk raw materials from verified local businesses
+        </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Commodity Card 1 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between space-y-4">
+<div class="space-y-4">
+<div class="relative w-full h-44 rounded-lg overflow-hidden border border-outline-variant bg-surface-container-low">
+<img alt="Clean dried yellow maize in bulk burlap sacks prepared for wholesale processing in an African agricultural facility" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1UR9zFmfVGu4nCiUqPOuUBlf5igk5iGuIPLFlMYafjqyZ9IWk652pRpF9B-xOBBkYZDiAVlkvYOmj-OBAA9O7ykwMaWfOzyGPlcNgzdw0C5T_FuoXaJrK5B0FXe0UvSfNJS0BlzM3u8WcPp9W_yZaIlTffYYpK6iup8Yaox5g9Nh8icCrsyJWH4Sn716KzZt2FCum4g2kUmddXUzLtCPdiI8Yy1yAwickRVyYAj5pWYR4W5UkWLFcwGUkQ"/>
+<span class="absolute top-3 right-3 bg-surface-container-lowest/95 backdrop-blur-sm px-2.5 py-1 rounded-full text-xs font-label-sm text-on-surface flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-primary" data-icon="verified">verified</span>
+                Verified
+              </span>
+</div>
+<div>
+<h3 class="font-title-md text-title-md text-on-surface font-bold">Yellow Maize (Grade A)</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Savannah Agro Ltd</p>
+</div>
+</div>
+<div class="pt-3 border-t border-outline-variant space-y-3">
+<div class="flex items-center justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant block">Price</span>
+<span class="font-headline-sm text-headline-sm font-bold text-primary">₦25,000 <span class="font-body-sm text-body-sm font-normal text-on-surface-variant">/ bag</span></span>
+</div>
+<div class="text-right">
+<span class="font-label-sm text-label-sm text-on-surface-variant block">MOQ</span>
+<span class="font-label-md text-label-md font-semibold text-on-surface">50 Bags</span>
+</div>
+</div>
+<button class="w-full inline-flex items-center justify-center gap-2 bg-primary text-surface-container-lowest font-label-lg text-label-lg h-11 px-4 rounded-full hover:bg-primary-container transition-colors active:scale-[0.98]">
+<span class="material-symbols-outlined text-[18px]" data-icon="repeat">repeat</span>
+<span>Order Again</span>
+</button>
+</div>
+</div>
+<!-- Commodity Card 2 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between space-y-4">
+<div class="space-y-4">
+<div class="relative w-full h-44 rounded-lg overflow-hidden border border-outline-variant bg-surface-container-low">
+<img class="w-full h-full object-cover" data-alt="Close-up of premium clean harvest dry soybeans in bulk textile sacks stored inside an organized dry granary warehouse bathed in warm afternoon natural light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnbjngvLB3SYBJt2qx6qHl6rCw7yuAvb7guXda_xVikq9F4AqPThoIicsxXeURfYHjbelh_Rr1qozJ-FKR4oovB73H_xLVEIHCVKJ0xUhRfGDEONzrB020syNpTOKjPiic18yw5nwn8M88Z9WU3aaXKcPWm5eq42mKY37RBIEiQNgkFX1k6rLHDzfn_uU8iwe-_cHHr1Dvv47GU0yNomstF6PYNzzAF_keoFnNH86JxtEXaqUiw89pT5Zpyp4iXWf1ML82HUu6eRU"/>
+<span class="absolute top-3 right-3 bg-surface-container-lowest/95 backdrop-blur-sm px-2.5 py-1 rounded-full text-xs font-label-sm text-on-surface flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-primary" data-icon="verified">verified</span>
+                Verified
+              </span>
+</div>
+<div>
+<h3 class="font-title-md text-title-md text-on-surface font-bold">Bulk Soybeans</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Benue Farm Direct</p>
+</div>
+</div>
+<div class="pt-3 border-t border-outline-variant space-y-3">
+<div class="flex items-center justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant block">Price</span>
+<span class="font-headline-sm text-headline-sm font-bold text-primary">₦32,000 <span class="font-body-sm text-body-sm font-normal text-on-surface-variant">/ bag</span></span>
+</div>
+<div class="text-right">
+<span class="font-label-sm text-label-sm text-on-surface-variant block">MOQ</span>
+<span class="font-label-md text-label-md font-semibold text-on-surface">100 Bags</span>
+</div>
+</div>
+<button class="w-full inline-flex items-center justify-center gap-2 bg-primary text-surface-container-lowest font-label-lg text-label-lg h-11 px-4 rounded-full hover:bg-primary-container transition-colors active:scale-[0.98]">
+<span class="material-symbols-outlined text-[18px]" data-icon="repeat">repeat</span>
+<span>Order Again</span>
+</button>
+</div>
+</div>
+<!-- Commodity Card 3 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between space-y-4">
+<div class="space-y-4">
+<div class="relative w-full h-44 rounded-lg overflow-hidden border border-outline-variant bg-surface-container-low">
+<img class="w-full h-full object-cover" data-alt="Refined golden sunflower cooking oil drums and commercial 20-liter containers organized in clean pallets inside a South African wholesale distribution center" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwovhl41HGQm-mr6BLc2qjYenz2DKvMlTGLbAqnBJWWvjz9_GrglMRVCOle2v26J17p8XdMiNvJLLKWdy-HxaNR0RByFtzhDW-yBRiYADhLjbhwtPkew0yBvvVraiheelNnX_lC1U27QO7AU1R1Uxc-8n-K6K-qKs-j3whEaQa0T8CU9qDCTtPqvNxZ0ptMufW3r6f4b8bZWCbY45ctlZjOEKj8XHwYbaCj-GLTlBva41tAIGzkVY_XyuBw07zysIEJdMo-ZO3tcg"/>
+<span class="absolute top-3 right-3 bg-surface-container-lowest/95 backdrop-blur-sm px-2.5 py-1 rounded-full text-xs font-label-sm text-on-surface flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-primary" data-icon="verified">verified</span>
+                Verified
+              </span>
+</div>
+<div>
+<h3 class="font-title-md text-title-md text-on-surface font-bold">Refined Sunflower Oil (20L)</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Cape &amp; Veld Oils</p>
+</div>
+</div>
+<div class="pt-3 border-t border-outline-variant space-y-3">
+<div class="flex items-center justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant block">Price</span>
+<span class="font-headline-sm text-headline-sm font-bold text-primary">R 420 <span class="font-body-sm text-body-sm font-normal text-on-surface-variant">/ can</span></span>
+</div>
+<div class="text-right">
+<span class="font-label-sm text-label-sm text-on-surface-variant block">MOQ</span>
+<span class="font-label-md text-label-md font-semibold text-on-surface">25 Cans</span>
+</div>
+</div>
+<button class="w-full inline-flex items-center justify-center gap-2 bg-primary text-surface-container-lowest font-label-lg text-label-lg h-11 px-4 rounded-full hover:bg-primary-container transition-colors active:scale-[0.98]">
+<span class="material-symbols-outlined text-[18px]" data-icon="repeat">repeat</span>
+<span>Order Again</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer Component -->
+<footer class="bg-surface-container-low border-t border-outline-variant mt-16">
+<div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 mb-12">
+<!-- Brand Info -->
+<div class="col-span-2">
+<a class="font-headline-sm text-headline-sm text-primary font-bold flex items-center gap-2 mb-3" href="#">
+<span class="w-8 h-8 rounded-lg bg-primary text-surface-container-lowest flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]" data-icon="inventory_2">inventory_2</span>
+</span>
+<span>AfriTrade Connect</span>
+</a>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-sm mb-4">
+            Reliable wholesale bulk trade network connecting buyers and verified local businesses across West and Southern Africa.
+          </p>
+<div class="flex items-center gap-2">
+<span class="px-2.5 py-1 rounded-full text-xs font-label-sm bg-surface-container-lowest text-on-surface border border-outline-variant">
+              🇳🇬 Nigeria
+            </span>
+<span class="px-2.5 py-1 rounded-full text-xs font-label-sm bg-surface-container-lowest text-on-surface border border-outline-variant">
+              🇬🇭 Ghana
+            </span>
+<span class="px-2.5 py-1 rounded-full text-xs font-label-sm bg-surface-container-lowest text-on-surface border border-outline-variant">
+              🇿🇦 South Africa
+            </span>
+</div>
+</div>
+<!-- Links Column 1 -->
+<div>
+<h4 class="font-title-md text-title-md text-primary font-semibold mb-3">Marketplace</h4>
+<ul class="space-y-2 font-body-md text-body-md">
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Browse Marketplace</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Buyer Protection</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Safe Simulated Payment</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Supplier Directory</a></li>
+</ul>
+</div>
+<!-- Links Column 2 -->
+<div>
+<h4 class="font-title-md text-title-md text-primary font-semibold mb-3">Suppliers</h4>
+<ul class="space-y-2 font-body-md text-body-md">
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Become a Verified Supplier</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Seller Handbook</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Trade Safety Standards</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Report an Issue</a></li>
+</ul>
+</div>
+<!-- Links Column 3 -->
+<div>
+<h4 class="font-title-md text-title-md text-primary font-semibold mb-3">Regional Hubs</h4>
+<ul class="space-y-2 font-body-md text-body-md">
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Nigeria Hub (NGN)</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">South Africa Hub (ZAR)</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Ghana Hub (GHS)</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Help Center</a></li>
+</ul>
+</div>
+</div>
+<!-- Bottom Copyright & Compliance -->
+<div class="border-t border-outline-variant pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 font-body-sm text-body-sm text-on-surface-variant">
+<div>
+          © 2026 AfriTrade Connect Ltd. Wholesale commerce across Nigeria, South Africa, and Ghana.
+        </div>
+<div class="flex items-center gap-6">
+<a class="hover:underline" href="#">Privacy Policy</a>
+<a class="hover:underline" href="#">Terms of Service</a>
+<a class="hover:underline" href="#">Security Architecture</a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>
+

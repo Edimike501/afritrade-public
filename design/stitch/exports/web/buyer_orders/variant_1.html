@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AfriTrade Connect - Orders Ledger</title>
+<!-- Google Fonts: Bricolage Grotesque & Noto Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&amp;family=Noto+Sans:ital,wght@0,300..900;1,300..900&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 with Forms & Container Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "tertiary": "#75312d",
+            "surface-variant": "#dbe5de",
+            "background": "#f2fcf5",
+            "on-surface": "#151d1a",
+            "inverse-primary": "#86d6b4",
+            "surface-dim": "#d2dcd6",
+            "on-secondary": "#ffffff",
+            "inverse-on-surface": "#e9f3ec",
+            "primary-fixed-dim": "#86d6b4",
+            "on-tertiary-fixed": "#3c0707",
+            "on-secondary-container": "#6d4a00",
+            "on-primary-container": "#97e8c5",
+            "primary-container": "#0f6b4f",
+            "on-surface-variant": "#3f4944",
+            "on-primary-fixed": "#002115",
+            "tertiary-fixed-dim": "#ffb3ad",
+            "secondary": "#7f5700",
+            "surface-bright": "#f2fcf5",
+            "surface-container-highest": "#dbe5de",
+            "error": "#ba1a1a",
+            "surface-container-lowest": "#ffffff",
+            "surface-container": "#e6f0ea",
+            "surface": "#f2fcf5",
+            "secondary-fixed-dim": "#ffba3e",
+            "secondary-fixed": "#ffdeae",
+            "tertiary-fixed": "#ffdad6",
+            "primary-fixed": "#a1f3cf",
+            "surface-container-low": "#ecf6ef",
+            "on-primary-fixed-variant": "#00513a",
+            "on-tertiary-fixed-variant": "#75322e",
+            "on-secondary-fixed": "#281900",
+            "tertiary-container": "#924843",
+            "surface-container-high": "#e1ebe4",
+            "on-primary": "#ffffff",
+            "outline-variant": "#bec9c2",
+            "on-secondary-fixed-variant": "#604100",
+            "primary": "#00513a",
+            "inverse-surface": "#29322e",
+            "on-tertiary": "#ffffff",
+            "surface-tint": "#106b4f",
+            "on-tertiary-container": "#ffccc7",
+            "error-container": "#ffdad6",
+            "on-background": "#151d1a",
+            "secondary-container": "#feb62f",
+            "on-error": "#ffffff",
+            "outline": "#6f7a73",
+            "on-error-container": "#93000a"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "space-lg": "1.5rem",
+            "space-xl": "2.5rem",
+            "margin-mobile": "1rem",
+            "gutter-mobile": "1rem",
+            "margin": "2rem",
+            "gutter": "1.5rem"
+          },
+          "fontFamily": {
+            "body-sm": ["Noto Sans", "sans-serif"],
+            "body-md": ["Noto Sans", "sans-serif"],
+            "body-lg": ["Noto Sans", "sans-serif"],
+            "label-sm": ["Noto Sans", "sans-serif"],
+            "label-md": ["Noto Sans", "sans-serif"],
+            "label-lg": ["Noto Sans", "sans-serif"],
+            "title-md": ["Noto Sans", "sans-serif"],
+            "headline-sm": ["Bricolage Grotesque", "sans-serif"],
+            "headline-md": ["Bricolage Grotesque", "sans-serif"],
+            "headline-xl": ["Bricolage Grotesque", "sans-serif"],
+            "display-lg": ["Bricolage Grotesque", "sans-serif"],
+            "headline-xl-mobile": ["Bricolage Grotesque", "sans-serif"],
+            "display-lg-mobile": ["Bricolage Grotesque", "sans-serif"]
+          },
+          "fontSize": {
+            "body-sm": ["12px", { "lineHeight": "18px", "fontWeight": "400" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "body-md": ["14px", { "lineHeight": "22px", "fontWeight": "400" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "title-md": ["16px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "body-lg": ["16px", { "lineHeight": "26px", "fontWeight": "400" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "headline-xl-mobile": ["26px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased min-h-screen flex flex-col font-body-md selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Top Navigation Header (from Shared Components JSON) -->
+<header class="docked full-width top-0 sticky z-50 w-full px-6 lg:px-8 mx-auto flex items-center justify-between h-16 border-b border-outline-variant bg-surface-container-lowest shadow-sm">
+<!-- Left Logo & Search Cluster -->
+<div class="flex items-center space-x-6">
+<a class="flex items-center space-x-2 text-headline-sm font-headline-sm font-bold text-primary tracking-tight" href="#">
+<span class="w-9 h-9 rounded-xl bg-primary flex items-center justify-center text-on-primary shadow-sm">
+<span class="material-symbols-outlined text-[20px]" data-icon="hub">hub</span>
+</span>
+<span class="flex items-center tracking-tight">AfriTrade Connect</span>
+</a>
+<!-- Compact Search Trigger -->
+<div class="hidden xl:flex items-center relative w-72">
+<span class="material-symbols-outlined absolute left-3.5 text-outline text-[18px]" data-icon="search">search</span>
+<input class="w-full pl-10 pr-4 py-1.5 text-body-sm font-body-sm bg-surface-container-low border border-outline-variant rounded-full text-on-surface placeholder:text-outline focus:outline-none focus:ring-2 focus:ring-primary focus:bg-surface-container-lowest" placeholder="Search wholesale listings..." type="text"/>
+</div>
+</div>
+<!-- Center Navigation Links (Marketplace, Orders, Trust Center) -->
+<nav class="hidden md:flex items-center space-x-6">
+<a class="text-on-surface-variant font-label-lg hover:text-primary transition-colors" href="#">Marketplace</a>
+<!-- Orders is the active tab based on page intent -->
+<a class="text-primary font-bold border-b-2 border-primary pb-1" href="#">Orders</a>
+<a class="text-on-surface-variant font-label-lg hover:text-primary transition-colors" href="#">Trust Center</a>
+<a class="text-on-surface-variant font-label-lg hover:text-primary transition-colors" href="#">Logistics</a>
+<a class="text-on-surface-variant font-label-lg hover:text-primary transition-colors" href="#">Analytics</a>
+</nav>
+<!-- Trailing Actions (RFQ action, Currency Switcher, Trailing Icons, Profile Avatar) -->
+<div class="flex items-center space-x-3">
+<!-- Currency Switcher Pill -->
+<div class="hidden sm:flex items-center px-3 py-1 bg-surface-container-low border border-outline-variant rounded-full text-label-sm font-label-sm text-on-surface-variant hover:border-primary transition-colors">
+<span class="material-symbols-outlined text-[15px] text-secondary mr-1" data-icon="currency_exchange">currency_exchange</span>
+<span>GH₵ / NGN / ZAR</span>
+</div>
+<!-- Trailing Primary Action: Create RFQ -->
+<button class="hidden lg:inline-flex items-center px-4 py-2 bg-primary text-on-primary text-label-md font-label-md rounded-full shadow-sm hover:bg-on-primary-fixed-variant transition-colors active:scale-[0.98]">
+<span class="material-symbols-outlined text-[16px] mr-1.5" data-icon="add_circle">add_circle</span>
+        Create RFQ
+      </button>
+<!-- Trailing Icon Actions: notifications, help -->
+<button aria-label="Notifications" class="p-2 text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded-full transition-colors relative">
+<span class="material-symbols-outlined text-[20px]" data-icon="notifications">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 bg-secondary-container rounded-full ring-2 ring-surface-container-lowest"></span>
+</button>
+<button aria-label="Help &amp; Knowledge Base" class="p-2 text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded-full transition-colors">
+<span class="material-symbols-outlined text-[20px]" data-icon="help">help</span>
+</button>
+<!-- Profile Avatar -->
+<div class="flex items-center pl-2 ml-1 border-l border-outline-variant">
+<div class="w-9 h-9 rounded-full bg-surface-container-high border border-outline-variant flex items-center justify-center text-primary font-title-md font-bold text-[13px] shadow-sm">
+          AO
+        </div>
+<div class="hidden lg:flex flex-col ml-2 text-left">
+<span class="text-label-md font-label-md text-on-surface leading-tight">Amara Okafor</span>
+<span class="text-label-sm font-label-sm text-outline font-normal">Commercial Buyer</span>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Canvas Container -->
+<main class="flex-grow w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-6 lg:py-8 space-y-6">
+<!-- Screen Title Bar & Simulation Disclaimer Banner -->
+<div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 pb-2">
+<div class="space-y-1">
+<div class="flex flex-wrap items-center gap-2.5">
+<h1 class="text-headline-md font-headline-md text-on-surface font-bold tracking-tight">My Wholesale Orders</h1>
+<!-- Safe Simulation Mode Indicator -->
+<span class="inline-flex items-center px-3 py-1 rounded-full text-label-sm font-label-sm bg-surface-container-high text-primary border border-primary/20">
+<span class="material-symbols-outlined text-[15px] mr-1.5 text-primary" data-icon="verified_user">verified_user</span>
+            Demo Simulation Mode (Zero Financial Risk)
+          </span>
+</div>
+<p class="text-body-md font-body-md text-on-surface-variant">
+          Track dispatch status and view historical invoices across bulk commodities in Nigeria, South Africa, and Ghana.
+        </p>
+</div>
+<!-- Action Buttons -->
+<div class="flex items-center gap-3 self-start md:self-auto">
+<button class="inline-flex items-center px-4 py-2.5 bg-surface-container-lowest border border-outline-variant hover:border-outline text-on-surface text-label-md font-label-md rounded-full shadow-sm hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-[18px] mr-1.5 text-on-surface-variant" data-icon="download">download</span>
+          Export Orders (CSV)
+        </button>
+<button class="inline-flex items-center px-5 py-2.5 bg-primary text-on-primary hover:bg-on-primary-fixed-variant text-label-md font-label-md rounded-full shadow-sm transition-colors active:scale-[0.98]">
+<span class="material-symbols-outlined text-[18px] mr-1.5" data-icon="storefront">storefront</span>
+          Browse Marketplace
+        </button>
+</div>
+</div>
+<!-- Status Tabs & Filter Toolbar Bar -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant shadow-sm p-4 space-y-4">
+<!-- Status Tabs Row -->
+<div class="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none border-b border-outline-variant/60">
+<button class="inline-flex items-center px-4 py-2 rounded-full text-label-md font-label-md bg-primary text-on-primary shadow-sm transition-colors whitespace-nowrap">
+<span>All Orders</span>
+<span class="ml-2 px-2 py-0.5 rounded-full text-[11px] bg-white/20 text-white font-bold">14</span>
+</button>
+<button class="inline-flex items-center px-4 py-2 rounded-full text-label-md font-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors whitespace-nowrap">
+<span>Action Required</span>
+<span class="ml-2 px-2 py-0.5 rounded-full text-[11px] bg-secondary-container text-on-secondary-container font-bold">1</span>
+</button>
+<button class="inline-flex items-center px-4 py-2 rounded-full text-label-md font-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors whitespace-nowrap">
+<span>In Transit</span>
+<span class="ml-2 px-2 py-0.5 rounded-full text-[11px] bg-primary-container text-on-primary-container font-bold">2</span>
+</button>
+<button class="inline-flex items-center px-4 py-2 rounded-full text-label-md font-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors whitespace-nowrap">
+<span>Delivered</span>
+<span class="ml-2 px-2 py-0.5 rounded-full text-[11px] bg-surface-container-high text-on-surface-variant font-bold">10</span>
+</button>
+<button class="inline-flex items-center px-4 py-2 rounded-full text-label-md font-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors whitespace-nowrap">
+<span>Cancelled</span>
+<span class="ml-2 px-2 py-0.5 rounded-full text-[11px] bg-error-container/60 text-error font-bold">1</span>
+</button>
+</div>
+<!-- Filter Controls Grid -->
+<div class="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-3 pt-1">
+<!-- Search Field -->
+<div class="relative flex-grow max-w-xl">
+<span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-outline text-[20px]" data-icon="search">search</span>
+<input class="w-full pl-10 pr-4 py-2.5 text-body-md font-body-md bg-surface-container-low border border-outline-variant rounded-full text-on-surface placeholder:text-outline focus:outline-none focus:ring-2 focus:ring-primary focus:bg-surface-container-lowest" placeholder="Search by Order ID, supplier, or product..." type="text"/>
+</div>
+<!-- Filter Dropdowns & Pills -->
+<div class="flex flex-wrap items-center gap-2">
+<!-- Country Filter Pills -->
+<div class="inline-flex items-center p-1 bg-surface-container-low rounded-full border border-outline-variant">
+<button class="px-3 py-1 text-label-sm font-label-sm rounded-full bg-surface-container-lowest text-primary font-bold shadow-xs">
+              All Countries
+            </button>
+<button class="px-2.5 py-1 text-label-sm font-label-sm text-on-surface-variant hover:text-on-surface transition-colors flex items-center gap-1">
+<span>🇳🇬</span> Nigeria
+            </button>
+<button class="px-2.5 py-1 text-label-sm font-label-sm text-on-surface-variant hover:text-on-surface transition-colors flex items-center gap-1">
+<span>🇿🇦</span> South Africa
+            </button>
+<button class="px-2.5 py-1 text-label-sm font-label-sm text-on-surface-variant hover:text-on-surface transition-colors flex items-center gap-1">
+<span>🇬🇭</span> Ghana
+            </button>
+</div>
+<!-- Date Dropdown -->
+<div class="relative">
+<button class="inline-flex items-center px-3.5 py-2 text-label-md font-label-md bg-surface-container-lowest border border-outline-variant rounded-full text-on-surface hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-[18px] text-outline mr-1.5" data-icon="calendar_month">calendar_month</span>
+              Last 90 Days
+              <span class="material-symbols-outlined text-[18px] text-outline ml-1" data-icon="keyboard_arrow_down">keyboard_arrow_down</span>
+</button>
+</div>
+<!-- Sort Dropdown -->
+<div class="relative">
+<button class="inline-flex items-center px-3.5 py-2 text-label-md font-label-md bg-surface-container-lowest border border-outline-variant rounded-full text-on-surface hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-[18px] text-outline mr-1.5" data-icon="sort">sort</span>
+              Newest First
+              <span class="material-symbols-outlined text-[18px] text-outline ml-1" data-icon="keyboard_arrow_down">keyboard_arrow_down</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Order Ledger Card List -->
+<div class="space-y-5">
+<!-- ================= CARD 1: Payment Pending / Action Required ================= -->
+<article class="bg-surface-container-lowest rounded-xl border-2 border-secondary-container/80 shadow-sm hover:shadow-md transition-shadow duration-200 overflow-hidden">
+<!-- Card Header Bar -->
+<div class="px-5 py-3.5 bg-surface-container-low/70 border-b border-outline-variant flex flex-wrap items-center justify-between gap-3">
+<div class="flex flex-wrap items-center gap-2.5 sm:gap-4">
+<span class="text-title-md font-title-md text-on-surface font-bold tracking-tight">Order #ORD-2026-9481</span>
+<span class="text-body-sm font-body-sm text-outline hidden sm:inline">•</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant">Placed Oct 11, 2026 • 09:15 GMT</span>
+<span class="inline-flex items-center px-2.5 py-1 rounded-full text-label-sm font-label-sm bg-secondary-container/30 text-on-secondary-container border border-secondary/20">
+<span class="w-2 h-2 rounded-full bg-secondary-container animate-pulse mr-1.5"></span>
+              Payment Pending
+            </span>
+</div>
+<div class="text-right">
+<span class="text-headline-sm font-headline-sm text-primary font-bold">₦1,250,000</span>
+<span class="text-body-sm font-body-sm text-outline ml-1.5">(≈ $785.00 indicative)</span>
+</div>
+</div>
+<!-- Card Body Details -->
+<div class="p-5 lg:p-6 space-y-6">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-5">
+<!-- Commodity & Supplier Details -->
+<div class="flex items-start gap-4">
+<img class="w-24 h-24 sm:w-28 sm:h-28 rounded-lg object-cover border border-outline-variant flex-shrink-0" data-alt="Golden ripe maize grain kernels spilling generously out of a burlap sack stored in an organized industrial warehouse in West Africa with warm, natural daylight streaming through warehouse windows onto the clean concrete floor." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZyaxjnEDBjAxxQiWtXf97RZdEF_OmzvKK_EHLcm18kGptk8x6YgbI4urRKlXVxSb6tdMeGCQ_jAyQ8sZVB2IvtT1m42_FYBp6ddGn9gjVQuOT_wRoHc2h4MaX4K_eCBx2_BkBSNpgaAd4JIl5fid_FPwtc0yQb4E__vIHdcX-vzzhnMTlcJol0ScwtulsFvdw_NMInHCAX1eBIxyS4Gf4aYJxLXPmCNAVQUXJjUHRvRbE2ceJY7IXWD6KkX6vQDC1JPD7OOsh5RU"/>
+<div class="space-y-1.5">
+<div class="flex items-center gap-2">
+<h3 class="text-title-md font-headline-sm text-on-surface font-bold">Yellow Maize (Grade A Bulk Bags)</h3>
+</div>
+<div class="flex flex-wrap items-center gap-2 text-body-sm font-body-sm text-on-surface-variant">
+<span class="font-semibold text-on-surface">Savannah Agro Ltd</span>
+<span>•</span>
+<span>Kano, Nigeria 🇳🇬</span>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-label-sm bg-primary/10 text-primary border border-primary/20">
+<span class="material-symbols-outlined text-[13px] mr-1" data-icon="verified">verified</span> Verified Supplier
+                  </span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant">
+<span class="font-medium text-on-surface">Packaging:</span> 50 Bags (2.5 MT) • 50kg Woven PP Sacks
+                </p>
+<div class="text-body-sm font-body-sm text-outline flex items-center gap-1.5 pt-0.5">
+<span class="material-symbols-outlined text-[16px] text-secondary" data-icon="schedule">schedule</span>
+                  Simulated hold active for 23 hours to lock bulk warehouse reservation price.
+                </div>
+</div>
+</div>
+<!-- Quick Specs Pill Block -->
+<div class="flex lg:flex-col items-center lg:items-end justify-between border-t lg:border-t-0 pt-3 lg:pt-0 border-outline-variant gap-2 text-right">
+<div class="text-left lg:text-right">
+<span class="block text-label-sm font-label-sm text-outline">Dispatch Point</span>
+<span class="text-body-sm font-body-sm font-medium text-on-surface">Kano Central Warehouse Hub</span>
+</div>
+<div class="text-left lg:text-right">
+<span class="block text-label-sm font-label-sm text-outline">Target Handover</span>
+<span class="text-body-sm font-body-sm font-medium text-on-surface">Oct 17, 2026</span>
+</div>
+</div>
+</div>
+<!-- Horizontal 6-Stage Progress Stepper -->
+<div class="pt-2">
+<div class="grid grid-cols-6 gap-2 relative">
+<!-- Connecting Line Behind Steps -->
+<div class="absolute top-4 left-6 right-6 h-0.5 bg-outline-variant -z-0"></div>
+<!-- Step 1: Order Placed (Done) -->
+<div class="flex flex-col items-center text-center relative z-10 group">
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-xs">
+<span class="material-symbols-outlined text-[16px]" data-icon="check">check</span>
+</div>
+<span class="text-label-sm font-label-sm text-primary font-bold mt-2">Order Placed</span>
+<span class="text-[10px] text-outline">Oct 11, 09:15</span>
+</div>
+<!-- Step 2: Payment Pending (Active - Warning) -->
+<div class="flex flex-col items-center text-center relative z-10">
+<div class="w-8 h-8 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center ring-4 ring-secondary-container/20 shadow-xs">
+<span class="material-symbols-outlined text-[18px]" data-icon="pending">pending</span>
+</div>
+<span class="text-label-sm font-label-sm text-secondary font-bold mt-2">Payment Pending</span>
+<span class="text-[10px] text-secondary font-medium">Action Needed</span>
+</div>
+<!-- Step 3: Payment Confirmed -->
+<div class="flex flex-col items-center text-center relative z-10">
+<div class="w-8 h-8 rounded-full bg-surface-container-high text-outline flex items-center justify-center border border-outline-variant">
+<span class="text-[12px] font-bold">3</span>
+</div>
+<span class="text-label-sm font-label-sm text-outline mt-2">Payment Confirmed</span>
+<span class="text-[10px] text-outline/70">Simulated settlement</span>
+</div>
+<!-- Step 4: Packed & Inspected -->
+<div class="flex flex-col items-center text-center relative z-10">
+<div class="w-8 h-8 rounded-full bg-surface-container-high text-outline flex items-center justify-center border border-outline-variant">
+<span class="text-[12px] font-bold">4</span>
+</div>
+<span class="text-label-sm font-label-sm text-outline mt-2">Packed &amp; Inspected</span>
+<span class="text-[10px] text-outline/70">Pre-shipment audit</span>
+</div>
+<!-- Step 5: In Transit -->
+<div class="flex flex-col items-center text-center relative z-10">
+<div class="w-8 h-8 rounded-full bg-surface-container-high text-outline flex items-center justify-center border border-outline-variant">
+<span class="text-[12px] font-bold">5</span>
+</div>
+<span class="text-label-sm font-label-sm text-outline mt-2">In Transit</span>
+<span class="text-[10px] text-outline/70">Waybill tracking</span>
+</div>
+<!-- Step 6: Delivered -->
+<div class="flex flex-col items-center text-center relative z-10">
+<div class="w-8 h-8 rounded-full bg-surface-container-high text-outline flex items-center justify-center border border-outline-variant">
+<span class="text-[12px] font-bold">6</span>
+</div>
+<span class="text-label-sm font-label-sm text-outline mt-2">Delivered</span>
+<span class="text-[10px] text-outline/70">Proof of reception</span>
+</div>
+</div>
+</div>
+<!-- Footer Action Bar -->
+<div class="pt-4 border-t border-outline-variant flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 bg-surface-container-low/40 -mx-5 -mb-5 lg:-mx-6 lg:-mb-6 p-4">
+<div class="flex items-center text-body-sm font-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px] text-primary mr-1.5" data-icon="lock">lock</span>
+              Safe simulated transaction • Direct supplier settlement simulation
+            </div>
+<div class="flex items-center gap-3 w-full sm:w-auto justify-end">
+<button class="px-4 py-2 text-label-md font-label-md text-primary hover:bg-surface-container-low rounded-full transition-colors">
+                View Order Details
+              </button>
+<button class="px-6 py-2.5 bg-primary text-on-primary hover:bg-on-primary-fixed-variant text-label-md font-label-md rounded-full shadow-sm font-semibold transition-transform active:scale-[0.98]">
+                Pay Now (Simulated)
+              </button>
+</div>
+</div>
+</div>
+</article>
+<!-- ================= CARD 2: In Transit ================= -->
+<article class="bg-surface-container-lowest rounded-xl border border-outline-variant shadow-sm hover:shadow-md transition-shadow duration-200 overflow-hidden">
+<!-- Card Header Bar -->
+<div class="px-5 py-3.5 bg-surface-container-low/50 border-b border-outline-variant flex flex-wrap items-center justify-between gap-3">
+<div class="flex flex-wrap items-center gap-2.5 sm:gap-4">
+<span class="text-title-md font-title-md text-on-surface font-bold tracking-tight">Order #ORD-2026-9210</span>
+<span class="text-body-sm font-body-sm text-outline hidden sm:inline">•</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant">Placed Oct 08, 2026</span>
+<span class="inline-flex items-center px-2.5 py-1 rounded-full text-label-sm font-label-sm bg-primary/10 text-primary border border-primary/20">
+<span class="material-symbols-outlined text-[15px] mr-1" data-icon="local_shipping">local_shipping</span>
+              In Transit
+            </span>
+</div>
+<div class="text-right">
+<span class="text-headline-sm font-headline-sm text-primary font-bold">GH₵ 9,000</span>
+<span class="text-body-sm font-body-sm text-outline ml-1.5">(≈ $560.00 indicative)</span>
+</div>
+</div>
+<!-- Card Body Details -->
+<div class="p-5 lg:p-6 space-y-6">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-5">
+<!-- Commodity & Supplier Details -->
+<div class="flex items-start gap-4">
+<img class="w-24 h-24 sm:w-28 sm:h-28 rounded-lg object-cover border border-outline-variant flex-shrink-0" data-alt="Organized stacks of natural raw cashew nuts in coarse woven export bags placed neatly inside a bright, well-ventilated dry shipping depot under soft morning sunlight with wooden transport pallets." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzWe1o-KWKtLB_LY8lXBSdfTWaa5R1IHMktARr0B3YKgoZbkkRsELQ7SADjil_R1tDdHubQoyzMiMR87Y104RUTm5i7eGPmwopIbxpiwhm8cg7e-btWANu3-k8pFCIgobWDNVxgPuzko4k1wnGf5Q6j53nWDctfBq9yXwzqE5PYOwXhHSpoO0ZSp5fqjVgOG7hNvvGlXgdenVBQSuuuGX-1mPUENZRuccsyr6BH4-lOnzO0IOkSQHS2zUD6t5oQlou26Itn1VxTSg"/>
+<div class="space-y-1.5">
+<div class="flex items-center gap-2">
+<h3 class="text-title-md font-headline-sm text-on-surface font-bold">Raw Cashew Nuts (Export Grade)</h3>
+</div>
+<div class="flex flex-wrap items-center gap-2 text-body-sm font-body-sm text-on-surface-variant">
+<span class="font-semibold text-on-surface">Sunyani Harvest Co</span>
+<span>•</span>
+<span>Sunyani, Ghana 🇬🇭</span>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-label-sm bg-primary/10 text-primary border border-primary/20">
+<span class="material-symbols-outlined text-[13px] mr-1" data-icon="verified">verified</span> Verified Supplier
+                  </span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant">
+<span class="font-medium text-on-surface">Packaging:</span> 20 Bags (1.0 MT) • Jute Export Bags
+                </p>
+<div class="text-body-sm font-body-sm text-primary flex items-center gap-1.5 pt-0.5">
+<span class="material-symbols-outlined text-[16px]" data-icon="local_shipping">local_shipping</span>
+                  Accra-Lagos Freight Services (Waybill #AFR-TRK-7742) • Last checkpoint: Lomé Hub Clearance
+                </div>
+</div>
+</div>
+<!-- Quick Specs Pill Block -->
+<div class="flex lg:flex-col items-center lg:items-end justify-between border-t lg:border-t-0 pt-3 lg:pt-0 border-outline-variant gap-2 text-right">
+<div class="text-left lg:text-right">
+<span class="block text-label-sm font-label-sm text-outline">Expected Arrival</span>
+<span class="text-body-sm font-body-sm font-bold text-primary">Oct 14, 2026 (In 3 Days)</span>
+</div>
+<div class="text-left lg:text-right">
+<span class="block text-label-sm font-label-sm text-outline">Consignment Weight</span>
+<span class="text-body-sm font-body-sm font-medium text-on-surface">1,000 KG Net</span>
+</div>
+</div>
+</div>
+<!-- Horizontal 6-Stage Progress Stepper -->
+<div class="pt-2">
+<div class="grid grid-cols-6 gap-2 relative">
+<div class="absolute top-4 left-6 right-6 h-0.5 bg-outline-variant -z-0"></div>
+<!-- Step 1: Placed (Done) -->
+<div class="flex flex-col items-center text-center relative z-10">
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px]" data-icon="check">check</span>
+</div>
+<span class="text-label-sm font-label-sm text-primary font-bold mt-2">Order Placed</span>
+<span class="text-[10px] text-outline">Oct 08</span>
+</div>
+<!-- Step 2: Payment Confirmed (Done) -->
+<div class="flex flex-col items-center text-center relative z-10">
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px]" data-icon="check">check</span>
+</div>
+<span class="text-label-sm font-label-sm text-primary font-bold mt-2">Payment Confirmed</span>
+<span class="text-[10px] text-outline">Oct 08</span>
+</div>
+<!-- Step 3: Supplier Confirmed (Done) -->
+<div class="flex flex-col items-center text-center relative z-10">
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px]" data-icon="check">check</span>
+</div>
+<span class="text-label-sm font-label-sm text-primary font-bold mt-2">Supplier Confirmed</span>
+<span class="text-[10px] text-outline">Oct 09</span>
+</div>
+<!-- Step 4: Packed & Inspected (Done) -->
+<div class="flex flex-col items-center text-center relative z-10">
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px]" data-icon="check">check</span>
+</div>
+<span class="text-label-sm font-label-sm text-primary font-bold mt-2">Packed &amp; Inspected</span>
+<span class="text-[10px] text-outline">Oct 10</span>
+</div>
+<!-- Step 5: In Transit (Active) -->
+<div class="flex flex-col items-center text-center relative z-10">
+<div class="w-8 h-8 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center ring-4 ring-primary-container/20">
+<span class="material-symbols-outlined text-[18px]" data-icon="local_shipping">local_shipping</span>
+</div>
+<span class="text-label-sm font-label-sm text-primary font-bold mt-2">In Transit</span>
+<span class="text-[10px] text-primary font-semibold">Checkpoint: Lomé</span>
+</div>
+<!-- Step 6: Delivered (Upcoming) -->
+<div class="flex flex-col items-center text-center relative z-10">
+<div class="w-8 h-8 rounded-full bg-surface-container-high text-outline flex items-center justify-center border border-outline-variant">
+<span class="text-[12px] font-bold">6</span>
+</div>
+<span class="text-label-sm font-label-sm text-outline mt-2">Delivered</span>
+<span class="text-[10px] text-outline/70">Est. Oct 14</span>
+</div>
+</div>
+</div>
+<!-- Footer Action Bar -->
+<div class="pt-4 border-t border-outline-variant flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 bg-surface-container-low/40 -mx-5 -mb-5 lg:-mx-6 lg:-mb-6 p-4">
+<div class="text-body-sm font-body-sm text-on-surface-variant flex items-center">
+<span class="material-symbols-outlined text-[18px] text-outline mr-1.5" data-icon="pin_drop">pin_drop</span>
+              Carrier GPS: On route to Nigeria Border Control point
+            </div>
+<div class="flex items-center gap-2.5 w-full sm:w-auto justify-end">
+<button class="px-3.5 py-2 text-label-md font-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low rounded-full transition-colors">
+                View Order Details
+              </button>
+<button class="px-4 py-2 border border-outline-variant text-on-surface hover:bg-surface-container-low text-label-md font-label-md rounded-full shadow-xs transition-colors">
+                Download Waybill
+              </button>
+<button class="px-5 py-2 bg-primary text-on-primary hover:bg-on-primary-fixed-variant text-label-md font-label-md rounded-full shadow-sm font-semibold transition-transform active:scale-[0.98]">
+                Track Live Delivery
+              </button>
+</div>
+</div>
+</div>
+</article>
+<!-- ================= CARD 3: Delivered ================= -->
+<article class="bg-surface-container-lowest rounded-xl border border-outline-variant shadow-sm hover:shadow-md transition-shadow duration-200 overflow-hidden">
+<!-- Card Header Bar -->
+<div class="px-5 py-3.5 bg-surface-container-low/40 border-b border-outline-variant flex flex-wrap items-center justify-between gap-3">
+<div class="flex flex-wrap items-center gap-2.5 sm:gap-4">
+<span class="text-title-md font-title-md text-on-surface font-bold tracking-tight">Order #ORD-2026-8940</span>
+<span class="text-body-sm font-body-sm text-outline hidden sm:inline">•</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant">Placed Sep 24, 2026</span>
+<span class="inline-flex items-center px-2.5 py-1 rounded-full text-label-sm font-label-sm bg-surface-container-high text-primary border border-primary/20">
+<span class="material-symbols-outlined text-[15px] mr-1" data-icon="task_alt">task_alt</span>
+              Delivered
+            </span>
+</div>
+<div class="text-right">
+<span class="text-headline-sm font-headline-sm text-on-surface font-bold">R 62,000</span>
+<span class="text-body-sm font-body-sm text-outline ml-1.5">(≈ $3,400 indicative)</span>
+</div>
+</div>
+<!-- Card Body Details -->
+<div class="p-5 lg:p-6 space-y-6">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-5">
+<!-- Commodity & Supplier Details -->
+<div class="flex items-start gap-4">
+<img class="w-24 h-24 sm:w-28 sm:h-28 rounded-lg object-cover border border-outline-variant flex-shrink-0" data-alt="Heavy multi-wall paper bags packed with premium food grade soybeans stacked symmetrically in a clean distribution center in South Africa with clear industrial labeling." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYq8NEiob0AlGf_SLy0nPBmyYYGf5aSbH-bHa7zsFyo1qw9MLHZqyjo0UC0XaTs_sBu05Rpgla9iMkQbddKrP7838-TJeFBT2bRxlaaXDjybRhXE2HCEACTYS7oLLyt8i2zzYZIfBCECg5z_7hRKgjvG1byqa3aDHnbR7Ri-xLyqZrauaVQIJXbR-C1YRXbDBAFEQqtGPkFecqdjDIplX2G1F8ReTCi7eWm6l-cfiFtuLHTvfIxmq3JaAqYOFmDnjn0lDKky7kw_c"/>
+<div class="space-y-1.5">
+<div class="flex items-center gap-2">
+<h3 class="text-title-md font-headline-sm text-on-surface font-bold">Soybeans (Bulk Food Grade)</h3>
+</div>
+<div class="flex flex-wrap items-center gap-2 text-body-sm font-body-sm text-on-surface-variant">
+<span class="font-semibold text-on-surface">Highveld Grains Ltd</span>
+<span>•</span>
+<span>Mpumalanga, South Africa 🇿🇦</span>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-label-sm bg-primary/10 text-primary border border-primary/20">
+<span class="material-symbols-outlined text-[13px] mr-1" data-icon="verified">verified</span> Verified Supplier
+                  </span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant">
+<span class="font-medium text-on-surface">Packaging:</span> 100 Bags (5.0 MT) • Multi-wall Kraft Sacks
+                </p>
+<div class="text-body-sm font-body-sm text-on-surface-variant flex items-center gap-1.5 pt-0.5">
+<span class="material-symbols-outlined text-[16px] text-primary" data-icon="verified">verified</span>
+                  Delivered on Sep 29, 2026 • Signed by Tema Receiving Dock Supervisor (Ack #ACK-9931)
+                </div>
+</div>
+</div>
+<!-- Quick Specs Pill Block -->
+<div class="flex lg:flex-col items-center lg:items-end justify-between border-t lg:border-t-0 pt-3 lg:pt-0 border-outline-variant gap-2 text-right">
+<div class="text-left lg:text-right">
+<span class="block text-label-sm font-label-sm text-outline">Consignee</span>
+<span class="text-body-sm font-body-sm font-medium text-on-surface">West-Coast Mills Tema</span>
+</div>
+<div class="text-left lg:text-right">
+<span class="block text-label-sm font-label-sm text-outline">Inspection Quality</span>
+<span class="text-body-sm font-body-sm font-semibold text-primary">Certified Grade 1 (0.8% Moisture)</span>
+</div>
+</div>
+</div>
+<!-- Horizontal 6-Stage Progress Stepper (All Complete) -->
+<div class="pt-2">
+<div class="grid grid-cols-6 gap-2 relative">
+<div class="absolute top-4 left-6 right-6 h-0.5 bg-primary -z-0"></div>
+<div class="flex flex-col items-center text-center relative z-10">
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px]" data-icon="check">check</span>
+</div>
+<span class="text-label-sm font-label-sm text-primary font-bold mt-2">Order Placed</span>
+<span class="text-[10px] text-outline">Sep 24</span>
+</div>
+<div class="flex flex-col items-center text-center relative z-10">
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px]" data-icon="check">check</span>
+</div>
+<span class="text-label-sm font-label-sm text-primary font-bold mt-2">Payment Confirmed</span>
+<span class="text-[10px] text-outline">Sep 24</span>
+</div>
+<div class="flex flex-col items-center text-center relative z-10">
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px]" data-icon="check">check</span>
+</div>
+<span class="text-label-sm font-label-sm text-primary font-bold mt-2">Supplier Confirmed</span>
+<span class="text-[10px] text-outline">Sep 25</span>
+</div>
+<div class="flex flex-col items-center text-center relative z-10">
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px]" data-icon="check">check</span>
+</div>
+<span class="text-label-sm font-label-sm text-primary font-bold mt-2">Packed &amp; Inspected</span>
+<span class="text-[10px] text-outline">Sep 26</span>
+</div>
+<div class="flex flex-col items-center text-center relative z-10">
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px]" data-icon="check">check</span>
+</div>
+<span class="text-label-sm font-label-sm text-primary font-bold mt-2">In Transit</span>
+<span class="text-[10px] text-outline">Sep 27</span>
+</div>
+<div class="flex flex-col items-center text-center relative z-10">
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center ring-4 ring-primary/20">
+<span class="material-symbols-outlined text-[16px]" data-icon="done_all">done_all</span>
+</div>
+<span class="text-label-sm font-label-sm text-primary font-bold mt-2">Delivered</span>
+<span class="text-[10px] text-primary font-medium">Sep 29</span>
+</div>
+</div>
+</div>
+<!-- Footer Action Bar -->
+<div class="pt-4 border-t border-outline-variant flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 bg-surface-container-low/40 -mx-5 -mb-5 lg:-mx-6 lg:-mb-6 p-4">
+<div class="text-body-sm font-body-sm text-on-surface-variant flex items-center">
+<span class="material-symbols-outlined text-[18px] text-primary mr-1.5" data-icon="receipt_long">receipt_long</span>
+              Simulated tax invoice #INV-ZA-8940 settled via local currency transfer
+            </div>
+<div class="flex items-center gap-2.5 w-full sm:w-auto justify-end">
+<button class="px-4 py-2 border border-outline-variant text-on-surface hover:bg-surface-container-low text-label-md font-label-md rounded-full shadow-xs transition-colors flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]" data-icon="file_download">file_download</span>
+                Download Invoice (PDF)
+              </button>
+<button class="px-5 py-2 bg-primary text-on-primary hover:bg-on-primary-fixed-variant text-label-md font-label-md rounded-full shadow-sm font-semibold transition-transform active:scale-[0.98] flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]" data-icon="repeat">repeat</span>
+                Re-Order Lot
+              </button>
+</div>
+</div>
+</div>
+</article>
+<!-- ================= CARD 4: Cancelled ================= -->
+<article class="bg-surface-container-lowest rounded-xl border border-outline-variant shadow-sm hover:shadow-md transition-shadow duration-200 overflow-hidden opacity-90">
+<!-- Card Header Bar -->
+<div class="px-5 py-3.5 bg-surface-container-low/30 border-b border-outline-variant flex flex-wrap items-center justify-between gap-3">
+<div class="flex flex-wrap items-center gap-2.5 sm:gap-4">
+<span class="text-title-md font-title-md text-on-surface font-bold tracking-tight">Order #ORD-2026-8102</span>
+<span class="text-body-sm font-body-sm text-outline hidden sm:inline">•</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant">Placed Sep 12, 2026</span>
+<span class="inline-flex items-center px-2.5 py-1 rounded-full text-label-sm font-label-sm bg-error-container/40 text-error border border-error/20">
+<span class="material-symbols-outlined text-[15px] mr-1" data-icon="cancel">cancel</span>
+              Cancelled
+            </span>
+</div>
+<div class="text-right">
+<span class="text-headline-sm font-headline-sm text-on-surface line-through text-outline">₦630,000</span>
+</div>
+</div>
+<!-- Card Body Details -->
+<div class="p-5 lg:p-6 space-y-4">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-5">
+<div class="flex items-start gap-4">
+<img class="w-20 h-20 sm:w-24 sm:h-24 rounded-lg object-cover border border-outline-variant grayscale flex-shrink-0" data-alt="Sun-dried split ginger rhizomes stored in breathable jute sacks in a Nigerian agricultural processing yard under clear afternoon natural lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBumoDmLIa8qSU-iY5zKXkYVG7t07P--Sy7vhRDAYNZpJxgWyLdvOUqWetWOQoCP3Rf7kDqrdKRQ7W-RKHsZhlmjbjzDxAKXx7zU7UuClj0WgLcVNZhZ4jeSHruMZ_XruONCo5a9wAOJWJX3PPFXZM-adOiUj4SwglyHidoY83XwqK1NwoL75FlQIJ5UEyp5uAkKpSetPVW-SP_yNgWoSiqfSXEn53OxaCORzdxrrJW1XwOn_uzfdhtzCy9xn0Ks9QuKCMe4oxPBLc"/>
+<div class="space-y-1.5">
+<h3 class="text-title-md font-headline-sm text-on-surface font-bold">Dried Split Ginger</h3>
+<div class="flex flex-wrap items-center gap-2 text-body-sm font-body-sm text-on-surface-variant">
+<span class="font-semibold text-on-surface">Kaduna Organics</span>
+<span>•</span>
+<span>Kaduna, Nigeria 🇳🇬</span>
+</div>
+<div class="text-body-sm font-body-sm text-on-surface-variant bg-surface-container-low p-2.5 rounded-lg border border-outline-variant/60">
+<span class="font-semibold text-error">Status Note:</span> Reversing simulated refund applied • Inspection standard discrepancy resolved with credit memo.
+                </div>
+</div>
+</div>
+<!-- Footer Action Button -->
+<div class="flex items-center justify-end">
+<button class="px-4 py-2 border border-outline-variant text-on-surface hover:bg-surface-container-low text-label-md font-label-md rounded-full shadow-xs transition-colors">
+                View Reason &amp; Manifest
+              </button>
+</div>
+</div>
+</div>
+</article>
+</div>
+<!-- Pagination & Results Counter -->
+<div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 pb-8">
+<span class="text-body-sm font-body-sm text-on-surface-variant">
+        Showing <span class="font-bold text-on-surface">1–4</span> of <span class="font-bold text-on-surface">14</span> orders
+      </span>
+<div class="flex items-center gap-1.5">
+<button class="px-3.5 py-1.5 rounded-full border border-outline-variant text-label-md font-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low disabled:opacity-40 transition-colors flex items-center">
+<span class="material-symbols-outlined text-[18px] mr-1" data-icon="chevron_left">chevron_left</span>
+          Previous
+        </button>
+<button class="w-8 h-8 rounded-full bg-primary text-on-primary text-label-sm font-label-sm font-bold flex items-center justify-center shadow-xs">
+          1
+        </button>
+<button class="w-8 h-8 rounded-full text-on-surface-variant hover:bg-surface-container-low text-label-sm font-label-sm font-semibold flex items-center justify-center transition-colors">
+          2
+        </button>
+<button class="w-8 h-8 rounded-full text-on-surface-variant hover:bg-surface-container-low text-label-sm font-label-sm font-semibold flex items-center justify-center transition-colors">
+          3
+        </button>
+<button class="w-8 h-8 rounded-full text-on-surface-variant hover:bg-surface-container-low text-label-sm font-label-sm font-semibold flex items-center justify-center transition-colors">
+          4
+        </button>
+<button class="px-3.5 py-1.5 rounded-full border border-outline-variant text-label-md font-label-md text-on-surface hover:bg-surface-container-low transition-colors flex items-center">
+          Next
+          <span class="material-symbols-outlined text-[18px] ml-1" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</main>
+<!-- Institutional Footer (from Shared Components JSON) -->
+<footer class="w-full py-8 px-6 lg:px-8 border-t border-outline-variant bg-surface-container">
+<div class="max-w-[1440px] mx-auto flex flex-col lg:flex-row items-center justify-between gap-6">
+<!-- Brand & Copyright from JSON -->
+<div class="flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
+<div class="flex items-center space-x-2 text-headline-sm font-headline-sm font-bold text-primary">
+<span class="material-symbols-outlined text-[20px]" data-icon="hub">hub</span>
+<span>AfriTrade Connect</span>
+</div>
+<p class="text-on-surface-variant text-body-sm font-body-sm">
+          © 2025 AfriTrade Connect Ltd. Pan-African B2B Wholesale Commerce &amp; Trade Protection. All rights reserved.
+        </p>
+</div>
+<!-- Footer Policy Links (Exact from Shared Components JSON) -->
+<nav class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
+<a class="text-on-surface-variant text-body-sm font-body-sm hover:text-primary transition-colors" href="#">Trade Protection Policy</a>
+<a class="text-on-surface-variant text-body-sm font-body-sm hover:text-primary transition-colors" href="#">Inspection Protocols</a>
+<a class="text-on-surface-variant text-body-sm font-body-sm hover:text-primary transition-colors" href="#">Customs Clearance</a>
+<a class="text-on-surface-variant text-body-sm font-body-sm hover:text-primary transition-colors" href="#">Dispute Resolution</a>
+<a class="text-on-surface-variant text-body-sm font-body-sm hover:text-primary transition-colors" href="#">Privacy &amp; Compliance</a>
+</nav>
+</div>
+</footer>
+</body></html>
+

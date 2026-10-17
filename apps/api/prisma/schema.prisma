@@ -1,0 +1,293 @@
+// AfriTrade Connect — see docs/product/04-Backend-Schemas.md
+// Country and Currency are reference TABLES (not enums): adding a market is a seed insert.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum Role {
+  BUYER
+  SUPPLIER
+  ADMIN
+}
+
+enum KybStatus {
+  NOT_SUBMITTED
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+enum KybDocumentType {
+  CERTIFICATE_OF_INCORPORATION
+  TAX_CLEARANCE_CERTIFICATE
+  DIRECTOR_ID
+  PROOF_OF_ADDRESS
+  OTHER
+}
+
+enum OrderStatus {
+  ORDER_PLACED
+  PAYMENT_PENDING
+  PAYMENT_CONFIRMED
+  LOGISTICS_ASSIGNED
+  PICKED_UP
+  IN_TRANSIT
+  CUSTOMS
+  DELIVERED
+  CANCELLED
+}
+
+enum PaymentProviderType {
+  MOCK
+  PAYSTACK
+}
+
+enum PaymentStatus {
+  PENDING
+  SUCCESS
+  FAILED
+}
+
+enum LedgerEntryType {
+  CHARGE_SUCCEEDED
+  REFUND
+}
+
+model Country {
+  id         String            @id @default(uuid())
+  name       String            @unique
+  isoCode    String            @unique // "NG", "ZA", "GH"
+  users      User[]
+  businesses BusinessProfile[]
+  createdAt  DateTime          @default(now())
+}
+
+model Currency {
+  id                   String               @id @default(uuid())
+  code                 String               @unique // "NGN", "ZAR", "GHS", "USD"
+  paymentProvider      PaymentProviderType  @default(MOCK)
+  minorUnitExponent    Int                  @default(2)
+  isLive               Boolean              @default(false) // true only for NGN in MVP — governs real vs mock payment
+  users                User[]               @relation("UserPreferredCurrency")
+  products             Product[]
+  orders               Order[]
+  payments             Payment[]
+  paymentLedgerEntries PaymentLedgerEntry[]
+  createdAt            DateTime             @default(now())
+}
+
+model ExchangeRate {
+  id             String   @id @default(uuid())
+  baseCurrency   String   @default("USD")
+  targetCurrency String   @unique // "NGN", "ZAR", "GHS", "USD"
+  ratePerUsd     Float // Indicative display-only conversion rate
+  updatedAt      DateTime @default(now()) @updatedAt
+}
+
+model User {
+  id                  String           @id @default(uuid())
+  email               String           @unique
+  passwordHash        String
+  fullName            String
+  role                Role
+  countryId           String
+  country             Country          @relation(fields: [countryId], references: [id])
+  preferredCurrencyId String?
+  preferredCurrency   Currency?        @relation("UserPreferredCurrency", fields: [preferredCurrencyId], references: [id])
+  businessProfile     BusinessProfile?
+  ordersPlaced        Order[]          @relation("BuyerOrders")
+  createdAt           DateTime         @default(now())
+  updatedAt           DateTime         @updatedAt
+
+  @@index([email])
+}
+
+model BusinessProfile {
+  id                       String        @id @default(uuid())
+  userId                   String        @unique
+  user                     User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  businessName             String
+  countryId                String
+  country                  Country       @relation(fields: [countryId], references: [id])
+  contactPhone             String?
+  businessEmail            String?
+  businessAddress          String?
+  website                  String?
+  description              String?
+  primaryCategory          String?
+  registrationNumberHash   String?
+  registrationNumberMasked String?
+  taxIdHash                String?
+  taxIdMasked              String?
+  kybStatus                KybStatus     @default(NOT_SUBMITTED)
+  kybSubmittedAt           DateTime?
+  kybReviewedBy            String? // admin user id
+  kybReviewedAt            DateTime?
+  kybRejectReason          String?
+  products                 Product[]
+  documents                KybDocument[]
+  createdAt                DateTime      @default(now())
+  updatedAt                DateTime      @default(now()) @updatedAt
+
+  @@index([kybStatus])
+}
+
+model KybDocument {
+  id                String          @id @default(uuid())
+  businessProfileId String
+  businessProfile   BusinessProfile @relation(fields: [businessProfileId], references: [id], onDelete: Cascade)
+  documentType      KybDocumentType
+  fileName          String
+  mimeType          String
+  fileSizeBytes     Int
+  objectKey         String          @unique
+  uploadedById      String
+  createdAt         DateTime        @default(now())
+  updatedAt         DateTime        @updatedAt
+
+  @@index([businessProfileId])
+}
+
+model Product {
+  id                String          @id @default(uuid())
+  businessProfileId String
+  businessProfile   BusinessProfile @relation(fields: [businessProfileId], references: [id], onDelete: Cascade)
+  name              String
+  description       String
+  category          String
+  price             Decimal         @db.Decimal(14, 2)
+  currencyId        String
+  currency          Currency        @relation(fields: [currencyId], references: [id])
+  imageUrl          String?
+  isActive          Boolean         @default(true)
+  orderItems        OrderItem[]
+  createdAt         DateTime        @default(now())
+
+  @@index([category])
+  @@index([isActive, createdAt])
+}
+
+model Order {
+  id          String      @id @default(uuid())
+  buyerId     String
+  buyer       User        @relation("BuyerOrders", fields: [buyerId], references: [id])
+  status      OrderStatus @default(ORDER_PLACED)
+  currencyId  String
+  currency    Currency    @relation(fields: [currencyId], references: [id])
+  totalAmount Decimal     @db.Decimal(14, 2)
+  items       OrderItem[]
+  payment     Payment?
+  shipment    Shipment?
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+
+  @@index([buyerId])
+  @@index([status])
+}
+
+model OrderItem {
+  id        String  @id @default(uuid())
+  orderId   String
+  order     Order   @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  productId String
+  product   Product @relation(fields: [productId], references: [id])
+  quantity  Int
+  unitPrice Decimal @db.Decimal(14, 2) // snapshot at time of order
+}
+
+model Payment {
+  id            String               @id @default(uuid())
+  orderId       String               @unique
+  order         Order                @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  provider      PaymentProviderType  @default(MOCK)
+  reference     String               @unique
+  status        PaymentStatus        @default(PENDING)
+  amount        Decimal              @db.Decimal(14, 2)
+  currencyId    String
+  currency      Currency             @relation(fields: [currencyId], references: [id])
+  ledgerEntries PaymentLedgerEntry[]
+  createdAt     DateTime             @default(now())
+}
+
+model PaymentLedgerEntry {
+  id         String          @id @default(uuid())
+  paymentId  String?
+  payment    Payment?        @relation(fields: [paymentId], references: [id])
+  type       LedgerEntryType
+  amount     Decimal         @db.Decimal(14, 2)
+  currencyId String
+  currency   Currency        @relation(fields: [currencyId], references: [id])
+  reference  String          @unique // Provider ref or idempotency key
+  reason     String?
+  createdAt  DateTime        @default(now())
+
+  @@unique([reference, type])
+  @@index([paymentId])
+  @@index([currencyId])
+}
+
+model LogisticsPartner {
+  id              String     @id @default(uuid())
+  name            String
+  countryCoverage String[] // ISO codes, e.g. ["NG", "GH"]
+  contactEmail    String?
+  contactPhone    String?
+  notes           String?
+  isActive        Boolean    @default(true)
+  shipments       Shipment[]
+  createdAt       DateTime   @default(now())
+}
+
+model Shipment {
+  id                 String            @id @default(uuid())
+  orderId            String            @unique
+  order              Order             @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  logisticsPartnerId String?
+  logisticsPartner   LogisticsPartner? @relation(fields: [logisticsPartnerId], references: [id])
+  status             OrderStatus       @default(ORDER_PLACED) // mirrors Order.status; updated in the same transaction
+  lastUpdatedBy      String? // admin user id
+  events             ShipmentEvent[]
+  updatedAt          DateTime          @updatedAt
+  createdAt          DateTime          @default(now())
+}
+
+model ShipmentEvent {
+  id         String      @id @default(uuid())
+  shipmentId String
+  shipment   Shipment    @relation(fields: [shipmentId], references: [id], onDelete: Cascade)
+  status     OrderStatus
+  note       String?
+  actorId    String?     // Admin user ID who triggered milestone
+  createdAt  DateTime    @default(now())
+
+  @@index([shipmentId, createdAt])
+}
+
+model AdminAuditLog {
+  id         String   @id @default(uuid())
+  adminId    String
+  action     String
+  targetType String
+  targetId   String
+  reason     String?
+  metadata   Json?
+  createdAt  DateTime @default(now())
+
+  @@index([adminId])
+  @@index([targetType, targetId])
+}
+
+model VerificationAccessLog {
+  id         String   @id @default(uuid())
+  adminId    String
+  documentId String?
+  target     String?
+  createdAt  DateTime @default(now())
+
+  @@index([adminId])
+}

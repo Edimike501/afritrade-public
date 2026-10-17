@@ -1,0 +1,151 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#064e3b" />
+      <stop offset="60%" stop-color="#047857" />
+      <stop offset="100%" stop-color="#022c22" />
+    </linearGradient>
+
+    <!-- Harvest Gold Gradient (Agriculture & Wealth) -->
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a" />
+      <stop offset="30%" stop-color="#fbbf24" />
+      <stop offset="70%" stop-color="#f59e0b" />
+      <stop offset="100%" stop-color="#d97706" />
+    </linearGradient>
+
+    <!-- Emerald Leaf Gradient (Growth & Vitality) -->
+    <linearGradient id="leafGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#059669" />
+      <stop offset="40%" stop-color="#10b981" />
+      <stop offset="100%" stop-color="#34d399" />
+    </linearGradient>
+
+    <!-- Deep Leaf Shadow -->
+    <linearGradient id="leafShadow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#047857" />
+      <stop offset="100%" stop-color="#064e3b" />
+    </linearGradient>
+
+    <!-- Tech/Trade Hexagon Gradient -->
+    <linearGradient id="hexBorderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fbbf24" />
+      <stop offset="45%" stop-color="#f59e0b" />
+      <stop offset="55%" stop-color="#10b981" />
+      <stop offset="100%" stop-color="#059669" />
+    </linearGradient>
+
+    <!-- Soft Drop Shadow Filter -->
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="6" stdDeviation="10" flood-opacity="0.25" flood-color="#000" />
+    </filter>
+  </defs>
+
+  <!-- Base Rounded Container / Shield (Optional subtle backdrop for mark) -->
+  <rect width="512" height="512" rx="108" fill="url(#bgGrad)" />
+
+  <!-- Subtle Ambient Glow -->
+  <circle cx="256" cy="240" r="180" fill="#10b981" opacity="0.12" />
+
+  <!-- Main Symbol Group with Filter -->
+  <g filter="url(#shadow)">
+    <!-- Outer Dynamic Hexagonal Trade Crest (Left: Harvest Gold, Right: Emerald) -->
+    <!-- Left Gold Segment -->
+    <path
+      d="M 256 64 
+         L 130 136 
+         A 24 24 0 0 0 118 157 
+         L 118 300 
+         C 118 308, 122 316, 130 321 
+         L 230 379 
+         C 238 384, 244 380, 244 370 
+         L 244 330 
+         C 244 322, 238 318, 232 314 
+         L 162 274 
+         L 162 172 
+         L 248 122 
+         C 254 118, 258 110, 258 100 
+         L 258 72 
+         C 258 64, 262 61, 256 64 Z"
+      fill="url(#goldGrad)"
+    />
+
+    <!-- Right Emerald Segment -->
+    <path
+      d="M 256 64 
+         L 382 136 
+         A 24 24 0 0 1 394 157 
+         L 394 355 
+         A 24 24 0 0 1 382 376 
+         L 256 448 
+         L 256 404 
+         L 350 350 
+         L 350 172 
+         L 264 122 
+         C 258 118, 254 110, 254 100 
+         L 254 72 
+         C 254 64, 250 61, 256 64 Z"
+      fill="url(#leafGrad)"
+    />
+
+    <!-- Inner Agricultural Golden Grain / Wheat Stalk (Ascending Left-to-Center) -->
+    <g transform="translate(198, 110) rotate(-12)">
+      <!-- Wheat Stem -->
+      <path d="M 12 210 Q 18 110 32 10" stroke="url(#goldGrad)" stroke-width="4.5" stroke-linecap="round" fill="none" />
+      
+      <!-- Top Grain Kernel -->
+      <path d="M 32 10 C 35 -4, 45 -4, 40 12 C 37 22, 28 20, 32 10 Z" fill="url(#goldGrad)" />
+      
+      <!-- Kernels Pair 1 -->
+      <path d="M 30 35 C 16 25, 10 38, 24 45 C 31 48, 33 40, 30 35 Z" fill="url(#goldGrad)" />
+      <path d="M 32 32 C 46 22, 52 35, 38 42 C 31 45, 29 37, 32 32 Z" fill="url(#goldGrad)" />
+      
+      <!-- Kernels Pair 2 -->
+      <path d="M 26 62 C 10 50, 4 65, 20 73 C 27 76, 30 68, 26 62 Z" fill="url(#goldGrad)" />
+      <path d="M 29 58 C 45 46, 51 61, 35 69 C 28 72, 26 64, 29 58 Z" fill="url(#goldGrad)" />
+      
+      <!-- Kernels Pair 3 -->
+      <path d="M 23 90 C 5 76, -1 93, 16 102 C 24 106, 27 97, 23 90 Z" fill="url(#goldGrad)" />
+      <path d="M 26 85 C 44 71, 50 88, 33 97 C 25 101, 23 92, 26 85 Z" fill="url(#goldGrad)" />
+
+      <!-- Kernels Pair 4 -->
+      <path d="M 19 120 C 0 105, -6 123, 12 133 C 20 137, 23 128, 19 120 Z" fill="url(#goldGrad)" />
+      <path d="M 23 114 C 42 99, 48 117, 30 127 C 22 131, 20 122, 23 114 Z" fill="url(#goldGrad)" />
+
+      <!-- Kernels Pair 5 -->
+      <path d="M 16 150 C -4 135, -11 154, 8 164 C 17 169, 20 159, 16 150 Z" fill="url(#goldGrad)" />
+      <path d="M 20 144 C 40 128, 46 147, 27 158 C 19 163, 17 153, 20 144 Z" fill="url(#goldGrad)" />
+    </g>
+
+    <!-- Dynamic Emerald Leaf (Intertwined & Sweeping Upward) -->
+    <path
+      d="M 235 375 
+         C 210 325, 215 260, 265 210 
+         C 305 170, 325 125, 325 125 
+         C 325 125, 345 200, 315 255 
+         C 285 310, 280 345, 235 375 Z"
+      fill="url(#leafGrad)"
+    />
+
+    <!-- Inner Leaf Curvature / Vein highlight -->
+    <path
+      d="M 245 355 
+         C 240 295, 270 230, 322 135 
+         C 310 185, 285 255, 255 315 Z"
+      fill="#ffffff"
+      opacity="0.32"
+    />
+
+    <!-- Forward Trade Loop / Cross-Border Flow Ribbon (Base Connector) -->
+    <path
+      d="M 220 368 
+         C 235 392, 265 402, 290 388 
+         C 312 376, 322 355, 324 332 
+         C 325 318, 316 312, 308 322 
+         C 300 334, 288 354, 268 358 
+         C 252 361, 236 352, 220 368 Z"
+      fill="url(#goldGrad)"
+    />
+  </g>
+</svg>

@@ -1,0 +1,197 @@
+/* ============================================================
+   AfriTrade Connect — Master Design System Tokens
+   Source of Truth: design/stitch/DESIGN.md & ANSWERS.md
+   ============================================================ */
+
+:root {
+  /* [ANSWERS Q15, Q19] Light Mode Palette */
+  --background: 120 7% 97%;         /* #f6f7f5 - Warm Alabaster Canvas */
+  --foreground: 153 14% 13%;        /* #1b2420 - Dark Forest Slate Body */
+
+  --card: 0 0% 100%;                /* #ffffff - Pure White Surface */
+  --card-foreground: 153 14% 13%;   /* #1b2420 */
+
+  --popover: 0 0% 100%;             /* #ffffff - Popover / Dropdown */
+  --popover-foreground: 153 14% 13%;/* #1b2420 */
+
+  --primary: 162 75% 24%;           /* #0f6b4f - Deep Forest Emerald (5.59:1 AA) */
+  --primary-foreground: 0 0% 100%;  /* #ffffff */
+  --primary-hover: 162 78% 19%;     /* #0b5640 - Hover Emerald */
+
+  --secondary: 135 11% 94%;         /* #edf1ee - Soft Green Tint */
+  --secondary-foreground: 162 75% 24%; /* #0f6b4f */
+
+  --muted: 135 11% 94%;             /* #edf1ee */
+  --muted-foreground: 152 6% 40%;   /* #5f6b65 - Muted Slate (5.25:1 AA) */
+
+  --accent: 40 82% 50%;             /* #e8a317 - Harvest Gold Highlight */
+  --accent-foreground: 30 50% 10%;  /* #20180a - High-contrast text on gold */
+
+  --destructive: 3 71% 41%;         /* #b3261e - Crimson Danger (6.12:1 AA) */
+  --destructive-foreground: 0 0% 100%;
+
+  --success: 147 62% 30%;           /* #1d7a46 - Trade Green (4.74:1 AA) */
+  --success-foreground: 0 0% 100%;
+
+  --warning: 41 100% 30%;           /* #9a6a00 - Deep Amber Warning (4.62:1 AA) */
+  --warning-foreground: 0 0% 100%;
+
+  --border: 135 7% 87%;             /* #dde2de - Subtle 1px structural stroke */
+  --input: 135 7% 87%;              /* #dde2de */
+  --ring: 162 75% 24%;              /* #0f6b4f - Focus Ring */
+
+  /* [ANSWERS Q17] Radius Tokens */
+  --radius-sm: 8px;                 /* Inputs, buttons, triggers */
+  --radius-md: 12px;                /* Cards, tables, modals */
+  --radius-lg: 16px;                /* Hero containers, slide drawers */
+  --radius-full: 9999px;            /* Badges, status pills, filter chips ONLY */
+  --radius: 12px;
+
+  /* Backward-compatible mapped tokens for legacy components */
+  --color-primary: #0f6b4f;
+  --color-primary-hover: #0b5640;
+  --color-primary-contrast: #ffffff;
+  --color-accent: #e8a317;
+  --color-bg: #f6f7f5;
+  --color-surface: #ffffff;
+  --color-text: #1b2420;
+  --color-text-muted: #5f6b65;
+  --color-border: #dde2de;
+  --color-danger: #b3261e;
+  --color-success: #1d7a46;
+  --color-warning: #9a6a00;
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 40px;
+}
+
+.dark {
+  /* [ANSWERS Q4, Q15] Dark Mode Inversions (Night Slate) */
+  --background: 150 20% 5%;         /* #0a0f0d - Night Slate Canvas */
+  --foreground: 150 10% 95%;        /* #f0f4f2 - High-contrast Light Body */
+
+  --card: 150 15% 9%;               /* #121a15 - Elevated Green-Slate Surface */
+  --card-foreground: 150 10% 95%;   /* #f0f4f2 */
+
+  --popover: 150 15% 9%;            /* #121a15 */
+  --popover-foreground: 150 10% 95%;/* #f0f4f2 */
+
+  --primary: 158 64% 52%;           /* #10b981 - Vibrant Emerald (7.2:1 AA on dark) */
+  --primary-foreground: 150 30% 6%; /* #09130e - Dark text on vibrant primary */
+  --primary-hover: 156 72% 67%;     /* #34d399 - Mint Hover */
+
+  --secondary: 150 15% 15%;         /* #1f2d24 */
+  --secondary-foreground: 150 10% 95%;
+
+  --muted: 150 15% 15%;             /* #1f2d24 */
+  --muted-foreground: 150 8% 65%;   /* #9cb0a6 - 5.4:1 contrast on surface */
+
+  --accent: 43 96% 56%;             /* #fbbf24 - Bright Harvest Gold (7.5:1 AA) */
+  --accent-foreground: 30 50% 10%;  /* #20180a */
+
+  --destructive: 0 91% 71%;         /* #f87171 - Red-400 (6.2:1 AA) */
+  --destructive-foreground: 0 0% 100%;
+
+  --success: 158 64% 52%;           /* #34d399 - Emerald-400 (6.8:1 AA) */
+  --success-foreground: 150 30% 6%;
+
+  --warning: 43 96% 56%;            /* #fbbf24 - Amber-400 (7.5:1 AA) */
+  --warning-foreground: 30 50% 10%;
+
+  --border: 150 12% 16%;            /* #202c25 - Crisp dark boundary */
+  --input: 150 12% 16%;
+  --ring: 158 64% 52%;              /* #10b981 */
+
+  /* Inverted backward-compatible tokens */
+  --color-primary: #10b981;
+  --color-primary-hover: #34d399;
+  --color-primary-contrast: #09130e;
+  --color-accent: #fbbf24;
+  --color-bg: #0a0f0d;
+  --color-surface: #121a15;
+  --color-text: #f0f4f2;
+  --color-text-muted: #9cb0a6;
+  --color-border: #202c25;
+  --color-danger: #f87171;
+  --color-success: #34d399;
+  --color-warning: #fbbf24;
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.25);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.35);
+}
+
+/* ============================================================
+   Typography & Motion Helpers (DESIGN.md §§ 3 & 4)
+   ============================================================ */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+.font-display {
+  font-family: var(--font-bricolage), system-ui, -apple-system, sans-serif;
+}
+
+.font-sans {
+  font-family: var(--font-noto-sans), system-ui, -apple-system, sans-serif;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ============================================================
+   Tailwind CSS v4 Theme Mapping
+   ============================================================ */
+@theme {
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-primary-hover: hsl(var(--primary-hover));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-success: hsl(var(--success));
+  --color-success-foreground: hsl(var(--success-foreground));
+  --color-warning: hsl(var(--warning));
+  --color-warning-foreground: hsl(var(--warning-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+
+  --font-sans: var(--font-noto-sans), system-ui, sans-serif;
+  --font-display: var(--font-bricolage), system-ui, sans-serif;
+
+  --radius-lg: var(--radius-lg, 16px);
+  --radius-md: var(--radius-md, 12px);
+  --radius-sm: var(--radius-sm, 8px);
+  --radius-full: var(--radius-full, 9999px);
+  --radius: var(--radius, 12px);
+
+  --shadow-sm: var(--shadow-sm, 0 1px 3px rgba(0, 0, 0, 0.06));
+  --shadow-md: var(--shadow-md, 0 4px 12px rgba(0, 0, 0, 0.08));
+}
+

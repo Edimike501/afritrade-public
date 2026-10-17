@@ -1,0 +1,386 @@
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AfriTrade Connect - Supplier Portal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700&amp;family=Noto+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "secondary-fixed": "#ffdeae",
+            "primary-fixed-dim": "#86d6b4",
+            "tertiary-fixed": "#ffdad6",
+            "inverse-surface": "#29322e",
+            "surface-variant": "#dbe5de",
+            "tertiary-container": "#924843",
+            "on-surface": "#151d1a",
+            "surface-dim": "#d2dcd6",
+            "surface-container-highest": "#dbe5de",
+            "primary-container": "#0f6b4f",
+            "secondary-container": "#feb62f",
+            "inverse-on-surface": "#e9f3ec",
+            "primary": "#00513a",
+            "inverse-primary": "#86d6b4",
+            "tertiary": "#75312d",
+            "on-surface-variant": "#3f4944",
+            "surface-container-high": "#e1ebe4",
+            "surface-bright": "#f2fcf5",
+            "on-tertiary-container": "#ffccc7",
+            "on-primary-fixed-variant": "#00513a",
+            "outline-variant": "#bec9c2",
+            "on-secondary-fixed-variant": "#604100",
+            "on-primary-container": "#97e8c5",
+            "tertiary-fixed-dim": "#ffb3ad",
+            "surface-container-lowest": "#ffffff",
+            "secondary-fixed-dim": "#ffba3e",
+            "surface-container-low": "#ecf6ef",
+            "surface": "#f2fcf5",
+            "primary-fixed": "#a1f3cf",
+            "secondary": "#7f5700",
+            "on-primary-fixed": "#002115",
+            "on-error": "#ffffff",
+            "background": "#f2fcf5",
+            "surface-container": "#e6f0ea",
+            "on-tertiary": "#ffffff",
+            "on-error-container": "#93000a",
+            "on-tertiary-fixed": "#3c0707",
+            "on-secondary-fixed": "#281900",
+            "on-secondary-container": "#6d4a00",
+            "surface-tint": "#106b4f",
+            "on-secondary": "#ffffff",
+            "error": "#ba1a1a",
+            "error-container": "#ffdad6",
+            "on-background": "#151d1a",
+            "outline": "#6f7a73",
+            "on-tertiary-fixed-variant": "#75322e",
+            "on-primary": "#ffffff"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "space-sm": "0.5rem",
+            "space-xs": "0.25rem",
+            "space-md": "1rem",
+            "space-lg": "1.5rem",
+            "margin": "2rem",
+            "margin-mobile": "1rem",
+            "space-xl": "2.5rem",
+            "gutter-mobile": "1rem",
+            "gutter": "1.5rem"
+          },
+          fontFamily: {
+            "label-lg": ["Noto Sans"],
+            "display-lg": ["Bricolage Grotesque"],
+            "headline-md": ["Bricolage Grotesque"],
+            "headline-xl-mobile": ["Bricolage Grotesque"],
+            "body-sm": ["Noto Sans"],
+            "body-md": ["Noto Sans"],
+            "label-sm": ["Noto Sans"],
+            "headline-xl": ["Bricolage Grotesque"],
+            "title-md": ["Noto Sans"],
+            "headline-sm": ["Bricolage Grotesque"],
+            "body-lg": ["Noto Sans"],
+            "label-md": ["Noto Sans"],
+            "display-lg-mobile": ["Bricolage Grotesque"]
+          },
+          fontSize: {
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "headline-xl-mobile": ["26px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "fontWeight": "400" }],
+            "body-md": ["14px", { "lineHeight": "22px", "fontWeight": "400" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700" }],
+            "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "title-md": ["16px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "body-lg": ["16px", { "lineHeight": "26px", "fontWeight": "400" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }]
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased min-h-screen flex flex-col justify-between selection:bg-primary-container selection:text-on-primary-container">
+<!-- TOP NAV BAR -->
+<header class="bg-surface-container-lowest sticky top-0 z-50">
+<div class="bg-secondary-container text-on-secondary-container px-space-lg py-1.5 text-center font-label-sm flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">info</span>
+<span>Demo Simulation Mode (Zero Financial Risk) — Safe simulated payments only</span>
+</div>
+<div class="flex items-center justify-between px-space-lg w-full max-w-[1600px] mx-auto h-16">
+<div class="flex items-center gap-8">
+<a class="font-headline-md text-headline-md text-primary font-bold tracking-tight flex items-center gap-2" href="#">
+<span class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center text-sm font-bold">AT</span>
+<span>AfriTrade Connect</span>
+</a>
+
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden lg:flex items-center gap-3 bg-surface-container-low px-3 py-1.5 rounded-full border border-outline-variant/30">
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-xs">BA</div>
+<div class="text-left">
+<div class="font-label-md text-on-surface">Babatunde Adeleke</div>
+<div class="font-body-sm text-outline">Savannah Agro Ltd, Kano, Nigeria 🇳🇬</div>
+</div>
+</div>
+<button aria-label="Open Menu" class="md:hidden p-2 text-on-surface">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+</header>
+<!-- MAIN CONTENT AREA -->
+<main class="flex-grow w-full max-w-[1600px] mx-auto px-space-md md:px-space-lg py-space-lg">
+<!-- PAGE ACTION BAR -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-space-lg bg-surface-container-lowest p-space-lg rounded-xl border border-outline-variant/30 shadow-sm">
+<div>
+<div class="flex items-center gap-3 mb-1">
+<h1 class="font-headline-xl text-headline-xl text-on-surface">My Wholesale Products</h1>
+<span class="bg-[#E7F3EE] text-primary px-3 py-1 rounded-full text-xs font-bold border border-primary/20 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">verified</span>
+            KYB Verified — Live on Marketplace ✓
+          </span>
+</div>
+<p class="font-body-md text-on-surface-variant">Manage inventory levels, pricing, and live visibility across active regional channels.</p>
+</div>
+<button class="bg-primary hover:bg-primary-container text-on-primary font-label-lg h-12 px-space-lg rounded-full flex items-center justify-center gap-2 transition-all shadow-sm">
+<span class="material-symbols-outlined">add</span>
+<span>Create New Listing</span>
+</button>
+</div>
+<!-- SEARCH & FILTER BAR -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl border border-outline-variant/30 mb-space-lg space-y-4">
+<!-- Filter Tabs -->
+<div class="flex flex-wrap items-center gap-2 border-b border-outline-variant/20 pb-4">
+<button class="bg-primary text-on-primary px-4 py-2 rounded-full font-label-md transition-all">All Listings (8)</button>
+<button class="bg-surface-container-low hover:bg-surface-container text-on-surface-variant px-4 py-2 rounded-full font-label-md transition-all">Active on Marketplace (6)</button>
+<button class="bg-surface-container-low hover:bg-surface-container text-on-surface-variant px-4 py-2 rounded-full font-label-md transition-all">Inactive / Out of Stock (2)</button>
+</div>
+<!-- Search and Category Chips -->
+<div class="flex flex-col lg:flex-row gap-4 items-center justify-between">
+<!-- Search Input -->
+<div class="relative w-full lg:w-96">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full h-12 pl-12 pr-4 bg-surface-container-low border border-outline-variant/40 rounded-full font-body-md text-on-surface focus:outline-none focus:border-primary" placeholder="Search by commodity name or lot number..." type="text"/>
+</div>
+<!-- Category Chips -->
+<div class="flex items-center gap-2 overflow-x-auto w-full lg:w-auto pb-2 lg:pb-0">
+<span class="font-label-sm text-outline uppercase tracking-wider mr-1 hidden sm:inline">Category:</span>
+<button class="bg-primary/10 text-primary px-3 py-1.5 rounded-full font-label-md whitespace-nowrap">All Categories</button>
+<button class="bg-surface-container-low hover:bg-surface-container text-on-surface-variant px-3 py-1.5 rounded-full font-label-md whitespace-nowrap">Grains &amp; Seeds</button>
+<button class="bg-surface-container-low hover:bg-surface-container text-on-surface-variant px-3 py-1.5 rounded-full font-label-md whitespace-nowrap">Nuts &amp; Produce</button>
+<button class="bg-surface-container-low hover:bg-surface-container text-on-surface-variant px-3 py-1.5 rounded-full font-label-md whitespace-nowrap">Oils &amp; Extracts</button>
+</div>
+</div>
+</div>
+<!-- PRODUCT INVENTORY TABLE CONTAINER -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/30 shadow-sm overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low border-b border-outline-variant/30 text-on-surface-variant font-label-md">
+<th class="py-4 px-6">Product</th>
+<th class="py-4 px-4">Category</th>
+<th class="py-4 px-4">Unit Price</th>
+<th class="py-4 px-4">Stock &amp; MOQ</th>
+<th class="py-4 px-4">Visibility Toggle</th>
+<th class="py-4 px-6 text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/20 font-body-md text-on-surface">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-4 px-6">
+<div class="flex items-center gap-3">
+<img class="w-12 h-12 rounded-lg object-cover border border-outline-variant/30 flex-shrink-0" data-alt="Close-up professional commercial photography of stacked burlap grain sacks filled with golden yellow dried maize corn grain in an organized clean warehouse in Nigeria, agricultural wholesale trading, realistic bright daylight" src="https://lh3.googleusercontent.com/aida/AEtjO1UR9zFmfVGu4nCiUqPOuUBlf5igk5iGuIPLFlMYafjqyZ9IWk652pRpF9B-xOBBkYZDiAVlkvYOmj-OBAA9O7ykwMaWfOzyGPlcNgzdw0C5T_FuoXaJrK5B0FXe0UvSfNJS0BlzM3u8WcPp9W_yZaIlTffYYpK6iup8Yaox5g9Nh8icCrsyJWH4Sn716KzZt2FCum4g2kUmddXUzLtCPdiI8Yy1yAwickRVyYAj5pWYR4W5UkWLFcwGUkQ"/>
+<div>
+<div class="font-title-md text-on-surface">Yellow Maize (Grade A Bulk Bags)</div>
+<div class="font-body-sm text-outline">Lot #NG-MAIZ-2026-08</div>
+</div>
+</div>
+</td>
+<td class="py-4 px-4">
+<span class="bg-surface-container px-2.5 py-1 rounded-full font-label-sm text-on-surface-variant">Grains &amp; Seeds</span>
+</td>
+<td class="py-4 px-4">
+<div class="font-title-md text-primary">₦25,000 <span class="text-xs font-normal text-outline">/ bag</span></div>
+<div class="font-body-sm text-outline">≈ $16.50 USD</div>
+</td>
+<td class="py-4 px-4">
+<div class="font-label-md text-on-surface">500 Bags (25 MT)</div>
+<div class="font-body-sm text-outline">MOQ: 50 Bags</div>
+</td>
+<td class="py-4 px-4">
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-outline-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-outline-variant after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+<span class="ml-2 font-label-sm text-primary">Active</span>
+</label>
+</td>
+<td class="py-4 px-6 text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="px-3 py-1.5 rounded-full border border-outline-variant/50 text-on-surface hover:bg-surface-container font-label-md transition-colors">Edit</button>
+<button class="px-3 py-1.5 rounded-full bg-primary/10 text-primary hover:bg-primary/20 font-label-md transition-colors">View Listing</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-4 px-6">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-primary font-bold border border-outline-variant/30 flex-shrink-0">
+<span class="material-symbols-outlined">eco</span>
+</div>
+<div>
+<div class="font-title-md text-on-surface">Dried Split Ginger</div>
+<div class="font-body-sm text-outline">Lot #NG-GING-2026-02</div>
+</div>
+</div>
+</td>
+<td class="py-4 px-4">
+<span class="bg-surface-container px-2.5 py-1 rounded-full font-label-sm text-on-surface-variant">Grains &amp; Seeds</span>
+</td>
+<td class="py-4 px-4">
+<div class="font-title-md text-primary">₦48,000 <span class="text-xs font-normal text-outline">/ bag</span></div>
+<div class="font-body-sm text-outline">≈ $31.50 USD</div>
+</td>
+<td class="py-4 px-4">
+<div class="font-label-md text-on-surface">300 Bags (12 MT)</div>
+<div class="font-body-sm text-outline">MOQ: 15 Bags</div>
+</td>
+<td class="py-4 px-4">
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-outline-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-outline-variant after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+<span class="ml-2 font-label-sm text-primary">Active</span>
+</label>
+</td>
+<td class="py-4 px-6 text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="px-3 py-1.5 rounded-full border border-outline-variant/50 text-on-surface hover:bg-surface-container font-label-md transition-colors">Edit</button>
+<button class="px-3 py-1.5 rounded-full bg-primary/10 text-primary hover:bg-primary/20 font-label-md transition-colors">View Listing</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-4 px-6">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-primary font-bold border border-outline-variant/30 flex-shrink-0">
+<span class="material-symbols-outlined">grain</span>
+</div>
+<div>
+<div class="font-title-md text-on-surface">White Sesame Seeds</div>
+<div class="font-body-sm text-outline">Lot #NG-SESM-2026-11</div>
+</div>
+</div>
+</td>
+<td class="py-4 px-4">
+<span class="bg-surface-container px-2.5 py-1 rounded-full font-label-sm text-on-surface-variant">Grains &amp; Seeds</span>
+</td>
+<td class="py-4 px-4">
+<div class="font-title-md text-primary">₦55,000 <span class="text-xs font-normal text-outline">/ bag</span></div>
+<div class="font-body-sm text-outline">≈ $36.00 USD</div>
+</td>
+<td class="py-4 px-4">
+<div class="font-label-md text-on-surface">150 Bags (7.5 MT)</div>
+<div class="font-body-sm text-outline">MOQ: 20 Bags</div>
+</td>
+<td class="py-4 px-4">
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-outline-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-outline-variant after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+<span class="ml-2 font-label-sm text-primary">Active</span>
+</label>
+</td>
+<td class="py-4 px-6 text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="px-3 py-1.5 rounded-full border border-outline-variant/50 text-on-surface hover:bg-surface-container font-label-md transition-colors">Edit</button>
+<button class="px-3 py-1.5 rounded-full bg-primary/10 text-primary hover:bg-primary/20 font-label-md transition-colors">View Listing</button>
+</div>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors opacity-75">
+<td class="py-4 px-6">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-outline font-bold border border-outline-variant/30 flex-shrink-0">
+<span class="material-symbols-outlined">inventory_2</span>
+</div>
+<div>
+<div class="font-title-md text-on-surface">Shelled Groundnuts (Grade B)</div>
+<div class="font-body-sm text-outline">Lot #NG-NUT-2026-04</div>
+</div>
+</div>
+</td>
+<td class="py-4 px-4">
+<span class="bg-surface-container px-2.5 py-1 rounded-full font-label-sm text-on-surface-variant">Nuts &amp; Produce</span>
+</td>
+<td class="py-4 px-4">
+<div class="font-title-md text-on-surface">₦38,000 <span class="text-xs font-normal text-outline">/ bag</span></div>
+<div class="font-body-sm text-outline">≈ $25.00 USD</div>
+</td>
+<td class="py-4 px-4">
+<div class="font-label-md text-error">0 Bags (Out of Stock)</div>
+<div class="font-body-sm text-outline">MOQ: 30 Bags</div>
+</td>
+<td class="py-4 px-4">
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-outline-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-outline-variant after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+<span class="ml-2 font-label-sm text-outline">Inactive</span>
+</label>
+</td>
+<td class="py-4 px-6 text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="px-3 py-1.5 rounded-full bg-secondary-container text-on-secondary-container hover:opacity-90 font-label-md transition-colors">Restock</button>
+<button class="px-3 py-1.5 rounded-full border border-outline-variant/50 text-on-surface hover:bg-surface-container font-label-md transition-colors">Edit</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Footer / Pagination -->
+<div class="bg-surface-container-low px-6 py-4 flex items-center justify-between border-t border-outline-variant/30 font-body-sm text-on-surface-variant">
+<div>Showing <strong>4</strong> of <strong>8</strong> total supplier listings</div>
+<div class="flex items-center gap-2">
+<button class="px-3 py-1 rounded border border-outline-variant/50 bg-surface-container-lowest disabled:opacity-50" disabled="">Previous</button>
+<button class="px-3 py-1 rounded bg-primary text-on-primary font-bold">1</button>
+<button class="px-3 py-1 rounded border border-outline-variant/50 bg-surface-container-lowest hover:bg-surface-container">2</button>
+<button class="px-3 py-1 rounded border border-outline-variant/50 bg-surface-container-lowest hover:bg-surface-container">Next</button>
+</div>
+</div>
+</div>
+</main>
+<!-- FOOTER -->
+<footer class="bg-primary text-on-primary mt-space-xl">
+<div class="flex flex-col md:flex-row justify-between items-center px-space-lg py-space-md w-full max-w-[1600px] mx-auto gap-space-sm">
+<div class="flex items-center gap-3">
+<div class="font-headline-sm text-on-primary font-bold">AfriTrade Connect</div>
+<span class="text-outline-variant">|</span>
+<div class="font-body-sm text-outline-variant">Institutional Cross-Border B2B Clearing &amp; Freight Settlement. All rights reserved.</div>
+</div>
+<div class="flex flex-wrap gap-6 font-label-sm text-outline-variant">
+<a class="hover:text-secondary-fixed transition-colors" href="#">Customs &amp; Tariffs</a>
+<a class="hover:text-secondary-fixed transition-colors" href="#">Trade Protection Terms</a>
+<a class="hover:text-secondary-fixed transition-colors" href="#">API Documentation</a>
+<a class="hover:text-secondary-fixed transition-colors" href="#">Compliance &amp; KYB</a>
+<a class="hover:text-secondary-fixed transition-colors" href="#">System Status</a>
+</div>
+</div>
+</footer>
+</body></html>
+

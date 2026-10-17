@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AfriTrade Ops - Wholesale Suppliers Directory</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;600;700;800&family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              pine: '#00513a',
+              pineDark: '#003e2c',
+              pineLight: '#0f6b4f',
+              gold: '#feb62f',
+              goldDark: '#b27b00',
+              bg: '#f2fcf5',
+              surface: '#ffffff',
+              border: '#bec9c2',
+              borderLight: '#e1e8e4',
+              muted: '#526359',
+              dark: '#141d18'
+            }
+          },
+          fontFamily: {
+            title: ['"Bricolage Grotesque"', 'sans-serif'],
+            sans: ['"Noto Sans"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-outlined.fill-1 {
+      font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+</head>
+<body class="bg-brand-bg text-brand-dark font-sans antialiased min-h-screen flex">
+
+  <!-- Left Sidebar (Admin Shell) -->
+  <aside class="w-64 bg-brand-surface border-r border-brand-border flex flex-col shrink-0 min-h-screen sticky top-0 h-screen overflow-y-auto">
+    <!-- Brand Header -->
+    <div class="p-6 border-b border-brand-borderLight flex items-center gap-3">
+      <div class="w-10 h-10 rounded-xl bg-brand-pine flex items-center justify-center text-white shadow-sm">
+        <span class="material-symbols-outlined text-2xl text-brand-gold">hub</span>
+      </div>
+      <div>
+        <div class="flex items-center gap-2">
+          <span class="font-title font-bold text-lg text-brand-pine tracking-tight">AfriTrade</span>
+          <span class="bg-[#fed88f] text-[#6d4b00] text-[10px] font-bold px-1.5 py-0.5 rounded tracking-wide uppercase">OPS</span>
+        </div>
+        <p class="text-xs text-brand-muted font-medium">Operations Control</p>
+      </div>
+    </div>
+
+    <!-- Navigation Menu -->
+    <nav class="flex-1 px-4 py-5 space-y-6">
+      <!-- Operations Group -->
+      <div>
+        <p class="text-[11px] font-bold uppercase tracking-wider text-brand-muted px-3 mb-2">Operations</p>
+        <div class="space-y-1">
+          <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-brand-muted hover:text-brand-pine hover:bg-[#ecf6ef] transition-colors">
+            <span class="material-symbols-outlined text-[20px]">dashboard</span>
+            <span>Overview</span>
+          </a>
+          <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-brand-muted hover:text-brand-pine hover:bg-[#ecf6ef] transition-colors">
+            <span class="material-symbols-outlined text-[20px]">receipt_long</span>
+            <span>Orders Oversight</span>
+          </a>
+          <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-brand-muted hover:text-brand-pine hover:bg-[#ecf6ef] transition-colors">
+            <span class="material-symbols-outlined text-[20px]">local_shipping</span>
+            <span>Logistics Partners</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Users Group (DESIGN-ONLY) -->
+      <div>
+        <div class="flex items-center justify-between px-3 mb-2">
+          <p class="text-[11px] font-bold uppercase tracking-wider text-brand-muted">Users Directory</p>
+          <span class="text-[9px] font-bold px-1.5 py-0.2 bg-emerald-100 text-emerald-800 rounded">DESIGN-ONLY</span>
+        </div>
+        <div class="space-y-1">
+          <a href="#" class="flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-medium text-brand-muted hover:text-brand-pine hover:bg-[#ecf6ef] transition-colors">
+            <div class="flex items-center gap-3">
+              <span class="material-symbols-outlined text-[20px]">storefront</span>
+              <span>Buyers</span>
+            </div>
+            <span class="text-xs px-2 py-0.5 rounded-full bg-slate-100 text-slate-700 font-semibold">128</span>
+          </a>
+
+          <!-- Active Menu Item: Suppliers -->
+          <a href="#" class="flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-semibold bg-brand-pine text-white shadow-sm">
+            <div class="flex items-center gap-3">
+              <span class="material-symbols-outlined text-[20px] text-brand-gold">domain</span>
+              <span>Suppliers</span>
+            </div>
+            <span class="text-xs px-2 py-0.5 rounded-full bg-brand-pineDark text-emerald-200 font-bold">86</span>
+          </a>
+
+          <a href="#" class="flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-medium text-brand-muted hover:text-brand-pine hover:bg-[#ecf6ef] transition-colors">
+            <div class="flex items-center gap-3">
+              <span class="material-symbols-outlined text-[20px]">verified_user</span>
+              <span>KYB Review</span>
+            </div>
+            <span class="text-[11px] px-2 py-0.5 rounded-full bg-amber-100 text-amber-900 font-bold flex items-center gap-1">
+              <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span> 12 Pending
+            </span>
+          </a>
+
+          <div class="flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-medium text-slate-400 cursor-not-allowed">
+            <div class="flex items-center gap-3">
+              <span class="material-symbols-outlined text-[20px]">badge</span>
+              <span>KYC Verification</span>
+            </div>
+            <span class="text-[10px] px-2 py-0.5 rounded-full bg-slate-100 text-slate-500 font-medium">Coming soon</span>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Bottom Super Admin Card -->
+    <div class="p-4 border-t border-brand-borderLight">
+      <div class="flex items-center justify-between p-2 rounded-xl bg-slate-50 border border-brand-borderLight">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-full bg-brand-pine text-white font-title font-bold text-sm flex items-center justify-center">
+            FO
+          </div>
+          <div>
+            <p class="text-xs font-bold text-brand-dark">Favour Okafor</p>
+            <div class="flex items-center gap-1.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+              <span class="text-[11px] text-brand-muted font-medium">Super Admin</span>
+            </div>
+          </div>
+        </div>
+        <button class="text-slate-400 hover:text-brand-dark p-1">
+          <span class="material-symbols-outlined text-lg">more_vert</span>
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Content Area -->
+  <main class="flex-1 flex flex-col min-w-0">
+    <!-- Top Bar -->
+    <header class="bg-brand-surface border-b border-brand-border px-8 py-3.5 flex items-center justify-between gap-4 sticky top-0 z-20">
+      <!-- Left: Breadcrumb & Badges -->
+      <div class="flex items-center gap-3 flex-wrap">
+        <div class="flex items-center gap-2 text-sm text-brand-muted">
+          <span>Users</span>
+          <span class="material-symbols-outlined text-sm text-slate-400">chevron_right</span>
+          <span class="text-brand-dark font-bold">Wholesale Suppliers Directory</span>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <!-- Safeguard Badge -->
+          <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-medium bg-emerald-50 text-emerald-800 border border-emerald-200">
+            <span class="material-symbols-outlined text-sm text-emerald-600">shield</span>
+            <span>[DESIGN-ONLY Screen — Rule 23]</span>
+          </span>
+
+          <!-- Demo Simulation Badge -->
+          <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-amber-50 text-amber-900 border border-amber-200">
+            <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+            <span>Demo Simulation Mode (Zero Financial Risk)</span>
+          </span>
+        </div>
+      </div>
+
+      <!-- Right: Search and Export -->
+      <div class="flex items-center gap-3 shrink-0">
+        <div class="relative w-72">
+          <span class="material-symbols-outlined absolute left-3 top-2.5 text-slate-400 text-lg">search</span>
+          <input 
+            type="text" 
+            placeholder="Search suppliers, RC/CIPC/RGD, contacts..." 
+            class="w-full pl-9 pr-3 py-1.5 text-xs bg-slate-50 border border-brand-border rounded-lg focus:outline-none focus:ring-1 focus:ring-brand-pine focus:border-brand-pine text-brand-dark placeholder-slate-400"
+          />
+        </div>
+        <button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-brand-border bg-brand-surface text-xs font-semibold text-brand-dark hover:bg-slate-50 hover:border-slate-400 transition-colors shadow-sm">
+          <span class="material-symbols-outlined text-sm text-brand-pine">download</span>
+          <span>Export CSV</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Content Workspace -->
+    <div class="p-8 space-y-6 max-w-7xl">
+      <!-- Title & Live Status -->
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div>
+          <h1 class="font-title font-extrabold text-2xl md:text-3xl text-brand-pine tracking-tight">Wholesale Suppliers Directory</h1>
+          <p class="text-sm text-brand-muted mt-1">Operational registry of verified local suppliers and bulk commodity producers across Nigeria, South Africa, and Ghana.</p>
+        </div>
+        <div class="flex items-center gap-2 self-start md:self-auto bg-emerald-50 border border-emerald-200 px-3 py-1.5 rounded-xl">
+          <span class="w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></span>
+          <span class="text-xs font-semibold text-emerald-900">Statutory Registries Connected (CAC • CIPC • RGD)</span>
+        </div>
+      </div>
+
+      <!-- Metric Summary Cards (4 Cards) -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <!-- Card 1 -->
+        <div class="bg-brand-surface p-5 rounded-2xl border border-brand-border shadow-sm flex items-start justify-between">
+          <div>
+            <p class="text-xs font-bold uppercase tracking-wider text-brand-muted">Total Suppliers</p>
+            <h3 class="font-title text-2xl font-extrabold text-brand-dark mt-2">86 Businesses</h3>
+            <p class="text-xs font-medium text-emerald-700 flex items-center gap-1 mt-1">
+              <span class="material-symbols-outlined text-sm">trending_up</span>
+              <span>+8 new registered this month</span>
+            </p>
+          </div>
+          <div class="w-10 h-10 rounded-xl bg-emerald-50 text-brand-pine flex items-center justify-center shrink-0">
+            <span class="material-symbols-outlined text-xl">domain</span>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="bg-brand-surface p-5 rounded-2xl border border-brand-border shadow-sm flex items-start justify-between">
+          <div>
+            <p class="text-xs font-bold uppercase tracking-wider text-brand-muted">Verified & Active</p>
+            <h3 class="font-title text-2xl font-extrabold text-brand-pine mt-2">68 Suppliers</h3>
+            <div class="mt-1">
+              <span class="inline-flex items-center gap-1 text-[11px] font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800">
+                <span class="material-symbols-outlined text-xs fill-1">verified</span>
+                <span>79.1% Compliance Rate</span>
+              </span>
+            </div>
+          </div>
+          <div class="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center shrink-0">
+            <span class="material-symbols-outlined text-xl">verified_user</span>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="bg-brand-surface p-5 rounded-2xl border border-brand-border shadow-sm flex items-start justify-between">
+          <div>
+            <p class="text-xs font-bold uppercase tracking-wider text-brand-muted">Pending KYB Review</p>
+            <h3 class="font-title text-2xl font-extrabold text-brand-dark mt-2">12 Pending</h3>
+            <div class="mt-1">
+              <span class="inline-flex items-center gap-1 text-[11px] font-bold px-2 py-0.5 rounded-full bg-amber-100 text-amber-900">
+                <span class="material-symbols-outlined text-xs">hourglass_top</span>
+                <span>Avg SLA: &lt; 24 hrs</span>
+              </span>
+            </div>
+          </div>
+          <div class="w-10 h-10 rounded-xl bg-amber-50 text-amber-700 flex items-center justify-center shrink-0">
+            <span class="material-symbols-outlined text-xl">pending_actions</span>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="bg-brand-surface p-5 rounded-2xl border border-brand-border shadow-sm flex items-start justify-between">
+          <div>
+            <p class="text-xs font-bold uppercase tracking-wider text-brand-muted">Active Wholesale Catalog</p>
+            <h3 class="font-title text-2xl font-extrabold text-brand-dark mt-2">248 Products</h3>
+            <p class="text-xs font-medium text-brand-muted mt-1">Available in bulk across hubs</p>
+          </div>
+          <div class="w-10 h-10 rounded-xl bg-slate-100 text-slate-700 flex items-center justify-center shrink-0">
+            <span class="material-symbols-outlined text-xl">inventory_2</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Suppliers Data Table Container -->
+      <div class="bg-brand-surface rounded-2xl border border-brand-border shadow-sm overflow-hidden">
+        <!-- Table Controls & Filters -->
+        <div class="p-5 border-b border-brand-borderLight space-y-4">
+          <!-- Top Row: Country Filter Pills + Sort -->
+          <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+            <!-- Country Pills -->
+            <div class="flex items-center gap-2 flex-wrap">
+              <span class="text-xs font-bold text-brand-muted mr-1">Origin Hub:</span>
+              <button class="px-3 py-1.5 rounded-full text-xs font-bold bg-brand-pine text-white shadow-sm transition-all">
+                All Countries (86)
+              </button>
+              <button class="px-3 py-1.5 rounded-full text-xs font-medium bg-slate-100 text-brand-dark hover:bg-slate-200 transition-colors flex items-center gap-1.5">
+                <span>🇳🇬 Nigeria (48)</span>
+              </button>
+              <button class="px-3 py-1.5 rounded-full text-xs font-medium bg-slate-100 text-brand-dark hover:bg-slate-200 transition-colors flex items-center gap-1.5">
+                <span>🇿🇦 South Africa (22)</span>
+              </button>
+              <button class="px-3 py-1.5 rounded-full text-xs font-medium bg-slate-100 text-brand-dark hover:bg-slate-200 transition-colors flex items-center gap-1.5">
+                <span>🇬🇭 Ghana (16)</span>
+              </button>
+            </div>
+
+            <!-- Sort and Refresh -->
+            <div class="flex items-center gap-2.5">
+              <div class="flex items-center gap-2 bg-slate-50 border border-brand-border rounded-lg px-3 py-1.5 text-xs">
+                <span class="text-brand-muted font-medium">Sort by:</span>
+                <select class="bg-transparent font-semibold text-brand-dark focus:outline-none cursor-pointer">
+                  <option>Highest Sales</option>
+                  <option>Most Products</option>
+                  <option>Newest Registration</option>
+                  <option>KYB Status</option>
+                </select>
+              </div>
+              <button class="p-2 border border-brand-border rounded-lg hover:bg-slate-50 text-brand-muted hover:text-brand-dark transition-colors" title="Reload list">
+                <span class="material-symbols-outlined text-base">refresh</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Bottom Row: KYB Status Sub-tabs -->
+          <div class="flex items-center gap-6 border-t border-slate-100 pt-3 text-xs font-semibold">
+            <span class="text-brand-muted text-[11px] font-bold uppercase tracking-wider">KYB Status:</span>
+            <button class="text-brand-pine font-bold border-b-2 border-brand-pine pb-1 flex items-center gap-1.5">
+              <span>All Suppliers</span>
+              <span class="bg-[#ecf6ef] text-brand-pine text-[10px] px-1.5 py-0.2 rounded-full">86</span>
+            </button>
+            <button class="text-brand-muted hover:text-brand-dark pb-1 transition-colors flex items-center gap-1.5">
+              <span>Verified / Approved</span>
+              <span class="bg-emerald-50 text-emerald-800 text-[10px] px-1.5 py-0.2 rounded-full">68</span>
+            </button>
+            <button class="text-brand-muted hover:text-brand-dark pb-1 transition-colors flex items-center gap-1.5">
+              <span>Pending Review</span>
+              <span class="bg-amber-50 text-amber-900 text-[10px] px-1.5 py-0.2 rounded-full">12</span>
+            </button>
+            <button class="text-brand-muted hover:text-brand-dark pb-1 transition-colors flex items-center gap-1.5">
+              <span>Rejected</span>
+              <span class="bg-rose-50 text-rose-800 text-[10px] px-1.5 py-0.2 rounded-full">6</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Data Table -->
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs">
+            <thead class="bg-slate-50/80 text-brand-muted font-bold uppercase tracking-wider text-[11px] border-b border-brand-borderLight">
+              <tr>
+                <th class="py-3.5 px-6">Supplier & Contact</th>
+                <th class="py-3.5 px-4">Origin Location</th>
+                <th class="py-3.5 px-4">Primary Category</th>
+                <th class="py-3.5 px-4 text-center">Active Listings</th>
+                <th class="py-3.5 px-4">KYB Status</th>
+                <th class="py-3.5 px-4 text-right">Gross Sales (Native)</th>
+                <th class="py-3.5 px-6 text-right">Actions</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-brand-borderLight font-medium text-brand-dark">
+              <!-- Row 1: Savannah Agro Ltd -->
+              <tr class="hover:bg-[#f8fbf9] transition-colors">
+                <td class="py-4 px-6">
+                  <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-emerald-100 text-brand-pine font-title font-bold flex items-center justify-center shrink-0">
+                      SA
+                    </div>
+                    <div>
+                      <p class="font-bold text-sm text-brand-dark hover:text-brand-pine cursor-pointer">Savannah Agro Ltd</p>
+                      <p class="text-[11px] text-brand-muted mt-0.5 flex items-center gap-1">
+                        <span class="material-symbols-outlined text-[13px]">person</span>
+                        <span>Contact: Babatunde Adeleke</span>
+                        <span class="text-slate-300">•</span>
+                        <span>RC: 1049281</span>
+                      </p>
+                    </div>
+                  </div>
+                </td>
+                <td class="py-4 px-4">
+                  <div class="flex items-center gap-2">
+                    <span class="text-sm">🇳🇬</span>
+                    <div>
+                      <p class="font-semibold text-brand-dark">Kano, Nigeria</p>
+                      <p class="text-[10px] text-brand-muted">Northern Grain Hub</p>
+                    </div>
+                  </div>
+                </td>
+                <td class="py-4 px-4">
+                  <span class="inline-block px-2.5 py-1 rounded-md text-[11px] font-semibold bg-amber-50 text-amber-900 border border-amber-200">
+                    Grains & Seeds
+                  </span>
+                </td>
+                <td class="py-4 px-4 text-center">
+                  <span class="font-bold text-sm text-brand-pine">8 Products</span>
+                  <p class="text-[10px] text-brand-muted">Maize, Sorghum, Millet</p>
+                </td>
+                <td class="py-4 px-4">
+                  <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-50 text-emerald-800 border border-emerald-200">
+                    <span class="material-symbols-outlined text-sm text-emerald-600 fill-1">verified</span>
+                    <span>Approved</span>
+                  </span>
+                  <p class="text-[10px] text-slate-400 mt-1">CAC Verified: May 2024</p>
+                </td>
+                <td class="py-4 px-4 text-right">
+                  <p class="font-title font-bold text-sm text-brand-pine">₦64,200,000</p>
+                  <p class="text-[10px] text-brand-muted">≈ $40,400 USD</p>
+                </td>
+                <td class="py-4 px-6 text-right">
+                  <div class="flex items-center justify-end gap-2">
+                    <button class="px-2.5 py-1.5 rounded-lg border border-brand-border bg-white hover:bg-slate-50 text-brand-dark font-semibold text-xs shadow-sm transition-colors">
+                      View Products
+                    </button>
+                    <button class="px-2.5 py-1.5 rounded-lg bg-brand-pine text-white hover:bg-brand-pineDark font-semibold text-xs shadow-sm transition-colors flex items-center gap-1">
+                      <span>KYB Dossier</span>
+                      <span class="material-symbols-outlined text-xs">arrow_forward</span>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+
+              <!-- Row 2: Highveld Grains Ltd -->
+              <tr class="hover:bg-[#f8fbf9] transition-colors">
+                <td class="py-4 px-6">
+                  <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-blue-100 text-blue-900 font-title font-bold flex items-center justify-center shrink-0">
+                      HG
+                    </div>
+                    <div>
+                      <p class="font-bold text-sm text-brand-dark hover:text-brand-pine cursor-pointer">Highveld Grains Ltd</p>
+                      <p class="text-[11px] text-brand-muted mt-0.5 flex items-center gap-1">
+                        <span class="material-symbols-outlined text-[13px]">person</span>
+                        <span>Contact: Willem Van Der Merwe</span>
+                        <span class="text-slate-300">•</span>
+                        <span>CIPC: 2019/33890</span>
+                      </p>
+                    </div>
+                  </div>
+                </td>
+                <td class="py-4 px-4">
+                  <div class="flex items-center gap-2">
+                    <span class="text-sm">🇿🇦</span>
+                    <div>
+                      <p class="font-semibold text-brand-dark">Mpumalanga, SA</p>
+                      <p class="text-[10px] text-brand-muted">Southern Ag Belt</p>
+                    </div>
+                  </div>
+                </td>
+                <td class="py-4 px-4">
+                  <span class="inline-block px-2.5 py-1 rounded-md text-[11px] font-semibold bg-amber-50 text-amber-900 border border-amber-200">
+                    Grains & Seeds
+                  </span>
+                </td>
+                <td class="py-4 px-4 text-center">
+                  <span class="font-bold text-sm text-brand-pine">14 Products</span>
+                  <p class="text-[10px] text-brand-muted">Soybeans, Wheat, Canola</p>
+                </td>
+                <td class="py-4 px-4">
+                  <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-50 text-emerald-800 border border-emerald-200">
+                    <span class="material-symbols-outlined text-sm text-emerald-600 fill-1">verified</span>
+                    <span>Approved</span>
+                  </span>
+                  <p class="text-[10px] text-slate-400 mt-1">CIPC Verified: Aug 2024</p>
+                </td>
+                <td class="py-4 px-4 text-right">
+                  <p class="font-title font-bold text-sm text-brand-pine">R 1,200,000</p>
+                  <p class="text-[10px] text-brand-muted">≈ $66,000 USD</p>
+                </td>
+                <td class="py-4 px-6 text-right">
+                  <div class="flex items-center justify-end gap-2">
+                    <button class="px-2.5 py-1.5 rounded-lg border border-brand-border bg-white hover:bg-slate-50 text-brand-dark font-semibold text-xs shadow-sm transition-colors">
+                      View Products
+                    </button>
+                    <button class="px-2.5 py-1.5 rounded-lg bg-brand-pine text-white hover:bg-brand-pineDark font-semibold text-xs shadow-sm transition-colors flex items-center gap-1">
+                      <span>KYB Dossier</span>
+                      <span class="material-symbols-outlined text-xs">arrow_forward</span>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+
+              <!-- Row 3: Sunyani Harvest Co -->
+              <tr class="hover:bg-[#f8fbf9] transition-colors">
+                <td class="py-4 px-6">
+                  <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-900 font-title font-bold flex items-center justify-center shrink-0">
+                      SH
+                    </div>
+                    <div>
+                      <p class="font-bold text-sm text-brand-dark hover:text-brand-pine cursor-pointer">Sunyani Harvest Co</p>
+                      <p class="text-[11px] text-brand-muted mt-0.5 flex items-center gap-1">
+                        <span class="material-symbols-outlined text-[13px]">person</span>
+                        <span>Contact: Kwame Boateng</span>
+                        <span class="text-slate-300">•</span>
+                        <span>RGD: CS-88219</span>
+                      </p>
+                    </div>
+                  </div>
+                </td>
+                <td class="py-4 px-4">
+                  <div class="flex items-center gap-2">
+                    <span class="text-sm">🇬🇭</span>
+                    <div>
+                      <p class="font-semibold text-brand-dark">Sunyani, Ghana</p>
+                      <p class="text-[10px] text-brand-muted">Bono Cashew Basin</p>
+                    </div>
+                  </div>
+                </td>
+                <td class="py-4 px-4">
+                  <span class="inline-block px-2.5 py-1 rounded-md text-[11px] font-semibold bg-emerald-50 text-emerald-900 border border-emerald-200">
+                    Nuts & Produce
+                  </span>
+                </td>
+                <td class="py-4 px-4 text-center">
+                  <span class="font-bold text-sm text-brand-pine">6 Products</span>
+                  <p class="text-[10px] text-brand-muted">Raw Cashews, Shea, Cocoa</p>
+                </td>
+                <td class="py-4 px-4">
+                  <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold bg-amber-50 text-amber-900 border border-amber-200">
+                    <span class="material-symbols-outlined text-sm text-amber-600">schedule</span>
+                    <span>Pending Review</span>
+                  </span>
+                  <p class="text-[10px] text-amber-700 font-medium mt-1">Submitted 3 hrs ago</p>
+                </td>
+                <td class="py-4 px-4 text-right">
+                  <p class="font-title font-bold text-sm text-brand-pine">GH₵ 410,000</p>
+                  <p class="text-[10px] text-brand-muted">≈ $26,500 USD</p>
+                </td>
+                <td class="py-4 px-6 text-right">
+                  <div class="flex items-center justify-end gap-2">
+                    <button class="px-2.5 py-1.5 rounded-lg border border-brand-border bg-white hover:bg-slate-50 text-brand-dark font-semibold text-xs shadow-sm transition-colors">
+                      View Products
+                    </button>
+                    <button class="px-2.5 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold text-xs shadow-sm transition-colors flex items-center gap-1">
+                      <span class="material-symbols-outlined text-xs">rate_review</span>
+                      <span>Review KYB</span>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+
+              <!-- Row 4: Zaria Agro Hub -->
+              <tr class="hover:bg-[#f8fbf9] transition-colors">
+                <td class="py-4 px-6">
+                  <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-purple-100 text-purple-900 font-title font-bold flex items-center justify-center shrink-0">
+                      ZA
+                    </div>
+                    <div>
+                      <p class="font-bold text-sm text-brand-dark hover:text-brand-pine cursor-pointer">Zaria Agro Hub</p>
+                      <p class="text-[11px] text-brand-muted mt-0.5 flex items-center gap-1">
+                        <span class="material-symbols-outlined text-[13px]">person</span>
+                        <span>Contact: Aisha Garba</span>
+                        <span class="text-slate-300">•</span>
+                        <span>RC: 9821430</span>
+                      </p>
+                    </div>
+                  </div>
+                </td>
+                <td class="py-4 px-4">
+                  <div class="flex items-center gap-2">
+                    <span class="text-sm">🇳🇬</span>
+                    <div>
+                      <p class="font-semibold text-brand-dark">Kaduna, Nigeria</p>
+                      <p class="text-[10px] text-brand-muted">Ginger & Spice Depot</p>
+                    </div>
+                  </div>
+                </td>
+                <td class="py-4 px-4">
+                  <span class="inline-block px-2.5 py-1 rounded-md text-[11px] font-semibold bg-emerald-50 text-emerald-900 border border-emerald-200">
+                    Nuts & Produce
+                  </span>
+                </td>
+                <td class="py-4 px-4 text-center">
+                  <span class="font-bold text-sm text-brand-pine">9 Products</span>
+                  <p class="text-[10px] text-brand-muted">Split Ginger, Chili, Garlic</p>
+                </td>
+                <td class="py-4 px-4">
+                  <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-50 text-emerald-800 border border-emerald-200">
+                    <span class="material-symbols-outlined text-sm text-emerald-600 fill-1">verified</span>
+                    <span>Approved</span>
+                  </span>
+                  <p class="text-[10px] text-slate-400 mt-1">CAC Verified: Jan 2024</p>
+                </td>
+                <td class="py-4 px-4 text-right">
+                  <p class="font-title font-bold text-sm text-brand-pine">₦31,500,000</p>
+                  <p class="text-[10px] text-brand-muted">≈ $19,800 USD</p>
+                </td>
+                <td class="py-4 px-6 text-right">
+                  <div class="flex items-center justify-end gap-2">
+                    <button class="px-2.5 py-1.5 rounded-lg border border-brand-border bg-white hover:bg-slate-50 text-brand-dark font-semibold text-xs shadow-sm transition-colors">
+                      View Products
+                    </button>
+                    <button class="px-2.5 py-1.5 rounded-lg bg-brand-pine text-white hover:bg-brand-pineDark font-semibold text-xs shadow-sm transition-colors flex items-center gap-1">
+                      <span>KYB Dossier</span>
+                      <span class="material-symbols-outlined text-xs">arrow_forward</span>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Pagination and Record Counter -->
+        <div class="p-4 bg-slate-50/70 border-t border-brand-borderLight flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
+          <p class="text-brand-muted">
+            Showing <span class="font-bold text-brand-dark">1 to 4</span> of <span class="font-bold text-brand-dark">86</span> registered suppliers • 20 items per page
+          </p>
+          <div class="flex items-center gap-1.5">
+            <button class="px-3 py-1.5 rounded-lg border border-brand-border bg-white text-slate-400 cursor-not-allowed font-medium shadow-sm">
+              Previous
+            </button>
+            <button class="px-3 py-1.5 rounded-lg bg-brand-pine text-white font-bold shadow-sm">
+              1
+            </button>
+            <button class="px-3 py-1.5 rounded-lg border border-brand-border bg-white text-brand-dark hover:bg-slate-100 font-medium transition-colors shadow-sm">
+              2
+            </button>
+            <button class="px-3 py-1.5 rounded-lg border border-brand-border bg-white text-brand-dark hover:bg-slate-100 font-medium transition-colors shadow-sm">
+              3
+            </button>
+            <span class="px-2 text-slate-400">...</span>
+            <button class="px-3 py-1.5 rounded-lg border border-brand-border bg-white text-brand-dark hover:bg-slate-100 font-medium transition-colors shadow-sm">
+              5
+            </button>
+            <button class="px-3 py-1.5 rounded-lg border border-brand-border bg-white text-brand-dark hover:bg-slate-100 font-medium transition-colors shadow-sm">
+              Next
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Operational Audit Safeguard Footer -->
+      <div class="rounded-xl bg-emerald-50/60 border border-emerald-200/80 p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-brand-muted">
+        <div class="flex items-center gap-2.5">
+          <span class="material-symbols-outlined text-brand-pine text-lg">verified</span>
+          <div>
+            <span class="font-bold text-brand-dark">Operations Compliance Notice:</span>
+            <span>All supplier businesses listed are audited against statutory registries. All currency metrics reflect safe simulated demo transactions.</span>
+          </div>
+        </div>
+        <div class="flex items-center gap-2 text-[11px] font-mono text-slate-500 self-end sm:self-auto">
+          <span>Audit Log: #AUD-SUPP-9024</span>
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+        </div>
+      </div>
+    </div>
+  </main>
+
+</body>
+</html>
+
+

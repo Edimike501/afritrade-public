@@ -1,0 +1,410 @@
+<html class="h-full" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AfriTrade Connect - Operations Portal Orders Oversight & Shipment Transitions</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@100..900&family=Noto+Sans:wght@100..900&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-container": "#e6f0ea",
+            "outline": "#6f7a73",
+            "on-error": "#ffffff",
+            "primary": "#00513a",
+            "on-surface-variant": "#3f4944",
+            "on-background": "#151d1a",
+            "error": "#ba1a1a",
+            "surface-container-high": "#e1ebe4",
+            "on-secondary-fixed-variant": "#604100",
+            "tertiary-fixed-dim": "#ffb3ad",
+            "inverse-surface": "#29322e",
+            "surface": "#f2fcf5",
+            "on-tertiary-fixed": "#3c0707",
+            "background": "#f2fcf5",
+            "tertiary-container": "#924843",
+            "on-tertiary-fixed-variant": "#75322e",
+            "on-primary-fixed": "#002115",
+            "on-secondary-fixed": "#281900",
+            "on-secondary": "#ffffff",
+            "surface-tint": "#106b4f",
+            "surface-dim": "#d2dcd6",
+            "primary-fixed": "#a1f3cf",
+            "on-secondary-container": "#6d4a00",
+            "surface-bright": "#f2fcf5",
+            "secondary-container": "#feb62f",
+            "primary-fixed-dim": "#86d6b4",
+            "on-primary-fixed-variant": "#00513a",
+            "surface-variant": "#dbe5de",
+            "on-primary": "#ffffff",
+            "inverse-primary": "#86d6b4",
+            "on-surface": "#151d1a",
+            "secondary-fixed": "#ffdeae",
+            "tertiary-fixed": "#ffdad6",
+            "surface-container-low": "#ecf6ef",
+            "surface-container-highest": "#dbe5de",
+            "on-error-container": "#93000a",
+            "secondary": "#7f5700",
+            "primary-container": "#0f6b4f",
+            "outline-variant": "#bec9c2",
+            "on-primary-container": "#97e8c5",
+            "surface-container-lowest": "#ffffff",
+            "secondary-fixed-dim": "#ffba3e",
+            "on-tertiary-container": "#ffccc7",
+            "on-tertiary": "#ffffff",
+            "error-container": "#ffdad6",
+            "tertiary": "#75312d",
+            "inverse-on-surface": "#e9f3ec"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xl": "2.5rem",
+            "gutter": "1.5rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "margin": "2rem",
+            "gutter-mobile": "1rem",
+            "space-lg": "1.5rem",
+            "margin-mobile": "1.0rem",
+            "space-xs": "0.25rem"
+          },
+          "fontFamily": {
+            "label-lg": ["Noto Sans"],
+            "headline-xl-mobile": ["Bricolage Grotesque"],
+            "label-sm": ["Noto Sans"],
+            "headline-sm": ["Bricolage Grotesque"],
+            "display-lg-mobile": ["Bricolage Grotesque"],
+            "body-sm": ["Noto Sans"],
+            "body-md": ["Noto Sans"],
+            "label-md": ["Noto Sans"],
+            "body-lg": ["Noto Sans"],
+            "title-md": ["Noto Sans"],
+            "headline-xl": ["Bricolage Grotesque"],
+            "headline-md": ["Bricolage Grotesque"],
+            "display-lg": ["Bricolage Grotesque"]
+          },
+          "fontSize": {
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "headline-xl-mobile": ["26px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "fontWeight": "400" }],
+            "body-md": ["14px", { "lineHeight": "22px", "fontWeight": "400" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "body-lg": ["16px", { "lineHeight": "26px", "fontWeight": "400" }],
+            "title-md": ["16px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-[#FBF9F5] text-on-surface font-body-md h-full flex flex-col antialiased selection:bg-primary-fixed selection:text-on-primary-fixed">
+<div class="flex h-screen overflow-hidden">
+<!-- Mobile Sidebar Backdrop -->
+<div class="fixed inset-0 bg-[#151D1A]/40 backdrop-blur-xs z-40 hidden md:hidden" id="sidebar-backdrop"></div>
+<!-- Left Sidenav -->
+<aside class="fixed inset-y-0 left-0 z-50 w-72 bg-[#1E3A2B] text-white flex flex-col transition-transform duration-300 ease-in-out -translate-x-full md:translate-x-0 md:static md:inset-auto" id="sidebar">
+<!-- Sidenav Header -->
+<div class="p-6 border-b border-white/10 flex items-center justify-between">
+<div>
+<h1 class="font-headline-sm text-lg font-bold text-white tracking-tight">AfriTrade Connect</h1>
+<p class="text-xs text-emerald-200/80 mt-0.5">Operations Console</p>
+</div>
+<button class="md:hidden text-white/70 hover:text-white" id="sidebar-close">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<!-- Sidenav Navigation Links -->
+<div class="flex-1 overflow-y-auto px-4 py-6 space-y-8">
+<!-- Operations Group -->
+<div>
+<h2 class="px-3 text-xs font-semibold text-emerald-300/60 uppercase tracking-wider mb-2">Operations</h2>
+<nav class="space-y-1">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm text-emerald-100/80 hover:bg-white/5 hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined" data-weight="fill">dashboard</span>
+              Overview
+            </a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm bg-white/10 text-white font-bold transition-colors" href="#">
+<span class="material-symbols-outlined" data-weight="fill">orders</span>
+              Orders Oversight
+            </a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm text-emerald-100/80 hover:bg-white/5 hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined">local_shipping</span>
+              Logistics Partners
+            </a>
+</nav>
+</div>
+<!-- Users & Verification Group -->
+<div>
+<h2 class="px-3 text-xs font-semibold text-emerald-300/60 uppercase tracking-wider mb-2">Users & Verification</h2>
+<nav class="space-y-1">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm text-emerald-100/80 hover:bg-white/5 hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined">group</span>
+              Buyers Directory
+            </a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm text-emerald-100/80 hover:bg-white/5 hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined">storefront</span>
+              Suppliers Directory
+            </a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm text-emerald-100/80 hover:bg-white/5 hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined">verified_user</span>
+              KYB Review Queue
+            </a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm text-emerald-100/80 hover:bg-white/5 hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined">badge</span>
+              KYC Placeholder
+            </a>
+</nav>
+</div>
+</div>
+<!-- Sidenav Footer Profile -->
+<div class="p-4 border-t border-white/10 bg-[#162C20] flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-emerald-800 flex items-center justify-center text-white font-bold border border-emerald-600">
+            AB
+          </div>
+<div>
+<p class="text-sm font-medium text-white">Amina Bello</p>
+<p class="text-xs text-emerald-300/80">Superadmin</p>
+</div>
+</div>
+<button class="p-2 text-emerald-300/70 hover:text-white transition-colors" title="Logout">
+<span class="material-symbols-outlined">logout</span>
+</button>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 flex flex-col min-w-0 overflow-hidden">
+<!-- Top Bar -->
+<header class="bg-white border-b border-[#E5DFD7] h-16 flex items-center justify-between px-4 md:px-8 shrink-0">
+<div class="flex items-center gap-3">
+<button class="md:hidden p-2 text-on-surface-variant hover:text-primary" id="sidebar-toggle">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<!-- Search & Filters Container -->
+<div class="flex items-center gap-2">
+<div class="relative">
+<span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-outline">
+<span class="material-symbols-outlined text-sm">search</span>
+</span>
+<input class="w-40 sm:w-64 pl-9 pr-4 py-2 bg-[#FBF9F5] border border-[#E5DFD7] rounded-lg text-xs md:text-sm focus:outline-none focus:ring-2 focus:ring-[#1E3A2B]/20 focus:border-[#1E3A2B]" placeholder="Search order ID..." type="text"/>
+</div>
+<select class="hidden sm:block py-2 px-3 bg-[#FBF9F5] border border-[#E5DFD7] rounded-lg text-xs text-on-surface-variant focus:outline-none focus:ring-2 focus:ring-[#1E3A2B]/20">
+<option value="">Filter by Country</option>
+<option value="NG">Nigeria (NG)</option>
+<option value="ZA">South Africa (ZA)</option>
+<option value="GH">Ghana (GH)</option>
+</select>
+<select class="hidden sm:block py-2 px-3 bg-[#FBF9F5] border border-[#E5DFD7] rounded-lg text-xs text-on-surface-variant focus:outline-none focus:ring-2 focus:ring-[#1E3A2B]/20">
+<option value="">Filter by Status</option>
+<option value="PICKED_UP">Picked Up</option>
+<option value="IN_TRANSIT">In Transit</option>
+<option value="READY">Ready for Pickup</option>
+</select>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<button class="flex items-center gap-2 bg-[#1E3A2B] text-white px-4 py-2 rounded-full text-xs font-semibold hover:bg-[#15291e] transition-colors shadow-xs">
+<span class="material-symbols-outlined text-sm">download</span>
+<span class="hidden sm:inline">Export Manifest</span>
+</button>
+</div>
+</header>
+<!-- Scrollable Workspace Body -->
+<div class="flex-1 overflow-y-auto p-4 md:p-8 space-y-6">
+<!-- Header Banner Section -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div>
+<h1 class="font-headline-md text-2xl md:text-3xl font-bold text-[#151D1A] tracking-tight">Cross-Border Orders Oversight</h1>
+<p class="text-sm text-outline mt-1">Review trade settlement status, assign curated logistics carriers, and advance shipment status milestones.</p>
+</div>
+<div class="flex items-center gap-2 bg-white px-4 py-2 rounded-xl border border-[#E5DFD7] shadow-xs self-start md:self-auto">
+<span class="w-2.5 h-2.5 rounded-full bg-emerald-600 animate-pulse"></span>
+<span class="text-xs font-medium text-on-surface-variant">Live Dispatch Stream Active</span>
+</div>
+</div>
+<!-- Order Management Table Container -->
+<div class="bg-white rounded-xl border border-[#E5DFD7] shadow-xs overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-[#FBF9F5] border-b border-[#E5DFD7] text-xs font-semibold text-outline uppercase tracking-wider">
+<th class="py-4 px-6">Order Reference</th>
+<th class="py-4 px-6">Parties</th>
+<th class="py-4 px-6">Commodity Lot</th>
+<th class="py-4 px-6">Payment Status</th>
+<th class="py-4 px-6">Assigned Carrier</th>
+<th class="py-4 px-6">Shipment Status</th>
+<th class="py-4 px-6 text-right">Transition Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-[#E5DFD7] text-sm">
+<!-- Order 1 -->
+<tr class="hover:bg-[#FBF9F5]/60 transition-colors">
+<td class="py-4 px-6 font-semibold text-[#1E3A2B]">
+                    #ORD-2024-0982
+                    <div class="text-xs font-normal text-outline mt-0.5">Ordered Oct 24</div>
+</td>
+<td class="py-4 px-6">
+<div class="text-on-surface font-medium">Buyer: Golden Grains Ltd (GH 🇬🇭)</div>
+<div class="text-xs text-outline mt-0.5">Supplier: Savannah Agro Ltd (NG 🇳🇬)</div>
+</td>
+<td class="py-4 px-6">
+<div class="font-medium text-on-surface">10 MT Grade A Split Dried Ginger</div>
+<div class="text-xs text-outline mt-0.5">₦ 18,500,000</div>
+</td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-[#E7F3EE] text-[#0F6B4F] border border-[#0F6B4F]/20">
+<span class="material-symbols-outlined text-sm">check_circle</span>
+                      Mock Payment Confirmed
+                    </span>
+</td>
+<td class="py-4 px-6">
+<span class="font-medium text-on-surface">Kobo360 Haulage</span>
+</td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-medium bg-amber-50 text-amber-800 border border-amber-200">
+                      PICKED_UP (Kano Dispatch Hub)
+                    </span>
+</td>
+<td class="py-4 px-6 text-right">
+<button class="bg-[#1E3A2B] text-white hover:bg-[#15291e] px-4 rounded-full text-xs font-medium h-[44px] transition-colors shadow-xs inline-flex items-center justify-center gap-1 ml-auto">
+<span>Advance to IN_TRANSIT</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</td>
+</tr>
+<!-- Order 2 -->
+<tr class="hover:bg-[#FBF9F5]/60 transition-colors">
+<td class="py-4 px-6 font-semibold text-[#1E3A2B]">
+                    #ORD-2024-0975
+                    <div class="text-xs font-normal text-outline mt-0.5">Ordered Oct 23</div>
+</td>
+<td class="py-4 px-6">
+<div class="text-on-surface font-medium">Buyer: Cape Foods Wholesale (ZA 🇿🇦)</div>
+<div class="text-xs text-outline mt-0.5">Supplier: Western Agro (GH 🇬🇭)</div>
+</td>
+<td class="py-4 px-6">
+<div class="font-medium text-on-surface">15 MT Raw Cashew Nuts</div>
+<div class="text-xs text-outline mt-0.5">R 245,000</div>
+</td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-[#E7F3EE] text-[#0F6B4F] border border-[#0F6B4F]/20">
+<span class="material-symbols-outlined text-sm">check_circle</span>
+                      Mock Payment Confirmed
+                    </span>
+</td>
+<td class="py-4 px-6">
+<span class="font-medium text-on-surface">Imperial Logistics</span>
+</td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-medium bg-blue-50 text-blue-700 border border-blue-200">
+                      IN_TRANSIT (Border Clearance in Progress)
+                    </span>
+</td>
+<td class="py-4 px-6 text-right">
+<button class="bg-white text-[#1E3A2B] border-1.5 border-[#1E3A2B] hover:bg-[#FBF9F5] px-4 rounded-full text-xs font-medium h-[44px] transition-colors inline-flex items-center justify-center gap-1 ml-auto">
+<span>Advance to CUSTOMS_CLEARED</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</td>
+</tr>
+<!-- Order 3 -->
+<tr class="hover:bg-[#FBF9F5]/60 transition-colors">
+<td class="py-4 px-6 font-semibold text-[#1E3A2B]">
+                    #ORD-2024-0961
+                    <div class="text-xs font-normal text-outline mt-0.5">Ordered Oct 22</div>
+</td>
+<td class="py-4 px-6">
+<div class="text-on-surface font-medium">Buyer: Kano Mills Trading (NG 🇳🇬)</div>
+<div class="text-xs text-outline mt-0.5">Supplier: Highveld Grains (ZA 🇿🇦)</div>
+</td>
+<td class="py-4 px-6">
+<div class="font-medium text-on-surface">25 MT White Sorghum</div>
+<div class="text-xs text-outline mt-0.5">₦ 12,000,000</div>
+</td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-[#E7F3EE] text-[#0F6B4F] border border-[#0F6B4F]/20">
+<span class="material-symbols-outlined text-sm">check_circle</span>
+                      Mock Payment Confirmed
+                    </span>
+</td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-medium bg-rose-50 text-rose-700 border border-rose-200">
+<span class="material-symbols-outlined text-xs">warning</span>
+                      Unassigned
+                    </span>
+</td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-medium bg-slate-100 text-slate-700 border border-slate-200">
+                      READY_FOR_PICKUP
+                    </span>
+</td>
+<td class="py-4 px-6 text-right">
+<button class="bg-[#C85A32] text-white hover:bg-[#b04d2a] px-4 rounded-full text-xs font-medium h-[44px] transition-colors shadow-xs inline-flex items-center justify-center gap-1 ml-auto">
+<span class="material-symbols-outlined text-sm">local_shipping</span>
+<span>+ Assign Carrier</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Footer Pagination / Summary -->
+<div class="px-6 py-4 bg-[#FBF9F5] border-t border-[#E5DFD7] flex flex-col sm:flex-row items-center justify-between text-xs text-outline gap-2">
+<div>Showing 3 of 34 active trade settlement orders</div>
+<div class="flex items-center gap-2">
+<button class="px-3 py-1 rounded border border-[#E5DFD7] bg-white text-on-surface disabled:opacity-50" disabled="">Previous</button>
+<button class="px-3 py-1 rounded border border-[#E5DFD7] bg-white text-on-surface hover:bg-slate-50">Next</button>
+</div>
+</div>
+</div>
+<!-- Admin Audit Logging Banner -->
+<div class="bg-[#1E3A2B]/5 border border-[#1E3A2B]/15 rounded-xl p-4 md:p-5 flex items-start gap-3">
+<span class="material-symbols-outlined text-[#1E3A2B] shrink-0 mt-0.5">verified</span>
+<div>
+<h4 class="text-xs font-bold text-[#1E3A2B] uppercase tracking-wider">Audit Trail Enforced</h4>
+<p class="text-xs text-on-surface-variant mt-0.5">All manual shipment milestone advances are immutably logged to admin_audit_logs with operator identity and reason.</p>
+</div>
+</div>
+</div>
+</main>
+</div>
+<script>
+    // Mobile Sidebar Toggle Logic
+    const sidebar = document.getElementById('sidebar');
+    const sidebarToggle = document.getElementById('sidebar-toggle');
+    const sidebarClose = document.getElementById('sidebar-close');
+    const sidebarBackdrop = document.getElementById('sidebar-backdrop');
+
+    function toggleSidebar() {
+      const isOpen = !sidebar.classList.contains('-translate-x-full');
+      if (isOpen) {
+        sidebar.classList.add('-translate-x-full');
+        sidebarBackdrop.classList.add('hidden');
+      } else {
+        sidebar.classList.remove('-translate-x-full');
+        sidebarBackdrop.classList.remove('hidden');
+      }
+    }
+
+    sidebarToggle.addEventListener('click', toggleSidebar);
+    sidebarClose.addEventListener('click', toggleSidebar);
+    sidebarBackdrop.addEventListener('click', toggleSidebar);
+  </script>
+</body></html>
+

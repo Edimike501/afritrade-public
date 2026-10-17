@@ -1,0 +1,372 @@
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AfriTrade Connect - New Product Listing</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;600;700;800&amp;family=Noto+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+              "on-tertiary-fixed-variant": "#75322e",
+              "background": "#f2fcf5",
+              "surface-tint": "#106b4f",
+              "primary-container": "#0f6b4f",
+              "surface-container-highest": "#dbe5de",
+              "outline": "#6f7a73",
+              "on-secondary-fixed-variant": "#604100",
+              "surface-container": "#e6f0ea",
+              "inverse-primary": "#86d6b4",
+              "on-secondary": "#ffffff",
+              "tertiary-fixed": "#ffdad6",
+              "surface-container-low": "#ecf6ef",
+              "on-error-container": "#93000a",
+              "secondary": "#7f5700",
+              "outline-variant": "#bec9c2",
+              "surface-container-high": "#e1ebe4",
+              "surface-container-lowest": "#ffffff",
+              "surface-bright": "#f2fcf5",
+              "on-surface": "#151d1a",
+              "on-primary-fixed": "#002115",
+              "on-surface-variant": "#3f4944",
+              "error-container": "#ffdad6",
+              "on-secondary-fixed": "#281900",
+              "on-primary-fixed-variant": "#00513a",
+              "tertiary": "#75312d",
+              "surface-variant": "#dbe5de",
+              "surface": "#f2fcf5",
+              "on-tertiary-container": "#ffccc7",
+              "error": "#ba1a1a",
+              "on-primary-container": "#97e8c5",
+              "surface-dim": "#d2dcd6",
+              "secondary-fixed-dim": "#ffba3e",
+              "on-tertiary": "#ffffff",
+              "tertiary-fixed-dim": "#ffb3ad",
+              "primary-fixed-dim": "#86d6b4",
+              "primary-fixed": "#a1f3cf",
+              "tertiary-container": "#924843",
+              "on-secondary-container": "#6d4a00",
+              "primary": "#00513a",
+              "secondary-container": "#feb62f",
+              "inverse-on-surface": "#e9f3ec",
+              "on-tertiary-fixed": "#3c0707",
+              "inverse-surface": "#29322e",
+              "on-primary": "#ffffff",
+              "on-error": "#ffffff",
+              "secondary-fixed": "#ffdeae",
+              "on-background": "#151d1a"
+            },
+            "borderRadius": {
+              "DEFAULT": "0.25rem",
+              "lg": "0.5rem",
+              "xl": "0.75rem",
+              "full": "9999px"
+            },
+            "spacing": {
+              "margin": "2rem",
+              "gutter": "1.5rem",
+              "space-xl": "2.5rem",
+              "space-sm": "0.5rem",
+              "space-lg": "1.5rem",
+              "space-md": "1rem",
+              "margin-mobile": "1rem",
+              "gutter-mobile": "1rem",
+              "space-xs": "0.25rem"
+            },
+            "fontFamily": {
+              "headline-md": ["Bricolage Grotesque"],
+              "headline-xl": ["Bricolage Grotesque"],
+              "display-lg-mobile": ["Bricolage Grotesque"],
+              "headline-sm": ["Bricolage Grotesque"],
+              "body-md": ["Noto Sans"],
+              "display-lg": ["Bricolage Grotesque"],
+              "body-sm": ["Noto Sans"],
+              "headline-xl-mobile": ["Bricolage Grotesque"],
+              "title-md": ["Noto Sans"],
+              "label-sm": ["Noto Sans"],
+              "label-md": ["Noto Sans"],
+              "label-lg": ["Noto Sans"],
+              "body-lg": ["Noto Sans"]
+            },
+            "fontSize": {
+              "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+              "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+              "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+              "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+              "body-md": ["14px", { "lineHeight": "22px", "fontWeight": "400" }],
+              "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+              "body-sm": ["12px", { "lineHeight": "18px", "fontWeight": "400" }],
+              "headline-xl-mobile": ["26px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+              "title-md": ["16px", { "lineHeight": "24px", "fontWeight": "600" }],
+              "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700" }],
+              "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+              "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+              "body-lg": ["16px", { "lineHeight": "26px", "fontWeight": "400" }]
+            }
+          }
+        }
+      }
+    </script>
+</head>
+<body class="bg-surface text-on-surface font-body-md antialiased min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-inverse-surface shadow-sm dark:shadow-none w-full sticky top-0 z-40">
+<div class="flex justify-between items-center w-full px-margin md:px-gutter max-w-7xl mx-auto h-16">
+<div class="flex items-center gap-3">
+<button aria-label="Open Menu" class="md:hidden text-on-surface-variant p-2 rounded-lg">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<div class="text-headline-md font-headline-md font-extrabold text-primary dark:text-inverse-primary tracking-tight">AfriTrade Connect</div>
+</div>
+<!-- Desktop Nav Links -->
+
+<div class="flex items-center gap-4">
+<button aria-label="Notifications" class="relative p-2 text-on-surface-variant hover:text-primary rounded-full hover:bg-surface-container">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<div class="flex items-center gap-3 pl-2 border-l border-outline-variant">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="Professional portrait photograph of Babatunde Adeleke, a Nigerian wholesale merchant wearing a traditional agbada in a modern corporate office setting with soft, warm daylight filtering through large windows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUI24VkzzQECnCzaIuhU7uqpeQuv5Fcp1Tzx-3Do1lAS-YdbtcOWojxDr6co5PDSPWQhpFxTqb8ad2NTJlFnOmbCCM1K-AjtSrxILWxHO9xbFuDXDGtOFiFKoNp9VJTYZfKjuNE4nhmZ9tBqbb9y5oCpKs4IlctAKcuYddgZgf3RzW8cTstZJWs4kV84_HFa5XaIO0iELkUDigmVFlDqHNK1sxippvmsXD3DelE46U-gkJj222lVDmFHMvA8yT3aTC-4vS3nhLWg0"/>
+<div class="hidden lg:block text-left">
+<div class="text-label-md font-bold">Babatunde Adeleke</div>
+<div class="text-body-sm text-on-surface-variant">Savannah Agro Ltd</div>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Workspace Container -->
+<div class="flex-1 flex max-w-7xl w-full mx-auto">
+<!-- Sidebar Navigation (Desktop) -->
+<aside class="hidden md:flex flex-col w-64 shrink-0 p-6 space-y-2 border-r border-outline-variant bg-surface-container-low min-h-[calc(100vh-4rem)]">
+<div class="text-label-sm uppercase tracking-wider text-outline mb-2">Merchant Menu</div>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-surface-container transition-all" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-label-lg font-medium">Supplier Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl bg-primary text-on-primary shadow-sm transition-all" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">inventory_2</span>
+<span class="text-label-lg font-medium">Products</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-surface-container transition-all" href="#">
+<span class="material-symbols-outlined">local_shipping</span>
+<span class="text-label-lg font-medium">Incoming Orders</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-surface-container transition-all" href="#">
+<span class="material-symbols-outlined">verified</span>
+<span class="text-label-lg font-medium">Verification / KYB</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-surface-container transition-all" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-label-lg font-medium">Settings</span>
+</a>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 px-4 md:px-8 py-8 bg-surface-container-low max-w-5xl">
+<!-- Breadcrumb & Header Title -->
+<div class="mb-6">
+<nav class="flex items-center gap-2 text-body-sm text-on-surface-variant mb-2">
+<a class="hover:underline" href="#">Products</a>
+<span class="material-symbols-outlined text-xs">chevron_right</span>
+<span class="text-primary font-medium">New Listing</span>
+</nav>
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+<h1 class="text-headline-xl font-headline-xl text-on-surface">Create New Product Listing</h1>
+<div class="inline-flex items-center gap-2 px-3 py-1.5 bg-surface-container rounded-full border border-outline-variant text-label-md text-primary">
+<span class="material-symbols-outlined text-sm text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                        KYB Verified: Approved Supplier
+                    </div>
+</div>
+</div>
+<!-- Form Start -->
+<form class="space-y-6">
+<!-- 1. Product Information Card -->
+<div class="bg-surface-container-lowest rounded-xl p-6 border border-outline-variant shadow-sm space-y-5">
+<div class="border-b border-outline-variant pb-3 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">info</span>
+<h2 class="text-headline-sm font-headline-sm">1. Product Information</h2>
+</div>
+<div class="space-y-4">
+<div>
+<label class="block text-label-md text-on-surface mb-1.5 font-medium">Listing Title</label>
+<input class="w-full h-12 rounded-xl border border-outline-variant px-4 text-body-md focus:ring-2 focus:ring-primary focus:border-primary bg-surface" placeholder="e.g. Grade A Split Dried Ginger - 2024 Harvest" type="text" value="Grade A Split Dried Ginger - 2024 Harvest"/>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div>
+<label class="block text-label-md text-on-surface mb-1.5 font-medium">Category</label>
+<select class="w-full h-12 rounded-xl border border-outline-variant px-4 text-body-md focus:ring-2 focus:ring-primary focus:border-primary bg-surface">
+<option>Spices &amp; Seasonings</option>
+<option>Agriculture &amp; Produce</option>
+<option>Grains &amp; Cereals</option>
+<option>Solid Minerals</option>
+</select>
+</div>
+<div>
+<label class="block text-label-md text-on-surface mb-1.5 font-medium">Origin Country</label>
+<div class="flex items-center gap-3 h-12 px-4 rounded-xl border border-outline-variant bg-surface">
+<span class="w-6 h-4 bg-emerald-700 rounded-sm inline-flex items-center justify-center text-[10px] text-white font-bold">NG</span>
+<span class="text-body-md font-medium">Nigeria (NG)</span>
+</div>
+</div>
+</div>
+<div>
+<label class="block text-label-md text-on-surface mb-1.5 font-medium">Description &amp; Grading Specifications</label>
+<textarea class="w-full rounded-xl border border-outline-variant p-4 text-body-md focus:ring-2 focus:ring-primary focus:border-primary bg-surface" placeholder="Detail commodity grading, moisture content, purity percentage, and packaging specifications." rows="4">Clean, sun-dried split ginger with natural bold aroma. Maximum moisture content 10%, admixture below 1%. Packed securely for regional transit.</textarea>
+</div>
+</div>
+</div>
+<!-- 2. Pricing & Currency Card -->
+<div class="bg-surface-container-lowest rounded-xl p-6 border border-outline-variant shadow-sm space-y-5">
+<div class="border-b border-outline-variant pb-3 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">payments</span>
+<h2 class="text-headline-sm font-headline-sm">2. Pricing &amp; Currency</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<div>
+<label class="block text-label-md text-on-surface mb-1.5 font-medium">Currency</label>
+<select class="w-full h-12 rounded-xl border border-outline-variant px-4 text-body-md focus:ring-2 focus:ring-primary focus:border-primary bg-surface">
+<option>NGN - Nigerian Naira (₦)</option>
+<option>USD - US Dollar ($)</option>
+<option>ZAR - South African Rand (R)</option>
+<option>GHS - Ghanaian Cedi (GH₵)</option>
+</select>
+</div>
+<div>
+<label class="block text-label-md text-on-surface mb-1.5 font-medium">Unit of Measurement</label>
+<select class="w-full h-12 rounded-xl border border-outline-variant px-4 text-body-md focus:ring-2 focus:ring-primary focus:border-primary bg-surface">
+<option>Metric Ton (MT)</option>
+<option>50kg Bag</option>
+<option>Kilogram (KG)</option>
+</select>
+</div>
+<div>
+<label class="block text-label-md text-on-surface mb-1.5 font-medium">Unit Price</label>
+<input class="w-full h-12 rounded-xl border border-outline-variant px-4 text-body-md focus:ring-2 focus:ring-primary focus:border-primary bg-surface font-semibold" type="text" value="1,850,000"/>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div>
+<label class="block text-label-md text-on-surface mb-1.5 font-medium">Minimum Order Quantity (MOQ)</label>
+<input class="w-full h-12 rounded-xl border border-outline-variant px-4 text-body-md focus:ring-2 focus:ring-primary focus:border-primary bg-surface" type="number" value="5"/>
+</div>
+<div class="flex flex-col justify-end">
+<!-- Real-time MOQ calculation card -->
+<div class="bg-surface-container p-3 rounded-xl border border-outline-variant flex items-center justify-between">
+<div>
+<div class="text-label-sm text-on-surface-variant uppercase">Minimum Order Total</div>
+<div class="text-title-md font-bold text-primary">₦ 9,250,000</div>
+</div>
+<div class="text-body-sm text-on-surface-variant text-right">(at 5 MT minimum order)</div>
+</div>
+</div>
+</div>
+</div>
+<!-- 3. Stock & Logistics Card -->
+<div class="bg-surface-container-lowest rounded-xl p-6 border border-outline-variant shadow-sm space-y-5">
+<div class="border-b border-outline-variant pb-3 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">warehouse</span>
+<h2 class="text-headline-sm font-headline-sm">3. Stock &amp; Logistics</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div>
+<label class="block text-label-md text-on-surface mb-1.5 font-medium">Available Inventory</label>
+<input class="w-full h-12 rounded-xl border border-outline-variant px-4 text-body-md focus:ring-2 focus:ring-primary focus:border-primary bg-surface" type="text" value="150 MT"/>
+</div>
+<div>
+<label class="block text-label-md text-on-surface mb-1.5 font-medium">Warehouse Dispatch Location</label>
+<input class="w-full h-12 rounded-xl border border-outline-variant px-4 text-body-md focus:ring-2 focus:ring-primary focus:border-primary bg-surface" type="text" value="Kano Central Warehouse, Nigeria"/>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div>
+<label class="block text-label-md text-on-surface mb-1.5 font-medium">Packaging Type</label>
+<input class="w-full h-12 rounded-xl border border-outline-variant px-4 text-body-md focus:ring-2 focus:ring-primary focus:border-primary bg-surface" type="text" value="Jute bags / Palletized"/>
+</div>
+<div>
+<label class="block text-label-md text-on-surface mb-1.5 font-medium">Harvest / Batch Year</label>
+<input class="w-full h-12 rounded-xl border border-outline-variant px-4 text-body-md focus:ring-2 focus:ring-primary focus:border-primary bg-surface" type="text" value="2024"/>
+</div>
+</div>
+</div>
+<!-- 4. Commodity Photos Card -->
+<div class="bg-surface-container-lowest rounded-xl p-6 border border-outline-variant shadow-sm space-y-5">
+<div class="border-b border-outline-variant pb-3 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">photo_camera</span>
+<h2 class="text-headline-sm font-headline-sm">4. Commodity Photos (Visual Showcase)</h2>
+</div>
+<!-- Dropzone -->
+<div class="border-2 border-dashed border-outline-variant rounded-xl p-8 text-center bg-surface hover:bg-surface-container transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-4xl text-primary mb-2">cloud_upload</span>
+<div class="text-title-md font-medium text-on-surface mb-1">Click to upload or drag and drop warehouse photos</div>
+<div class="text-body-sm text-on-surface-variant">PNG, JPG or WEBP up to 10MB each</div>
+</div>
+<!-- Thumbnails -->
+<div>
+<div class="text-label-md font-medium text-on-surface mb-3">Uploaded Samples</div>
+<div class="grid grid-cols-3 gap-4">
+<div class="relative rounded-xl overflow-hidden border border-outline-variant aspect-video">
+<img alt="Bulk maize and agricultural commodities stored neatly inside an industrial warehouse facility in Nigeria under bright daylight." class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1UR9zFmfVGu4nCiUqPOuUBlf5igk5iGuIPLFlMYafjqyZ9IWk652pRpF9B-xOBBkYZDiAVlkvYOmj-OBAA9O7ykwMaWfOzyGPlcNgzdw0C5T_FuoXaJrK5B0FXe0UvSfNJS0BlzM3u8WcPp9W_yZaIlTffYYpK6iup8Yaox5g9Nh8icCrsyJWH4Sn716KzZt2FCum4g2kUmddXUzLtCPdiI8Yy1yAwickRVyYAj5pWYR4W5UkWLFcwGUkQ"/>
+<button class="absolute top-2 right-2 bg-surface text-error p-1 rounded-full shadow-sm hover:bg-error-container" type="button">
+<span class="material-symbols-outlined text-sm">close</span>
+</button>
+</div>
+<div class="relative rounded-xl overflow-hidden border border-outline-variant aspect-video">
+<img alt="Close-up inspection of dried agricultural produce packed securely in Jute bags inside a commercial depot." class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1UR9zFmfVGu4nCiUqPOuUBlf5igk5iGuIPLFlMYafjqyZ9IWk652pRpF9B-xOBBkYZDiAVlkvYOmj-OBAA9O7ykwMaWfOzyGPlcNgzdw0C5T_FuoXaJrK5B0FXe0UvSfNJS0BlzM3u8WcPp9W_yZaIlTffYYpK6iup8Yaox5g9Nh8icCrsyJWH4Sn716KzZt2FCum4g2kUmddXUzLtCPdiI8Yy1yAwickRVyYAj5pWYR4W5UkWLFcwGUkQ"/>
+<button class="absolute top-2 right-2 bg-surface text-error p-1 rounded-full shadow-sm hover:bg-error-container" type="button">
+<span class="material-symbols-outlined text-sm">close</span>
+</button>
+</div>
+<div class="relative rounded-xl overflow-hidden border border-outline-variant aspect-video flex items-center justify-center bg-surface-container border-dashed border-outline-variant">
+<span class="material-symbols-outlined text-primary text-2xl">add</span>
+</div>
+</div>
+<p class="text-body-sm text-on-surface-variant mt-2">Clear photos of real warehouse stock increase buyer confidence.</p>
+</div>
+</div>
+<!-- 5. Protection Notice & Actions -->
+<div class="bg-surface-container-lowest rounded-xl p-6 border border-outline-variant shadow-sm space-y-6">
+<!-- Security Banner -->
+<div class="p-4 bg-primary-container/10 border border-primary/20 rounded-xl flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-xl mt-0.5" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<div>
+<div class="text-title-md font-bold text-primary mb-1">Trade Protection Guaranteed</div>
+<p class="text-body-md text-on-surface-variant">All buyer payments are securely held in simulated protection until carrier pickup is confirmed.</p>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="flex flex-col sm:flex-row items-center justify-end gap-4 pt-2">
+<a class="w-full sm:w-auto text-center px-6 py-3 rounded-full text-on-surface-variant hover:bg-surface-container transition-colors text-label-lg" href="#">Cancel</a>
+<button class="w-full sm:w-auto px-6 py-3 rounded-full border border-primary text-primary hover:bg-surface-container transition-colors text-label-lg font-medium" type="button">Save as Draft</button>
+<button class="w-full sm:w-auto px-8 py-3 rounded-full bg-primary text-on-primary hover:bg-primary/90 transition-colors text-label-lg font-bold shadow-sm h-12 flex items-center justify-center" type="submit">Publish Listing</button>
+</div>
+</div>
+</form>
+</main>
+</div>
+<!-- BottomNavBar (Mobile) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 pb-safe bg-surface dark:bg-inverse-surface shadow-lg dark:shadow-none">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-4 py-2" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-label-sm">Dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary rounded-full px-4 py-2" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">inventory_2</span>
+<span class="text-label-sm">Listings</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-4 py-2" href="#">
+<span class="material-symbols-outlined">warehouse</span>
+<span class="text-label-sm">Warehouses</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-4 py-2" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-label-sm">Settings</span>
+</a>
+</nav>
+</body></html>
+
